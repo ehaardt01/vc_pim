@@ -5,7 +5,7 @@ function beeceptor(path, content) {
     web_request(URL, METHOD, content); // fixed parameter assignment
 }
 
-function salsify(path, method = 'GET', payload = null, version = 'v2') {
+function salsify(path, method = 'GET', payload = null, version = 'v1') {
     return salsify_request(path, method, payload, version);
 }
 
@@ -134,12 +134,12 @@ function buildNestedStructure(root, records) {
 
 function main() {
     var id = context.entity.external_id;
-    var obj2 = fetchRecord(id)
+    var obj2 = fetchRecord(id, null)
     beeceptor('/product/create_or_update?locale=fr-FR', obj2);
     return
     const startTime = new Date();
     const rootId = context.entity.external_id;
-    const rootRecord = fetchRecord(rootId, null);
+    const rootRecord = fetchRecord(rootId);
     const childRecords = fetchChildRecords(rootId);
     const tree = buildNestedStructure(rootRecord, childRecords);
     const endTime = new Date();

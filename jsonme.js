@@ -80,7 +80,7 @@ function buildNestedStructure(root, records) {
         id: root[ID],
         name: root[NAME],
         taxonomy: root[TAXONOMY],
-        faq: buildFAQ(10), //root[FAQ],
+        faq: root[FAQ], //root[FAQ], //buildFAQ(10),
         children: []
     };
 

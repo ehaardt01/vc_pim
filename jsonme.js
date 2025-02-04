@@ -14,6 +14,11 @@ function fetchRecord(id) {
     return salsify(PATH + id);
 }
 
+function fetchFAQ(id) {
+    const PATH = '/FAQ/';
+    return salsify(PATH + "FAQ-W1");
+}
+
 function fetchPageRecords(topId, page) {
     const PATH = `/records?filter=='salsify:ancestor_ids':'${encodeURIComponent(topId)}'&per_page=100&page=${page}`;
     return salsify(PATH);
@@ -39,6 +44,24 @@ function fetchChildRecords(id) {
     return allRecords;
 }
 
+
+function buildFAQ(id) {
+    // Constants for Property Names
+    const ID = "salsify:id";
+    const QUESTION = "FAQ reference - Question";
+    const ANSWER = "FAQ reference - Answer";
+    // Lookup FAQ
+    faq = fetchFAQ(id)
+    // Local Function Variables
+    let rootRecord = {
+        id: faq[ID],
+        question: faq[QUESTION],
+        answer: faq[ANSWER],
+        taxonomy: faq[TAXONOMY]
+    };
+    return rootRecord;
+}
+
 function buildNestedStructure(root, records) {
     // Constants for Property Names
     const ID = "salsify:id";
@@ -57,7 +80,7 @@ function buildNestedStructure(root, records) {
         id: root[ID],
         name: root[NAME],
         taxonomy: root[TAXONOMY],
-        faq: root[FAQ],
+        faq: buildFAQ(10), //root[FAQ],
         children: []
     };
 

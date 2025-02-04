@@ -1,0 +1,1444 @@
+{
+    "data": {
+        "organization": {
+            "__typename": "Organization",
+            "record": {
+                "__typename": "Record",
+                "id": "s-3d8bd57d-6e22-4607-8f27-36d58983eb82",
+                "externalId": "DWD",
+                "name": "HPM Diet - Dog W1 Weight Loss & Diabetes",
+                "thumbnailUrl": "https://images.salsify.com/image/upload/s--uF3yfZrg--/t_salsify_thumb/v1422298774/thumb_default.jpg",
+                "profileAsset": null,
+                "organizationDefaultProfileAsset": true,
+                "dataInheritanceHierarchyLevel": {
+                    "__typename": "DataInheritanceHierarchyLevel",
+                    "id": "s-c3ee48af-f6fc-4bda-a40b-d0b89cddfebc",
+                    "order": 0,
+                    "name": "Parent Level"
+                },
+                "parent": null,
+                "siblings": {
+                    "__typename": "RecordPaginatedList",
+                    "entries": []
+                },
+                "children": {
+                    "__typename": "RecordPaginatedList",
+                    "entries": [
+                        {
+                            "__typename": "Record",
+                            "id": "s-2f5adaea-2735-4082-8211-8f22ec44598c",
+                            "externalId": "457633",
+                            "name": "VET HPM DOG WEIGHT L&D 3KG",
+                            "thumbnailUrl": "https://images.salsify.com/image/upload/s--cj7oiEUS--/t_salsify_thumb/9e9c42168878e9ef667a17435a3716630678c4c5.jpg"
+                        },
+                        {
+                            "__typename": "Record",
+                            "id": "s-a1847931-9a58-4d43-9b49-ba66f19564f8",
+                            "externalId": "457634",
+                            "name": "VET HPM DOG WEIGHT L&D 7KG",
+                            "thumbnailUrl": "https://images.salsify.com/image/upload/s--1Y324E28--/t_salsify_thumb/b111e4ec22c63e143de0616dc296557498f38637.jpg"
+                        },
+                        {
+                            "__typename": "Record",
+                            "id": "s-4b783d25-dacd-4ccd-8b36-716aedd2e2ff",
+                            "externalId": "457635",
+                            "name": "VET HPM DOG WEIGHT L&D 12KG",
+                            "thumbnailUrl": "https://images.salsify.com/image/upload/s--bLJJVkJ4--/t_salsify_thumb/4c1d9bce28931a0dbba254dd86c65e6bd2807b02.jpg"
+                        },
+                        {
+                            "__typename": "Record",
+                            "id": "s-8e8454cc-541a-4091-99aa-5f635af8d616",
+                            "externalId": "468592",
+                            "name": "VET HPM DIET DOG WEIGHT LOSS & DIABETES12KG",
+                            "thumbnailUrl": "https://images.salsify.com/image/upload/s--uF3yfZrg--/t_salsify_thumb/v1422298774/thumb_default.jpg"
+                        }
+                    ]
+                },
+                "propertyValueAssignments": [
+                    {
+                        "__typename": "PropertyRichTextAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "RICH_TEXT",
+                        "lockVersion": "fc3a0d509a0d8eb69320731cfdfceb4d2cc79192",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-0126c907-3c55-40a2-9ba6-e27b50b8ceab",
+                            "externalId": "B2C Full Description",
+                            "name": "B2C Full Description",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjE3MGZhODU2ZGFlYzcyZDNlZjk4NWNhYTczMjg5ODhiNDZlNTJiODVjZTFiMGNjZDRkNTc2ZWE4OTQxYzc0MGUifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-3f2a76a6-5edd-436e-9ae3-ebc2e44cedc7",
+                                "displayConfiguration": null,
+                                "externalId": "Marketing",
+                                "name": "Marketing",
+                                "position": 3
+                            }
+                        },
+                        "stringValues": [
+                            "Dog Weight Loss &amp; Diabetes W1 weight loss dog food<br><br>Help your dog to shed excess weight quickly with Dog Weight Loss &amp; Diabetes W1 weight loss dog food.<br><br>Weight loss for dogs isn’t as simple as cutting down their portion sizes. To make sure your dog is losing weight the healthy way, you need a complete and balanced weight control dog food with low energy density, like Dog Weight Loss &amp; Diabetes W1.<br><br>Dog Weight Loss &amp; Diabetes W1:<br><br>• Contains the ideal ratio of high protein and low carbohydrates to help your dog preserve muscle mass while they lose fat.<br>• Prevents glucose spikes after eating and keeps blood sugar stable, helping to manage diabetes.<br>• Keeps your dog happy with a tasty combination of rich animal proteins and satisfying fats.<br><br>Because excess weight can be tough on the joints, Dog Weight Loss &amp; Diabetes W1 contains chondroitin and chitosan to protect the joints and halt degenration. It also features extra vitamins and minerals to make sure your dog is getting all the nutrients they need from smaller rations."
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "3b80b6d5a802ee5a2ea1fc6f26d5ec8f40e6868b",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-b35be838-69f2-4280-aad7-78c4015922d6",
+                            "externalId": "B2C Short description",
+                            "name": "B2C Short description",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjI2M2JjZDFiMjY0YzU0ZmYzNDI4NzZhZGM4ZGI2NmM4Zjg0ODE0YzZjZGEzNTA5NzQ4MWE5ZDkwZDlhNGE0NDkifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-3f2a76a6-5edd-436e-9ae3-ebc2e44cedc7",
+                                "displayConfiguration": null,
+                                "externalId": "Marketing",
+                                "name": "Marketing",
+                                "position": 3
+                            }
+                        },
+                        "stringValues": [
+                            "Helps your dog to lose excess weight and regulate their blood sugar. Weight loss doesn’t have to mean hunger, with a high-protein, high-fibre recipe to keep your dog happy and satisfied on their journey to a healthy weight."
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyEnumeratedAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "ENUMERATED",
+                        "lockVersion": "02f24f5f64aaede4de4408c0b0ec8ce267dffd58",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-0ab98eb3-05a5-4f02-b70f-8425a5ea4dad",
+                            "externalId": "Business category level 1",
+                            "name": "Business category level 1",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjgyODEyNTg3MDE2OTJmMWU4MDc2MmJlMjViYTllMTEyZTIxM2U1YzZjMjY0ZTY2ZTYzMGY1MTQ4YmNiODI2OTAifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-fece3131-b39b-4cfb-8dd7-25a35b014952",
+                                "displayConfiguration": null,
+                                "externalId": "Unassigned",
+                                "name": "Unassigned",
+                                "position": null
+                            }
+                        },
+                        "enumeratedValues": [
+                            {
+                                "__typename": "EnumeratedValue",
+                                "id": "s-437d3ae2-0df6-4323-98d7-a4ea00964bc5",
+                                "externalId": "Companion animals",
+                                "name": "Companion animals",
+                                "names": [],
+                                "ancestors": []
+                            }
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyEnumeratedAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "ENUMERATED",
+                        "lockVersion": "4a49147c4f2bf2fea89cb50ef0f13610bbaf6900",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-f00d90e4-13c9-4f67-bf56-3b565e672331",
+                            "externalId": "Business category level 2",
+                            "name": "Business category level 2",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjdmMDc2YjlkZjdiODYzNzJmZTg0ZmQzY2EwYzQ2MGY4OWIzN2MzZGRkNDQwZmY0NDdmZDU4ZmQyYzc3N2ZmYTcifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-fece3131-b39b-4cfb-8dd7-25a35b014952",
+                                "displayConfiguration": null,
+                                "externalId": "Unassigned",
+                                "name": "Unassigned",
+                                "position": null
+                            }
+                        },
+                        "enumeratedValues": [
+                            {
+                                "__typename": "EnumeratedValue",
+                                "id": "s-34652337-6d98-44aa-8dcb-7fb26e6f108a",
+                                "externalId": "Dogs and cats",
+                                "name": "Dogs and cats",
+                                "names": [],
+                                "ancestors": []
+                            }
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyEnumeratedAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "ENUMERATED",
+                        "lockVersion": "72eb8fc237faf02955c9acadc23f0cf73762acc2",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-c0aebf3a-f3a0-4855-ac87-867a25fa658e",
+                            "externalId": "Business category level 3",
+                            "name": "Business category level 3",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6ImVjM2ZmNzQwZWU0NDU3MTgzYzNjOTY2MDVhOTM1MzYxMDc1YmRmYTVkNzljODE5M2VjZjBkODQwNGRkOTcxZDIifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-fece3131-b39b-4cfb-8dd7-25a35b014952",
+                                "displayConfiguration": null,
+                                "externalId": "Unassigned",
+                                "name": "Unassigned",
+                                "position": null
+                            }
+                        },
+                        "enumeratedValues": [
+                            {
+                                "__typename": "EnumeratedValue",
+                                "id": "s-776af2e1-b363-40b2-b23a-dc0a7965c333",
+                                "externalId": "Nutrition & Petcare",
+                                "name": "Nutrition & Petcare",
+                                "names": [],
+                                "ancestors": []
+                            }
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyEnumeratedAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "ENUMERATED",
+                        "lockVersion": "6a3839e56e1ca7cd2180d4ab47597dcd63ad3bf8",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-54ec72c9-4571-4f89-b5bd-cdd667aef34e",
+                            "externalId": "Business category level 4",
+                            "name": "Business category level 4",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjJkZDFiMTg0OGFmNmNmNDkyY2Y2YWY4MjU1Y2VkNGM1MTFjMmVmZjA2MWRkM2Y1YTk4MjQzNmJkYjdkNmY0YjgifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-fece3131-b39b-4cfb-8dd7-25a35b014952",
+                                "displayConfiguration": null,
+                                "externalId": "Unassigned",
+                                "name": "Unassigned",
+                                "position": null
+                            }
+                        },
+                        "enumeratedValues": [
+                            {
+                                "__typename": "EnumeratedValue",
+                                "id": "s-0dd8bb73-fce6-40d4-9477-5db8fea0cf2b",
+                                "externalId": "Pet food",
+                                "name": "Pet food",
+                                "names": [],
+                                "ancestors": []
+                            }
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyRichTextAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "RICH_TEXT",
+                        "lockVersion": "708dd1d62aaa15e1f51aad4e548e84f115286767",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-15be3faf-70c4-4c56-84d5-a8586f9ce212",
+                            "externalId": "Composition",
+                            "name": "Composition",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjZlMGRhMDljZDUzOTFhMWRkYWVjMTAyNzYyZjgyNjVlZGI0MDU2ZTI3NTQ5OWQ0ZmYzNDNlMjY0NDQ1NmM0MzcifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-df7494cc-e1fb-48e0-b850-f1423d2524e0",
+                                "displayConfiguration": null,
+                                "externalId": "Compostion / Ingredient Information",
+                                "name": "Compostion / Ingredient Information",
+                                "position": 6
+                            }
+                        },
+                        "stringValues": [
+                            "<p>Dehydrated pork and poultry proteins, potato starch*, lignocellulose, hydrolysed pork and poultry proteins, faba bean hulls, animal fats, minerals, linseed, beet pulp, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, brewers yeast, hydrolysed crustacean (source of chitosan), Lactobacillus acidophilus, chondroitin sulfate.</p><p>*carbohydrate sources</p><p>VETERINARY HPM®&nbsp; contains no artificial flavours or colours.</p>"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyRecordAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "RECORD",
+                        "lockVersion": "a6f317e1a9f3a5ed8a0e0baf0d3ac278c8298221",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-1f766876-fa2e-4b0d-90a1-796e004baa1c",
+                            "externalId": "Composition-table",
+                            "name": "Composition-table",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": "='Taxonomy':'Analytical Constituents'",
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjA3ODRhNmIwNWNlNWEwMTRjOTAxMGU0YjAwYWU2YTZiYmVmMTc2MjVkYmNhNmFmZGQ3ZjE3ZDllNWRjNjQ4OWYifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-df7494cc-e1fb-48e0-b850-f1423d2524e0",
+                                "displayConfiguration": null,
+                                "externalId": "Compostion / Ingredient Information",
+                                "name": "Compostion / Ingredient Information",
+                                "position": 6
+                            }
+                        },
+                        "recordValues": [
+                            {
+                                "__typename": "Record",
+                                "id": "s-3cdaf101-788c-4d5f-b6d9-492dc3f3ed02",
+                                "externalId": "Moisture",
+                                "name": "Moisture",
+                                "thumbnailUrl": "https://images.salsify.com/image/upload/s--uF3yfZrg--/t_salsify_thumb/v1422298774/thumb_default.jpg"
+                            },
+                            {
+                                "__typename": "Record",
+                                "id": "s-79c7cc3a-1576-4b5e-9b2c-79bf6400be89",
+                                "externalId": "Protein",
+                                "name": "Protein",
+                                "thumbnailUrl": "https://images.salsify.com/image/upload/s--uF3yfZrg--/t_salsify_thumb/v1422298774/thumb_default.jpg"
+                            },
+                            {
+                                "__typename": "Record",
+                                "id": "s-20a79576-d684-4e71-abf1-81c7810bcf9a",
+                                "externalId": "Animal to vegetable protein ratio",
+                                "name": "Animal to vegetable protein ratio",
+                                "thumbnailUrl": "https://images.salsify.com/image/upload/s--uF3yfZrg--/t_salsify_thumb/v1422298774/thumb_default.jpg"
+                            }
+                        ],
+                        "recordValuesDisplay": {
+                            "__typename": "ReferenceDisplay",
+                            "displayValueList": [
+                                {
+                                    "__typename": "DisplayValue",
+                                    "displayValues": [
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "Moisture"
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-2266edb2-65a9-4720-88cd-aa09975d9713",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        },
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "9%"
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-96c1b5ca-4c87-4d4c-9ac5-389e5e0c715b",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "__typename": "DisplayValue",
+                                    "displayValues": [
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "Protein"
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-2266edb2-65a9-4720-88cd-aa09975d9713",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        },
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "24%"
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-96c1b5ca-4c87-4d4c-9ac5-389e5e0c715b",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "__typename": "DisplayValue",
+                                    "displayValues": [
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "Animal to vegetable protein ratio \t"
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-2266edb2-65a9-4720-88cd-aa09975d9713",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        },
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "100/100"
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-96c1b5ca-4c87-4d4c-9ac5-389e5e0c715b",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "perspective": {
+                                "__typename": "SharedPerspective",
+                                "name": "View for Reference - Composition-table",
+                                "properties": [
+                                    {
+                                        "__typename": "Property",
+                                        "name": "Composition-table-label",
+                                        "id": "s-2266edb2-65a9-4720-88cd-aa09975d9713"
+                                    },
+                                    {
+                                        "__typename": "Property",
+                                        "name": "Composition-table-value",
+                                        "id": "s-96c1b5ca-4c87-4d4c-9ac5-389e5e0c715b"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "__typename": "PropertyNumberAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "NUMBER",
+                        "lockVersion": "b6589fc6ab0dc82cf12099d1c2d40ab994e8410c",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-e197879e-8991-4429-affa-36d13abbb97a",
+                            "externalId": "Default Sales Price",
+                            "name": "Default Sales Price",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6ImU1MzNiYmJjYzBlNThlNzU2NWQzYjZlY2Q5MzFiOTMwY2QzODhhYmIxYzQwZWZlZTJkOWNkNzkxZjVhYWQ1ZTUifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-3f2a76a6-5edd-436e-9ae3-ebc2e44cedc7",
+                                "displayConfiguration": null,
+                                "externalId": "Marketing",
+                                "name": "Marketing",
+                                "position": 3
+                            }
+                        },
+                        "stringValues": [
+                            "0"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyRichTextAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "RICH_TEXT",
+                        "lockVersion": "017255100de8710dbd48bbebe49ef8b1ce7f97b9",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-6afbaffd-fb28-4718-93de-5c597db862da",
+                            "externalId": "FAQ",
+                            "name": "FAQ",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6ImQzMWZkNTk0ZjBiZjZlM2IyOWY4M2EyZmVhMDkzN2M4YWY3MzQyYTViMzllYmE4NjRlMTY0MDEwNDkwMmVmN2IifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-acb2f438-021b-4470-87d0-0edc0895a29f",
+                                "displayConfiguration": null,
+                                "externalId": "Web / Digital",
+                                "name": "Web / Digital",
+                                "position": 4
+                            }
+                        },
+                        "stringValues": [
+                            "Is Dog Weight Loss &amp; Diabetes W1 suitable for my dog?",
+                            "Dog Weight Loss &amp; Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week.<br><br>It’s also suitable for:<br>  <ul><li>Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss &amp; Control W2 instead).</li></ul>    <ul><li>Managing fibre-responsive colitis.</li></ul>    <ul><li>Managing lipid metabolism disorders (hyperlipidaemia).</li></ul>  <br>Dog Weight Loss &amp; Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease.",
+                            "My dog has reached their target weight – what should I feed them now?",
+                            "Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss &amp; Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight.",
+                            "What's the difference between Weight Loss &amp; Diabetes W1 and Weight Loss &amp; Control W2?",
+                            "Weight Loss &amp; Diabetes W1 is designed for overweight dogs, with or without diabetes, to help them reach a healthy weight. In the case of diabetes, it can also help to regulate blood sugar.<br><br>Weight Loss &amp; Control W2 is ideal both for helping your dog to lose weight, and for helping them to maintain a stable weight long-term. It can also help to regulate blood sugar in dogs with diabetes, but in this case, it is only suitable for dogs already at a healthy weight.<br><br>Always consult your vet when switching between these two foods as portions may need to be adjusted to avoid weight gain."
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyRecordAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "RECORD",
+                        "lockVersion": "ebf180082d88d69fcf2a36dae3ab61b009e0278c",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-b1691020-b8e4-403d-872b-10c4355479b0",
+                            "externalId": "FAQ data table",
+                            "name": "FAQ data table",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": "='Taxonomy':'FAQ Petfood'",
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6Ijc5MjJlNDU3OGMzOTkwYTYxZDJjMzZjMWNjMWZmMzY1MzBhNmUxOTM1YWVmMDNhOWM1NDEzOTM0NWNkYTI5MjIifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-acb2f438-021b-4470-87d0-0edc0895a29f",
+                                "displayConfiguration": null,
+                                "externalId": "Web / Digital",
+                                "name": "Web / Digital",
+                                "position": 4
+                            }
+                        },
+                        "recordValues": [
+                            {
+                                "__typename": "Record",
+                                "id": "s-4fbc72a5-5506-4ee1-9a3a-9de94626d1df",
+                                "externalId": "FAQ-W1",
+                                "name": "Is Dog Weight Loss & Diabetes W1 suitable for my dog? ",
+                                "thumbnailUrl": "https://images.salsify.com/image/upload/s--uF3yfZrg--/t_salsify_thumb/v1422298774/thumb_default.jpg"
+                            },
+                            {
+                                "__typename": "Record",
+                                "id": "s-648f5cdb-50ed-41f3-af7b-6f746f1d5763",
+                                "externalId": "FAQ-W1-1",
+                                "name": "My dog has reached their target weight – what should I feed them now?",
+                                "thumbnailUrl": "https://images.salsify.com/image/upload/s--uF3yfZrg--/t_salsify_thumb/v1422298774/thumb_default.jpg"
+                            }
+                        ],
+                        "recordValuesDisplay": {
+                            "__typename": "ReferenceDisplay",
+                            "displayValueList": [
+                                {
+                                    "__typename": "DisplayValue",
+                                    "displayValues": [
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "Is Dog Weight Loss & Diabetes W1 suitable for my dog? "
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-8402f799-97ef-48fb-8484-671ee14da127",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        },
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "Dog Weight Loss & Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. \n\nIt’s also suitable for: \n- Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss & Control W2 instead). \n- Managing fibre-responsive colitis.\n- Managing lipid metabolism disorders (hyperlipidaemia). \n\nDog Weight Loss & Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease. "
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-ee38fd75-d9ee-4662-a064-1a4bde08c5aa",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "__typename": "DisplayValue",
+                                    "displayValues": [
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "My dog has reached their target weight – what should I feed them now?"
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-8402f799-97ef-48fb-8484-671ee14da127",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        },
+                                        {
+                                            "__typename": "PropertyStringAssignment",
+                                            "stringValues": [
+                                                "Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss & Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight. "
+                                            ],
+                                            "property": {
+                                                "__typename": "Property",
+                                                "id": "s-ee38fd75-d9ee-4662-a064-1a4bde08c5aa",
+                                                "role": "NONE",
+                                                "computed": false
+                                            },
+                                            "locale": {
+                                                "__typename": "Locale",
+                                                "id": "en"
+                                            },
+                                            "dataType": "STRING"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "perspective": {
+                                "__typename": "SharedPerspective",
+                                "name": "View for Reference - FAQ data table",
+                                "properties": [
+                                    {
+                                        "__typename": "Property",
+                                        "name": "FAQ reference - Question ",
+                                        "id": "s-8402f799-97ef-48fb-8484-671ee14da127"
+                                    },
+                                    {
+                                        "__typename": "Property",
+                                        "name": "FAQ reference - Answer",
+                                        "id": "s-ee38fd75-d9ee-4662-a064-1a4bde08c5aa"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "__typename": "PropertyHtmlAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "HTML",
+                        "lockVersion": "ffaddcb46ece4c98033185f77574144b10fa73f8",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-47af3a32-5de2-49f1-966e-952f70327d3f",
+                            "externalId": "Feeding guide / daily ration",
+                            "name": "Feeding guide / daily ration",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjRkYzgyMjg2NGY4ZDZlNjRkYjBmN2UyYmNkNTNjYzM0YzZkOTAzMWM5NjgzYTNhY2JhNzliMGYwNTExMzBlY2MifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-3f2a76a6-5edd-436e-9ae3-ebc2e44cedc7",
+                                "displayConfiguration": null,
+                                "externalId": "Marketing",
+                                "name": "Marketing",
+                                "position": 3
+                            }
+                        },
+                        "stringValues": [
+                            "<p><strong>In case of obesity without diabetes</strong></p>\n<table>\n <thead>\n  <tr>\n   <th rowspan=\"2\" scope=\"col\"><strong>Target Body Weight&nbsp; (kg)</strong></th>\n   <th colspan=\"2\" scope=\"col\"><strong>Daily Ration (g/day)*</strong></th>\n  </tr>\n  <tr>\n   <th scope=\"col\"><strong>High Restrictions&nbsp;</strong></th>\n   <th scope=\"col\"><strong>Moderate Restrictions&nbsp;</strong></th>\n  </tr>\n </thead>\n <tbody>\n  <tr>\n   <th scope=\"row\">3</th>\n   <td align=\"center\">55</td>\n   <td align=\"center\">75</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">5</th>\n   <td align=\"center\">80</td>\n   <td align=\"center\">105</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">8</th>\n   <td align=\"center\">110</td>\n   <td align=\"center\">145</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">10</th>\n   <td align=\"center\">125</td>\n   <td align=\"center\">170</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">15</th>\n   <td align=\"center\">165</td>\n   <td align=\"center\">220</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">20</th>\n   <td align=\"center\">200</td>\n   <td align=\"center\">270</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">25</th>\n   <td align=\"center\">235</td>\n   <td align=\"center\">310</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">30</th>\n   <td align=\"center\">265</td>\n   <td align=\"center\">350</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">40</th>\n   <td align=\"center\">320</td>\n   <td align=\"center\">425</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">60</th>\n   <td align=\"center\">420</td>\n   <td align=\"center\">560</td>\n  </tr>\n </tbody>\n <tfoot>\n  <tr>\n   <td class=\"text-note\" colspan=\"3\">* The daily ration is based on the target body weight of the dog.&nbsp;&nbsp;</td>\n  </tr>\n </tfoot>\n</table>",
+                            "<p><strong>In case of obesity associated with diabetes</strong></p>\n<table>\n <thead>\n  <tr>\n   <th rowspan=\"1\" scope=\"col\"><strong>Target Body Weight (kg)</strong></th>\n   <th colspan=\"1\" scope=\"col\"><strong>Daily Ration (g/day)*</strong></th>\n  </tr>\n </thead>\n <tbody>\n  <tr>\n   <th scope=\"row\">3</th>\n   <td align=\"center\">75</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">5</th>\n   <td align=\"center\">105</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">8</th>\n   <td align=\"center\">145</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">10</th>\n   <td align=\"center\">170</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">15</th>\n   <td align=\"center\">220</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">20</th>\n   <td align=\"center\">270</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">25</th>\n   <td align=\"center\">310</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">30</th>\n   <td align=\"center\">350</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">40</th>\n   <td align=\"center\">425</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">60</th>\n   <td align=\"center\">560</td>\n  </tr>\n </tbody>\n <tfoot>\n  <tr>\n   <td class=\"text-note\" colspan=\"2\">* The daily ration is based on the target body weight of the dog.&nbsp;</td>\n  </tr>\n </tfoot>\n</table>"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyEnumeratedAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "ENUMERATED",
+                        "lockVersion": "b866865be01a47a38a8b8e70d9eeb4d216a5889b",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-946ff796-40e8-472e-b03c-10f55d523d13",
+                            "externalId": "Group Species",
+                            "name": "Group Species",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjVhNjA3ZmQwMWIxNTA0ODM4YWRiYzg0MjI5MGE2ODcxNzgzNzU5NThmZTg2YmE0ZTBiMDVhYzE0MzA1MTViZTUifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-3f2a76a6-5edd-436e-9ae3-ebc2e44cedc7",
+                                "displayConfiguration": null,
+                                "externalId": "Marketing",
+                                "name": "Marketing",
+                                "position": 3
+                            }
+                        },
+                        "enumeratedValues": [
+                            {
+                                "__typename": "EnumeratedValue",
+                                "id": "s-4fd2311a-9808-4822-b865-e28b805320c4",
+                                "externalId": "Dog",
+                                "name": "Dog",
+                                "names": [],
+                                "ancestors": []
+                            }
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "1e4a92a0a3c580fe4e29b7940947283f62a91794",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-01ade034-ba82-4012-b2c1-9d79d66c47ad",
+                            "externalId": "ID",
+                            "name": "ID",
+                            "position": null,
+                            "role": "PRODUCT_ID",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjYyNDNkZGQxOWY5NjE4NjBmN2UwMjBkYTRjMTViMDY3MTYwNjA4ZjkxYjcxZWMyNTdkNmJiMzQ0MzQ4OGUyM2MifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-dcb771ca-f9e4-405b-8c58-3a4014048d32",
+                                "displayConfiguration": null,
+                                "externalId": "Identifier / Sku numbers",
+                                "name": "Identifier / Sku numbers",
+                                "position": 1
+                            }
+                        },
+                        "stringValues": [
+                            "DWD"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "8e2064b61cba10015f7c769bcc257fd106e2266b",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-aea84475-3634-4ff7-b2c6-d977cdf1f6e8",
+                            "externalId": "Key benefit list",
+                            "name": "Key benefit list",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjQwZWZkZjBlYTQ2NmQ1NzEyNzQ3ZDJlMTgzZThiNWY2ZjQ3NTQ2Y2UxNmNjMWUwZWQyOGE4MzA5Y2U4ZTYwZTcifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-acb2f438-021b-4470-87d0-0edc0895a29f",
+                                "displayConfiguration": null,
+                                "externalId": "Web / Digital",
+                                "name": "Web / Digital",
+                                "position": 4
+                            }
+                        },
+                        "stringValues": [
+                            "Promotes fast weight loss",
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+                            "Preserves lean muscle mass ",
+                            "Regulates blood sugar (in the case of diabetes)",
+                            "High in essential nutrients",
+                            "Supports healthy joints"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "8c9c247db812cab9540868e9e29356c75dfec8fa",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-b63fca7d-5136-4ad8-9d71-5abd4049d27e",
+                            "externalId": "Key benefit summary text",
+                            "name": "Key benefit summary text",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjdhZjdkNzA2Mzc2YmQ4Njk2YTQyOGE2Zjk3ZGQ4NzkyYmY2OGIzOWZkMjBjZGQxNTdjMGUzZTMzMmMyYWM3MGQifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-acb2f438-021b-4470-87d0-0edc0895a29f",
+                                "displayConfiguration": null,
+                                "externalId": "Web / Digital",
+                                "name": "Web / Digital",
+                                "position": 4
+                            }
+                        },
+                        "stringValues": [
+                            "Dog Weight Loss & Diabetes W1 features a high-protein, low-carb formula to help your dog lose weight quickly and effectively. It’s proven to help dogs reach their healthiest weight up to 7 weeks faster than other weight loss dog foods.  "
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "a1bc5662e8b3819bb27716754eb87c21f4bfc193",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-83bba725-229f-44e5-b909-203fcbf85742",
+                            "externalId": "Key figures",
+                            "name": "Key figures",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6ImNlMGFhOTEyYjNjN2YyZDU5YTczYzcwM2Q0NDE0ZDlmNDk1M2NmNjIyM2IzODM4ZTI5N2QxYjc3MTY2ZTQ4YTgifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-acb2f438-021b-4470-87d0-0edc0895a29f",
+                                "displayConfiguration": null,
+                                "externalId": "Web / Digital",
+                                "name": "Web / Digital",
+                                "position": 4
+                            }
+                        },
+                        "stringValues": [
+                            "100%",
+                            "of dogs reached their target weight in trials. ",
+                            "2.2%",
+                            "body weight lost per week. ",
+                            "7 weeks",
+                            "faster than competition, to reach optimal weight"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "5e8f93e9b27c6df409929bf9844c6ae404ba6f94",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-53e9de4d-53fc-4a37-8f5c-35267fc21ea3",
+                            "externalId": "LIB_MARQUE",
+                            "name": "Brand",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjM3NWIxYWQ1YjMzYTFlZjBjOTVmNDc3YWU0M2Y3OTRkZTdiNGIwMGQzYzIyNWE0ZmVkMjNjMzk5NzExNDI5YzQifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-37955f58-ebf3-4cca-a0ef-e35533220cd2",
+                                "displayConfiguration": null,
+                                "externalId": "General product info",
+                                "name": "General product info",
+                                "position": 2
+                            }
+                        },
+                        "stringValues": [
+                            "Vet HPM"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "cd98efc9dd018babd092a0d5207e9b048130cf20",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-d695effd-c458-42f3-a023-d7c23d22bddd",
+                            "externalId": "Marketing Product name",
+                            "name": "Marketing Product name",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjdhZjZmOTQ1ZWNhZjNkYzY2N2Q4ZjY4N2UzYWE1NDk5MmI3N2U5YjQzNmVlMTJhZjgzZDNmZThiOGYwY2M4M2MifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-37955f58-ebf3-4cca-a0ef-e35533220cd2",
+                                "displayConfiguration": null,
+                                "externalId": "General product info",
+                                "name": "General product info",
+                                "position": 2
+                            }
+                        },
+                        "stringValues": [
+                            "Veterinary HPM Dog Weight Loss & Diabetes W1"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "b6a4abba86300650ff24be9a9547de666d97e0c4",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-7d2f3937-7a5c-4823-9943-51c34b248a6e",
+                            "externalId": "Name",
+                            "name": "System Name",
+                            "position": null,
+                            "role": "PRODUCT_NAME",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjBjYzc0ZTBjZjMwYmY5MzI0OThlYWQxOGRhYThlOWE3ZjFjZDNmNTRkYzk2MmMyYmFjNWJhODVmZTBiODI2MTgifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-37955f58-ebf3-4cca-a0ef-e35533220cd2",
+                                "displayConfiguration": null,
+                                "externalId": "General product info",
+                                "name": "General product info",
+                                "position": 2
+                            }
+                        },
+                        "stringValues": [
+                            "HPM Diet - Dog W1 Weight Loss & Diabetes"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyStringAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "STRING",
+                        "lockVersion": "db864293e32f0ce7ee89450cc66601e8b855eb8b",
+                        "locale": {
+                            "__typename": "Locale",
+                            "id": "en"
+                        },
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-f75dc028-f971-435b-ab09-9ec428e86a3a",
+                            "externalId": "SEO Product Title",
+                            "name": "SEO / Web friendly Product Title",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjcwMDI5MWUyNWI0YWNmZDczMWI3OGY3M2VmZDM5OTViNDg1MTA1M2I0YTg4OTRkZTRmZDM3ODNmZGY4ZWZhY2MifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-acb2f438-021b-4470-87d0-0edc0895a29f",
+                                "displayConfiguration": null,
+                                "externalId": "Web / Digital",
+                                "name": "Web / Digital",
+                                "position": 4
+                            }
+                        },
+                        "stringValues": [
+                            "Dog Weight Loss & Diabetes W1 - Dry Food for Dogs - Weight Loss & Glucose Management"
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyEnumeratedAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "ENUMERATED",
+                        "lockVersion": "6a3839e56e1ca7cd2180d4ab47597dcd63ad3bf8",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-b473a561-76ad-4f8d-8168-9584ce85f323",
+                            "externalId": "Taxonomy",
+                            "name": "Taxonomy",
+                            "position": null,
+                            "role": "TAXONOMY",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6IjgwMThmZjJiZDNkZDJmOTQ1OWMyMDUzYmNlMDI2MWI3OGI0MDUyODA3MjhiNTcyNmY2NjdiYzlkMGExNDJhM2IifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-37955f58-ebf3-4cca-a0ef-e35533220cd2",
+                                "displayConfiguration": null,
+                                "externalId": "General product info",
+                                "name": "General product info",
+                                "position": 2
+                            }
+                        },
+                        "enumeratedValues": [
+                            {
+                                "__typename": "EnumeratedValue",
+                                "id": "s-ecf6eb17-32d2-48fc-9e4f-8a3d379e5935",
+                                "externalId": "Pet food",
+                                "name": "Pet food",
+                                "names": [],
+                                "ancestors": [
+                                    {
+                                        "__typename": "EnumeratedValue",
+                                        "id": "s-dd53536b-82e1-45b6-80ab-a7100dd59245",
+                                        "externalId": "Nutrition & Petcare",
+                                        "name": "Nutrition & Petcare",
+                                        "names": []
+                                    },
+                                    {
+                                        "__typename": "EnumeratedValue",
+                                        "id": "s-a3fe07e7-9f4b-4b8c-813f-5652bc297fd5",
+                                        "externalId": "Dogs and cats",
+                                        "name": "Dogs and cats",
+                                        "names": []
+                                    },
+                                    {
+                                        "__typename": "EnumeratedValue",
+                                        "id": "s-52a2ae1c-08c5-4695-aaa5-361b1904ecf6",
+                                        "externalId": "Companion animals",
+                                        "name": "Companion animals",
+                                        "names": []
+                                    },
+                                    {
+                                        "__typename": "EnumeratedValue",
+                                        "id": "s-aae46781-1717-499f-ba6c-8fdd63ef20a0",
+                                        "externalId": "Products",
+                                        "name": "Products",
+                                        "names": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "__typename": "PropertyBooleanAssignment",
+                        "editable": true,
+                        "inheritance": "NONE",
+                        "dataType": "BOOLEAN",
+                        "lockVersion": "5ffe533b830f08a0326348a9160afafc8ada44db",
+                        "locale": null,
+                        "property": {
+                            "__typename": "Property",
+                            "id": "s-173c914c-9941-4e63-bf23-92731aa81ecd",
+                            "externalId": "Visible online ?",
+                            "name": "Visible online ?",
+                            "position": null,
+                            "role": "NONE",
+                            "computed": false,
+                            "facetable": true,
+                            "helpText": null,
+                            "recordReferenceSuggestedFilter": null,
+                            "quantifiedRecordReferenceQuantityLabel": null,
+                            "dataModelPropertyAliases": {
+                                "__typename": "DataModelPropertyAliasPaginatedList",
+                                "entries": [],
+                                "pageMetadata": {
+                                    "__typename": "PageMetadata",
+                                    "totalEntries": 0,
+                                    "hasPrevious": false,
+                                    "hasNext": false,
+                                    "cursor": "eyJTIjowLCJlIjo1MCwicyI6ImVlZGU1YzgyZDk4MzczMWY1MzY1ZWQxNWFhNmNiMmRlNTdlYjhjZjdkZWRlZDNkY2QyNGFlZTM3MjBjY2RhMzUifQ=="
+                                }
+                            },
+                            "propertyGroup": {
+                                "__typename": "PropertyGroup",
+                                "id": "s-3f2a76a6-5edd-436e-9ae3-ebc2e44cedc7",
+                                "displayConfiguration": null,
+                                "externalId": "Marketing",
+                                "name": "Marketing",
+                                "position": 3
+                            }
+                        },
+                        "booleanValues": [
+                            true
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "extensions": {
+        "cost": 15971,
+        "deprecations": [
+            {
+                "reason": "Please use 'contentType' instead.",
+                "member": "DigitalAsset.resourceType"
+            }
+        ]
+    }
+}

@@ -1,5 +1,5 @@
 function beeceptor(path, content) {
-    var DOMAIN = 'https://salsify.proxy.beeceptor.com';
+    var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
     const METHOD = 'post';
     const URL = DOMAIN + path;
     web_request(URL, METHOD, content); // fixed parameter assignment
@@ -43,10 +43,10 @@ function buildNestedStructure(root, records) {
     // Constants for Property Names
     const ID = "salsify:id";
     const PARENT_ID = "salsify:parent_id";
-    const NAME = "Salsify Name";
+    const NAME = "ID";//"Salsify Name";
     const TAXONOMY = "Taxonomy";
-    const COLOR = "Color Name";
-    const SIZE = "Size (US)";
+    // const COLOR = "Color Name";
+    // const SIZE = "Size (US)";
 
     // Local Function Variables
     const rootId = root[ID];
@@ -69,7 +69,7 @@ function buildNestedStructure(root, records) {
             recordMap[recordId] = {
                 id: recordId,
                 name: record[NAME],
-                color: record[COLOR],
+                // color: record[COLOR],
                 children: []
             };
         } else {
@@ -77,7 +77,7 @@ function buildNestedStructure(root, records) {
             recordMap[recordId] = {
                 id: recordId,
                 name: record[NAME],
-                size: record[SIZE]
+                // size: record[SIZE]
             };
         }
     });
@@ -121,8 +121,8 @@ function main() {
     const seconds = ((duration % 60000) / 1000).toFixed(0);
 
     // Send the results to beeceptor
-    beeceptor('/record', tree);
-    beeceptor('/processing-time', { duration: `${minutes} min ${seconds} sec` });
+    beeceptor('/product/create_or_update?locale=fr-FR', tree);
+    // beeceptor('/processing-time', { duration: `${minutes} min ${seconds} sec` });
 }
 
 main();

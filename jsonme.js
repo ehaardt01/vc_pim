@@ -137,10 +137,10 @@ function buildNestedStructure(root, records) {
 
 
 function main() {
-    var id = context.entity.external_id;
-    var obj2 = fetchRecord(id, null)
-    beeceptor('/product/create_or_update?locale=fr-FR', obj2);
-    return
+    // var id = context.entity.external_id;
+    // var obj2 = fetchRecord(id, null)
+    // beeceptor('/product/create_or_update?locale=fr-FR', obj2);
+    // return
     const startTime = new Date();
     const rootId = context.entity.external_id;
     const rootRecord = fetchRecord(rootId);

@@ -15,8 +15,7 @@ function fetchRecord(id) {
 }
 
 function fetchFAQ(id) {
-    const PATH = '/FAQ/';
-    return salsify(PATH + "FAQ-W1");
+    return fetchPageRecords(id, 1);
 }
 
 function fetchPageRecords(topId, page) {
@@ -51,13 +50,17 @@ function buildFAQ(id) {
     const QUESTION = "FAQ reference - Question";
     const ANSWER = "FAQ reference - Answer";
     // Lookup FAQ
-    faq = fetchFAQ(id)
+    // faq = fetchFAQ(id)
     // Local Function Variables
     let rootRecord = {
-        id: faq[ID],
-        question: faq[QUESTION],
-        answer: faq[ANSWER],
-        taxonomy: faq[TAXONOMY]
+        // id: faq[ID],
+        // question: faq[QUESTION],
+        // answer: faq[ANSWER],
+        // taxonomy: faq[TAXONOMY]
+        id: id,
+        question: "Texte de question",
+        answer: "Texte de réponse",
+        taxonomy: "Taxonomie"
     };
     return rootRecord;
 }
@@ -81,6 +84,7 @@ function buildNestedStructure(root, records) {
         name: root[NAME],
         taxonomy: root[TAXONOMY],
         faq: root[FAQ], //root[FAQ], //buildFAQ(10),
+        test: buildFAQ("FAQ-W1"),
         children: []
     };
 

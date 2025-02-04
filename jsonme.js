@@ -45,6 +45,7 @@ function buildNestedStructure(root, records) {
     const PARENT_ID = "salsify:parent_id";
     const NAME = "ID";//"Salsify Name";
     const TAXONOMY = "Taxonomy";
+    const FAQ = "FAQ data table"
     // const COLOR = "Color Name";
     // const SIZE = "Size (US)";
 
@@ -56,6 +57,7 @@ function buildNestedStructure(root, records) {
         id: root[ID],
         name: root[NAME],
         taxonomy: root[TAXONOMY],
+        faq: root[FAQ],
         children: []
     };
 

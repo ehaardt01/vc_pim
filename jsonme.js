@@ -15,7 +15,9 @@ function fetchRecord(id) {
 }
 
 function fetchFAQ(id) {
-    return fetchPageRecords(id, 1);
+    const PATH = '/records/';
+    return salsify(PATH + id);
+    // return fetchPageRecords(id, 1);
 }
 
 function fetchPageRecords(topId, page) {
@@ -49,6 +51,7 @@ function buildFAQ(id) {
     const ID = "salsify:id";
     const QUESTION = "FAQ reference - Question";
     const ANSWER = "FAQ reference - Answer";
+    return fetchFAQ(id);
     // Lookup FAQ
     // faq = fetchFAQ(id)
     // Local Function Variables

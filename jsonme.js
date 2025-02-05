@@ -78,12 +78,17 @@ function buildNestedStructure(root, records) {
     // Local Function Variables
     const rootId = root[ID];
     const recordMap = {};
+    const all_faqs = root[FAQ];
+    const faqs = []
+    for (const one_faq of all_faqs) {
+        faqs.push(buildFAQ(one_faq));
+    }
 
     let rootRecord = {
         id: root[ID],
         name: root[NAME],
         taxonomy: root[TAXONOMY],
-        faq: root[FAQ], //root[FAQ], //buildFAQ(10),
+        faq: faqs, //root[FAQ], //buildFAQ(10),
         test: buildFAQ("FAQ-W1"),
         children: []
     };
@@ -143,7 +148,7 @@ function main() {
     // return
     const startTime = new Date();
     const rootId = context.entity.external_id;
-    const rootRecord = fetchRecord(rootId);
+    const rootRecord = fetchRecord(rootId, null);
     const childRecords = fetchChildRecords(rootId);
     const tree = buildNestedStructure(rootRecord, childRecords);
     const endTime = new Date();

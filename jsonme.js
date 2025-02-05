@@ -70,6 +70,13 @@ function buildFAQ(id) {
 
 function buildNestedStructure(root, records) {
     let rootRecord = root;
+    const FAQ = "FAQ data table"
+    const all_faqs = root[FAQ];
+    const faqs = []
+    for (const one_faq of all_faqs) {
+        faqs.push(buildFAQ(one_faq));
+    }
+    rootRecord.faqs = faqs
     rootRecord.children = [];
     records.forEach(record => {
         rootRecord.children.push(record);
@@ -150,10 +157,6 @@ function buildNestedStructure(root, records) {
 
 
 function main() {
-    // var id = context.entity.external_id;
-    // var obj2 = fetchRecord(id, null)
-    // beeceptor('/product/create_or_update?locale=fr-FR', obj2);
-    // return
     const startTime = new Date();
     const rootId = context.entity.external_id;
     const rootRecord = fetchRecord(rootId, null);
@@ -166,9 +169,20 @@ function main() {
     const minutes = Math.floor(duration / 60000);
     const seconds = ((duration % 60000) / 1000).toFixed(0);
 
+    // Prepare the property object
+    property = {
+        id: rootRecord.id,
+        name: rootRecord.name,
+        type: rootRecord.data_type,
+        multivalue: rootRecord.multi_valued,
+        searchable: rootRecord.searchable,
+        editable: rootRecord.editable
+    };
+
     // Send the results to beeceptor
     beeceptor('/product/create_or_update?locale=fr-FR', tree);
-    // beeceptor('/processing-time', { duration: `${minutes} min ${seconds} sec` });
+    beeceptor('/product/create_or_update?locale=fr-FR', property);
+    beeceptor('/product/create_or_update?locale=fr-FR', { duration: `${minutes} min ${seconds} sec` });
 }
 
 main();

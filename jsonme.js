@@ -69,78 +69,83 @@ function buildFAQ(id) {
 }
 
 function buildNestedStructure(root, records) {
-    // Constants for Property Names
-    const ID = "salsify:id";
-    const PARENT_ID = "salsify:parent_id";
-    const NAME = "ID";//"Salsify Name";
-    const TAXONOMY = "Taxonomy";
-    const FAQ = "FAQ data table"
-    // const COLOR = "Color Name";
-    // const SIZE = "Size (US)";
-
-    // Local Function Variables
-    const rootId = root[ID];
-    const recordMap = {};
-    const all_faqs = root[FAQ];
-    const faqs = []
-    for (const one_faq of all_faqs) {
-        faqs.push(buildFAQ(one_faq));
-    }
-
-    let rootRecord = {
-        id: root[ID],
-        name: root[NAME],
-        taxonomy: root[TAXONOMY],
-        faq: faqs, //root[FAQ], //buildFAQ(10),
-        test: buildFAQ("FAQ-W1"),
-        children: []
-    };
-
-    // Create a map of records by ID for quick lookup
+    let rootRecord = root;
+    rootRecord.children = [];
     records.forEach(record => {
-        const recordId = record[ID];
-        const parentId = record[PARENT_ID];
-
-        if (parentId === rootId) {
-            // middle tier record (tier 2)
-            recordMap[recordId] = {
-                id: recordId,
-                name: record[NAME],
-                // color: record[COLOR],
-                children: []
-            };
-        } else {
-            // middle tier record (tier 3)
-            recordMap[recordId] = {
-                id: recordId,
-                name: record[NAME],
-                // size: record[SIZE]
-            };
-        }
+        rootRecord.children.push(record);
     });
-
-    // Attach records to their parents
-    records.forEach(record => {
-        const currentRecord = recordMap[record[ID]];
-        const parentId = record[PARENT_ID];
-        if (parentId === rootId) {
-            // Attach directly to root if the parentId is the rootId
-            rootRecord.children.push(currentRecord);
-        } else {
-            const parentRecord = recordMap[parentId];
-            if (parentRecord) {
-                parentRecord.children.push(currentRecord);
-            } else {
-                // If the parent is not found, create a placeholder for the parent
-                recordMap[parentId] = {
-                    id: parentId,
-                    children: [currentRecord]
-                };
-            }
-        }
-    });
-
     return rootRecord;
+    // Constants for Property Names
+    // const ID = "salsify:id";
+    // const PARENT_ID = "salsify:parent_id";
+    // const NAME = "ID";//"Salsify Name";
+    // const TAXONOMY = "Taxonomy";
+    // const FAQ = "FAQ data table"
+    // // const COLOR = "Color Name";
+    // // const SIZE = "Size (US)";
+
+    // // Local Function Variables
+    // const rootId = root[ID];
+    // const recordMap = {};
+    // const all_faqs = root[FAQ];
+    // const faqs = []
+    // for (const one_faq of all_faqs) {
+    //     faqs.push(buildFAQ(one_faq));
+    // }
+
+    // let rootRecord = {
+    //     id: root[ID],
+    //     name: root[NAME],
+    //     taxonomy: root[TAXONOMY],
+    //     faq: faqs, //root[FAQ], //buildFAQ(10),
+    //     children: []
+    // };
+
+    // // Create a map of records by ID for quick lookup
+    // records.forEach(record => {
+    //     const recordId = record[ID];
+    //     const parentId = record[PARENT_ID];
+
+    //     if (parentId === rootId) {
+    //         // middle tier record (tier 2)
+    //         recordMap[recordId] = {
+    //             id: recordId,
+    //             name: record[NAME],
+    //             // color: record[COLOR],
+    //             children: []
+    //         };
+    //     } else {
+    //         // middle tier record (tier 3)
+    //         recordMap[recordId] = {
+    //             id: recordId,
+    //             name: record[NAME],
+    //             // size: record[SIZE]
+    //         };
+    //     }
+    // });
+
+    // // Attach records to their parents
+    // records.forEach(record => {
+    //     const currentRecord = recordMap[record[ID]];
+    //     const parentId = record[PARENT_ID];
+    //     if (parentId === rootId) {
+    //         // Attach directly to root if the parentId is the rootId
+    //         rootRecord.children.push(currentRecord);
+    //     } else {
+    //         const parentRecord = recordMap[parentId];
+    //         if (parentRecord) {
+    //             parentRecord.children.push(currentRecord);
+    //         } else {
+    //             // If the parent is not found, create a placeholder for the parent
+    //             recordMap[parentId] = {
+    //                 id: parentId,
+    //                 children: [currentRecord]
+    //             };
+    //         }
+    //     }
+    // });
+
+    // return rootRecord;
 }
 
 

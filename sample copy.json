@@ -1,78 +1,76 @@
 {
-   "salsify:id": "DWD",
-   "salsify:created_at": "2025-01-13T14:39:49.109Z",
-   "salsify:updated_at": "2025-02-04T07:50:46.737Z",
-   "salsify:version": 30,
-   "salsify:profile_asset_id": null,
-   "salsify:system_id": "s-3d8bd57d-6e22-4607-8f27-36d58983eb82",
-   "ID": "DWD",
-   "Group Species": "Dog",
-   "Default Sales Price": "0",
-   "Feeding guide / daily ration": [
-      "\u003cp\u003e\u003cstrong\u003eIn case of obesity without diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight\u0026nbsp; (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eHigh Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eModerate Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e55\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e80\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e110\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e125\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e165\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e200\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e235\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e265\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e320\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e420\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"3\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e",
-      "\u003cp\u003e\u003cstrong\u003eIn case of obesity associated with diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"2\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e"
+   "id": "DWD",
+   "name": "DWD",
+   "taxonomy": "Pet food",
+   "faq": [
+      {
+         "salsify:id": "FAQ-W1",
+         "salsify:created_at": "2025-02-03T19:07:08.730Z",
+         "salsify:updated_at": "2025-02-05T06:41:10.288Z",
+         "salsify:version": 3,
+         "salsify:profile_asset_id": null,
+         "salsify:system_id": "s-4fbc72a5-5506-4ee1-9a3a-9de94626d1df",
+         "ID": "FAQ-W1",
+         "Taxonomy": "Veterinary HPM",
+         "FAQ reference - Question ": {
+            "en-GB": "Locale en-GB: \nIs Dog Weight Loss \u0026 Diabetes W1 suitable for my dog?",
+            "en": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog? "
+         },
+         "FAQ reference - Answer": {
+            "en-GB": "Locale en-GB: Dog Weight Loss \u0026 Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. It’s also suitable for: - Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026 Control W2 instead). - Managing fibre-responsive colitis. - Managing lipid metabolism disorders (hyperlipidaemia). Dog Weight Loss \u0026 Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease.",
+            "en": "Dog Weight Loss \u0026 Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. \n\nIt’s also suitable for: \n- Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026 Control W2 instead). \n- Managing fibre-responsive colitis.\n- Managing lipid metabolism disorders (hyperlipidaemia). \n\nDog Weight Loss \u0026 Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease. "
+         },
+         "Name": {
+            "en": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog? "
+         }
+      },
+      {
+         "salsify:id": "FAQ-W1-1",
+         "salsify:created_at": "2025-02-03T19:47:07.418Z",
+         "salsify:updated_at": "2025-02-05T06:43:29.797Z",
+         "salsify:version": 2,
+         "salsify:profile_asset_id": null,
+         "salsify:system_id": "s-648f5cdb-50ed-41f3-af7b-6f746f1d5763",
+         "ID": "FAQ-W1-1",
+         "Taxonomy": "Veterinary HPM",
+         "FAQ reference - Question ": {
+            "en-GB": "Locale en-GB: My dog has reached their target weight – what should I feed them now?",
+            "en": "My dog has reached their target weight – what should I feed them now?"
+         },
+         "FAQ reference - Answer": {
+            "en-GB": "Locale en-GB: Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss \u0026 Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight.",
+            "en": "Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss \u0026 Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight. "
+         },
+         "Name": {
+            "en": "My dog has reached their target weight – what should I feed them now?"
+         }
+      }
    ],
-   "FAQ": [
-      "Is Dog Weight Loss \u0026amp; Diabetes W1 suitable for my dog?",
-      "Dog Weight Loss \u0026amp; Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week.\u003cbr\u003e\u003cbr\u003eIt’s also suitable for:\u003cbr\u003e  \u003cul\u003e\u003cli\u003eRegulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026amp; Control W2 instead).\u003c/li\u003e\u003c/ul\u003e    \u003cul\u003e\u003cli\u003eManaging fibre-responsive colitis.\u003c/li\u003e\u003c/ul\u003e    \u003cul\u003e\u003cli\u003eManaging lipid metabolism disorders (hyperlipidaemia).\u003c/li\u003e\u003c/ul\u003e  \u003cbr\u003eDog Weight Loss \u0026amp; Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease.",
-      "My dog has reached their target weight – what should I feed them now?",
-      "Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss \u0026amp; Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight.",
-      "What's the difference between Weight Loss \u0026amp; Diabetes W1 and Weight Loss \u0026amp; Control W2?",
-      "Weight Loss \u0026amp; Diabetes W1 is designed for overweight dogs, with or without diabetes, to help them reach a healthy weight. In the case of diabetes, it can also help to regulate blood sugar.\u003cbr\u003e\u003cbr\u003eWeight Loss \u0026amp; Control W2 is ideal both for helping your dog to lose weight, and for helping them to maintain a stable weight long-term. It can also help to regulate blood sugar in dogs with diabetes, but in this case, it is only suitable for dogs already at a healthy weight.\u003cbr\u003e\u003cbr\u003eAlways consult your vet when switching between these two foods as portions may need to be adjusted to avoid weight gain."
-   ],
-   "LIB_MARQUE": "Vet HPM",
-   "Taxonomy": "Pet food",
-   "Business category level 1": "Companion animals",
-   "Business category level 2": "Dogs and cats",
-   "Business category level 3": "Nutrition \u0026 Petcare",
-   "Business category level 4": "Pet food",
-   "Visible online ?": true,
-   "FAQ data table": ["FAQ-W1", "FAQ-W1-1"],
-   "Composition-table": [
-      "Moisture",
-      "Protein",
-      "Animal to vegetable protein ratio"
-   ],
-   "Name": {
-      "en-GB": "HPM Diet - Dog W1 Weight Loss \u0026 Diabetes",
-      "en": "HPM Diet - Dog W1 Weight Loss \u0026 Diabetes"
+   "test": {
+      "salsify:id": "FAQ-W1",
+      "salsify:created_at": "2025-02-03T19:07:08.730Z",
+      "salsify:updated_at": "2025-02-05T06:41:10.288Z",
+      "salsify:version": 3,
+      "salsify:profile_asset_id": null,
+      "salsify:system_id": "s-4fbc72a5-5506-4ee1-9a3a-9de94626d1df",
+      "ID": "FAQ-W1",
+      "Taxonomy": "Veterinary HPM",
+      "FAQ reference - Question ": {
+         "en-GB": "Locale en-GB: \nIs Dog Weight Loss \u0026 Diabetes W1 suitable for my dog?",
+         "en": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog? "
+      },
+      "FAQ reference - Answer": {
+         "en-GB": "Locale en-GB: Dog Weight Loss \u0026 Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. It’s also suitable for: - Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026 Control W2 instead). - Managing fibre-responsive colitis. - Managing lipid metabolism disorders (hyperlipidaemia). Dog Weight Loss \u0026 Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease.",
+         "en": "Dog Weight Loss \u0026 Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. \n\nIt’s also suitable for: \n- Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026 Control W2 instead). \n- Managing fibre-responsive colitis.\n- Managing lipid metabolism disorders (hyperlipidaemia). \n\nDog Weight Loss \u0026 Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease. "
+      },
+      "Name": {
+         "en": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog? "
+      }
    },
-   "B2C Short description": {
-      "en": "Helps your dog to lose excess weight and regulate their blood sugar. Weight loss doesn’t have to mean hunger, with a high-protein, high-fibre recipe to keep your dog happy and satisfied on their journey to a healthy weight."
-   },
-   "B2C Full Description": {
-      "en": "Dog Weight Loss \u0026amp; Diabetes W1 weight loss dog food\u003cbr\u003e\u003cbr\u003eHelp your dog to shed excess weight quickly with Dog Weight Loss \u0026amp; Diabetes W1 weight loss dog food.\u003cbr\u003e\u003cbr\u003eWeight loss for dogs isn’t as simple as cutting down their portion sizes. To make sure your dog is losing weight the healthy way, you need a complete and balanced weight control dog food with low energy density, like Dog Weight Loss \u0026amp; Diabetes W1.\u003cbr\u003e\u003cbr\u003eDog Weight Loss \u0026amp; Diabetes W1:\u003cbr\u003e\u003cbr\u003e• Contains the ideal ratio of high protein and low carbohydrates to help your dog preserve muscle mass while they lose fat.\u003cbr\u003e• Prevents glucose spikes after eating and keeps blood sugar stable, helping to manage diabetes.\u003cbr\u003e• Keeps your dog happy with a tasty combination of rich animal proteins and satisfying fats.\u003cbr\u003e\u003cbr\u003eBecause excess weight can be tough on the joints, Dog Weight Loss \u0026amp; Diabetes W1 contains chondroitin and chitosan to protect the joints and halt degenration. It also features extra vitamins and minerals to make sure your dog is getting all the nutrients they need from smaller rations."
-   },
-   "Composition": {
-      "en": "\u003cp\u003eDehydrated pork and poultry proteins, potato starch*, lignocellulose, hydrolysed pork and poultry proteins, faba bean hulls, animal fats, minerals, linseed, beet pulp, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, brewers yeast, hydrolysed crustacean (source of chitosan), Lactobacillus acidophilus, chondroitin sulfate.\u003c/p\u003e\u003cp\u003e*carbohydrate sources\u003c/p\u003e\u003cp\u003eVETERINARY HPM®\u0026nbsp; contains no artificial flavours or colours.\u003c/p\u003e"
-   },
-   "SEO Product Title": {
-      "en": "Dog Weight Loss \u0026 Diabetes W1 - Dry Food for Dogs - Weight Loss \u0026 Glucose Management"
-   },
-   "Marketing Product name": {
-      "en": "Veterinary HPM Dog Weight Loss \u0026 Diabetes W1"
-   },
-   "Key benefit list": {
-      "en": [
-         "Promotes fast weight loss",
-         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-         "Preserves lean muscle mass ",
-         "Regulates blood sugar (in the case of diabetes)",
-         "High in essential nutrients",
-         "Supports healthy joints"
-      ]
-   },
-   "Key benefit summary text": {
-      "en": "Dog Weight Loss \u0026 Diabetes W1 features a high-protein, low-carb formula to help your dog lose weight quickly and effectively. It’s proven to help dogs reach their healthiest weight up to 7 weeks faster than other weight loss dog foods.  "
-   },
-   "Key figures": {
-      "en": [
-         "100%",
-         "of dogs reached their target weight in trials. ",
-         "2.2%",
-         "body weight lost per week. ",
-         "7 weeks",
-         "faster than competition, to reach optimal weight"
-      ]
-   }
+   "children": [
+      { "id": "457633", "name": "457633", "children": [] },
+      { "id": "457634", "name": "457634", "children": [] },
+      { "id": "457635", "name": "457635", "children": [] },
+      { "id": "468592", "name": "468592", "children": [] }
+   ]
 }

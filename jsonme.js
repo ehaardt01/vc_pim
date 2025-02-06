@@ -136,11 +136,13 @@ function main() {
         TEST = false;
     }
     if(!TEST) {
+        LOCALE = flow.locale;
         const startTime = new Date();
         const rootId = context.entity.external_id;
         const rootProduct = fetchProduct(rootId, null);
         const childRecords = fetchChildRecords(rootId);
-        const tree = buildNestedStructure(rootProduct, childRecords);
+        let tree = buildNestedStructure(rootProduct, childRecords);
+        tree.locale = LOCALE;
         const endTime = new Date();
         const duration = endTime - startTime;
 

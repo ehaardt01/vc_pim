@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jsonme.js"></script>
+    <script src="utils.js"></script>
+</head>
+<body>
+    <textarea id="display" style="width: 100%; height: 300px"></textarea>
+    <script>
+        TEST = true;
+        const record_id = "FAQ-W1";
+        const properties = ["FAQ reference - Question", "FAQ reference - Answer"];
+        // "FAQ-W1-1"
+        let result = load_record(record_id, properties);
+        console.log("Hello boy");
+        document.getElementById('display').value = result;
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+samples/*
+secret*
+*.DS_Store
+.vscode

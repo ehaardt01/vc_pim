@@ -7,22 +7,31 @@
  * snake_case("My-Variable123") // returns "my_variable123"
  */
 function snake_case(variable_name) {
-    let filteredName = variable_name.replace(/[^a-zA-Z0-9]/g, '');
+    // Remplacer les caractères non alphanumériques par des underscores
+    let filteredName = variable_name.replace(/[^a-zA-Z0-9]/g, '_');
+
+    // Initialiser la variable pour stocker le résultat
     let snakeCase = '';
     let i = 0;
+
     while (i < filteredName.length) {
         let char = filteredName[i];
+
+        // Si le caractère est une majuscule et qu'il est suivi par une autre majuscule, traitez-le comme un acronyme
         if (char >= 'A' && char <= 'Z' && i + 1 < filteredName.length && filteredName[i + 1] >= 'A' && filteredName[i + 1] <= 'Z') {
+            // Ajoutez toutes les majuscules consécutives sans underscore entre elles
             while (i < filteredName.length && filteredName[i] >= 'A' && filteredName[i] <= 'Z') {
                 snakeCase += filteredName[i].toLowerCase();
                 i++;
             }
-            if (i < filteredName.length) {
+            // Ajoutez un underscore après l'acronyme si ce n'est pas la fin de la chaîne et que le caractère suivant n'est pas un underscore
+            if (i < filteredName.length && filteredName[i] !== '_') {
                 snakeCase += '_';
             }
         } else {
+            // Si le caractère est une majuscule, ajoutez un underscore avant
             if (char >= 'A' && char <= 'Z') {
-                if (i > 0) {
+                if (i > 0 && snakeCase[snakeCase.length - 1] !== '_') {
                     snakeCase += '_';
                 }
                 char = char.toLowerCase();
@@ -31,6 +40,7 @@ function snake_case(variable_name) {
             i++;
         }
     }
+
     return snakeCase;
 }
 
@@ -43,7 +53,8 @@ function snake_case(variable_name) {
  * const mockData = load_mock('testId'); // Loads from testId_property_mock.json
  */
 function load_mock(id) {
-    const PATH = "https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/" + snake_case(id) + '_property_mock.json';
+    const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/' + snake_case(id) + '_property_mock.json';
+    // const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/faqw1_property_mock.json';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', PATH, false);
     xhr.send();

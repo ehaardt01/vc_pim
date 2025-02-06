@@ -54,7 +54,7 @@ function snake_case(variable_name) {
  */
 function load_mock(id) {
     const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/' + snake_case(id) + '_property_mock.json';
-    // const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/faqw1_property_mock.json';
+    // const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/faq_w1_1_property_mock.json';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', PATH, false);
     xhr.send();
@@ -91,13 +91,32 @@ function retrieve_type(value) {
     }
 }
 
-function retrieve_records(string_array) {
-    let records = [];
-    string_array.forEach(item => {
-        records.push(fetchPropertyRecord(item));
-    });
-    return records;
+/**
+ * Retrieves the localized value from a string or an object containing localized values. Locale is globally defined
+ * in the global variable LOCALE.
+ * @param {(string|Object)} value - The value to get the localization from. Can be a string or an object with locale keys.
+ * @returns {?string} The localized string value if found, null otherwise.
+ *
+ * @example
+ * // Returns "Hello" for a simple string
+ * get_localized_value("Hello")
+ *
+ * @example
+ * // Returns "Bonjour" if LOCALE is set to "fr-FR"
+ * get_localized_value({"en-US": "Hello", "fr-FR": "Bonjour"})
+ */
+function get_localized_value(value) {
+    if (typeof value === 'string') {
+        return value;
+    }
+    if (typeof value === 'object' && value !== null) {
+        if (value.hasOwnProperty(LOCALE)) {
+            return value[LOCALE];
+        }
+    }
+    return null;
 }
+
 /**
  * Retrieves a record by its ID and extracts specified properties
  * @param {string} record_id - The unique identifier of the record to load
@@ -132,7 +151,10 @@ function load(rootId, properties, is_product=true) {
         }
         switch (property_type) {
             case "direct":
-                record[property_export_name] = rootRecord[property_name];
+                value = get_localized_value(rootRecord[property_name]);
+                if (value) {
+                    record[property_export_name] = value;
+                }
                 break;
             case "record":
                 returned_values = property["values"];
@@ -143,13 +165,22 @@ function load(rootId, properties, is_product=true) {
                 returned_type = retrieve_type(rootRecord[property_name]);
                 switch (returned_type) {
                     case "string":
-                        record[property_export_name] = load(rootRecord[property_name], returned_values, false);
+                        sub_value = load(item, returned_values, false);
+                        if (sub_value) {
+                            record[property_export_name] = sub_value;
+                        }
                         break;
                     case "string_array":
-                        record[property_export_name] = []
+                        records = []
                         rootRecord[property_name].forEach(item => {
-                            record[property_export_name].push(load(item, returned_values, false));
+                            sub_value = load(item, returned_values, false);
+                            if (sub_value) {
+                                records.push(sub_value);
+                            }
                         });
+                        if (records.length !== 0) {
+                            record[property_export_name] = records;
+                        }
                         break;
                     default:
                         console.error('Unexpected type for ' + property_name + ' in ' + rootRecord);

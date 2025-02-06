@@ -123,18 +123,7 @@ function main() {
         const minutes = Math.floor(duration / 60000);
         const seconds = ((duration % 60000) / 1000).toFixed(0);
 
-        property = {
-            id: rootRecord.id,
-            name: rootRecord.name,
-            type: rootRecord.data_type,
-            multivalue: rootRecord.multi_valued,
-            searchable: rootRecord.searchable,
-            editable: rootRecord.editable
-        };
-
         beeceptor('/product/create_or_update?locale=fr-FR', tree);
-        beeceptor('/product/create_or_update?locale=fr-FR', property);
-        beeceptor('/product/create_or_update?locale=fr-FR', { duration: `${minutes} min ${seconds} sec` });
     }
 }
 

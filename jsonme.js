@@ -130,7 +130,10 @@ function buildNestedStructure(root, records) {
 }
 
 function main() {
-    if(typeof TEST === undefined || !TEST) {
+    if (typeof TEST === 'undefined') {
+        TEST = false;
+    }
+    if(!TEST) {
         const startTime = new Date();
         const rootId = context.entity.external_id;
         const rootProduct = fetchProduct(rootId, null);

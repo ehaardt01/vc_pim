@@ -131,25 +131,55 @@ function buildNestedStructure(root, records) {
   return rootRecord;
 }
 
+const properties = [
+    {name: "salsify:created_at", type: "direct", export_name: "created_at"},
+    {name: "salsify:updated_at", type: "direct", export_name: "updated_at"},
+    {name: "FAQ data table", type: "record", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "direct", export_name: "question"}, {name: "FAQ reference - Answer", type: "direct", export_name: "answer"}]},
+    {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
+    {name: "salsify:version", type: "direct", export_name: "version"},
+    {name: "salsify:profile_asset_id", type: "direct", export_name: "profile_asset_id"},
+    {name: "salsify:system_id", type: "direct", export_name: "system_id"},
+    {name: "ID", type: "direct", export_name: "id"},
+    {name: "Group Species", type: "direct", export_name: "group_species"},
+    {name: "Default Sales Price", type: "direct", export_name: "default_sales_price"},
+    {name: "LIB_MARQUE", type: "direct", export_name: "lib_marque"},
+    {name: "Taxonomy", type: "direct", export_name: "taxonomy"},
+    {name: "Business category level 1", type: "direct", export_name: "business_category_level_1"},
+    {name: "Business category level 2", type: "direct", export_name: "business_category_level_2"},
+    {name: "Business category level 3", type: "direct", export_name: "business_category_level_3"},
+    {name: "Business category level 4", type: "direct", export_name: "business_category_level_4"},
+    {name: "Visible online ?", type: "direct", export_name: "visible_online"},
+    {name: "Name", type: "direct", export_name: "name"},
+    {name: "B2C Short description", type: "direct", export_name: "b2c_short_description"},
+    {name: "B2C Full Description", type: "direct", export_name: "b2c_full_description"},
+    {name: "B2B Short description", type: "direct", export_name: "b2b_short_description"},
+    {name: "SEO Product Title", type: "direct", export_name: "seo_product_title"},
+    {name: "Marketing Product name", type: "direct", export_name: "marketing_product_name"},
+    {name: "Key figures", type: "direct", export_name: "key_figures"},
+];
+
 function main() {
     if (typeof TEST === 'undefined') {
         TEST = false;
     }
     if(!TEST) {
         LOCALE = flow.locale;
-        const startTime = new Date();
         const rootId = context.entity.external_id;
-        const rootProduct = fetchProduct(rootId, null);
-        const childRecords = fetchChildRecords(rootId);
-        let tree = buildNestedStructure(rootProduct, childRecords);
-        tree.locale = LOCALE;
-        const endTime = new Date();
-        const duration = endTime - startTime;
+        let result = load(rootId, properties);
+        beeceptor('/product/create_or_update?locale=fr-FR', result);
+        // const startTime = new Date();
+        // const rootId = context.entity.external_id;
+        // const rootProduct = fetchProduct(rootId, null);
+        // const childRecords = fetchChildRecords(rootId);
+        // let tree = buildNestedStructure(rootProduct, childRecords);
+        // tree.locale = LOCALE;
+        // const endTime = new Date();
+        // const duration = endTime - startTime;
 
-        const minutes = Math.floor(duration / 60000);
-        const seconds = ((duration % 60000) / 1000).toFixed(0);
+        // const minutes = Math.floor(duration / 60000);
+        // const seconds = ((duration % 60000) / 1000).toFixed(0);
 
-        beeceptor('/product/create_or_update?locale=fr-FR', tree);
+        // beeceptor('/product/create_or_update?locale=fr-FR', tree);
     }
 }
 

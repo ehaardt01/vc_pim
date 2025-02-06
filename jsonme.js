@@ -15,15 +15,6 @@ function salsify(path, method = 'GET', payload = null, version = 'v1') {
     }
 }
 
-function fetchRecord(id) {
-    if(TEST) {
-        return load_mock(snake_case(id));
-    } else {
-        const PATH = '/products/';
-        return salsify(PATH + id);
-    }
-}
-
 function fetchProduct(id) {
     if(TEST) {
         return load_mock(snake_case(id));
@@ -33,21 +24,12 @@ function fetchProduct(id) {
     }
 }
 
-function fetchPropertyRecord(record_id) {
+function fetchRecord(record_id) {
     if(TEST) {
         return load_mock(snake_case(record_id));
     } else {
         const PATH = '/records/';
         return salsify(PATH + record_id);
-    }
-}
-
-function fetchFAQ(id) {
-    if(TEST) {
-        return load_mock(snake_case(record_id));
-    } else {
-        const PATH = '/records/';
-        return salsify(PATH + id);
     }
 }
 
@@ -80,43 +62,80 @@ function fetchChildRecords(id) {
     return allRecords;
 }
 
-function buildFAQ(id) {
-    const ID = "salsify:id";
-    const QUESTION = "FAQ reference - Question";
-    const ANSWER = "FAQ reference - Answer";
-    return fetchFAQ(id);
-    let rootRecord = {
-        id: id,
-        question: "Texte de question",
-        answer: "Texte de réponse",
-        taxonomy: "Taxonomie"
-    };
-    return rootRecord;
-}
-
 function buildNestedStructure(root, records) {
-    let rootRecord = root;
-    const FAQ = "FAQ data table"
-    const all_faqs = root[FAQ];
-    const faqs = []
-    for (const one_faq of all_faqs) {
-        faqs.push(buildFAQ(one_faq));
-    }
-    rootRecord.faqs = faqs
-    rootRecord.children = [];
+    // Constants for Property Names
+    const ID = "salsify:id";
+    const PARENT_ID = "salsify:parent_id";
+    const NAME = "ID";//"Salsify Name";
+    const TAXONOMY = "Taxonomy";
+    // const COLOR = "Color Name";
+    // const SIZE = "Size (US)";
+
+    // Local Function Variables
+    const rootId = root[ID];
+    const recordMap = {};
+
+    let rootRecord = {
+        id: root[ID],
+        name: root[NAME],
+        taxonomy: root[TAXONOMY],
+        children: []
+    };
+
+    // Create a map of records by ID for quick lookup
     records.forEach(record => {
-        rootRecord.children.push(record);
+        const recordId = record[ID];
+        const parentId = record[PARENT_ID];
+
+        if (parentId === rootId) {
+            // middle tier record (tier 2)
+            recordMap[recordId] = {
+                id: recordId,
+                name: record[NAME],
+                // color: record[COLOR],
+                children: []
+            };
+        } else {
+            // middle tier record (tier 3)
+            recordMap[recordId] = {
+                id: recordId,
+                name: record[NAME],
+                // size: record[SIZE]
+            };
+        }
     });
-    return rootRecord;
+
+    // Attach records to their parents
+    records.forEach(record => {
+        const currentRecord = recordMap[record[ID]];
+        const parentId = record[PARENT_ID];
+        if (parentId === rootId) {
+            // Attach directly to root if the parentId is the rootId
+            rootRecord.children.push(currentRecord);
+        } else {
+            const parentRecord = recordMap[parentId];
+            if (parentRecord) {
+                parentRecord.children.push(currentRecord);
+            } else {
+                // If the parent is not found, create a placeholder for the parent
+                recordMap[parentId] = {
+                    id: parentId,
+                    children: [currentRecord]
+                };
+            }
+        }
+    });
+
+  return rootRecord;
 }
 
 function main() {
     if(TEST === undefined || !TEST) {
         const startTime = new Date();
         const rootId = context.entity.external_id;
-        const rootRecord = fetchRecord(rootId, null);
+        const rootProduct = fetchProduct(rootId, null);
         const childRecords = fetchChildRecords(rootId);
-        const tree = buildNestedStructure(rootRecord, childRecords);
+        const tree = buildNestedStructure(rootProduct, childRecords);
         const endTime = new Date();
         const duration = endTime - startTime;
 

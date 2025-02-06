@@ -206,27 +206,6 @@ function load(rootId, properties, is_product=true) {
                 console.error('property_type ('+ property_type + ') is unknown in ' + property);
                 break;
         }
-        // if (property_type === "record") {
-        //     let fetched_record = fetchPropertyRecord(property_id);
-        //     if (fetched_record) {
-        //         let property_name = snake_case(property_id);
-        //         record[property_name] = fetched_record;
-        //     }
-        // } else {
-
-        // const fetched_property_record = load_mock(property_id);
-        // if (fetched_property_record) {
-        //     property_value = fetched_record[property_id];
-        //     if (property_value) {
-        //         property_name = snake_case(property_id);
-        //         localized_value = property_value[LOCALE];
-        //         if (localized_value) {
-        //             record[property_name] = localized_value;
-        //         } else {
-        //             record[property_name] = property_value;
-        //         }
-        //     }
-        // }
     });
     return record;
 }

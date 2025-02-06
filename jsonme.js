@@ -81,6 +81,8 @@ function buildNestedStructure(root, records) {
         taxonomy: root[TAXONOMY],
         children: []
     };
+    rootRecord = root
+    rootRecord.children = [];
 
     // Create a map of records by ID for quick lookup
     records.forEach(record => {

@@ -82,7 +82,7 @@ function buildNestedStructure(root, records) {
         children: []
     };
     rootRecord = root
-    rootRecord.children = [];
+    rootRecord[children] = [];
 
     // Create a map of records by ID for quick lookup
     records.forEach(record => {

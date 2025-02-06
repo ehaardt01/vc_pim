@@ -111,7 +111,7 @@ function buildNestedStructure(root, records) {
 }
 
 function main() {
-    if(!TEST) {
+    if(TEST === undefined || !TEST) {
         const startTime = new Date();
         const rootId = context.entity.external_id;
         const rootRecord = fetchRecord(rootId, null);

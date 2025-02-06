@@ -1,0 +1,21 @@
+{
+    "salsify:id": "FAQ-W1-1",
+    "salsify:created_at": "2025-02-03T19:47:07.418Z",
+    "salsify:updated_at": "2025-02-05T06:43:29.797Z",
+    "salsify:version": 2,
+    "salsify:profile_asset_id": null,
+    "salsify:system_id": "s-648f5cdb-50ed-41f3-af7b-6f746f1d5763",
+    "ID": "FAQ-W1-1",
+    "Taxonomy": "Veterinary HPM",
+    "FAQ reference - Question ": {
+        "en-GB": "Locale en-GB: My dog has reached their target weight – what should I feed them now?",
+        "en": "My dog has reached their target weight – what should I feed them now?"
+    },
+    "FAQ reference - Answer": {
+        "en-GB": "Locale en-GB: Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss & Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight.",
+        "en": "Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss & Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight. "
+    },
+    "Name": {
+        "en": "My dog has reached their target weight – what should I feed them now?"
+    }
+}

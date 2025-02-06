@@ -14,7 +14,12 @@
     <textarea id="display" style="width: 100%; height: 300px"></textarea>
     <script>
         const record_id = "DWD";
-        const properties = ["FAQ reference - Question ", "FAQ reference - Answer"];
+        const properties = [
+            {name: "salsify:created_at", type: "direct", export_name: "created_at"},
+            {name: "salsify:updated_at", type: "direct", export_name: "updated_at"},
+            {name: "FAQ data table", type: "record", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "direct", export_name: "question"}, {name: "FAQ reference - Answer", type: "direct", export_name: "answer"}]},
+            {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
+        ];
         let result = load(record_id, properties);
         console.log("Hello boy");
         document.getElementById('display').value = JSON.stringify(result, null, 4);

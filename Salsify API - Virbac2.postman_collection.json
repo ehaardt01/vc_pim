@@ -1,0 +1,3200 @@
+{
+	"info": {
+		"_postman_id": "05b417f4-5c6f-43ea-a4f8-2baa845db844",
+		"name": "Salsify API - Virbac",
+		"description": "## This Collection is not officially supported.\n\n<img src=\"https://drive.google.com/uc?id=1RgjDNr0YAyd8OGvw_mH6vE3y9PGm65oF\" alt=\"\">\n\n# Pagination\n\nMost API responses are paginated, with the default page being 30 items. You can change this using the parameters `per_page` (up to a limit of 250) and `page`.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20593477"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Read Product",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/:product_id",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"products",
+								":product_id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Read Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\":\"='Salsify Property ID':'Value'\"\n}"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/orgs/{{organization_id}}/products",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"orgs",
+								"{{organization_id}}",
+								"products"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "250",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"Product Id\":\"123\",\n    \"Product Name\":\"Product 123\",\n    \"Category ID\":\"Category1 ID\",\n    \"Multivalue_Example_Color ID\":[\"Blue\",\"Red\", \"Pink\"],\n    \"Localize_Value_Example\": {\n        \"en-US\":\"a pillow for a dog\",\n        \"es-PR\": \"una almohada para un perro\"\n    }\n  },\n  {\n    \"Product ID\":\"456\",\n    \"Product Name\":\"Product 456\",\n    \"Category ID\":\"Category2 ID\",\n    \"Color ID\":[\"Yellow\",\"Green\"]\n  }\n]"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"products"
+							]
+						},
+						"description": "Supports bulk creation up to 100 products."
+					},
+					"response": [
+						{
+							"name": "Sucessful Create Product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"SKU\": \"345678\",\n\t\"Product Name\": \"New Product\"\n}"
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 May 2018 17:28:30 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"8e42a91b6c5fd664742efd5b598fb41d\"",
+									"name": "Etag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "10000",
+									"name": "X-Ratelimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "9997",
+									"name": "X-Ratelimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "905ad00e-70e1-4068-a04a-dda3e247449b",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.197400",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwehI%2FdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--264f2922a081f33ce150144f3ea51a9bdb53f9e9",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": "{\"salsify:id\":\"345678\",\"salsify:created_at\":\"2018-05-12T17:28:30.423Z\",\"salsify:updated_at\":\"2018-05-12T17:28:30.423Z\",\"salsify:version\":0,\"salsify:profile_asset_id\":null,\"salsify:system_id\":\"s-fdc68563-97ec-49a2-ada2-b10de17fb29f\",\"SKU\":\"345678\",\"Product Name\":\"New Product\"}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"li_allergy_option\": \"Test 2\"\n}"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/:product_id",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "0353403"
+								}
+							]
+						},
+						"description": "Supports bulk update (does not allow UPSERT) with no param"
+					},
+					"response": [
+						{
+							"name": "Successful Update Product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Product Name\": \"Updated Product\"\n}"
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/:product_id",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "345678"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 May 2018 17:30:07 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "10000",
+									"name": "X-Ratelimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "9996",
+									"name": "X-Ratelimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "7d20882d-0f6a-45da-affe-ed1f63a896e0",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.191088",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwehI%2FdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--264f2922a081f33ce150144f3ea51a9bdb53f9e9",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update Product Upsert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n\t\"Product Name\": \"Updated Product Name\"\n}\n]"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/_upsert",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"products",
+								"_upsert"
+							]
+						},
+						"description": "Supports bulk update (does not allow UPSERT) with no param"
+					},
+					"response": [
+						{
+							"name": "Successful Update Product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Product Name\": \"Updated Product\"\n}"
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/:product_id",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "345678"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 May 2018 17:30:07 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "10000",
+									"name": "X-Ratelimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "9996",
+									"name": "X-Ratelimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "7d20882d-0f6a-45da-affe-ed1f63a896e0",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.191088",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwehI%2FdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--264f2922a081f33ce150144f3ea51a9bdb53f9e9",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Bulk Update Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"Product ID\":\"123\",\n    \"Category ID\":\"Updated Category1 ID\"\n  },\n  {\n    \"Product ID\":\"456\",\n    \"Category ID\":\"Updated Category2 ID\"\n  }\n]"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"products",
+								""
+							]
+						},
+						"description": "Supports bulk update (does not allow UPSERT) up to 100 products."
+					},
+					"response": [
+						{
+							"name": "Successful Update Product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Product Name\": \"Updated Product\"\n}"
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/:product_id",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "345678"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 May 2018 17:30:07 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "10000",
+									"name": "X-Ratelimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "9996",
+									"name": "X-Ratelimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "7d20882d-0f6a-45da-affe-ed1f63a896e0",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.191088",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwehI%2FdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--264f2922a081f33ce150144f3ea51a9bdb53f9e9",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/:product_id",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"products",
+								":product_id"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Supports bulk deletion with no param"
+					},
+					"response": [
+						{
+							"name": "Successful Delete Product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Product Name\": \"Updated Product\"\n}"
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/:product_id",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "10001"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 May 2018 17:32:13 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "10000",
+									"name": "X-Ratelimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "9995",
+									"name": "X-Ratelimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "a4deb4b0-6955-4d0e-bdd5-63d2d4d3c531",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.183922",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwehI%2FdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--264f2922a081f33ce150144f3ea51a9bdb53f9e9",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Bulk Delete Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ids\": [\n    \"123\",\n    \"456\"\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"products",
+								""
+							]
+						},
+						"description": "Supports bulk deletion with no param"
+					},
+					"response": [
+						{
+							"name": "Successful Delete Product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"Product Name\": \"Updated Product\"\n}"
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/products/:product_id",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "345678"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 May 2018 17:32:13 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "10000",
+									"name": "X-Ratelimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "9995",
+									"name": "X-Ratelimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "a4deb4b0-6955-4d0e-bdd5-63d2d4d3c531",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.183922",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwehI%2FdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--264f2922a081f33ce150144f3ea51a9bdb53f9e9",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": ""
+						}
+					]
+				}
+			],
+			"description": "# [Salsify Developer Hub documentation](https://developers.salsify.com/v1.0/reference#product-object)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Digital Assets",
+			"item": [
+				{
+					"name": "Bulk Read Digital Assets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/orgs/{{organization_id}}/digital_assets/",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"orgs",
+								"{{organization_id}}",
+								"digital_assets",
+								""
+							],
+							"query": [
+								{
+									"key": "serialize_system_ids",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "250",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Digital Asset",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets/:asset_id",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"digital_assets",
+								":asset_id"
+							],
+							"variable": [
+								{
+									"key": "asset_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Read Digital Assets",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets/:asset_id",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"digital_assets",
+										":asset_id"
+									],
+									"variable": [
+										{
+											"key": "asset_id",
+											"value": "yoda.png"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 May 2018 18:53:40 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1cf293ab865e00730e718c0027198796\"",
+									"name": "Etag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_dandelion_session=BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwc0OPdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--f475adc0f18abc9439f9004d0929c6f7ed5da9ef; path=/; secure; HttpOnly",
+									"name": "Set-Cookie",
+									"description": "an HTTP cookie"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "10000",
+									"name": "X-Ratelimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "9985",
+									"name": "X-Ratelimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "8debb546-9213-4d5e-b88e-b76bae3be13f",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.059428",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwc0OPdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--f475adc0f18abc9439f9004d0929c6f7ed5da9ef",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": "{\"salsify:id\":\"yoda.png\",\"salsify:url\":\"http://images.salsify.com/image/upload/s--QEpEzAxw--/dovtr9fjpfm08nmz28zk.png\",\"salsify:source_url\":\"http://img1.wikia.nocookie.net/__cb20150206140125/starwars/images/d/d6/Yoda_SWSB.png\",\"salsify:name\":\"Yoda_SWSB.png\",\"salsify:created_at\":\"2018-05-12T18:51:37.584Z\",\"salsify:updated_at\":\"2018-05-12T18:51:41.679Z\",\"salsify:status\":\"completed\",\"salsify:asset_height\":1920,\"salsify:asset_width\":1600,\"salsify:asset_resource_type\":\"image\",\"salsify:filename\":\"Yoda_SWSB.png\",\"salsify:bytes\":5339335,\"salsify:format\":\"png\",\"salsify:etag\":\"98970a52ce8e04b8776d6eac1e5fe8f4\",\"salsify:system_id\":\"s-9d6028d1-95dd-4b85-85d7-dcea08df5c22\",\"Foo\":\"Bar\"}"
+						},
+						{
+							"name": "Read Digital Asset",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets/:asset_id?",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"digital_assets",
+										":asset_id"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										},
+										{
+											"key": "serialize_system_ids",
+											"value": "true",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "asset_id",
+											"value": "ebe6bb1204ea023c2064f145002d739d6b80b58a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 28 Oct 2021 04:01:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-download-options",
+									"value": "noopen"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"4abdb286f82e379041198552bee692b0\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "content-encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "set-cookie",
+									"value": "_dandelion_session=ALQ%2FpXJJMnYjHC6Unf8FDaxVXsVadJUUf09bDFxEAeqd%2FZpGI%2Bs9JvEIzzaDOzXx4Jlw1Dw6VyBh3BUhDVMfB3oBPVQ%2FzzLSOY7EwNDzOUQ2moNbl03wUd%2BMSoOQh12OWv5aOVsm2ZFiPvk%3D--DnXCU9pG6PuodUbI--Ka8okSITCs1TKPF%2Fo93DGw%3D%3D; path=/; secure; HttpOnly; SameSite=None"
+								},
+								{
+									"key": "x-request-id",
+									"value": "69586d67-e2c7-4b08-b538-12bc52c72fab"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.067674"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=63072000; includeSubDomains"
+								},
+								{
+									"key": "x-envoy-upstream-service-time",
+									"value": "71"
+								},
+								{
+									"key": "server",
+									"value": "envoy"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"salsify:id\": \"ebe6bb1204ea023c2064f145002d739d6b80b58a\",\n    \"salsify:url\": \"http://images.salsify.com/image/upload/s--vaNnXmPL--/kgdgd74bu21itwjdcklp.jpg\",\n    \"salsify:name\": \"DeleteMe1.jpg\",\n    \"salsify:created_at\": \"2021-08-10T14:22:56.246Z\",\n    \"salsify:updated_at\": \"2021-10-28T04:01:17.262Z\",\n    \"salsify:status\": \"completed\",\n    \"salsify:asset_height\": 908,\n    \"salsify:asset_width\": 1500,\n    \"salsify:asset_resource_type\": \"image\",\n    \"salsify:filename\": \"DeleteMe1.jpg\",\n    \"salsify:bytes\": 244520,\n    \"salsify:format\": \"jpg\",\n    \"salsify:etag\": \"51d14b3f31201e3cf95cc94144e6a43f\",\n    \"salsify:system_id\": \"s-64bf5207-d81c-48a9-8dd0-7469f900bf3c\",\n    \"Brand\": \"Bacterium Busters\",\n    \"Cost\": \"500\",\n    \"Brand Website\": \"http://google.com\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Bulk Create Digital Assets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"salsify:id\": \"kitty.png\",\n    \"salsify:source_url\": \"https://images.pexels.com/photos/62321/kitten-cat-fluffy-cat-cute-62321.jpeg?auto=compress&cs=tinysrgb&h=650&w=940.png\"\n  },\n  {\n    \"salsify:source_url\": \"https://images.pexels.com/photos/774731/pexels-photo-774731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\"\n  }\n]"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets?serialize_system_ids=true",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"digital_assets"
+							],
+							"query": [
+								{
+									"key": "serialize_system_ids",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Digital Asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{ \n\t\"salsify:id\":\"2e933e095ba6d4fb9f7488669e6a12b87d04eab0\",\n\t\"salsify:source_url\":\"https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg\"\n}]"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets/",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"digital_assets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Digital Assets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets/refresh",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"digital_assets",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh Digital Asset",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t\"yoda.png\", \"Black Cat\"\n]"
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets/refresh",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orgs",
+										"{{organization_id}}",
+										"digital_assets",
+										"refresh"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 May 2018 18:58:16 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"44136fa355b3678a1146ad16f7e8649e\"",
+									"name": "Etag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "10000",
+									"name": "X-Ratelimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "9982",
+									"name": "X-Ratelimit-Remaining",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "1b479715-d227-4467-8f8b-21ecbb3e97f4",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.104502",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwc0OPdaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB5jD9FpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKweYw%2FRa--f475adc0f18abc9439f9004d0929c6f7ed5da9ef",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "Delete Digital Assets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets/:asset_id",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"digital_assets",
+								":asset_id"
+							],
+							"variable": [
+								{
+									"key": "asset_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Delete Digital Assets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n\t\"id1\", \"serialized-id\"\n]"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"digital_assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Digital Asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[  \n        {\n\"salsify:id\": \"fe638e4ccccc751a04f656c90facdad6080b6bda\",\n\"salsify:name\": \"teacup\",\n\"salsify:url\":\"https://i.pinimg.com/236x/e7/a5/48/e7a548ac373e6092ca388444d83e3587--little-pigs-little-babies.jpg\",\n\"Asset Metadata Property\": \"344 x 323\"\n    }\n]\n"
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/v1/orgs/{{organization_id}}/digital_assets/_upsert",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orgs",
+								"{{organization_id}}",
+								"digital_assets",
+								"_upsert"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "JSON Import",
+			"item": [
+				{
+					"name": "1. Create a Mount Point",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Initialize the response and form_data variables",
+									"let response = pm.response.json();",
+									"let mount_url = response.url;",
+									"let mount_key = response.form_data.key;",
+									"let mount_encrypt = response.form_data['x-amz-server-side-encryption'];",
+									"let mount_acl = response.form_data.acl;",
+									"let mount_policy = response.form_data.policy;",
+									"let mount_creds = response.form_data['x-amz-credential'];",
+									"let mount_algorithm = response.form_data['x-amz-algorithm'];",
+									"let mount_date = response.form_data['x-amz-date'];",
+									"let mount_sig = response.form_data['x-amz-signature'];",
+									"",
+									"// Set environment variables",
+									"pm.environment.set(\"mount_url\", mount_url);",
+									"pm.environment.set(\"mount_key\", mount_key);",
+									"pm.environment.set(\"mount_encrypt\", mount_encrypt);",
+									"pm.environment.set(\"mount_acl\", mount_acl);",
+									"pm.environment.set(\"mount_policy\", mount_policy);",
+									"pm.environment.set(\"mount_creds\", mount_creds);",
+									"pm.environment.set(\"mount_algorithm\", mount_algorithm);",
+									"pm.environment.set(\"mount_date\", mount_date);",
+									"pm.environment.set(\"mount_sig\", mount_sig);",
+									"",
+									"// Check for the correct response codes",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}"
+							},
+							{
+								"key": "{{x-auth-organization-id}}",
+								"value": "{{super_org_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/orgs/{{organization_id}}/imports/upload_mounts",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"orgs",
+								"{{organization_id}}",
+								"imports",
+								"upload_mounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Mount Point Creation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/orgs/{{organization_id}}/imports/upload_mounts",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"orgs",
+										"{{organization_id}}",
+										"imports",
+										"upload_mounts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 May 2018 22:34:48 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"64df3d67466f584f35d8ac692126e99f\"",
+									"name": "Etag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "b03d442a-a2be-4b25-8003-71119d7631dd",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.044680",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwevJ%2BpaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB7Uj8lpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKwe1I%2FJa--44ff90e5531242b5ef080437d51f0b17054859e2",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": "{\"url\":\"https://salsify-dandelion.s3-external-1.amazonaws.com\",\"form_data\":{\"key\":\"1/7773/user_data_import/1/2018/05/08/22:34:49-fe493802\",\"x-amz-server-side-encryption\":\"aws:kms\",\"acl\":\"private\",\"policy\":\"eyJleHBpcmF0aW9uIjoiMjAxOC0wNS0wOFQyMzozNDo0OVoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJzYWxzaWZ5LWRhbmRlbGlvbiJ9LHsia2V5IjoiMS83NzczL3VzZXJfZGF0YV9pbXBvcnQvMS8yMDE4LzA1LzA4LzIyOjM0OjQ5LWZlNDkzODAyIn0seyJ4LWFtei1zZXJ2ZXItc2lkZS1lbmNyeXB0aW9uIjoiYXdzOmttcyJ9LHsiYWNsIjoicHJpdmF0ZSJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwiMS83NzczL3VzZXJfZGF0YV9pbXBvcnQvMS8yMDE4LzA1LzA4LzIyOjM0OjQ5LWZlNDkzODAyIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCw1MjQyODgwMDBdLHsieC1hbXotY3JlZGVudGlhbCI6IkFLSUFKU0FVSE5aSFpHTFVEWERBLzIwMTgwNTA4L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE4MDUwOFQyMjM0NDlaIn1dfQ==\",\"x-amz-credential\":\"AKIAJSAUHNZHZGLUDXDA/20180508/us-east-1/s3/aws4_request\",\"x-amz-algorithm\":\"AWS4-HMAC-SHA256\",\"x-amz-date\":\"20180508T223449Z\",\"x-amz-signature\":\"28f3c2aa8ae3094ad5f8e7a536e4eb07d0185837686cd9e7db23a21891865c34\"}}"
+						}
+					]
+				},
+				{
+					"name": "2. Upload to a Mount Point",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Set upload_file filename",
+									"let upload_file = request.data[\"file\"].path;",
+									"pm.environment.set(\"upload_file\", upload_file);",
+									"",
+									"// Check for the correct response codes",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([204]);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "key",
+									"value": "{{mount_key}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-server-side-encryption",
+									"value": "{{mount_encrypt}}",
+									"type": "text"
+								},
+								{
+									"key": "acl",
+									"value": "{{mount_acl}}",
+									"type": "text"
+								},
+								{
+									"key": "policy",
+									"value": "{{mount_policy}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-credential",
+									"value": "{{mount_creds}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-algorithm",
+									"value": "{{mount_algorithm}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-date",
+									"value": "{{mount_date}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-signature",
+									"value": "{{mount_sig}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{mount_url}}",
+							"host": [
+								"{{mount_url}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Upload to a Mount Point",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "key",
+											"value": "{{mount_key}}",
+											"type": "text"
+										},
+										{
+											"key": "x-amz-server-side-encryption",
+											"value": "{{mount_encrypt}}",
+											"type": "text"
+										},
+										{
+											"key": "acl",
+											"value": "{{mount_acl}}",
+											"type": "text"
+										},
+										{
+											"key": "policy",
+											"value": "{{mount_policy}}",
+											"type": "text"
+										},
+										{
+											"key": "x-amz-credential",
+											"value": "{{mount_creds}}",
+											"type": "text"
+										},
+										{
+											"key": "x-amz-algorithm",
+											"value": "{{mount_algorithm}}",
+											"type": "text"
+										},
+										{
+											"key": "x-amz-date",
+											"value": "{{mount_date}}",
+											"type": "text"
+										},
+										{
+											"key": "x-amz-signature",
+											"value": "{{mount_sig}}",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{mount_url}}",
+									"host": [
+										"{{mount_url}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 May 2018 03:18:56 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"62ab5d5c3d7f1872eb6a252c97e43caa\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Location",
+									"value": "https://salsify-dandelion.s3-external-1.amazonaws.com/1%2F7773%2Fuser_data_import%2F1%2F2018%2F05%2F09%2F03%3A18%3A28-535fba38",
+									"name": "Location",
+									"description": "Used in redirection, or when a new resource has been created."
+								},
+								{
+									"key": "Server",
+									"value": "AmazonS3",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "x-amz-id-2",
+									"value": "2ND5xva1whCamJNOqxb6dE0xarcrSi2gWIsId7bjT3WT1gNygVcJMjQ+mm13lEiZppg84OGHri4=",
+									"name": "x-amz-id-2",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-request-id",
+									"value": "D86A5AB236C64D99",
+									"name": "x-amz-request-id",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-server-side-encryption",
+									"value": "aws:kms",
+									"name": "x-amz-server-side-encryption",
+									"description": "Custom header"
+								},
+								{
+									"key": "x-amz-server-side-encryption-aws-kms-key-id",
+									"value": "arn:aws:kms:us-east-1:106828871082:key/b558d9e6-4fac-4f6a-bf50-7b3d384bc7c4",
+									"name": "x-amz-server-side-encryption-aws-kms-key-id",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "3. Kick Off Import Run",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Set import run id",
+									"let response = pm.response.json();",
+									"let import_run_id = response.id;",
+									"pm.environment.set(\"import_run_id\", import_run_id);",
+									"",
+									"// Check for the correct response codes",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}"
+							},
+							{
+								"key": "{{x-auth-organization-id}}",
+								"value": "{{super_org_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://app.salsify.com/api/orgs/{{organization_id}}/imports/{{import_id}}/runs",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"orgs",
+								"{{organization_id}}",
+								"imports",
+								"{{import_id}}",
+								"runs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Kick Off Import Run",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://app.salsify.com/api/orgs/{{organization_id}}/imports/{{import_id}}/runs",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"orgs",
+										"{{organization_id}}",
+										"imports",
+										"{{import_id}}",
+										"runs"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 May 2018 22:35:50 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"e6d5de6e61001179a9d86ceb4827d83b\"",
+									"name": "Etag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "325d9b94-2be1-4472-ac05-783dab184f11",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.209758",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwevJ%2BpaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB7Uj8lpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKwe1I%2FJa--44ff90e5531242b5ef080437d51f0b17054859e2",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": "{\"id\":1057860,\"status\":\"running\",\"status_summary\":\"\",\"start_time\":\"2018-05-08T22:35:51.072Z\",\"end_time\":null,\"duration\":0.14045685,\"failure_reason\":null,\"progress\":0,\"stage_data\":[{\"id\":\"queued\",\"statistics\":[{\"id\":\"queued_position\",\"value\":0},{\"id\":\"queued_behind_import_run_ids\",\"value\":[]}],\"errors\":null,\"total_errors\":0,\"progress\":100,\"begin\":\"2018-05-08T22:35:51.000Z\",\"end\":\"2018-05-08T22:35:51.000Z\",\"duration\":0},{\"id\":\"schema\",\"statistics\":[{\"id\":\"bytes_available\",\"value\":0},{\"id\":\"bytes_parsed\",\"value\":0},{\"id\":\"attributes_auto_created\",\"value\":0},{\"id\":\"attributes_queued\",\"value\":0},{\"id\":\"attributes_processed\",\"value\":0},{\"id\":\"attributes_added\",\"value\":0},{\"id\":\"attributes_updated\",\"value\":0},{\"id\":\"attributes_deleted\",\"value\":0},{\"id\":\"attribute_values_queued\",\"value\":0},{\"id\":\"attribute_values_processed\",\"value\":0},{\"id\":\"attribute_values_added\",\"value\":0},{\"id\":\"attribute_values_updated\",\"value\":0},{\"id\":\"attribute_values_deleted\",\"value\":0},{\"id\":\"attribute_groups_added\",\"value\":0}],\"errors\":null,\"total_errors\":0,\"progress\":0,\"begin\":null,\"end\":null,\"duration\":null},{\"id\":\"digital_assets\",\"statistics\":[{\"id\":\"digital_assets_queued\",\"value\":0},{\"id\":\"attributes_auto_created\",\"value\":0},{\"id\":\"digital_assets_processed\",\"value\":0},{\"id\":\"digital_assets_queued_for_download\",\"value\":0},{\"id\":\"digital_assets_added\",\"value\":0},{\"id\":\"digital_assets_updated\",\"value\":0},{\"id\":\"digital_assets_deleted\",\"value\":0}],\"errors\":null,\"total_errors\":0,\"progress\":0,\"begin\":null,\"end\":null,\"duration\":null},{\"id\":\"products\",\"statistics\":[{\"id\":\"products_processed\",\"value\":0},{\"id\":\"products_queued\",\"value\":0},{\"id\":\"products_added\",\"value\":0},{\"id\":\"products_updated\",\"value\":0},{\"id\":\"products_deleted\",\"value\":0},{\"id\":\"products_optimized_for_search\",\"value\":0},{\"id\":\"attributes_auto_created\",\"value\":0}],\"errors\":null,\"total_errors\":0,\"progress\":0,\"begin\":null,\"end\":null,\"duration\":null},{\"id\":\"relations\",\"statistics\":[{\"id\":\"relations_processed\",\"value\":0},{\"id\":\"relations_queued\",\"value\":0},{\"id\":\"relations_added\",\"value\":0},{\"id\":\"relations_updated\",\"value\":0},{\"id\":\"relations_deleted\",\"value\":0}],\"errors\":null,\"total_errors\":0,\"progress\":0,\"begin\":null,\"end\":null,\"duration\":null}],\"import_source_filename\":null,\"import_source_archive_url\":null,\"creator\":{\"id\":\"support@salsify.com\",\"email\":\"support@salsify.com\",\"name\":\"Salsify Support\",\"disabled\":false},\"import\":{\"id\":379587,\"name\":\"/Users/evan/Documents/evan-import.json\",\"import_source\":{\"type\":\"upload_import_source\",\"type_label\":\"Upload\",\"file\":\"/Users/evan/Documents/evan-import.json\",\"upload_path\":\"1/7773/user_data_import/1/2018/05/08/22:34:49-fe493802\"},\"import_format\":{\"type\":\"json_import_format\",\"type_label\":\"JSON\"},\"webhook_notification\":null,\"email_notification\":null,\"schedule\":null}}"
+						}
+					]
+				},
+				{
+					"name": "4. Get Import Run Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Set import run id",
+									"let response = pm.response.json();"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}"
+							},
+							{
+								"key": "{{x-auth-organization-id}}",
+								"value": "{{super_org_id}}"
+							}
+						],
+						"url": {
+							"raw": "https://app.salsify.com/api/orgs/{{organization_id}}/imports/:import_id/runs/:import_run_id",
+							"protocol": "https",
+							"host": [
+								"app",
+								"salsify",
+								"com"
+							],
+							"path": [
+								"api",
+								"orgs",
+								"{{organization_id}}",
+								"imports",
+								":import_id",
+								"runs",
+								":import_run_id"
+							],
+							"variable": [
+								{
+									"key": "import_id",
+									"value": "{{import_id}}"
+								},
+								{
+									"key": "import_run_id",
+									"value": "{{import_run_id}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Get Import Run Status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}"
+									},
+									{
+										"key": "{{x-auth-organization-id}}",
+										"value": "{{super_org_id}}"
+									}
+								],
+								"url": {
+									"raw": "https://app.salsify.com/api/orgs/{{organization_id}}/imports/{{import_id}}/runs/{{import_run_id}}",
+									"protocol": "https",
+									"host": [
+										"app",
+										"salsify",
+										"com"
+									],
+									"path": [
+										"api",
+										"orgs",
+										"{{organization_id}}",
+										"imports",
+										"{{import_id}}",
+										"runs",
+										"{{import_run_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": "The type of encoding used on the data."
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 May 2018 22:36:02 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"5a3e0feac19fcbec98df6449b1a2a1f1\"",
+									"name": "Etag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "Cowboy",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_dandelion_session=BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwevJ%2BpaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB1Mm8lpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKwdTJvJa--744483eecde701ead9e43f5a27cfd881ec279a85; path=/; secure; HttpOnly",
+									"name": "Set-Cookie",
+									"description": "an HTTP cookie"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"name": "Vary",
+									"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur",
+									"name": "Via",
+									"description": "Informs the client of proxies through which the response was sent."
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "1010de23-c3f0-4295-b851-02c2b3518b84",
+									"name": "X-Request-Id",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.063289",
+									"name": "X-Runtime",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1; mode=block",
+									"name": "X-Xss-Protection",
+									"description": "Cross-site scripting (XSS) filter"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": true,
+									"domain": "app.salsify.com",
+									"path": "/",
+									"secure": true,
+									"value": "BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTFiNTVkNTgxZDA5NmY4ZDU3YTkyMzk5YmNiZWFhNzY0BjsAVEkiHXdhcmRlbi51c2VyLnVzZXIuc2Vzc2lvbgY7AFR7BkkiFHNlc3Npb25fY3JlYXRlZAY7AFRsKwevJ%2BpaSSIid2FyZGVuLnVzZXIuc3VwZXJ1c2VyLnNlc3Npb24GOwBUewZACmwrB1Mm8lpJIiR3YXJkZW4udXNlci5zeXN0ZW1fdXNlci5zZXNzaW9uBjsAVHsGQApsKwdTJvJa--744483eecde701ead9e43f5a27cfd881ec279a85",
+									"key": "_dandelion_session"
+								}
+							],
+							"body": "{\"id\":1057860,\"status\":\"completing\",\"status_summary\":\"\",\"start_time\":\"2018-05-08T22:35:51.783Z\",\"end_time\":null,\"duration\":11.767656148,\"failure_reason\":null,\"progress\":100,\"stage_data\":[{\"id\":\"queued\",\"statistics\":[{\"id\":\"queued_position\",\"value\":0},{\"id\":\"queued_behind_import_run_ids\",\"value\":[]}],\"errors\":null,\"total_errors\":0,\"progress\":100,\"begin\":\"2018-05-08T22:35:51.000Z\",\"end\":\"2018-05-08T22:35:51.000Z\",\"duration\":0},{\"id\":\"schema\",\"statistics\":[{\"id\":\"bytes_available\",\"value\":1452},{\"id\":\"bytes_parsed\",\"value\":1452},{\"id\":\"attributes_auto_created\",\"value\":0},{\"id\":\"attributes_queued\",\"value\":3},{\"id\":\"attributes_processed\",\"value\":3},{\"id\":\"attributes_added\",\"value\":0},{\"id\":\"attributes_updated\",\"value\":0},{\"id\":\"attributes_deleted\",\"value\":0},{\"id\":\"attribute_values_queued\",\"value\":1},{\"id\":\"attribute_values_processed\",\"value\":1},{\"id\":\"attribute_values_added\",\"value\":0},{\"id\":\"attribute_values_updated\",\"value\":0},{\"id\":\"attribute_values_deleted\",\"value\":0},{\"id\":\"attribute_groups_added\",\"value\":0}],\"errors\":null,\"total_errors\":0,\"progress\":100,\"begin\":\"2018-05-08T22:35:51.000Z\",\"end\":\"2018-05-08T22:35:54.000Z\",\"duration\":3},{\"id\":\"digital_assets\",\"statistics\":[{\"id\":\"digital_assets_queued\",\"value\":0},{\"id\":\"attributes_auto_created\",\"value\":0},{\"id\":\"digital_assets_processed\",\"value\":0},{\"id\":\"digital_assets_queued_for_download\",\"value\":0},{\"id\":\"digital_assets_added\",\"value\":0},{\"id\":\"digital_assets_updated\",\"value\":0},{\"id\":\"digital_assets_deleted\",\"value\":0}],\"errors\":null,\"total_errors\":0,\"progress\":100,\"begin\":\"2018-05-08T22:35:54.000Z\",\"end\":\"2018-05-08T22:35:54.000Z\",\"duration\":0},{\"id\":\"products\",\"statistics\":[{\"id\":\"products_processed\",\"value\":2},{\"id\":\"products_queued\",\"value\":2},{\"id\":\"products_added\",\"value\":2},{\"id\":\"products_updated\",\"value\":0},{\"id\":\"products_deleted\",\"value\":0},{\"id\":\"products_optimized_for_search\",\"value\":2},{\"id\":\"attributes_auto_created\",\"value\":0}],\"errors\":null,\"total_errors\":0,\"progress\":100,\"begin\":\"2018-05-08T22:35:54.000Z\",\"end\":\"2018-05-08T22:35:55.000Z\",\"duration\":1},{\"id\":\"relations\",\"statistics\":[{\"id\":\"relations_processed\",\"value\":1},{\"id\":\"relations_queued\",\"value\":1},{\"id\":\"relations_added\",\"value\":1},{\"id\":\"relations_updated\",\"value\":0},{\"id\":\"relations_deleted\",\"value\":0}],\"errors\":null,\"total_errors\":0,\"progress\":100,\"begin\":\"2018-05-08T22:35:55.000Z\",\"end\":\"2018-05-08T22:35:55.000Z\",\"duration\":0}],\"import_source_filename\":\"/Users/evan/Documents/evan-import.json\",\"import_source_archive_url\":\"https://salsify-dandelion.s3-external-1.amazonaws.com/1/7773/user_data_import/1/2018/05/08/22%3A35%3A51-225a3e37?response-content-disposition=attachment%3B%20filename%3D%22%2FUsers%2Fevan%2FDocuments%2Fevan-import.json%22&response-content-type=application%2Fjson&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSAUHNZHZGLUDXDA%2F20180508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180508T223603Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=52dcb4c8c0f9ee6f6a0484e1fbc74b7f68ee8208d61136b6e3fd15d7caa7ba9e\",\"creator\":{\"id\":\"support@salsify.com\",\"email\":\"support@salsify.com\",\"name\":\"Salsify Support\",\"disabled\":false},\"import\":{\"id\":379587,\"name\":\"/Users/evan/Documents/evan-import.json\",\"import_source\":{\"type\":\"upload_import_source\",\"type_label\":\"Upload\",\"file\":\"/Users/evan/Documents/evan-import.json\",\"upload_path\":\"1/7773/user_data_import/1/2018/05/08/22:34:49-fe493802\"},\"import_format\":{\"type\":\"json_import_format\",\"type_label\":\"JSON\"},\"webhook_notification\":null,\"email_notification\":null,\"schedule\":null}}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if (pm.environment.get('isSuperuser') == 'true') {",
+					"    pm.environment.unset('organization_id');",
+					"    pm.environment.set('x-auth-organization-id', 'X-AUTH-ORGANIZATION-ID');",
+					"    let org_id = pm.environment.get('super_org_id');",
+					"    pm.sendRequest(",
+					"        {",
+					"            url: 'https://app.salsify.com/api/admin/organizations/' + org_id + '?serialize_system_ids=true',",
+					"            method: 'GET',",
+					"            header: {'Authorization': pm.environment.get('auth')}",
+					"        }, ",
+					"        function (err, res) {",
+					"            if (res.code === 401) {",
+					"                console.warn(\"401 error: Check that your superuser token is correct\");",
+					"            }",
+					"            pm.environment.set('organization_id', res.json().organization.id);",
+					"            pm.environment.set('organization_name', res.json().organization.name);",
+					"        }",
+					"    );",
+					"} else {",
+					"    pm.environment.set('x-auth-organization-id',null);",
+					"    pm.environment.set('super_org_id',null);",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Includes some feedback on errors",
+					"if (pm.response.code === 404) {",
+					"    console.warn(\"404 error: Check that the endpoint is correct\");",
+					"} else if (pm.response.code === 500) {",
+					"    console.warn(\"500 error: This may be a Salsify issue; try again or contact Support\");",
+					"} else if (pm.response.code === 400) {",
+					"    console.warn(\"400 error: Check the syntax of your request\");",
+					"} else if (pm.response.code === 401) {",
+					"    console.warn(\"401 error: You are not authorized to do that\");",
+					"} else if (pm.response.code === 429) {",
+					"    console.warn(\"429 error: You have exceeded the rate limit; contact Support\");",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "organization_id",
+			"value": "s-99999999-9999-9999-9999-999999999999"
+		},
+		{
+			"key": "isSuperuser",
+			"value": "false"
+		},
+		{
+			"key": "x-auth-organization-id",
+			"value": ""
+		},
+		{
+			"key": "super_org_id",
+			"value": ""
+		}
+	]
+}

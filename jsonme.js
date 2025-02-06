@@ -1,5 +1,4 @@
-var TEST = true
-var MOCK = "";
+var LOCALE = "en-GB";
 
 function beeceptor(path, content) {
     var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
@@ -10,7 +9,7 @@ function beeceptor(path, content) {
 
 function salsify(path, method = 'GET', payload = null, version = 'v1') {
     if(TEST) {
-        return MOCK;
+        console.log('Salsify call not allowed at TEST time');
     } else {
         return salsify_request(path, method, payload, version);
     }
@@ -18,16 +17,34 @@ function salsify(path, method = 'GET', payload = null, version = 'v1') {
 
 function fetchRecord(id) {
     if(TEST) {
-        return MOCK;
+        return load_mock(snake_case(id));
     } else {
         const PATH = '/products/';
         return salsify(PATH + id);
     }
 }
 
+function fetchProduct(id) {
+    if(TEST) {
+        return load_mock(snake_case(id));
+    } else {
+        const PATH = '/products/';
+        return salsify(PATH + id);
+    }
+}
+
+function fetchPropertyRecord(record_id) {
+    if(TEST) {
+        return load_mock(snake_case(record_id));
+    } else {
+        const PATH = '/records/';
+        return salsify(PATH + record_id);
+    }
+}
+
 function fetchFAQ(id) {
     if(TEST) {
-        return MOCK;
+        return load_mock(snake_case(record_id));
     } else {
         const PATH = '/records/';
         return salsify(PATH + id);
@@ -36,7 +53,7 @@ function fetchFAQ(id) {
 
 function fetchPageRecords(topId, page) {
     if(TEST) {
-        return MOCK;
+        console.log('fetchPageRecords not implemented in TEST mode');
     } else {
         const PATH = `/records?filter=='salsify:ancestor_ids':'${encodeURIComponent(topId)}'&per_page=100&page=${page}`;
         return salsify(PATH);
@@ -94,9 +111,7 @@ function buildNestedStructure(root, records) {
 }
 
 function main() {
-    if(TEST) {
-        return MOCK;
-    } else {
+    if(!TEST) {
         const startTime = new Date();
         const rootId = context.entity.external_id;
         const rootRecord = fetchRecord(rootId, null);

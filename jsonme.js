@@ -49,6 +49,7 @@ function fetchEnumerated(id) {
           return_status: true
         };
         response = web_request(PATH, method, payload, headers, options);
+        return response;
         // const PATH = '/properties/' + encodeURIComponent(id) + '/enumerated_values'
         // return salsify(PATH);
     }

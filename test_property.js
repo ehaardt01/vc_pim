@@ -1,0 +1,28 @@
+function beeceptor(path, content) {
+    var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
+    const METHOD = 'post';
+    const URL = DOMAIN + path;
+    web_request(URL, METHOD, content); // fixed parameter assignment
+}
+
+function fetchEnumerated(id) {
+    if(TEST) {
+        return load_mock(snake_case(id));
+    } else {
+        const PATH = 'https://app.salsify.com/api/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/properties/Country%20Markets/enumerated_values';
+        const method = "get";
+        const payload = {};
+        const headers = {
+          Authorization: "Bearer H_TijzVgjG2Mr-fikMWtT9vjDmZJOx-bbWsWc8mAmqQ",
+          "Content-Type": "application/json"
+        };
+        const options = {
+          return_status: true
+        };
+        response = web_request(PATH, method, payload, headers, options);
+        // const PATH = '/properties/' + encodeURIComponent(id) + '/enumerated_values'
+        // return salsify(PATH);
+    }
+    return response;
+}
+beeceptor('/product/create_or_update?locale=fr-FR', fetchEnumerated("DWD"));

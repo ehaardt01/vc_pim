@@ -144,6 +144,8 @@ function buildNestedStructure(root, records) {
 }
 
 const properties = [
+    {name: "ID", type: "string", export_name: "id"},
+    {name: "salsify:parent_id", type: "string", export_name: "parent"},
     {name: "salsify:created_at", type: "date", export_name: "created_at"},
     {name: "salsify:updated_at", type: "date", export_name: "updated_at"},
     {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
@@ -151,7 +153,6 @@ const properties = [
     {name: "salsify:version", type: "number", export_name: "version"},
     {name: "salsify:profile_asset_id", type: "string", export_name: "profile_asset_id"},
     {name: "salsify:system_id", type: "string", export_name: "system_id"},
-    {name: "ID", type: "string", export_name: "id"},
     {name: "Group Species", type: "enumerated", export_name: "group_species"},
     {name: "Default Sales Price", type: "number", export_name: "default_sales_price"},
     {name: "LIB_MARQUE", type: "string", export_name: "lib_marque"},
@@ -169,8 +170,10 @@ const properties = [
     {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
     {name: "Key figures", type: "string", export_name: "key_figures"},
     {name: "Computed property", type: "string", computing_function: my_specific_computing_function},
-    {name: "Parent", type: "parent", export_name: "parent"},
     {name: "Children", type: "children", export_name: "children"},
+    {name: "locale", type: "locale", export_name: "locale"},
+    {name: "status", type: "status", export_name: "status"},
+    {name: "related_products", type: "related_products", export_name: "related_products"},
 ];
 
 const salsify_property_types = {
@@ -185,8 +188,10 @@ const salsify_property_types = {
     "date": property_load_default,
     "boolean": property_load_default,
     "computed": property_load_computed,
-    "parent": property_load_parent,
     "children": property_load_children,
+    "locale": property_load_locale,
+    "status": property_load_status,
+    "related_products": property_load_related_products,
 };
 
 /**
@@ -481,7 +486,32 @@ function property_load_computed(record, configured_property, property_value) {
     return record;
 }
 
-function property_load_parent(record, configured_property, property_value) {
+/**
+ * Loads locale information into a record.
+ * @param {Object} record - The record object to be modified.
+ * @param {Object} configured_property - The configured property settings (not used in function).
+ * @param {*} property_value - The property value (not used in function).
+ * @returns {Object} The modified record with locale information.
+ */
+function property_load_locale(record, configured_property, property_value) {
+    property_export_name = get_property_export_name(configured_property)
+    record[property_export_name] = LOCALE;
+    return record;
+}
+
+function property_load_status(record, configured_property, property_value) {
+    property_export_name = get_property_export_name(configured_property)
+    record[property_export_name] = "active";
+    return record;
+}
+
+function property_load_related_products(record, configured_property, property_value) {
+    property_export_name = get_property_export_name(configured_property)
+    record[property_export_name] = [
+        {"id": "12345"},
+        {"id": "12346"},
+        {"id": "12347"},
+    ];
     return record;
 }
 

@@ -38,8 +38,19 @@ function fetchEnumerated(id) {
     if(TEST) {
         return load_mock(snake_case(id));
     } else {
-        const PATH = '/properties/' + encodeURIComponent(id) + '/enumerated_values'
-        return salsify(PATH);
+        const PATH = 'https://app.salsify.com/api/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/properties/Country%20Markets/enumerated_values';
+        // const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/children_property_mock.json';
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', PATH, false);
+        xhr.send();
+        if (xhr.status === 200) {
+            return JSON.parse(xhr.responseText);
+        } else {
+            console.error('Error loading JSON file : ' + PATH, xhr.statusText);
+            return undefined;
+        }
+        // const PATH = '/properties/' + encodeURIComponent(id) + '/enumerated_values'
+        // return salsify(PATH);
     }
 }
 

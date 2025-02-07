@@ -143,9 +143,23 @@ function buildNestedStructure(root, records) {
   return rootRecord;
 }
 
+/**
+ * Array of property configurations for a product data model
+ * @type {Array<{
+ *   name: string,                    // Display name of the property
+ *   type: string,                    // Data type ('string'|'date'|'number'|'boolean'|'enumerated'|'product'|'rich_text'|'children'|'locale'|'status'|'related_products')
+ *   export_name?: string,            // Name used when exporting the property
+ *   values?: Array<{                 // Sub-properties for 'product' type
+ *     name: string,                  // Display name of the sub-property
+ *     type: string,                  // Data type of the sub-property
+ *     export_name: string            // Export name of the sub-property
+ *   }>,
+ *   computing_function?: Function    // Optional function for computed properties
+ * }>}
+ */
 const properties = [
     {name: "ID", type: "string", export_name: "id"},
-    {name: "salsify:parent_id", type: "string", export_name: "parent"},
+    {name: "salsify:parent_id", type: "string", export_name: "parent_id"},
     {name: "salsify:created_at", type: "date", export_name: "created_at"},
     {name: "salsify:updated_at", type: "date", export_name: "updated_at"},
     {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
@@ -176,6 +190,26 @@ const properties = [
     {name: "related_products", type: "related_products", export_name: "related_products"},
 ];
 
+/**
+ * Mapping of Salsify property types to their corresponding loader functions.
+ * @constant
+ * @type {Object.<string, Function>}
+ * @property {Function} string - Default loader for string properties
+ * @property {Function} rich_text - Default loader for rich text properties
+ * @property {Function} quantified_product - Loader for quantified product properties
+ * @property {Function} product - Loader for product properties
+ * @property {Function} number - Default loader for numeric properties
+ * @property {Function} html - Default loader for HTML properties
+ * @property {Function} enumerated - Loader for enumerated properties
+ * @property {Function} digital_asset - Loader for digital asset properties
+ * @property {Function} date - Default loader for date properties
+ * @property {Function} boolean - Default loader for boolean properties
+ * @property {Function} computed - Loader for computed properties
+ * @property {Function} children - Loader for children properties
+ * @property {Function} locale - Loader for locale properties
+ * @property {Function} status - Loader for status properties
+ * @property {Function} related_products - Loader for related products properties
+ */
 const salsify_property_types = {
     "string": property_load_default,
     "rich_text": property_load_default,
@@ -475,10 +509,14 @@ function property_load_enumerated(record, configured_property, property_value) {
         }
         mapped_values[enumerated_value.id] = {localized_name: localized_name};
     });
+    records = []
     enumerated_values.forEach(enumerated_value => {
         localized_name = mapped_values[enumerated_value].localized_name;
-        record[property_export_name] = {key: enumerated_value, value: localized_name};
+        records.push({key: enumerated_value, value: localized_name});
     });
+    if ((records.length !== 0) || RETURN_NULL_VALUES) {
+        record[property_export_name] = records;
+    }
     return record;
 }
 

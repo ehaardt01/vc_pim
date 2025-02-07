@@ -269,7 +269,7 @@ function load_mock(id) {
         return JSON.parse(xhr.responseText);
     } else {
         console.error('Error loading JSON file : ' + PATH, xhr.statusText);
-        return null;
+        return undefined;
     }
 }
 
@@ -321,7 +321,7 @@ function get_localized_value(value) {
             return value[LOCALE];
         }
     }
-    return null;
+    return undefined;
 }
 
 /**
@@ -422,6 +422,18 @@ function property_load_enumerated(record, configured_property, property_value) {
             console.error('Unexpected type for ' + property_id + ' in ' + record);
             break;
     }
+    mapped_values = {};
+    property_descriptor.data.forEach(enumerated_value => {
+        localized_name = get_localized_value(enumerated_value.localized_names);
+        if (localized_name === undefined) {
+            localized_name = enumerated_value.name;
+        }
+        mapped_values[enumerated_value.id] = {localized_name: localized_name};
+    });
+    enumerated_values.forEach(enumerated_value => {
+        localized_name = mapped_values[enumerated_value].localized_name;
+        record[property_export_name] = {key: enumerated_value, enumerated_value: localized_name};
+    });
     return record;
 }
 

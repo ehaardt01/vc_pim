@@ -478,6 +478,8 @@ function property_load_product(record, configured_property, property_value) {
  * 4. Adding processed values to the record using configured export name
  */
 function property_load_enumerated(record, configured_property, property_value) {
+    record[get_property_export_name(configured_property)] = get_property_export_name(configured_property);
+    return;
     if (configured_property.name === undefined) {
         console.error('property_name is missing in ' + configured_property);
         record[get_property_export_name(configured_property)] = 'property_name is missing in ' + configured_property;

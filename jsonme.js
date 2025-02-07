@@ -417,7 +417,7 @@ function property_load_product(record, configured_property, property_value) {
             }
             break;
         default:
-            console.error('Unexpected type for ' + property_id + ' in ' + rootRecord);
+            console.error('Unexpected type for ' + property_id + ' in ' + record.id);
             break;
     }
     return record;
@@ -542,7 +542,6 @@ function property_load_children(record, configured_property, property_value) {
     const PARENT_ID = "salsify:parent_id";
     const rootId = record["id"];
     const recordMap = {};
-    const rootRecord = record;
     children = [];
     const childRecords = fetchChildRecords(rootId);
     childRecords.forEach(childRecord => { // Create a map of records by ID for quick lookup
@@ -580,9 +579,9 @@ function property_load_children(record, configured_property, property_value) {
         }
     });
     if ((children.length !== 0) || RETURN_NULL_VALUES) {
-        rootRecord[get_property_export_name(configured_property)] = children;
+        record[get_property_export_name(configured_property)] = children;
     }
-    return rootRecord;
+    return record;
 }
 
 /**

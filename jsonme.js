@@ -34,6 +34,15 @@ function fetchPageRecords(topId, page) {
     }
 }
 
+function fetchEnumerated(id) {
+    if(TEST) {
+        return load_mock(snake_case(id));
+    } else {
+        const PATH = `/properties/` + id + `/enumerated_values`
+        return salsify(PATH);
+    }
+}
+
 function fetchChildRecords(id) {
     let allRecords = [];
     let page = 1;
@@ -398,12 +407,32 @@ function property_load_product(record, configured_property, property_value) {
     return record;
 }
 
+/**
+ * Loads and processes enumerated property values for a record.
+ * Return is always an array of objects with key and localized value.
+ * @param {Object} record - The record object to be modified
+ * @param {Object} configured_property - Configuration object for the property
+ * @param {string} configured_property.name - Name of the configured property
+ * @param {string|string[]} property_value - Value(s) to be processed, can be string or array of strings
+ * @returns {Object|undefined} Modified record with added enumerated property, or undefined if validation fails
+ *
+ * @throws {Error} Logs error if property_name is missing in configured_property
+ * @throws {Error} Logs error if property_descriptor cannot be loaded
+ * @throws {Error} Logs error if property_value type is neither string nor string array
+ *
+ * @description
+ * This function processes enumerated property values by:
+ * 1. Loading property descriptor from mock data
+ * 2. Converting input value(s) to array format
+ * 3. Mapping enumerated values to their localized names
+ * 4. Adding processed values to the record using configured export name
+ */
 function property_load_enumerated(record, configured_property, property_value) {
     if (configured_property.name === undefined) {
         console.error('property_name is missing in ' + configured_property);
         return;
     }
-    property_descriptor = load_mock(snake_case(configured_property.name));
+    property_descriptor = fetchEnumerated(configured_property.name)
     if (property_descriptor === undefined) {
         console.error('property_descriptor is missing in ' + configured_property.name);
         return;
@@ -432,7 +461,7 @@ function property_load_enumerated(record, configured_property, property_value) {
     });
     enumerated_values.forEach(enumerated_value => {
         localized_name = mapped_values[enumerated_value].localized_name;
-        record[property_export_name] = {key: enumerated_value, enumerated_value: localized_name};
+        record[property_export_name] = {key: enumerated_value, value: localized_name};
     });
     return record;
 }

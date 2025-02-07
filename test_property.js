@@ -5,6 +5,10 @@ function beeceptor(path, content) {
     web_request(URL, METHOD, JSON.stringify(content)); // fixed parameter assignment
 }
 
+function salsify(path, method = 'GET', payload = null, version = 'v1') {
+    return salsify_request(path, method, payload, version);
+}
+
 function fetchEnumerated(id) {
     let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=1&per_page=30`;
     let result = salsify(BASE_PATH, 'GET', null, null);

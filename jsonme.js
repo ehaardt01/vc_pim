@@ -41,6 +41,7 @@ function fetchEnumerated(id) {
         const PATH = 'https://app.salsify.com/api/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/properties/Country%20Markets/enumerated_values';
         // const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/children_property_mock.json';
         var xhr = new XMLHttpRequest();
+        xhr.setRequestHeader("Authorization", "Bearer H_TijzVgjG2Mr-fikMWtT9vjDmZJOx-bbWsWc8mAmqQ");
         xhr.open('GET', PATH, false);
         xhr.send();
         if (xhr.status === 200) {

@@ -10,9 +10,15 @@ function beeceptor(path, content) {
 }
 
 function fetchEnumerated(id) {
-    let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=1&per_page=30`;
+    let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=1&per_page=120`;
     let result = salsify(BASE_PATH, 'GET', null, null);
-    return result && result.data ? result.data : [];
+    let property_record = {
+        data: result && result.data ? result.data : []
+    }
+    return property_record;
+// let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=1&per_page=30`;
+    // let result = salsify(BASE_PATH, 'GET', null, null);
+    // return result && result.data ? result.data : [];
     // const PATH = 'https://app.salsify.com/api/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/properties/Country%20Markets/enumerated_values';
     // const method = "get";
     // const payload = {};

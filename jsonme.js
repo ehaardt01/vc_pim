@@ -38,7 +38,7 @@ function fetchEnumerated(id) {
     if(TEST) {
         return load_mock(snake_case(id));
     } else {
-        const PATH = `/properties/` + id + `/enumerated_values`
+        const PATH = `/properties/` + encodeURIComponent(id) + `/enumerated_values`
         return salsify(PATH);
     }
 }

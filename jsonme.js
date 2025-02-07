@@ -261,7 +261,7 @@ function snake_case(variable_name) {
  */
 function load_mock(id) {
     const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/' + snake_case(id) + '_property_mock.json';
-    // const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/faq_w1_1_property_mock.json';
+    // const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/children_property_mock.json';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', PATH, false);
     xhr.send();
@@ -399,6 +399,29 @@ function property_load_product(record, configured_property, property_value) {
 }
 
 function property_load_enumerated(record, configured_property, property_value) {
+    if (configured_property.name === undefined) {
+        console.error('property_name is missing in ' + configured_property);
+        return;
+    }
+    property_descriptor = load_mock(snake_case(configured_property.name));
+    if (property_descriptor === undefined) {
+        console.error('property_descriptor is missing in ' + configured_property.name);
+        return;
+    }
+    property_export_name = get_property_export_name(configured_property)
+    returned_type = retrieve_type(property_value);
+    let enumerated_values = [];
+    switch (returned_type) {
+        case "string":
+            enumerated_values.push(property_value);
+            break;
+        case "string_array":
+            enumerated_values = property_value;
+            break;
+        default:
+            console.error('Unexpected type for ' + property_id + ' in ' + record);
+            break;
+    }
     return record;
 }
 
@@ -409,11 +432,35 @@ function property_load_computed(record, configured_property, property_value) {
 function property_load_parent(record, configured_property, property_value) {
     return record;
 }
+
+/**
+ * Loads and organizes child records into a hierarchical structure based on parent-child relationships.
+ *
+ * @param {Object} record - The root record object that will contain the child hierarchy
+ * @param {Object} configured_property - Configuration object containing property settings
+ * @param {*} property_value - The value of the property being processed (unused in current implementation)
+ *
+ * @returns {Object} The root record with organized child hierarchy attached
+ *
+ * @description
+ * This function:
+ * 1. Fetches child records related to the root record
+ * 2. Creates a two-tier hierarchy of records (tier 2 and tier 3)
+ * 3. Maps records by their IDs for efficient lookup
+ * 4. Attaches child records to their respective parents
+ * 5. Handles cases where parent records might not be immediately available
+ *
+ * @requires
+ * - fetchChildRecords function to be defined
+ * - get_property_export_name function to be defined
+ * - RETURN_NULL_VALUES constant to be defined
+ */
 function property_load_children(record, configured_property, property_value) {
     const ID = "salsify:id";
     const PARENT_ID = "salsify:parent_id";
-    const rootId = record[ID];
+    const rootId = record["id"];
     const recordMap = {};
+    const rootRecord = record;
     children = [];
     const childRecords = fetchChildRecords(rootId);
     childRecords.forEach(childRecord => { // Create a map of records by ID for quick lookup
@@ -451,9 +498,9 @@ function property_load_children(record, configured_property, property_value) {
         }
     });
     if ((children.length !== 0) || RETURN_NULL_VALUES) {
-        record[get_property_export_name(configured_property)] = children;
+        rootRecord[get_property_export_name(configured_property)] = children;
     }
-    return record;
+    return rootRecord;
 }
 
 /**
@@ -468,7 +515,7 @@ function get_property_export_name(configured_property) {
     property_id = configured_property["name"];
     if (property_id === undefined) {
         console.error('property_name is missing in ' + configured_property);
-        return null;
+        return undefined;
     }
     let property_export_name = configured_property["export_name"];
     if (property_export_name === undefined) {

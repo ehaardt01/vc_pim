@@ -1,4 +1,5 @@
 var LOCALE = "en-GB";
+const RETURN_NULL_VALUES = true;
 
 function beeceptor(path, content) {
     var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
@@ -9,13 +10,13 @@ function beeceptor(path, content) {
 
 function salsify(path, method = 'GET', payload = null, version = 'v1') {
     if(TEST) {
-        console.log('Salsify call not allowed at TEST time');
+        console.error('Salsify call not allowed at TEST time');
     } else {
         return salsify_request(path, method, payload, version);
     }
 }
 
-function fetchProduct(id) {
+function fetchRecord(id) {
     if(TEST) {
         return load_mock(snake_case(id));
     } else {
@@ -24,18 +25,9 @@ function fetchProduct(id) {
     }
 }
 
-function fetchRecord(record_id) {
-    if(TEST) {
-        return load_mock(snake_case(record_id));
-    } else {
-        const PATH = '/records/';
-        return salsify(PATH + record_id);
-    }
-}
-
 function fetchPageRecords(topId, page) {
     if(TEST) {
-        console.log('fetchPageRecords not implemented in TEST mode');
+        return load_mock(snake_case("children"));
     } else {
         const PATH = `/records?filter=='salsify:ancestor_ids':'${encodeURIComponent(topId)}'&per_page=100&page=${page}`;
         return salsify(PATH);
@@ -132,32 +124,71 @@ function buildNestedStructure(root, records) {
 }
 
 const properties = [
-    {name: "salsify:created_at", type: "direct", export_name: "created_at"},
-    {name: "salsify:updated_at", type: "direct", export_name: "updated_at"},
-    {name: "FAQ data table", type: "record", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "direct", export_name: "question"}, {name: "FAQ reference - Answer", type: "direct", export_name: "answer"}]},
+    {name: "salsify:created_at", type: "date", export_name: "created_at"},
+    {name: "salsify:updated_at", type: "date", export_name: "updated_at"},
+    {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
     {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
-    {name: "salsify:version", type: "direct", export_name: "version"},
-    {name: "salsify:profile_asset_id", type: "direct", export_name: "profile_asset_id"},
-    {name: "salsify:system_id", type: "direct", export_name: "system_id"},
-    {name: "ID", type: "direct", export_name: "id"},
-    {name: "Group Species", type: "direct", export_name: "group_species"},
-    {name: "Default Sales Price", type: "direct", export_name: "default_sales_price"},
-    {name: "LIB_MARQUE", type: "direct", export_name: "lib_marque"},
-    {name: "Taxonomy", type: "direct", export_name: "taxonomy"},
-    {name: "Business category level 1", type: "direct", export_name: "business_category_level_1"},
-    {name: "Business category level 2", type: "direct", export_name: "business_category_level_2"},
-    {name: "Business category level 3", type: "direct", export_name: "business_category_level_3"},
-    {name: "Business category level 4", type: "direct", export_name: "business_category_level_4"},
-    {name: "Visible online ?", type: "direct", export_name: "visible_online"},
-    {name: "Name", type: "direct", export_name: "name"},
-    {name: "B2C Short description", type: "direct", export_name: "b2c_short_description"},
-    {name: "B2C Full Description", type: "direct", export_name: "b2c_full_description"},
-    {name: "B2B Short description", type: "direct", export_name: "b2b_short_description"},
-    {name: "SEO Product Title", type: "direct", export_name: "seo_product_title"},
-    {name: "Marketing Product name", type: "direct", export_name: "marketing_product_name"},
-    {name: "Key figures", type: "direct", export_name: "key_figures"},
+    {name: "salsify:version", type: "number", export_name: "version"},
+    {name: "salsify:profile_asset_id", type: "string", export_name: "profile_asset_id"},
+    {name: "salsify:system_id", type: "string", export_name: "system_id"},
+    {name: "ID", type: "string", export_name: "id"},
+    {name: "Group Species", type: "enumerated", export_name: "group_species"},
+    {name: "Default Sales Price", type: "number", export_name: "default_sales_price"},
+    {name: "LIB_MARQUE", type: "string", export_name: "lib_marque"},
+    {name: "Taxonomy", type: "enumerated", export_name: "taxonomy"},
+    {name: "Business category level 1", type: "enumerated", export_name: "business_category_level_1"},
+    {name: "Business category level 2", type: "enumerated", export_name: "business_category_level_2"},
+    {name: "Business category level 3", type: "enumerated", export_name: "business_category_level_3"},
+    {name: "Business category level 4", type: "enumerated", export_name: "business_category_level_4"},
+    {name: "Visible online ?", type: "boolean", export_name: "visible_online"},
+    {name: "Name", type: "string", export_name: "name"},
+    {name: "B2C Short description", type: "string", export_name: "b2c_short_description"},
+    {name: "B2C Full Description", type: "rich_text", export_name: "b2c_full_description"},
+    {name: "B2B Short description", type: "string", export_name: "b2b_short_description"},
+    {name: "SEO Product Title", type: "string", export_name: "seo_product_title"},
+    {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
+    {name: "Key figures", type: "string", export_name: "key_figures"},
+    {name: "Computed property", type: "string", computing_function: my_specific_computing_function},
+    {name: "Parent", type: "parent", export_name: "parent"},
+    {name: "Children", type: "children", export_name: "children"},
 ];
 
+const salsify_property_types = {
+    "string": property_load_default,
+    "rich_text": property_load_default,
+    "quantified_product": property_load_quantified_product,
+    "product": property_load_product,
+    "number": property_load_default,
+    "html": property_load_default,
+    "enumerated": property_load_enumerated,
+    "digital_asset": property_load_digital_asset,
+    "date": property_load_default,
+    "boolean": property_load_default,
+    "computed": property_load_computed,
+    "parent": property_load_parent,
+    "children": property_load_children,
+};
+
+/**
+ * Main function that processes product data and sends it to beeceptor endpoint.
+ * If TEST mode is not enabled, it:
+ * 1. Sets the locale from flow
+ * 2. Loads product data using the root entity's external ID
+ * 3. Sends the result to a beeceptor endpoint
+ *
+ * Note: Contains commented out legacy code for tree structure building
+ *
+ * @global
+ * @function main
+ * @requires TEST - Global boolean flag for test mode
+ * @requires LOCALE - Global variable for locale setting
+ * @requires flow.locale - Locale information from flow context
+ * @requires context.entity.external_id - External ID from context
+ * @requires load - Function to load product data
+ * @requires beeceptor - Function to send data to beeceptor endpoint
+ * @requires properties - Global properties configuration
+ * @returns {void}
+ */
 function main() {
     if (typeof TEST === 'undefined') {
         TEST = false;
@@ -192,29 +223,20 @@ function main() {
  * snake_case("My-Variable123") // returns "my_variable123"
  */
 function snake_case(variable_name) {
-    // Remplacer les caractères non alphanumériques par des underscores
     let filteredName = variable_name.replace(/[^a-zA-Z0-9]/g, '_');
-
-    // Initialiser la variable pour stocker le résultat
     let snakeCase = '';
     let i = 0;
-
     while (i < filteredName.length) {
         let char = filteredName[i];
-
-        // Si le caractère est une majuscule et qu'il est suivi par une autre majuscule, traitez-le comme un acronyme
         if (char >= 'A' && char <= 'Z' && i + 1 < filteredName.length && filteredName[i + 1] >= 'A' && filteredName[i + 1] <= 'Z') {
-            // Ajoutez toutes les majuscules consécutives sans underscore entre elles
             while (i < filteredName.length && filteredName[i] >= 'A' && filteredName[i] <= 'Z') {
                 snakeCase += filteredName[i].toLowerCase();
                 i++;
             }
-            // Ajoutez un underscore après l'acronyme si ce n'est pas la fin de la chaîne et que le caractère suivant n'est pas un underscore
             if (i < filteredName.length && filteredName[i] !== '_') {
                 snakeCase += '_';
             }
         } else {
-            // Si le caractère est une majuscule, ajoutez un underscore avant
             if (char >= 'A' && char <= 'Z') {
                 if (i > 0 && snakeCase[snakeCase.length - 1] !== '_') {
                     snakeCase += '_';
@@ -303,94 +325,194 @@ function get_localized_value(value) {
 }
 
 /**
+ * Loads a default property value into a record object
+ * @param {Object} record - The target record object to modify
+ * @param {Object} configured_property - The property configuration object
+ * @param {*} property_value - The value to load into the record
+ * @returns {Object} The modified record object
+ */
+function property_load_default(record, configured_property, property_value) {
+    value = get_localized_value(property_value);
+    if ((value !== undefined)) {
+        if  ((value !== null) || RETURN_NULL_VALUES) {
+            record[get_property_export_name(configured_property)] = value;
+        }
+    }
+    return record;
+}
+
+function property_load_digital_asset(record, configured_property, property_value) {
+    return record;
+}
+
+function property_load_quantified_product(record, configured_property, property_value) {
+    return record;
+}
+
+function my_specific_computing_function(record, configured_property, property_value) {
+    return record;
+}
+
+/**
+ * Loads and processes a property value for a product record based on configuration.
+ * @param {Object} record - The target record object to be populated.
+ * @param {Object} configured_property - Configuration object defining how to process the property.
+ * @param {Object} configured_property.values - Values configuration for property processing.
+ * @param {*} property_value - The value to be processed (can be string or array).
+ * @returns {Object} The updated record object with the processed property value.
+ * @throws {Error} Logs error if property_values is missing in configuration or if type is unexpected.
+ */
+function property_load_product(record, configured_property, property_value) {
+    returned_values = configured_property["values"];
+    property_export_name = get_property_export_name(configured_property)
+    if (returned_values === undefined) {
+        console.error('property_values is missing in ' + configured_property);
+        return;
+    }
+    returned_type = retrieve_type(property_value);
+    switch (returned_type) {
+        case "string":
+            sub_value = load(item, returned_values);
+            if ((sub_value !== undefined)) {
+                if  ((sub_value !== null) || RETURN_NULL_VALUES) {
+                    record[property_export_name] = sub_value;
+                }
+            }
+            break;
+        case "string_array":
+            records = []
+            property_value.forEach(item => {
+                sub_value = load(item, returned_values);
+                if (sub_value) {
+                    records.push(sub_value);
+                }
+            });
+            if ((records.length !== 0) || RETURN_NULL_VALUES) {
+                record[property_export_name] = records;
+            }
+            break;
+        default:
+            console.error('Unexpected type for ' + property_id + ' in ' + rootRecord);
+            break;
+    }
+    return record;
+}
+
+function property_load_enumerated(record, configured_property, property_value) {
+    return record;
+}
+
+function property_load_computed(record, configured_property, property_value) {
+    return record;
+}
+
+function property_load_parent(record, configured_property, property_value) {
+    return record;
+}
+function property_load_children(record, configured_property, property_value) {
+    const ID = "salsify:id";
+    const PARENT_ID = "salsify:parent_id";
+    const rootId = record[ID];
+    const recordMap = {};
+    children = [];
+    const childRecords = fetchChildRecords(rootId);
+    childRecords.forEach(childRecord => { // Create a map of records by ID for quick lookup
+        const recordId = childRecord[ID];
+        const parentId = childRecord[PARENT_ID];
+        if (parentId === rootId) { // middle tier childRecord (tier 2)
+            recordMap[recordId] = {
+                id: recordId,
+            };
+        } else { // middle tier record (tier 3)
+            recordMap[recordId] = {
+                id: recordId,
+            };
+        }
+    });
+    childRecords.forEach(childRecord => { // Attach records to their parents
+        const currentRecord = recordMap[childRecord[ID]];
+        const parentId = childRecord[PARENT_ID];
+        if (parentId === rootId) { // Attach directly to root if the parentId is the rootId
+            children.push(currentRecord);
+        } else {
+            const parentRecord = recordMap[parentId];
+            if (parentRecord) {
+                property_name = get_property_export_name(configured_property);
+                if (parentRecord[property_name] === undefined) {
+                    parentRecord[property_name] = [];
+                }
+                parentRecord[property_name].push(currentRecord);
+            } else { // If the parent is not found, create a placeholder for the parent
+                recordMap[parentId] = {
+                    id: parentId,
+                    children: [currentRecord]
+                };
+            }
+        }
+    });
+    if ((children.length !== 0) || RETURN_NULL_VALUES) {
+        record[get_property_export_name(configured_property)] = children;
+    }
+    return record;
+}
+
+/**
+ * Retrieves the export name for a configured property.
+ * If no export name is provided, the snaked property name is used.
+ * @param {Object} configured_property - The property configuration object
+ * @param {string} configured_property.name - The name/ID of the property
+ * @param {string} [configured_property.export_name] - Optional custom export name
+ * @returns {string|null} The export name to use, or null if the property name is missing
+ */
+function get_property_export_name(configured_property) {
+    property_id = configured_property["name"];
+    if (property_id === undefined) {
+        console.error('property_name is missing in ' + configured_property);
+        return null;
+    }
+    let property_export_name = configured_property["export_name"];
+    if (property_export_name === undefined) {
+        property_export_name = snake_case(property_id);
+    }
+    return property_export_name;
+}
+
+/**
  * Retrieves a record by its ID and extracts specified properties
  * @param {string} record_id - The unique identifier of the record to load
- * @param {string[]} properties - Array of property IDs to extract from the record
+ * @param {string[]} configured_properties - Array of property IDs to extract from the record
  * @returns {Object} An object containing the requested properties in snake_case format
  * @description Fetches a record from Salsify API and creates a new object with only
  * the specified properties. Property names are converted to snake_case.
  * Only properties that exist in the fetched record are included in the result.
  */
-function load(rootId, properties, is_product=true) {
+function load(rootId, configured_properties) {
     var rootRecord;
-    if (is_product) {
-        rootRecord = fetchProduct(rootId);
-    } else {
-        rootRecord = fetchRecord(rootId);
-    }
+    rootRecord = fetchRecord(rootId);
     let record = {"id": rootId};
-    properties.forEach(property => {
-        const property_type = property["type"];
-        const property_name = property["name"];
-        if (!property_type) {
-            console.error('property_type is missing in ' + property);
+    configured_properties.forEach(configured_property => {
+        const property_type = configured_property["type"];
+        const property_id = configured_property["name"];
+        if (property_type === undefined) {
+            console.error('property_type is missing in ' + configured_property);
             return;
         }
-        if (!property_name) {
-            console.error('property_name is missing in ' + property);
+        if (property_id === undefined) {
+            console.error('property_name is missing in ' + configured_property);
             return;
         }
-        let property_export_name = property["export_name"];
-        if (!property_export_name) {
-            property_export_name = snake_case(property_name);
+        let property_export_name = configured_property["export_name"];
+        if (property_export_name !== undefined) {
+            property_export_name = snake_case(property_id);
         }
-        switch (property_type) {
-            case "direct":
-                value = get_localized_value(rootRecord[property_name]);
-                if (value) {
-                    record[property_export_name] = value;
-                }
-                break;
-            case "record":
-                returned_values = property["values"];
-                if (!returned_values) {
-                    console.error('property_values is missing in ' + property);
-                    return;
-                }
-                returned_type = retrieve_type(rootRecord[property_name]);
-                switch (returned_type) {
-                    case "string":
-                        sub_value = load(item, returned_values, false);
-                        if (sub_value) {
-                            record[property_export_name] = sub_value;
-                        }
-                        break;
-                    case "string_array":
-                        records = []
-                        rootRecord[property_name].forEach(item => {
-                            sub_value = load(item, returned_values, false);
-                            if (sub_value) {
-                                records.push(sub_value);
-                            }
-                        });
-                        if (records.length !== 0) {
-                            record[property_export_name] = records;
-                        }
-                        break;
-                    default:
-                        console.error('Unexpected type for ' + property_name + ' in ' + rootRecord);
-                        break;
-                }
-                break;
-            case "enumerated":
-                returned_type = retrieve_type(rootRecord[property_name]);
-                switch (returned_type) {
-                    case "string":
-                        record[property_export_name] = rootRecord[property_name];
-                        break;
-                    case "string_array":
-                        record[property_export_name] = rootRecord[property_name].join(',');
-                        break;
-                    default:
-                        console.error('Unexpected type for ' + property_name + ' in ' + rootRecord);
-                        break;
-                }
-                break;
-                // Ajoutez autant de cases que nécessaire
-            default:
-                console.error('property_type ('+ property_type + ') is unknown in ' + property);
-                break;
+        associated_function = salsify_property_types[property_type]
+        if (associated_function !== undefined) {
+            associated_function(record, configured_property, rootRecord[property_id])
+        } else {
+            console.error('property_type is wrong in ' + configured_property.name);
+            return;
         }
+        return;
     });
     return record;
 }

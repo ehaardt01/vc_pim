@@ -504,6 +504,16 @@ function property_load_enumerated(record, configured_property, property_value) {
         return;
     }
     property_descriptor.data.forEach(enumerated_value => {
+        if (enumerated_value === undefined) {
+            console.error('enumerated_value is missing in ' + configured_property.name);
+            record[get_property_export_name(configured_property)] = 'enumerated_value is missing in ' + configured_property.name;
+            return;
+        }
+        if (enumerated_value.localized_names === undefined) {
+            console.error('enumerated_value.localized_names is missing in ' + configured_property.name);
+            record[get_property_export_name(configured_property)] = 'enumerated_value.localized_names is missing in ' + configured_property.name;
+            return;
+        }
         localized_name = get_localized_value(enumerated_value.localized_names);
         if (localized_name === undefined) {
             localized_name = enumerated_value.name;
@@ -512,6 +522,16 @@ function property_load_enumerated(record, configured_property, property_value) {
     });
     records = []
     enumerated_values.forEach(enumerated_value => {
+        if (enumerated_value === undefined) {
+            console.error('enumerated_value is missing in ' + configured_property.name);
+            record[get_property_export_name(configured_property)] = 'enumerated_value is missing in ' + configured_property.name;
+            return;
+        }
+        if (mapped_values[enumerated_value] === undefined) {
+            console.error('mapped_values[enumerated_value] is missing in ' + configured_property.name);
+            record[get_property_export_name(configured_property)] = 'mapped_values[enumerated_value] is missing in ' + configured_property.name;
+            return;
+        }
         localized_name = mapped_values[enumerated_value].localized_name;
         records.push({key: enumerated_value, value: localized_name});
     });

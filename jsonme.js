@@ -480,11 +480,13 @@ function property_load_product(record, configured_property, property_value) {
 function property_load_enumerated(record, configured_property, property_value) {
     if (configured_property.name === undefined) {
         console.error('property_name is missing in ' + configured_property);
+        record[get_property_export_name(configured_property)] = 'property_name is missing in ' + configured_property;
         return;
     }
     property_descriptor = fetchEnumerated(configured_property.name)
     if (property_descriptor === undefined) {
         console.error('property_descriptor is missing in ' + configured_property.name);
+        record[get_property_export_name(configured_property)] = 'property_descriptor is missing in ' + configured_property.name;
         return;
     }
     property_export_name = get_property_export_name(configured_property)
@@ -499,7 +501,8 @@ function property_load_enumerated(record, configured_property, property_value) {
             break;
         default:
             console.error('Unexpected type for ' + property_id + ' in ' + record);
-            break;
+            record[get_property_export_name(configured_property)] = 'Unexpected type for ' + property_id + ' in ' + record;
+        break;
     }
     mapped_values = {};
     property_descriptor.data.forEach(enumerated_value => {

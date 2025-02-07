@@ -471,20 +471,17 @@ function property_load_product(record, configured_property, property_value) {
  * 4. Adding processed values to the record using configured export name
  */
 function property_load_enumerated(record, configured_property, property_value) {
-    record[get_property_export_name(configured_property)] = 1;
     if (configured_property.name === undefined) {
         console.error('property_name is missing in ' + configured_property);
         record[get_property_export_name(configured_property)] = 'property_name is missing in ' + configured_property;
         return;
     }
-    record[get_property_export_name(configured_property)] = 2;
     property_descriptor = fetchEnumerated(configured_property.name)
     if (property_descriptor === undefined) {
         console.error('property_descriptor is missing in ' + configured_property.name);
         record[get_property_export_name(configured_property)] = 'property_descriptor is missing in ' + configured_property.name;
         return;
     }
-    record[get_property_export_name(configured_property)] = 3;
     property_export_name = get_property_export_name(configured_property)
     returned_type = retrieve_type(property_value);
     let enumerated_values = [];
@@ -498,10 +495,14 @@ function property_load_enumerated(record, configured_property, property_value) {
         default:
             console.error('Unexpected type for ' + property_id + ' in ' + record);
             record[get_property_export_name(configured_property)] = 'Unexpected type for ' + property_id + ' in ' + record;
-        break;
+            return;
     }
-    record[get_property_export_name(configured_property)] = 4;
     mapped_values = {};
+    if (property_descriptor.data === undefined) {
+        console.error('property_descriptor.data is missing in ' + configured_property.name);
+        record[get_property_export_name(configured_property)] = 'property_descriptor.data is missing in ' + configured_property.name;
+        return;
+    }
     property_descriptor.data.forEach(enumerated_value => {
         localized_name = get_localized_value(enumerated_value.localized_names);
         if (localized_name === undefined) {
@@ -509,17 +510,14 @@ function property_load_enumerated(record, configured_property, property_value) {
         }
         mapped_values[enumerated_value.id] = {localized_name: localized_name};
     });
-    record[get_property_export_name(configured_property)] = 5;
     records = []
     enumerated_values.forEach(enumerated_value => {
         localized_name = mapped_values[enumerated_value].localized_name;
         records.push({key: enumerated_value, value: localized_name});
     });
-    record[get_property_export_name(configured_property)] = 6;
     if ((records.length !== 0) || RETURN_NULL_VALUES) {
         record[property_export_name] = records;
     }
-    record[get_property_export_name(configured_property)] = 7;
     return record;
 }
 

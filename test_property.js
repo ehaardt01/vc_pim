@@ -1,12 +1,12 @@
+function salsify(path, method = 'GET', payload = null, version = 'v1') {
+    return salsify_request(path, method, payload, version);
+}
+
 function beeceptor(path, content) {
     var DOMAIN = 'https://virbac-pim.free.beeceptor.com' + path;
     const METHOD = 'post';
     const URL = DOMAIN + path;
     web_request(URL, METHOD, JSON.stringify(content)); // fixed parameter assignment
-}
-
-function salsify(path, method = 'GET', payload = null, version = 'v1') {
-    return salsify_request(path, method, payload, version);
 }
 
 function fetchEnumerated(id) {

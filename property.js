@@ -3,9 +3,9 @@
 /* ********************************************************************************************* */
 
 function beeceptor(path, content) {
-    const DOMAIN = 'https://virbac.free.beeceptor.com/';
+    const DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
     const METHOD = 'POST';
-    //web_request(DOMAIN + path, METHOD, JSON.stringify(content)); // Ensure JSON payload
+    web_request(DOMAIN + path, METHOD, JSON.stringify(content)); // Ensure JSON payload
 }
 
 function salsify(path, method = 'GET', payload = null, version = 'v1') {
@@ -18,7 +18,7 @@ function salsify(path, method = 'GET', payload = null, version = 'v1') {
 
 function searchEnumeratedPage(property, parent, page, perPage) {
     let BASE_PATH = `/properties/${encodeURIComponent(property)}/enumerated_values?page=${page}&per_page=${perPage}`;
-    
+
     if (parent) {
         BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
     }
@@ -116,5 +116,4 @@ function getEnumeratedValues(property, parentId = '') {
 
 // Example usage
 
-beeceptor("property", getProperty("Fruit"));
-beeceptor("property", getProperty("Taxonomy"));
+beeceptor("", getProperty("DWD"));

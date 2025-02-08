@@ -1,8 +1,8 @@
 {
    "salsify:id": "DWD",
    "salsify:created_at": "2025-01-13T14:39:49.109Z",
-   "salsify:updated_at": "2025-02-05T17:56:21.480Z",
-   "salsify:version": 39,
+   "salsify:updated_at": "2025-02-08T04:48:55.399Z",
+   "salsify:version": 43,
    "salsify:profile_asset_id": null,
    "salsify:system_id": "s-3d8bd57d-6e22-4607-8f27-36d58983eb82",
    "ID": "DWD",
@@ -34,6 +34,16 @@
       "Moisture",
       "Protein",
       "Animal to vegetable protein ratio"
+   ],
+   "Composition-table (with qty)": [
+      {
+         "salsify:product_id": "Moisture",
+         "salsify:quantity": 1
+      },
+      {
+         "salsify:product_id": "Protein",
+         "salsify:quantity": 5
+      }
    ],
    "Name": {
       "en-GB": "HPM Diet - Dog W1 Weight Loss & Diabetes",

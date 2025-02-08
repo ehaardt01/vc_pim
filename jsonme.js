@@ -1,6 +1,98 @@
 var LOCALE = "en-GB";
 const RETURN_NULL_VALUES = true;
 
+/**
+ * Array of property configurations for a product data model
+ * @type {Array<{
+*   name: string,                    // Display name of the property
+*   type: string,                    // Data type ('string'|'date'|'number'|'boolean'|'enumerated'|'product'|'rich_text'|'children'|'locale'|'status'|'related_products')
+*   export_name?: string,            // Name used when exporting the property
+*   values?: Array<{                 // Sub-properties for 'product' type
+*     name: string,                  // Display name of the sub-property
+*     type: string,                  // Data type of the sub-property
+*     export_name: string            // Export name of the sub-property
+*   }>,
+*   computing_function?: Function    // Optional function for computed properties
+* }>}
+*/
+const properties = [
+   {name: "ID", type: "string", export_name: "id"},
+   {name: "salsify:parent_id", type: "string", export_name: "parent_id"},
+   {name: "salsify:created_at", type: "date", export_name: "created_at"},
+   {name: "salsify:updated_at", type: "date", export_name: "updated_at"},
+   {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
+   {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
+   {name: "salsify:version", type: "number", export_name: "version"},
+   {name: "salsify:profile_asset_id", type: "string", export_name: "profile_asset_id"},
+   {name: "salsify:system_id", type: "string", export_name: "system_id"},
+   {name: "Group Species", type: "enumerated", export_name: "group_species"},
+   {name: "Default Sales Price", type: "number", export_name: "default_sales_price"},
+   {name: "LIB_MARQUE", type: "string", export_name: "lib_marque"},
+   {name: "Taxonomy", type: "enumerated", export_name: "taxonomy"},
+   {name: "Business category level 1", type: "enumerated", export_name: "business_category_level_1"},
+   {name: "Business category level 2", type: "enumerated", export_name: "business_category_level_2"},
+   {name: "Business category level 3", type: "enumerated", export_name: "business_category_level_3"},
+   {name: "Business category level 4", type: "enumerated", export_name: "business_category_level_4"},
+   {name: "Visible online ?", type: "boolean", export_name: "visible_online"},
+   {name: "Name", type: "string", export_name: "name"},
+   {name: "B2C Short description", type: "string", export_name: "b2c_short_description"},
+   {name: "B2C Full Description", type: "rich_text", export_name: "b2c_full_description"},
+   {name: "B2B Short description", type: "string", export_name: "b2b_short_description"},
+   {name: "SEO Product Title", type: "string", export_name: "seo_product_title"},
+   {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
+   {name: "Key figures", type: "string", export_name: "key_figures"},
+   {name: "Computed property", type: "computed", export_name: "computed_property", computing_function: my_specific_computing_function},
+   {name: "Children", type: "children", export_name: "children"},
+   {name: "locale", type: "locale", export_name: "locale"},
+   {name: "status", type: "status", export_name: "status"},
+   {name: "Related products", type: "product", export_name: "related_products"},
+   {name: "Composition-table (with qty)", type: "quantified_product", export_name: "composition"},
+];
+
+/**
+* Mapping of Salsify property types to their corresponding loader functions.
+* @constant
+* @type {Object.<string, Function>}
+* @property {Function} string - Default loader for string properties
+* @property {Function} rich_text - Default loader for rich text properties
+* @property {Function} quantified_product - Loader for quantified product properties
+* @property {Function} product - Loader for product properties
+* @property {Function} number - Default loader for numeric properties
+* @property {Function} html - Default loader for HTML properties
+* @property {Function} enumerated - Loader for enumerated properties
+* @property {Function} digital_asset - Loader for digital asset properties
+* @property {Function} date - Default loader for date properties
+* @property {Function} boolean - Default loader for boolean properties
+* @property {Function} computed - Loader for computed properties
+* @property {Function} children - Loader for children properties
+* @property {Function} locale - Loader for locale properties
+* @property {Function} status - Loader for status properties
+* @property {Function} related_products - Loader for related products properties
+*/
+const salsify_property_types = {
+   "string": property_load_default,
+   "rich_text": property_load_default,
+   "quantified_product": property_load_quantified_product,
+   "product": property_load_product,
+   "number": property_load_default,
+   "html": property_load_default,
+   "enumerated": property_load_enumerated,
+   "digital_asset": property_load_digital_asset,
+   "date": property_load_default,
+   "boolean": property_load_default,
+   "computed": property_load_computed,
+   "children": property_load_children,
+   "locale": property_load_locale,
+   "status": property_load_status,
+};
+
+/**
+ * Sends a POST request to the Beeceptor API endpoint
+ * @param {string} path - The API endpoint path to be appended to the base domain
+ * @param {*} content - The content/payload to be sent in the POST request
+ * @returns {void}
+ * @see {@link https://beeceptor.com/|Beeceptor Documentation}
+ */
 function beeceptor(path, content) {
     var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
     const METHOD = 'post';
@@ -8,6 +100,15 @@ function beeceptor(path, content) {
     web_request(URL, METHOD, content); // fixed parameter assignment
 }
 
+/**
+ * Makes a request to the Salsify API
+ * @param {string} path - The API endpoint path
+ * @param {string} [method='GET'] - The HTTP method to use for the request
+ * @param {object|null} [payload=null] - The request payload data
+ * @param {string} [version='v1'] - The API version to use
+ * @returns {Promise|undefined} Returns Promise from salsify_request or undefined if TEST is true
+ * @throws {Error} Logs error to console if TEST is true
+ */
 function salsify(path, method = 'GET', payload = null, version = 'v1') {
     if(TEST) {
         console.error('Salsify call not allowed at TEST time');
@@ -16,6 +117,12 @@ function salsify(path, method = 'GET', payload = null, version = 'v1') {
     }
 }
 
+/**
+ * Fetches a record either from mock data or Salsify API based on TEST environment flag
+ * @param {string} id - The identifier of the record to fetch
+ * @returns {Promise<Object>} A promise that resolves with the fetched record data
+ * @throws {Error} If the record cannot be fetched
+ */
 function fetchRecord(id) {
     if(TEST) {
         return load_mock(snake_case(id));
@@ -25,6 +132,13 @@ function fetchRecord(id) {
     }
 }
 
+/**
+ * Fetches records for a given page and top ID from either a mock source (in test mode) or Salsify API
+ * @param {string} topId - The ancestor ID to filter records
+ * @param {number} page - The page number to fetch
+ * @returns {Promise<Object>} Promise that resolves to the fetched records
+ * @throws {Error} Possible API errors when fetching from Salsify
+ */
 function fetchPageRecords(topId, page) {
     if(TEST) {
         return load_mock(snake_case("children"));
@@ -34,6 +148,13 @@ function fetchPageRecords(topId, page) {
     }
 }
 
+/**
+ * Fetches enumerated values for a given property ID
+ * @param {string} id - The property ID to fetch enumerated values for
+ * @returns {Object} An object containing the enumerated values data
+ * @returns {Array} .data - Array of enumerated values
+ * @throws {Error} When the API request fails (in non-TEST mode)
+ */
 function fetchEnumerated(id) {
     if(TEST) {
         return load_mock(snake_case(id));
@@ -47,6 +168,15 @@ function fetchEnumerated(id) {
     }
 }
 
+/**
+ * Fetches all child records for a given ID by paginating through the results
+ * @param {number|string} id - The identifier for which to fetch child records
+ * @returns {Array} An array containing all child records
+ * @description This function handles pagination internally by making multiple calls to fetchPageRecords
+ * until all records are retrieved. It uses the meta.total_entries from the first response to determine
+ * the total number of records to fetch.
+ * @throws {Error} May throw an error if the fetchPageRecords fails
+ */
 function fetchChildRecords(id) {
     let allRecords = [];
     let page = 1;
@@ -67,6 +197,32 @@ function fetchChildRecords(id) {
     return allRecords;
 }
 
+/**
+ * Builds a nested hierarchical structure from a root record and an array of related records.
+ * Creates a tree-like structure where records are organized based on their parent-child relationships.
+ *
+ * @param {Object} root - The root record that serves as the top level of the hierarchy
+ * @param {Object[]} records - Array of records to be organized into the nested structure
+ * @param {string} root["salsify:id"] - Unique identifier for the root record
+ * @param {string} root.ID - Name/identifier property of the root record
+ * @param {string} root.Taxonomy - Taxonomy classification of the root record
+ * @param {string} records[]."salsify:id" - Unique identifier for each record
+ * @param {string} records[]."salsify:parent_id" - Reference to parent record's ID
+ * @param {string} records[].ID - Name/identifier property of each record
+ *
+ * @returns {Object} A nested object structure with the following properties:
+ *                   - id: Record identifier
+ *                   - name: Record name
+ *                   - taxonomy: Classification (only for root)
+ *                   - children: Array of child records
+ *
+ * @example
+ * const root = { "salsify:id": "root1", "ID": "Root", "Taxonomy": "Main" };
+ * const records = [
+ *   { "salsify:id": "child1", "salsify:parent_id": "root1", "ID": "Child 1" }
+ * ];
+ * const nested = buildNestedStructure(root, records);
+ */
 function buildNestedStructure(root, records) {
     // Constants for Property Names
     const ID = "salsify:id";
@@ -135,91 +291,6 @@ function buildNestedStructure(root, records) {
 
   return rootRecord;
 }
-
-/**
- * Array of property configurations for a product data model
- * @type {Array<{
- *   name: string,                    // Display name of the property
- *   type: string,                    // Data type ('string'|'date'|'number'|'boolean'|'enumerated'|'product'|'rich_text'|'children'|'locale'|'status'|'related_products')
- *   export_name?: string,            // Name used when exporting the property
- *   values?: Array<{                 // Sub-properties for 'product' type
- *     name: string,                  // Display name of the sub-property
- *     type: string,                  // Data type of the sub-property
- *     export_name: string            // Export name of the sub-property
- *   }>,
- *   computing_function?: Function    // Optional function for computed properties
- * }>}
- */
-const properties = [
-    {name: "ID", type: "string", export_name: "id"},
-    {name: "salsify:parent_id", type: "string", export_name: "parent_id"},
-    {name: "salsify:created_at", type: "date", export_name: "created_at"},
-    {name: "salsify:updated_at", type: "date", export_name: "updated_at"},
-    {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
-    {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
-    {name: "salsify:version", type: "number", export_name: "version"},
-    {name: "salsify:profile_asset_id", type: "string", export_name: "profile_asset_id"},
-    {name: "salsify:system_id", type: "string", export_name: "system_id"},
-    {name: "Group Species", type: "enumerated", export_name: "group_species"},
-    {name: "Default Sales Price", type: "number", export_name: "default_sales_price"},
-    {name: "LIB_MARQUE", type: "string", export_name: "lib_marque"},
-    {name: "Taxonomy", type: "enumerated", export_name: "taxonomy"},
-    {name: "Business category level 1", type: "enumerated", export_name: "business_category_level_1"},
-    {name: "Business category level 2", type: "enumerated", export_name: "business_category_level_2"},
-    {name: "Business category level 3", type: "enumerated", export_name: "business_category_level_3"},
-    {name: "Business category level 4", type: "enumerated", export_name: "business_category_level_4"},
-    {name: "Visible online ?", type: "boolean", export_name: "visible_online"},
-    {name: "Name", type: "string", export_name: "name"},
-    {name: "B2C Short description", type: "string", export_name: "b2c_short_description"},
-    {name: "B2C Full Description", type: "rich_text", export_name: "b2c_full_description"},
-    {name: "B2B Short description", type: "string", export_name: "b2b_short_description"},
-    {name: "SEO Product Title", type: "string", export_name: "seo_product_title"},
-    {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
-    {name: "Key figures", type: "string", export_name: "key_figures"},
-    {name: "Computed property", type: "string", computing_function: my_specific_computing_function},
-    {name: "Children", type: "children", export_name: "children"},
-    {name: "locale", type: "locale", export_name: "locale"},
-    {name: "status", type: "status", export_name: "status"},
-    {name: "related_products", type: "related_products", export_name: "related_products"},
-];
-
-/**
- * Mapping of Salsify property types to their corresponding loader functions.
- * @constant
- * @type {Object.<string, Function>}
- * @property {Function} string - Default loader for string properties
- * @property {Function} rich_text - Default loader for rich text properties
- * @property {Function} quantified_product - Loader for quantified product properties
- * @property {Function} product - Loader for product properties
- * @property {Function} number - Default loader for numeric properties
- * @property {Function} html - Default loader for HTML properties
- * @property {Function} enumerated - Loader for enumerated properties
- * @property {Function} digital_asset - Loader for digital asset properties
- * @property {Function} date - Default loader for date properties
- * @property {Function} boolean - Default loader for boolean properties
- * @property {Function} computed - Loader for computed properties
- * @property {Function} children - Loader for children properties
- * @property {Function} locale - Loader for locale properties
- * @property {Function} status - Loader for status properties
- * @property {Function} related_products - Loader for related products properties
- */
-const salsify_property_types = {
-    "string": property_load_default,
-    "rich_text": property_load_default,
-    "quantified_product": property_load_quantified_product,
-    "product": property_load_product,
-    "number": property_load_default,
-    "html": property_load_default,
-    "enumerated": property_load_enumerated,
-    "digital_asset": property_load_digital_asset,
-    "date": property_load_default,
-    "boolean": property_load_default,
-    "computed": property_load_computed,
-    "children": property_load_children,
-    "locale": property_load_locale,
-    "status": property_load_status,
-    "related_products": property_load_related_products,
-};
 
 /**
  * Main function that processes product data and sends it to beeceptor endpoint.
@@ -381,9 +452,10 @@ function get_localized_value(value) {
  * @param {Object} record - The target record object to modify
  * @param {Object} configured_property - The property configuration object
  * @param {*} property_value - The value to load into the record
+ * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
  * @returns {Object} The modified record object
  */
-function property_load_default(record, configured_property, property_value) {
+function property_load_default(record, configured_property, property_value, rootRecord) {
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
         if  ((value !== null) || RETURN_NULL_VALUES) {
@@ -393,15 +465,17 @@ function property_load_default(record, configured_property, property_value) {
     return record;
 }
 
-function property_load_digital_asset(record, configured_property, property_value) {
+function property_load_digital_asset(record, configured_property, property_value, rootRecord) {
     return record;
 }
 
-function property_load_quantified_product(record, configured_property, property_value) {
-    return record;
-}
-
-function my_specific_computing_function(record, configured_property, property_value) {
+function property_load_quantified_product(record, configured_property, property_value, rootRecord) {
+    returned_values = configured_property["values"];
+    property_export_name = get_property_export_name(configured_property)
+    if (returned_values === undefined) {
+        console.error('property_values is missing in ' + configured_property);
+        return;
+    }
     return record;
 }
 
@@ -411,10 +485,11 @@ function my_specific_computing_function(record, configured_property, property_va
  * @param {Object} configured_property - Configuration object defining how to process the property.
  * @param {Object} configured_property.values - Values configuration for property processing.
  * @param {*} property_value - The value to be processed (can be string or array).
+ * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
  * @returns {Object} The updated record object with the processed property value.
  * @throws {Error} Logs error if property_values is missing in configuration or if type is unexpected.
  */
-function property_load_product(record, configured_property, property_value) {
+function property_load_product(record, configured_property, property_value, rootRecord) {
     returned_values = configured_property["values"];
     property_export_name = get_property_export_name(configured_property)
     if (returned_values === undefined) {
@@ -457,6 +532,7 @@ function property_load_product(record, configured_property, property_value) {
  * @param {Object} configured_property - Configuration object for the property
  * @param {string} configured_property.name - Name of the configured property
  * @param {string|string[]} property_value - Value(s) to be processed, can be string or array of strings
+ * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
  * @returns {Object|undefined} Modified record with added enumerated property, or undefined if validation fails
  *
  * @throws {Error} Logs error if property_name is missing in configured_property
@@ -470,7 +546,7 @@ function property_load_product(record, configured_property, property_value) {
  * 3. Mapping enumerated values to their localized names
  * 4. Adding processed values to the record using configured export name
  */
-function property_load_enumerated(record, configured_property, property_value) {
+function property_load_enumerated(record, configured_property, property_value, rootRecord) {
     if (configured_property.name === undefined) {
         console.error('property_name is missing in ' + configured_property);
         record[get_property_export_name(configured_property)] = 'property_name is missing in ' + configured_property;
@@ -541,7 +617,14 @@ function property_load_enumerated(record, configured_property, property_value) {
     return record;
 }
 
-function property_load_computed(record, configured_property, property_value) {
+function property_load_computed(record, configured_property, property_value, rootRecord) {
+    computing_function = configured_property["computing_function"];
+    if (computing_function === undefined) {
+        console.error('computing_function is missing in ' + configured_property);
+        return;
+    }
+    property_export_name = get_property_export_name(configured_property)
+    record[property_export_name] = computing_function(record, configured_property, property_value, rootRecord);
     return record;
 }
 
@@ -550,27 +633,19 @@ function property_load_computed(record, configured_property, property_value) {
  * @param {Object} record - The record object to be modified.
  * @param {Object} configured_property - The configured property settings (not used in function).
  * @param {*} property_value - The property value (not used in function).
+ * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
  * @returns {Object} The modified record with locale information.
+ * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
  */
-function property_load_locale(record, configured_property, property_value) {
+function property_load_locale(record, configured_property, property_value, rootRecord) {
     property_export_name = get_property_export_name(configured_property)
     record[property_export_name] = LOCALE;
     return record;
 }
 
-function property_load_status(record, configured_property, property_value) {
+function property_load_status(record, configured_property, property_value, rootRecord) {
     property_export_name = get_property_export_name(configured_property)
     record[property_export_name] = "active";
-    return record;
-}
-
-function property_load_related_products(record, configured_property, property_value) {
-    property_export_name = get_property_export_name(configured_property)
-    record[property_export_name] = [
-        {"id": "12345"},
-        {"id": "12346"},
-        {"id": "12347"},
-    ];
     return record;
 }
 
@@ -580,6 +655,7 @@ function property_load_related_products(record, configured_property, property_va
  * @param {Object} record - The root record object that will contain the child hierarchy
  * @param {Object} configured_property - Configuration object containing property settings
  * @param {*} property_value - The value of the property being processed (unused in current implementation)
+ * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
  *
  * @returns {Object} The root record with organized child hierarchy attached
  *
@@ -596,7 +672,7 @@ function property_load_related_products(record, configured_property, property_va
  * - get_property_export_name function to be defined
  * - RETURN_NULL_VALUES constant to be defined
  */
-function property_load_children(record, configured_property, property_value) {
+function property_load_children(record, configured_property, property_value, rootRecord) {
     const ID = "salsify:id";
     const PARENT_ID = "salsify:parent_id";
     const rootId = record["id"];
@@ -694,7 +770,7 @@ function load(rootId, configured_properties) {
         }
         associated_function = salsify_property_types[property_type]
         if (associated_function !== undefined) {
-            associated_function(record, configured_property, rootRecord[property_id])
+            associated_function(record, configured_property, rootRecord[property_id], rootRecord)
         } else {
             console.error('property_type is wrong in ' + configured_property.name);
             return;
@@ -702,6 +778,20 @@ function load(rootId, configured_properties) {
         return;
     });
     return record;
+}
+
+/**
+ * Computes a specific value based on record properties (example function)
+ * @param {Object} record - The current record being processed
+ * @param {string} configured_property - The configured property name
+ * @param {*} property_value - The value of the configured property
+ * @param {Object} rootRecord - The root record containing ID and Name
+ * @returns {string} A concatenated string with localized values of ID and Name
+ */
+function my_specific_computing_function(record, configured_property, property_value, rootRecord) {
+    value1 = get_localized_value(rootRecord["ID"]);
+    value2 = get_localized_value(rootRecord["Name"]);
+    return "Specific computed property: " + value1 + " and also " + value2;
 }
 
 main();

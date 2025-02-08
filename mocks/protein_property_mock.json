@@ -8,6 +8,7 @@
     "ID": "Protein",
     "Taxonomy": "Petfood-W1-Adult",
     "Name": {
-        "en": "Protein"
+        "en": "Protein",
+        "en-GB": "Protein"
     }
 }

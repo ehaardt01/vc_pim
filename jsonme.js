@@ -46,8 +46,8 @@ const properties = [
    {name: "locale", type: "locale", export_name: "locale"},
    {name: "status", type: "status", export_name: "status"},
    {name: "Related products", type: "product", export_name: "related_products"},
-   {name: "Composition-table (with qty)", type: "quantified_product", export_name: "composition", values: [{name: "ID", type: "string", export_name: "id"}, {name: "name", type: "string", export_name: "name"}]},
-   {name: "Composition-table (with qty) 2", type: "quantified_product", export_name: "composition", values: [{name: "ID", type: "string", export_name: "id"}, {name: "name", type: "string", export_name: "name"}]},
+   {name: "Composition-table (with qty)", type: "quantified_product", export_name: "composition", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
+   {name: "Composition-table (with qty) 2", type: "quantified_product", export_name: "composition", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
 ];
 
 /**
@@ -483,6 +483,7 @@ function property_load_quantified_product(record, configured_property, property_
     }
     returned_type = retrieve_type(property_value);
     function load_product_with_qty(product_id, product_qty, configured_property, returned_values) {
+        let product_with_quantity = null;
         if (product_id === undefined) {
             console.error('product_id is missing in ' + configured_property);
             return;

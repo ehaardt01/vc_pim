@@ -49,6 +49,20 @@ const properties = [
    {name: "Composition-table (with qty)", type: "quantified_product", export_name: "composition", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
    {name: "Composition-table (with qty) 2", type: "quantified_product", export_name: "composition2", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
    {name: "Composition-table (with qty) 3", type: "quantified_product", export_name: "composition3", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
+   {name: "A+ content", type: "digital_asset", export_name: "a_plus_content", values: [
+    {name: "salsify:id", type: "string", export_name: "salsify_id"},
+    {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
+    {name: "salsify:name", type: "string", export_name: "name"},
+    {name: "salsify:status", type: "string", export_name: "salsify_status"},
+    {name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},
+    {name: "salsify:format", type: "string", export_name: "format"}]},
+   {name: "Packaging", type: "digital_asset", export_name: "a_plus_content", values: [
+    {name: "salsify:id", type: "string", export_name: "salsify_id"},
+    {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
+    {name: "salsify:name", type: "string", export_name: "name"},
+    {name: "salsify:status", type: "string", export_name: "salsify_status"},
+    {name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},
+    {name: "salsify:format", type: "string", export_name: "format"}]},
 ];
 
 /**
@@ -470,6 +484,69 @@ function property_load_default(record, configured_property, property_value, root
 }
 
 function property_load_digital_asset(record, configured_property, property_value, rootRecord) {
+    const ASSET_ID = "salsify:id";
+    const ASSET_LIST = "salsify:digital_assets";
+    const value = get_localized_value(property_value);
+    if (value === undefined) {
+        console.error('asset value is missing in ' + configured_property);
+        return;
+    }
+    const returned_values = configured_property["values"];
+    if (returned_values === undefined) {
+        console.error('property_values is missing in ' + configured_property);
+        return;
+    }
+    const returned_type = retrieve_type(property_value);
+    const asset_list = rootRecord[ASSET_LIST];
+    if (asset_list === undefined) {
+        console.log('asset list is empty');
+        return;
+    }
+    function load_asset(asset_id, configured_property, returned_values, asset_list) {
+        let asset = null;
+        if (asset_id === undefined) {
+            console.error('asset_id is missing in ' + configured_property);
+            return;
+        }
+        asset = asset_list.find(asset => asset[ASSET_ID] === asset_id);
+        if (asset === undefined) {
+            console.error('impossible to load asset ' + asset_id + ' in ' + configured_property);
+            return;
+        }
+        let asset_data = {};
+        returned_values.forEach(value => {
+            const asset_value = asset[value.name];
+            if (asset_value !== undefined) {
+                asset_data[value.export_name] = asset_value;
+            }
+        });
+        return asset_data;
+    }
+    switch (returned_type) {
+        case "object":
+            const asset_id = property_value;
+            const sub_value = load_asset(asset_id, configured_property, returned_values, asset_list);
+            if (sub_value !== undefined) {
+                record[property_export_name] = sub_value;
+            }
+            break;
+        case "other_array":
+            const records = []
+            property_value.forEach(item => {
+                const asset_id = item;
+                const sub_value = load_asset(asset_id, configured_property, returned_values, asset_list);
+                if (sub_value !== undefined) {
+                    records.push(sub_value);
+                }
+            });
+            if ((records.length !== 0) || RETURN_NULL_VALUES) {
+                record[property_export_name] = records;
+            }
+            break;
+        default:
+            console.error('Unexpected type for ' + property_id + ' in ' + record.id);
+            break;
+    }
     return record;
 }
 

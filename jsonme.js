@@ -47,7 +47,8 @@ const properties = [
    {name: "status", type: "status", export_name: "status"},
    {name: "Related products", type: "product", export_name: "related_products"},
    {name: "Composition-table (with qty)", type: "quantified_product", export_name: "composition", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
-   {name: "Composition-table (with qty) 2", type: "quantified_product", export_name: "composition", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
+   {name: "Composition-table (with qty) 2", type: "quantified_product", export_name: "composition2", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
+   {name: "Composition-table (with qty) 3", type: "quantified_product", export_name: "composition3", values: [{name: "salsify:id", type: "string", export_name: "id"}, {name: "Name", type: "string", export_name: "name"}]},
 ];
 
 /**
@@ -475,15 +476,15 @@ function property_load_digital_asset(record, configured_property, property_value
 function property_load_quantified_product(record, configured_property, property_value, rootRecord) {
     const PRODUCT_ID = "salsify:product_id"
     const PRODUCT_QTY = "salsify:quantity"
-    returned_values = configured_property["values"];
-    property_export_name = get_property_export_name(configured_property)
+    const returned_values = configured_property["values"];
+    const property_export_name = get_property_export_name(configured_property)
     if (returned_values === undefined) {
         console.error('property_values is missing in ' + configured_property);
         return;
     }
-    returned_type = retrieve_type(property_value);
+    const returned_type = retrieve_type(property_value);
     function load_product_with_qty(product_id, product_qty, configured_property, returned_values) {
-        let product_with_quantity = null;
+        let product_with_qty = null;
         if (product_id === undefined) {
             console.error('product_id is missing in ' + configured_property);
             return;
@@ -492,13 +493,13 @@ function property_load_quantified_product(record, configured_property, property_
             console.error('product_qty is missing in ' + configured_property);
             return;
         }
-        sub_value = load(product_id, returned_values);
+        let sub_value = load(product_id, returned_values);
         if (sub_value === undefined) {
             console.error('impossible to load sub-product ' + configured_property);
             return;
         }
         if  ((sub_value !== null) || RETURN_NULL_VALUES) {
-            product_with_quantity = {
+            product_with_qty = {
                 id: product_id,
                 quantity: product_qty,
                 product_info: sub_value,
@@ -508,19 +509,19 @@ function property_load_quantified_product(record, configured_property, property_
     }
     switch (returned_type) {
         case "object":
-            product_id = property_value[PRODUCT_ID];
-            product_qty = property_value[PRODUCT_QTY];
-            sub_value = load_product_with_qty(product_id, product_qty, configured_property, returned_values)
+            const product_id = property_value[PRODUCT_ID];
+            const product_qty = property_value[PRODUCT_QTY];
+            const sub_value = load_product_with_qty(product_id, product_qty, configured_property, returned_values)
             if (sub_value !== undefined) {
-                record[property_export_name] = product_with_quantity;
+                record[property_export_name] = sub_value;
             }
             break;
         case "other_array":
-            records = []
+            const records = []
             property_value.forEach(item => {
-                product_id = item[PRODUCT_ID];
-                product_qty = item[PRODUCT_QTY];
-                sub_value = load_product_with_qty(product_id, product_qty, configured_property, returned_values)
+                const product_id = item[PRODUCT_ID];
+                const product_qty = item[PRODUCT_QTY];
+                let sub_value = load_product_with_qty(product_id, product_qty, configured_property, returned_values)
                 if (sub_value !== undefined) {
                     records.push(sub_value);
                 }

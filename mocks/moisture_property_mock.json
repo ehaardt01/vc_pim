@@ -8,7 +8,8 @@
     "ID": "Moisture",
     "Taxonomy": "Petfood-W1-Adult",
     "Name": {
-        "en": "Moisture"
+        "en": "Moisture",
+        "en-GB": "Moisture"
     },
     "Composition-table-label": {
         "en": "Moisture"

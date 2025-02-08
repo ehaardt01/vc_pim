@@ -5,7 +5,7 @@ const RETURN_NULL_VALUES = true;
  * Array of property configurations for a product data model
  * @type {Array<{
 *   name: string,                    // Display name of the property
-*   type: string,                    // Data type ('string'|'date'|'number'|'boolean'|'enumerated'|'product'|'rich_text'|'children'|'locale'|'status'|'related_products')
+*   type: string,                    // Data type ('string'|'date'|'number'|'boolean'|'enumerated'|'product'|'rich_text'|'children'|'locale'|'status'|'computed'|'quantified_product'|'digital_asset')
 *   export_name?: string,            // Name used when exporting the property
 *   values?: Array<{                 // Sub-properties for 'product' type
 *     name: string,                  // Display name of the sub-property
@@ -56,7 +56,7 @@ const properties = [
     {name: "salsify:status", type: "string", export_name: "salsify_status"},
     {name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},
     {name: "salsify:format", type: "string", export_name: "format"}]},
-   {name: "Packaging", type: "digital_asset", export_name: "a_plus_content", values: [
+   {name: "Packaging", type: "digital_asset", export_name: "packaging", values: [
     {name: "salsify:id", type: "string", export_name: "salsify_id"},
     {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
     {name: "salsify:name", type: "string", export_name: "name"},
@@ -83,7 +83,6 @@ const properties = [
 * @property {Function} children - Loader for children properties
 * @property {Function} locale - Loader for locale properties
 * @property {Function} status - Loader for status properties
-* @property {Function} related_products - Loader for related products properties
 */
 const salsify_property_types = {
    "string": property_load_default,
@@ -486,6 +485,7 @@ function property_load_default(record, configured_property, property_value, root
 function property_load_digital_asset(record, configured_property, property_value, rootRecord) {
     const ASSET_ID = "salsify:id";
     const ASSET_LIST = "salsify:digital_assets";
+    const property_export_name = get_property_export_name(configured_property)
     const value = get_localized_value(property_value);
     if (value === undefined) {
         console.error('asset value is missing in ' + configured_property);
@@ -496,7 +496,7 @@ function property_load_digital_asset(record, configured_property, property_value
         console.error('property_values is missing in ' + configured_property);
         return;
     }
-    const returned_type = retrieve_type(property_value);
+    const returned_type = retrieve_type(value);
     const asset_list = rootRecord[ASSET_LIST];
     if (asset_list === undefined) {
         console.log('asset list is empty');
@@ -523,16 +523,16 @@ function property_load_digital_asset(record, configured_property, property_value
         return asset_data;
     }
     switch (returned_type) {
-        case "object":
-            const asset_id = property_value;
+        case "string":
+            const asset_id = value;
             const sub_value = load_asset(asset_id, configured_property, returned_values, asset_list);
             if (sub_value !== undefined) {
                 record[property_export_name] = sub_value;
             }
             break;
-        case "other_array":
+        case "string_array":
             const records = []
-            property_value.forEach(item => {
+            value.forEach(item => {
                 const asset_id = item;
                 const sub_value = load_asset(asset_id, configured_property, returned_values, asset_list);
                 if (sub_value !== undefined) {

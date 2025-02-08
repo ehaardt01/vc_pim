@@ -1,0 +1,13 @@
+{
+    "salsify:id": "Protein",
+    "salsify:created_at": "2025-02-03T20:18:01.201Z",
+    "salsify:updated_at": "2025-02-06T15:06:14.568Z",
+    "salsify:version": 5,
+    "salsify:profile_asset_id": null,
+    "salsify:system_id": "s-79c7cc3a-1576-4b5e-9b2c-79bf6400be89",
+    "ID": "Protein",
+    "Taxonomy": "Petfood-W1-Adult",
+    "Name": {
+        "en": "Protein"
+    }
+}

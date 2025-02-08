@@ -47,6 +47,7 @@ const properties = [
    {name: "status", type: "status", export_name: "status"},
    {name: "Related products", type: "product", export_name: "related_products"},
    {name: "Composition-table (with qty)", type: "quantified_product", export_name: "composition", values: [{name: "ID", type: "string", export_name: "id"}, {name: "name", type: "string", export_name: "name"}]},
+   {name: "Composition-table (with qty) 2", type: "quantified_product", export_name: "composition", values: [{name: "ID", type: "string", export_name: "id"}, {name: "name", type: "string", export_name: "name"}]},
 ];
 
 /**
@@ -410,14 +411,14 @@ function retrieve_type(value) {
         return 'undefined';
     } else if (typeof value === 'string') {
         return 'string';
-    } else if (typeof value === 'object') {
-        return 'object';
     } else if (Array.isArray(value)) {
         if (value.every(item => typeof item === 'string')) {
             return 'string_array';
         } else {
             return 'other_array';
         }
+    } else if (typeof value === 'object') {
+        return 'object';
     } else {
         return 'other';
     }

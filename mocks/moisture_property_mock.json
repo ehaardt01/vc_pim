@@ -1,0 +1,19 @@
+{
+    "salsify:id": "Moisture",
+    "salsify:created_at": "2025-02-03T20:10:24.218Z",
+    "salsify:updated_at": "2025-02-04T08:28:59.668Z",
+    "salsify:version": 7,
+    "salsify:profile_asset_id": null,
+    "salsify:system_id": "s-3cdaf101-788c-4d5f-b6d9-492dc3f3ed02",
+    "ID": "Moisture",
+    "Taxonomy": "Petfood-W1-Adult",
+    "Name": {
+        "en": "Moisture"
+    },
+    "Composition-table-label": {
+        "en": "Moisture"
+    },
+    "Composition-table-value": {
+        "en": "9%"
+    }
+}

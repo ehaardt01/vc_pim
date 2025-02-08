@@ -45,6 +45,10 @@
          "salsify:quantity": 5
       }
    ],
+   "Composition-table (with qty) 2": {
+      "salsify:product_id": "Moisture",
+      "salsify:quantity": 1
+   },
    "Name": {
       "en-GB": "HPM Diet - Dog W1 Weight Loss & Diabetes",
       "en": "HPM Diet - Dog W1 Weight Loss & Diabetes"

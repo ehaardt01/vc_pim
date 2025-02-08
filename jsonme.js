@@ -46,7 +46,7 @@ const properties = [
    {name: "locale", type: "locale", export_name: "locale"},
    {name: "status", type: "status", export_name: "status"},
    {name: "Related products", type: "product", export_name: "related_products"},
-   {name: "Composition-table (with qty)", type: "quantified_product", export_name: "composition"},
+   {name: "Composition-table (with qty)", type: "quantified_product", export_name: "composition", values: [{name: "ID", type: "string", export_name: "id"}, {name: "name", type: "string", export_name: "name"}]},
 ];
 
 /**
@@ -410,11 +410,13 @@ function retrieve_type(value) {
         return 'undefined';
     } else if (typeof value === 'string') {
         return 'string';
+    } else if (typeof value === 'object') {
+        return 'object';
     } else if (Array.isArray(value)) {
         if (value.every(item => typeof item === 'string')) {
             return 'string_array';
         } else {
-            return 'other';
+            return 'other_array';
         }
     } else {
         return 'other';
@@ -470,11 +472,64 @@ function property_load_digital_asset(record, configured_property, property_value
 }
 
 function property_load_quantified_product(record, configured_property, property_value, rootRecord) {
+    const PRODUCT_ID = "salsify:product_id"
+    const PRODUCT_QTY = "salsify:quantity"
     returned_values = configured_property["values"];
     property_export_name = get_property_export_name(configured_property)
     if (returned_values === undefined) {
         console.error('property_values is missing in ' + configured_property);
         return;
+    }
+    returned_type = retrieve_type(property_value);
+    function load_product_with_qty(product_id, product_qty, configured_property, returned_values) {
+        if (product_id === undefined) {
+            console.error('product_id is missing in ' + configured_property);
+            return;
+        }
+        if (product_qty === undefined) {
+            console.error('product_qty is missing in ' + configured_property);
+            return;
+        }
+        sub_value = load(product_id, returned_values);
+        if (sub_value === undefined) {
+            console.error('impossible to load sub-product ' + configured_property);
+            return;
+        }
+        if  ((sub_value !== null) || RETURN_NULL_VALUES) {
+            product_with_quantity = {
+                id: product_id,
+                quantity: product_qty,
+                product_info: sub_value,
+            }
+        }
+        return product_with_qty
+    }
+    switch (returned_type) {
+        case "object":
+            product_id = property_value[PRODUCT_ID];
+            product_qty = property_value[PRODUCT_QTY];
+            sub_value = load_product_with_qty(product_id, product_qty, configured_property, returned_values)
+            if (sub_value !== undefined) {
+                record[property_export_name] = product_with_quantity;
+            }
+            break;
+        case "other_array":
+            records = []
+            property_value.forEach(item => {
+                product_id = item[PRODUCT_ID];
+                product_qty = item[PRODUCT_QTY];
+                sub_value = load_product_with_qty(product_id, product_qty, configured_property, returned_values)
+                if (sub_value !== undefined) {
+                    records.push(sub_value);
+                }
+            });
+            if ((records.length !== 0) || RETURN_NULL_VALUES) {
+                record[property_export_name] = records;
+            }
+            break;
+        default:
+            console.error('Unexpected type for ' + property_id + ' in ' + record.id);
+            break;
     }
     return record;
 }
@@ -499,7 +554,7 @@ function property_load_product(record, configured_property, property_value, root
     returned_type = retrieve_type(property_value);
     switch (returned_type) {
         case "string":
-            sub_value = load(item, returned_values);
+            sub_value = load(property_value, returned_values);
             if ((sub_value !== undefined)) {
                 if  ((sub_value !== null) || RETURN_NULL_VALUES) {
                     record[property_export_name] = sub_value;
@@ -510,7 +565,7 @@ function property_load_product(record, configured_property, property_value, root
             records = []
             property_value.forEach(item => {
                 sub_value = load(item, returned_values);
-                if (sub_value) {
+                if (sub_value !== undefined) {
                     records.push(sub_value);
                 }
             });

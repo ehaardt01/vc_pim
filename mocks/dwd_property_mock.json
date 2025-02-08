@@ -1,8 +1,8 @@
 {
    "salsify:id": "DWD",
    "salsify:created_at": "2025-01-13T14:39:49.109Z",
-   "salsify:updated_at": "2025-02-08T04:48:55.399Z",
-   "salsify:version": 43,
+   "salsify:updated_at": "2025-02-08T06:51:40.281Z",
+   "salsify:version": 47,
    "salsify:profile_asset_id": null,
    "salsify:system_id": "s-3d8bd57d-6e22-4607-8f27-36d58983eb82",
    "ID": "DWD",
@@ -42,13 +42,9 @@
       },
       {
          "salsify:product_id": "Protein",
-         "salsify:quantity": 5
+         "salsify:quantity": 3
       }
    ],
-   "Composition-table (with qty) 2": {
-      "salsify:product_id": "Moisture",
-      "salsify:quantity": 1
-   },
    "Name": {
       "en-GB": "HPM Diet - Dog W1 Weight Loss & Diabetes",
       "en": "HPM Diet - Dog W1 Weight Loss & Diabetes"
@@ -76,6 +72,15 @@
    "Marketing Product name": {
       "en": "Veterinary HPM Dog Weight Loss & Diabetes W1"
    },
+   "A+ content": {
+      "en": [
+         "cefce45b6a379104cf19714036573fd7bce2d0d0",
+         "25f362f49f45347e95029d95f0a38fe6784aaa58"
+      ]
+   },
+   "Packaging": {
+      "en": "6c278d2dde83fd761d25e9a3c702e7708610ac56"
+   },
    "Key benefit list": {
       "en": [
          "Promotes fast weight loss",
@@ -98,5 +103,58 @@
          "7 weeks",
          "faster than competition, to reach optimal weight"
       ]
-   }
+   },
+   "salsify:digital_assets": [
+      {
+         "salsify:id": "6c278d2dde83fd761d25e9a3c702e7708610ac56",
+         "salsify:url": "http://images.salsify.com/image/upload/s--fNjtH_vw--/72d726aae3474c18d9568d6f9687e42d778c010a.jpg",
+         "salsify:source_url": "https://virbac.widen.net/content/lzxrxthnax/jpeg/360189_Packshot_HPM-KJ2_cat-1%2C5kg_right.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
+         "salsify:name": "360189_Packshot_HPM-KJ2_cat-1,5kg_right.jpeg",
+         "salsify:created_at": "2025-01-13T16:52:52.802Z",
+         "salsify:updated_at": "2025-01-13T16:53:24.775Z",
+         "salsify:status": "completed",
+         "salsify:asset_height": 2000,
+         "salsify:asset_width": 2000,
+         "salsify:asset_resource_type": "image",
+         "salsify:filename": "360189_Packshot_HPM-KJ2_cat-1%2C5kg_right.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
+         "salsify:bytes": 237470,
+         "salsify:format": "jpg",
+         "salsify:etag": "14ea7f20e3e5659fea41e0b467f19a7c",
+         "salsify:system_id": "s-ab68898d-638a-4c0b-a9a6-2a10585c72de"
+      },
+      {
+         "salsify:id": "cefce45b6a379104cf19714036573fd7bce2d0d0",
+         "salsify:url": "http://images.salsify.com/image/upload/s--8pVbRRLh--/8aa614f81460a8c3a925d9f23c7212986c570cd1.jpg",
+         "salsify:source_url": "https://virbac.widen.net/content/1af9e2wgdd/jpeg/360190_Packshot_HPM-KJ2_cat-3kg_left.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
+         "salsify:name": "360190_Packshot_HPM-KJ2_cat-3kg_left.jpeg",
+         "salsify:created_at": "2025-01-13T16:52:52.802Z",
+         "salsify:updated_at": "2025-01-13T16:53:25.374Z",
+         "salsify:status": "completed",
+         "salsify:asset_height": 2000,
+         "salsify:asset_width": 2000,
+         "salsify:asset_resource_type": "image",
+         "salsify:filename": "360190_Packshot_HPM-KJ2_cat-3kg_left.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
+         "salsify:bytes": 250032,
+         "salsify:format": "jpg",
+         "salsify:etag": "fa42bdd933f041fb2e18fcce6797e0ee",
+         "salsify:system_id": "s-04b724c9-4160-4329-98fd-7345be08d68b"
+      },
+      {
+         "salsify:id": "25f362f49f45347e95029d95f0a38fe6784aaa58",
+         "salsify:url": "http://images.salsify.com/image/upload/s--BC-pJw1X--/6a11713dba675f61bde6d549edc718793d78deff.jpg",
+         "salsify:source_url": "https://virbac.widen.net/content/eecotyibnm/jpeg/360190_Packshot_HPM-KJ2_cat-3kg_back.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
+         "salsify:name": "360190_Packshot_HPM-KJ2_cat-3kg_back.jpeg",
+         "salsify:created_at": "2025-01-13T16:52:52.802Z",
+         "salsify:updated_at": "2025-01-13T16:53:25.433Z",
+         "salsify:status": "completed",
+         "salsify:asset_height": 2048,
+         "salsify:asset_width": 2048,
+         "salsify:asset_resource_type": "image",
+         "salsify:filename": "360190_Packshot_HPM-KJ2_cat-3kg_back.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
+         "salsify:bytes": 608996,
+         "salsify:format": "jpg",
+         "salsify:etag": "03cacbda474d94300d48ea3e5b972e1a",
+         "salsify:system_id": "s-604bfab7-479b-47fd-ad23-5b6fe41c7699"
+      }
+   ]
 }

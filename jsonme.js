@@ -473,6 +473,22 @@ function property_load_digital_asset(record, configured_property, property_value
     return record;
 }
 
+/**
+ * Loads and processes quantified product information into a record based on configured properties
+ * @param {Object} record - The target record to be populated with product information
+ * @param {Object} configured_property - Configuration object containing property settings and values
+ * @param {*} property_value - The value of the property to be processed
+ * @param {Object} rootRecord - The root record object (unused in current implementation)
+ * @returns {Object|undefined} The modified record with quantified product information, or undefined if processing fails
+ * @throws {Error} Logs error messages to console for various failure conditions
+ *
+ * @description
+ * Processes product information with quantities, supporting both single objects and arrays.
+ * Uses constants PRODUCT_ID ("salsify:product_id") and PRODUCT_QTY ("salsify:quantity") for data extraction.
+ * Can handle two types of input structures:
+ * - Single object with product ID and quantity
+ * - Array of objects, each containing product ID and quantity
+ */
 function property_load_quantified_product(record, configured_property, property_value, rootRecord) {
     const PRODUCT_ID = "salsify:product_id"
     const PRODUCT_QTY = "salsify:quantity"
@@ -675,6 +691,14 @@ function property_load_enumerated(record, configured_property, property_value, r
     return record;
 }
 
+/**
+ * Loads and computes a property value for a record using a configured computing function
+ * @param {Object} record - The record object to which the computed property will be added
+ * @param {Object} configured_property - Configuration object containing computing function and property settings
+ * @param {*} property_value - The initial value of the property
+ * @param {Object} rootRecord - The root record object for context in computation
+ * @returns {Object|undefined} The modified record object or undefined if computing function is missing
+ */
 function property_load_computed(record, configured_property, property_value, rootRecord) {
     computing_function = configured_property["computing_function"];
     if (computing_function === undefined) {

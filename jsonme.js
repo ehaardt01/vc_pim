@@ -302,29 +302,45 @@ function mock_fetchEnumerated(id) {
 }
 
 /**
- * Fetches enumerated values for a given property ID
- * @param {string} id - The property ID to fetch enumerated values for
- * @returns {Object} An object containing the enumerated values data
- * @returns {Array} .data - Array of enumerated values
- * @throws {Error} When the API request fails (in non-MOCK mode)
+ * Fetches and builds a hierarchical tree structure of enumerated values for a given property ID.
+ * This function recursively retrieves all enumerated values, including their children, from the Salsify API.
+ *
+ * @param {string} id - The property ID for which to fetch enumerated values
+ * @returns {Array<Object>} An array of objects representing the hierarchical structure where each object contains:
+ *   - id {string} The unique identifier of the enumerated value
+ *   - name {string} The name of the enumerated value
+ *   - has_children {boolean} Indicates whether this value has child values
+ *   - localized_names {Object} Object containing localized versions of the name
+ *   - values {Array<Object>} Array of child enumerated values (if has_children is true)
+ *
+ * @example
+ * const propertyTree = fetchEnumerated('property123');
+ * // Returns:
+ * // [{
+ * //   id: 'value1',
+ * //   name: 'Value 1',
+ * //   has_children: true,
+ * //   localized_names: { en: 'Value 1', fr: 'Valeur 1' },
+ * //   values: [...]
+ * // }, ...]
  */
 function fetchEnumerated(id) {
-    function searchEnumeratedPage(id, parent, page, perPage) {
+    function mysearchEnumeratedPage(id, parent, page, perPage) {
         let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
-        if (parent) {
+        if (parent !== undefined && parent !== '') {
             BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
         }
         let result = salsify(BASE_PATH, 'GET', null, null);
-        return result && result.data ? result : [];
+        return result && result.data ? result.data : [];
     };
-    function searchEnumerated(id, parent) {
+    function mysearchEnumerated(id, parent='') {
         let allRecords = [];
         let page = 1;
         const perPage = 120;
         let totalEntries = 0;
         let hasMoreData = true;
         while (hasMoreData) {
-            let records = searchEnumeratedPage(id, parent, page, perPage);
+            let records = mysearchEnumeratedPage(id, parent, page, perPage);
             if (records.length > 0) {
                 allRecords = allRecords.concat(records);
             }
@@ -336,21 +352,25 @@ function fetchEnumerated(id) {
         }
         return allRecords;
     }
-    let records = searchEnumerated(id, parentId);
-    let tree = [];
-    for (let item of records) {
-        let node = {
-            id: item.id,
-            name: item.name,
-            localized_names: item.localized_names,
-            values: []
-        };
-        if (item.has_children) {
-            node.values = searchEnumerated(id, item.id);
+    function mysearchProperty(id, parent='') {
+        let records = mysearchEnumerated(id, parent);
+        let tree = [];
+        for (let item of records) {
+            let node = {
+                id: item.id,
+                name: item.name,
+                has_children: item.has_children,
+                localized_names: item.localized_names,
+                values: []
+            };
+            if (item.has_children) {
+                node.values = mysearchProperty(id, item.id);
+            }
+            tree.push(node);
         }
-        tree.push(node);
+        return tree;
     }
-    return tree;
+    return mysearchProperty(id);
 }
 
 /**
@@ -462,7 +482,7 @@ function retrieve_type(value) {
  * // Returns "Bonjour" if LOCALE is set to "fr-FR"
  * get_localized_value({"en-US": "Hello", "fr-FR": "Bonjour"})
  */
-function get_localized_value(value) {
+function mock_get_localized_value(value) {
     if ((typeof value === 'number') || (typeof value === 'boolean') || (typeof value === 'string')) {
         return value;
     }
@@ -472,6 +492,24 @@ function get_localized_value(value) {
         }
     }
     return undefined;
+}
+
+/**
+ * Retrieves the localized value from a string or an object containing localized values. Locale is globally defined
+ * in the global variable LOCALE.
+ * @param {(string|Object)} value - The value to get the localization from. Can be a string or an object with locale keys.
+ * @returns {?string} The localized string value if found, null otherwise.
+ *
+ * @example
+ * // Returns "Hello" for a simple string
+ * get_localized_value("Hello")
+ *
+ * @example
+ * // Returns "Bonjour" if LOCALE is set to "fr-FR"
+ * get_localized_value({"en-US": "Hello", "fr-FR": "Bonjour"})
+ */
+function get_localized_property_values(entity, property_id) {
+    return localized_property_values(entity, property_id, LOCALE);
 }
 
 /**
@@ -767,7 +805,7 @@ function property_load_product(record, configured_property, property_value, root
  * 3. Mapping enumerated values to their localized names
  * 4. Adding processed values to the record using configured export name
  */
-function property_load_enumerated(record, configured_property, property_value, rootRecord) {
+function Old_property_load_enumerated(record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     property_descriptor = fetchEnumerated(configured_property.name)
     if (!check_undefined(property_descriptor, 'property_descriptor is missing in ' + configured_property)) {
@@ -819,6 +857,37 @@ function property_load_enumerated(record, configured_property, property_value, r
     if ((records.length !== 0) || RETURN_NULL_VALUES) {
         record[property_export_name] = records;
     }
+    return record;
+}
+
+function property_load_enumerated(record, configured_property, property_value, rootRecord) {
+    // property_export_name = get_property_export_name(configured_property)
+    // returned_type = retrieve_type(property_value);
+    // let records = [];
+    // switch (returned_type) {
+    //     case "string":
+    //         record = {
+    //             key: property_value,
+    //             value: property_value,
+    //         }
+    //         records.push(record);
+    //         break;
+    //     case "string_array":
+    //         returned_type.forEach(item => {
+    //             record = {
+    //                 key: item,
+    //                 value: item,
+    //             }
+    //             records.push(record);
+    //         });
+    //         break;
+    //     default:
+    //         log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
+    // }
+    // if ((records.length !== 0) || RETURN_NULL_VALUES) {
+    //     record[property_export_name] = records;
+    // }
+    record[property_export_name] = get_localized_property_values(record, configured_property.name);
     return record;
 }
 

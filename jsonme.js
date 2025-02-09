@@ -1067,8 +1067,9 @@ function main() {
     const rootId = context.entity.external_id;
     let result = fetchRecord(rootId);
     send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
-
-
+    result["Country Markets"] = property_values(rootId, "Country Markets")
+    result["Group Species"] = property_values(rootId, "Group Species")
+    result["Animal stage"] = property_values(rootId, "")
     return;
     MOCK = (typeof MOCK === 'undefined' ? false : true);
     if(MOCK) {

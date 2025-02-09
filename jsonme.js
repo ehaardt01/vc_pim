@@ -301,6 +301,24 @@ function mock_fetchEnumerated(id) {
     return mock_load(snake_case(id));
 }
 
+function mock_searchEnumeratedPage(id, parent, page, perPage) {
+    let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
+    if (parent !== undefined && parent !== '') {
+        BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
+    }
+    let result = salsify(BASE_PATH, 'GET', null, null);
+    return result && result.data ? result.data : [];
+};
+
+function searchEnumeratedPage(id, parent, page, perPage) {
+    let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
+    if (parent !== undefined && parent !== '') {
+        BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
+    }
+    let result = salsify(BASE_PATH, 'GET', null, null);
+    return result && result.data ? result.data : [];
+};
+
 /**
  * Fetches and builds a hierarchical tree structure of enumerated values for a given property ID.
  * This function recursively retrieves all enumerated values, including their children, from the Salsify API.
@@ -325,14 +343,6 @@ function mock_fetchEnumerated(id) {
  * // }, ...]
  */
 function fetchEnumerated(id) {
-    function mysearchEnumeratedPage(id, parent, page, perPage) {
-        let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
-        if (parent !== undefined && parent !== '') {
-            BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
-        }
-        let result = salsify(BASE_PATH, 'GET', null, null);
-        return result && result.data ? result.data : [];
-    };
     function mysearchEnumerated(id, parent='') {
         let allRecords = [];
         let page = 1;
@@ -340,7 +350,7 @@ function fetchEnumerated(id) {
         let totalEntries = 0;
         let hasMoreData = true;
         while (hasMoreData) {
-            let records = mysearchEnumeratedPage(id, parent, page, perPage);
+            let records = searchEnumeratedPage(id, parent, page, perPage);
             if (records.length > 0) {
                 allRecords = allRecords.concat(records);
             }

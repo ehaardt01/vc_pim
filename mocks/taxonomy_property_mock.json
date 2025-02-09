@@ -1,252 +1,78 @@
 {
-   "id": "s-b473a561-76ad-4f8d-8168-9584ce85f323",
-   "name": "Taxonomy",
-   "type": "enumerated",
-   "multivalue": false,
-   "searchable": false,
-   "editable": true,
-   "values": [
-      { "id": "Brand", "name": "Brand", "localized_names": {}, "values": [] },
-      {
-         "id": "Analytical Constituents",
-         "name": "Composition",
-         "localized_names": {},
-         "values": [
-            {
-               "id": "Analytical constituents",
-               "name": "Analytical constituents",
-               "localized_names": {},
-               "values": [
-                  {
-                     "id": "Petfood-W1-Adult",
-                     "name": "Petfood-W1-Adult",
-                     "localized_names": {},
-                     "values": []
-                  }
-               ]
-            }
-         ]
-      },
-      {
-         "id": "FAQ Petfood",
-         "name": "FAQ",
-         "localized_names": {},
-         "values": [
-            {
-               "id": "Veterinary HPM",
-               "name": "Veterinary HPM",
-               "localized_names": {},
-               "values": []
-            }
-         ]
-      },
-      {
-         "id": "Ingredients data",
-         "name": "Key benefits",
-         "localized_names": {},
-         "values": []
-      },
-      {
-         "id": "Products",
-         "name": "Products",
-         "localized_names": {},
-         "values": [
-            {
-               "id": "Companion animals",
-               "name": "Companion animals",
-               "localized_names": {},
-               "values": [
-                  {
-                     "id": "Dogs and cats",
-                     "name": "Dogs and cats",
-                     "localized_names": {},
-                     "values": [
-                        {
-                           "id": "Nutrition & Petcare",
-                           "name": "Nutrition & Petcare",
-                           "localized_names": {},
-                           "values": [
-                              {
-                                 "id": "Behavior",
-                                 "name": "Behavior",
-                                 "localized_names": {},
-                                 "values": []
-                              },
-                              {
-                                 "id": "Dental",
-                                 "name": "Dental",
-                                 "localized_names": {},
-                                 "values": []
-                              },
-                              {
-                                 "id": "Healthcare -Digestive",
-                                 "name": "Healthcare -Digestive",
-                                 "localized_names": {},
-                                 "values": []
-                              },
-                              {
-                                 "id": "Healthcare -Mobility",
-                                 "name": "Healthcare -Mobility",
-                                 "localized_names": {},
-                                 "values": []
-                              },
-                              {
-                                 "id": "Healthcare -Skin & Hygiene",
-                                 "name": "Healthcare -Skin & Hygiene",
-                                 "localized_names": {},
-                                 "values": []
-                              },
-                              {
-                                 "id": "Healthcare -Urinary tract",
-                                 "name": "Healthcare -Urinary tract",
-                                 "localized_names": {},
-                                 "values": []
-                              },
-                              {
-                                 "id": "Pet food",
-                                 "name": "Pet food",
-                                 "localized_names": {},
-                                 "values": [
-                                    {
-                                       "id": "Diet",
-                                       "name": "Diet",
-                                       "localized_names": {},
-                                       "values": [
-                                          {
-                                             "id": "Diet-cat",
-                                             "name": "Cat",
-                                             "localized_names": {},
-                                             "values": []
-                                          },
-                                          {
-                                             "id": "Diet-Dog",
-                                             "name": "Dog",
-                                             "localized_names": {},
-                                             "values": []
-                                          }
-                                       ]
-                                    },
-                                    {
-                                       "id": "Physio",
-                                       "name": "Physio",
-                                       "localized_names": {},
-                                       "values": [
-                                          {
-                                             "id": "Cat",
-                                             "name": "Cat",
-                                             "localized_names": {},
-                                             "values": []
-                                          },
-                                          {
-                                             "id": "Dog",
-                                             "name": "Dog",
-                                             "localized_names": {},
-                                             "values": [
-                                                {
-                                                   "id": "Large & Medium",
-                                                   "name": "Large & Medium",
-                                                   "localized_names": {},
-                                                   "values": []
-                                                },
-                                                {
-                                                   "id": "Neutered",
-                                                   "name": "Neutered",
-                                                   "localized_names": {},
-                                                   "values": []
-                                                },
-                                                {
-                                                   "id": "Small & toy",
-                                                   "name": "Small & toy",
-                                                   "localized_names": {},
-                                                   "values": []
-                                                }
-                                             ]
-                                          }
-                                       ]
-                                    },
-                                    {
-                                       "id": "Wet food",
-                                       "name": "Wet food",
-                                       "localized_names": {},
-                                       "values": []
-                                    }
-                                 ]
-                              }
-                           ]
-                        },
-                        {
-                           "id": "Other SA",
-                           "name": "Other SA",
-                           "localized_names": {},
-                           "values": []
-                        },
-                        {
-                           "id": "Pharma & Bio",
-                           "name": "Pharma & Bio",
-                           "localized_names": {},
-                           "values": []
-                        }
-                     ]
-                  },
-                  {
-                     "id": "Horses",
-                     "name": "Horses",
-                     "localized_names": {},
-                     "values": [
-                        {
-                           "id": "Equine",
-                           "name": "Equine",
-                           "localized_names": {},
-                           "values": []
-                        },
-                        {
-                           "id": "Other SA - Horses",
-                           "name": "Other SA",
-                           "localized_names": {},
-                           "values": []
-                        }
-                     ]
-                  },
-                  {
-                     "id": "Other pets",
-                     "name": "Other pets",
-                     "localized_names": {},
-                     "values": []
-                  }
-               ]
-            },
-            {
-               "id": "Food produc. animals",
-               "name": "Food produc. animals",
-               "localized_names": {},
-               "values": [
-                  {
-                     "id": "Aquaculture",
-                     "name": "Aquaculture",
-                     "localized_names": {},
-                     "values": []
-                  },
-                  {
-                     "id": "Pigs and poultry",
-                     "name": "Pigs and poultry",
-                     "localized_names": {},
-                     "values": []
-                  },
-                  {
-                     "id": "Ruminants",
-                     "name": "Ruminants",
-                     "localized_names": {},
-                     "values": []
-                  }
-               ]
-            },
-            {
-               "id": "Other Business",
-               "name": "Other Business",
-               "localized_names": {},
-               "values": []
-            }
-         ]
-      }
-   ]
+   "properties": [
+       {
+           "id": "Taxonomy",
+           "role": "taxonomy",
+           "name": "Taxonomy",
+           "facetable": true,
+           "broken": false,
+           "data_type": "enumerated",
+           "type": "property",
+           "multi_valued": false,
+           "position": null,
+           "values_editable": true,
+           "localizable": false,
+           "filterability": "full",
+           "property_group": "General product info",
+           "property_group_id": "General product info",
+           "target_schema_field_id": null
+       }
+   ],
+   "property_groups": [
+       {
+           "id": "General product info",
+           "name": "General product info",
+           "position": 2,
+           "editable": true,
+           "deleteable": true
+       }
+   ],
+   "enumerated_values": [],
+   "data": [
+       {
+           "id": "Brand",
+           "name": "Brand",
+           "localized_names": {},
+           "has_children": false,
+           "property_id": "Taxonomy",
+           "parent_id": null
+       },
+       {
+           "id": "Analytical Constituents",
+           "name": "Composition",
+           "localized_names": {},
+           "has_children": true,
+           "property_id": "Taxonomy",
+           "parent_id": null
+       },
+       {
+           "id": "FAQ Petfood",
+           "name": "FAQ",
+           "localized_names": {},
+           "has_children": true,
+           "property_id": "Taxonomy",
+           "parent_id": null
+       },
+       {
+           "id": "Ingredients data",
+           "name": "Key benefits",
+           "localized_names": {},
+           "has_children": false,
+           "property_id": "Taxonomy",
+           "parent_id": null
+       },
+       {
+           "id": "Products",
+           "name": "Products",
+           "localized_names": {},
+           "has_children": true,
+           "property_id": "Taxonomy",
+           "parent_id": null
+       }
+   ],
+   "meta": {
+       "current_page": 1,
+       "per_page": 30,
+       "total_entries": 5
+   }
 }

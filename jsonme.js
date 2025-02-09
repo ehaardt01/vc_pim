@@ -362,7 +362,6 @@ function snake_case(variable_name) {
         .toLowerCase();
 }
 
-
 /**
  * Loads mock data from a JSON file hosted on GitHub
  * @param {string} id - The identifier used to construct the file path. Will be converted to snake case.
@@ -379,7 +378,7 @@ function mock_load(id) {
     if (xhr.status === 200) {
         return JSON.parse(xhr.responseText);
     } else {
-        log('Error loading JSON file : ' + PATH + xhr.statusText, LOG_TYPE.ERROR);
+        log('Error loading JSON file : ' + PATH + xhr.statusText);
     }
 }
 

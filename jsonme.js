@@ -887,7 +887,7 @@ function property_load_enumerated(record, configured_property, property_value, r
     // if ((records.length !== 0) || RETURN_NULL_VALUES) {
     //     record[property_export_name] = records;
     // }
-    record[property_export_name] = property_values(records, configured_property.name);
+    record[property_export_name] = property_values(record, configured_property.name);
     return record;
 }
 

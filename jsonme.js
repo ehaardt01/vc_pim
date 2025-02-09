@@ -127,12 +127,12 @@ function log(message_or_error, log_type=LOG_TYPE.ERROR, raise_error=true) {
             }
             break;
         case LOG_TYPE.LOG:
-            console.log(message);
-            break;
+            console.log(message_or_error);
+            return;
         default:
             break;
     }
-    console.error(message);
+    console.error(message_or_error);
 }
 
 /**
@@ -378,7 +378,8 @@ function mock_load(id) {
     if (xhr.status === 200) {
         return JSON.parse(xhr.responseText);
     } else {
-        log('Error loading JSON file : ' + PATH + xhr.statusText);
+        log('Error loading JSON file : ' + PATH + xhr.statusText, LOG_TYPE.LOG, false);
+        return;
     }
 }
 
@@ -447,6 +448,7 @@ function get_localized_value(value) {
  * @returns {Object} The modified record object
  */
 function property_load_default(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
         if  ((value !== null) || RETURN_NULL_VALUES) {
@@ -469,6 +471,7 @@ function property_load_default(record, configured_property, property_value, root
  * 3. Adding to record if value is not null (or if RETURN_NULL_VALUES is true)
  */
 function property_load_number(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
         if (value !== null) {
@@ -496,6 +499,7 @@ function property_load_number(record, configured_property, property_value, rootR
  * The value is only assigned if it's defined and either not null or RETURN_NULL_VALUES is true.
  */
 function property_load_boolean(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
         if (value !== null) {
@@ -551,6 +555,7 @@ function load_asset(asset_id, configured_property, returned_values, asset_list) 
  * @throws {Error} Logs or throws errors for various failure conditions
  */
 function property_load_digital_asset(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     const ASSET_LIST = "salsify:digital_assets";
     const property_export_name = get_property_export_name(configured_property)
     const value = get_localized_value(property_value);
@@ -628,6 +633,7 @@ function load_product_with_qty(product_id, product_qty, configured_property, ret
  * - Array of objects, each containing product ID and quantity
  */
 function property_load_quantified_product(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     const PRODUCT_ID = "salsify:product_id"
     const PRODUCT_QTY = "salsify:quantity"
     const returned_values = configured_property["values"];
@@ -673,6 +679,7 @@ function property_load_quantified_product(record, configured_property, property_
  * @throws {Error} Logs error if property_values is missing in configuration or if type is unexpected.
  */
 function property_load_product(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     returned_values = configured_property["values"];
     property_export_name = get_property_export_name(configured_property)
     returned_type = retrieve_type(property_value);
@@ -725,6 +732,7 @@ function property_load_product(record, configured_property, property_value, root
  * 4. Adding processed values to the record using configured export name
  */
 function property_load_enumerated(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     property_descriptor = fetchEnumerated(configured_property.name)
     if (!check_undefined(property_descriptor, 'property_descriptor is missing in ' + configured_property)) {
         if (MOCK !== undefined && MOCK) {
@@ -787,6 +795,7 @@ function property_load_enumerated(record, configured_property, property_value, r
  * @returns {Object|undefined} The modified record object or undefined if computing function is missing
  */
 function property_load_computed(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     computing_function = configured_property["computing_function"];
     check_undefined(computing_function, 'computing_function is missing in ' + configured_property, true);
     property_export_name = get_property_export_name(configured_property)

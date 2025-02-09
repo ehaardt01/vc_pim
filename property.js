@@ -98,7 +98,6 @@ function getEnumeratedValues(property, parentId = '') {
         let node = {
             id: item.id,
             name: item.name,
-            name: item.name,
             localized_names: localized_names,
             values: []
         };

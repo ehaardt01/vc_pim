@@ -153,6 +153,7 @@ function myfetchEnumerated(id) {
         let node = {
             id: item.id,
             name: item.name,
+            has_children: item.has_children,
             localized_names: item.localized_names,
             values: []
         };

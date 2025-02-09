@@ -861,7 +861,7 @@ function Old_property_load_enumerated(record, configured_property, property_valu
 }
 
 function property_load_enumerated(record, configured_property, property_value, rootRecord) {
-    // property_export_name = get_property_export_name(configured_property)
+    property_export_name = get_property_export_name(configured_property)
     // returned_type = retrieve_type(property_value);
     // let records = [];
     // switch (returned_type) {

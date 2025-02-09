@@ -1,5 +1,5 @@
-var LOCALE = "en-GB";
 const RETURN_NULL_VALUES = true;
+const LOG_TYPE = {ERROR: "error", LOG: "log"};
 
 /**
  * Array of property configurations for a product data model
@@ -89,17 +89,110 @@ const salsify_property_types = {
    "rich_text": property_load_default,
    "quantified_product": property_load_quantified_product,
    "product": property_load_product,
-   "number": property_load_default,
+   "number": property_load_number,
    "html": property_load_default,
    "enumerated": property_load_enumerated,
    "digital_asset": property_load_digital_asset,
    "date": property_load_default,
-   "boolean": property_load_default,
+   "boolean": property_load_boolean,
    "computed": property_load_computed,
    "children": property_load_children,
    "locale": property_load_locale,
    "status": property_load_status,
 };
+
+/**
+ * Logs messages or errors with different logging types and optional error raising.
+ * Enables more clear error message at Salsify task level
+ * @param {string|Error} message_or_error - The message or error to be logged
+ * @param {LOG_TYPE} [log_type=LOG_TYPE.ERROR] - The type of log (ERROR or LOG)
+ * @param {boolean} [raise_error=true] - Whether to throw an error after logging
+ * @throws {Error} If raise_error is true and log_type is LOG_TYPE.ERROR
+ */
+function log(message_or_error, log_type=LOG_TYPE.ERROR, raise_error=true) {
+    switch (log_type) {
+        case LOG_TYPE.ERROR:
+            function getStackTrace() {
+                try {
+                    throw new Error('An error occurred');
+                } catch (error) {
+                    return error.stack;
+                }
+            }
+            const stack_trace = getStackTrace();
+            const log_message = message_or_error + "\n" + stack_trace;
+            console.error(log_message);
+            if (raise_error) {
+                throw new Error(log_message);
+            }
+            break;
+        case LOG_TYPE.LOG:
+            console.log(message);
+            break;
+        default:
+            break;
+    }
+    console.error(message);
+}
+
+/**
+ * Checks if a value is undefined and logs a message accordingly
+ * @param {*} value - The value to check for undefined
+ * @param {string} message - The message to log if value is undefined
+ * @param {boolean} [raise_error=false] - If true, logs as error and throws exception, otherwise logs as regular log
+ * @returns {void}
+ */
+function check_undefined(value, message, raise_error=false) {
+    if (value === undefined) {
+        log(message, (raise_error ? LOG_TYPE.ERROR : LOG_TYPE.LOG), raise_error);
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Validates the configuration of a list of properties by checking their attributes and types.
+ * @param {Object[]} [properties_list=properties] - Array of property objects to validate
+ * @param {string} [properties_list[].name] - Name of the property
+ * @param {string} [properties_list[].type] - Type of the property (must be a valid Salsify property type)
+ * @param {string} [properties_list[].export_name] - Export name of the property
+ * @param {Object[]} [properties_list[].value] - Value configuration for nested properties (required for quantified_product, product, digital_asset, and children types)
+ * @throws {Error} Logs error messages if validation fails:
+ * - When property name is undefined
+ * - When property type is unknown
+ * - When export_name is undefined
+ * - When value is undefined for types requiring it
+ * - When value is defined for types not requiring it
+ */
+function check_configuration(properties_list=properties) {
+    properties_list.forEach(property => {
+        if (property.name  === undefined) {
+            log('Property name is undefined', LOG_TYPE.ERROR);
+        }
+        if (!(property.type in salsify_property_types)) {
+            log('Unknown property type for property ' + property.name, LOG_TYPE.ERROR);
+        }
+        if (property.name  === undefined) {
+            log('Undefined property export_name for property ' + property.name, LOG_TYPE.ERROR);
+        }
+        switch (property.type) {
+            case "quantified_product":
+            case "product":
+            case "digital_asset":
+            case "children":
+                if (property.value  === undefined) {
+                    log('Undefined property value for property ' + property.name, LOG_TYPE.ERROR);
+                }
+                check_configuration(property.value);
+                break;
+            default:
+                if (property.value  !== undefined) {
+                    log('Property value for property ' + property.name + ' of type ' + property.type, LOG_TYPE.ERROR);
+                }
+                break;
+        }
+    }
+)};
 
 /**
  * Sends a POST request to the Beeceptor API endpoint
@@ -108,7 +201,20 @@ const salsify_property_types = {
  * @returns {void}
  * @see {@link https://beeceptor.com/|Beeceptor Documentation}
  */
-function beeceptor(path, content) {
+function mock_send_to_recipient_API(path, content) {
+    var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
+    const METHOD = 'post';
+    const URL = DOMAIN + path;
+    web_request(URL, METHOD, content); // fixed parameter assignment
+}
+
+/**
+ * Sends a POST request to the the recipient API endpoint
+ * @param {string} path - The API endpoint path to be appended to the base domain
+ * @param {*} content - The content/payload to be sent in the POST request
+ * @returns {void}
+ */
+function send_to_recipient_API(path, content) {
     var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
     const METHOD = 'post';
     const URL = DOMAIN + path;
@@ -121,30 +227,55 @@ function beeceptor(path, content) {
  * @param {string} [method='GET'] - The HTTP method to use for the request
  * @param {object|null} [payload=null] - The request payload data
  * @param {string} [version='v1'] - The API version to use
- * @returns {Promise|undefined} Returns Promise from salsify_request or undefined if TEST is true
- * @throws {Error} Logs error to console if TEST is true
+ * @returns {Promise|undefined} Returns Promise from salsify_request or undefined if MOCK is true
+ * @throws {Error} Raise error if MOCK is true
  */
-function salsify(path, method = 'GET', payload = null, version = 'v1') {
-    if(TEST) {
-        console.error('Salsify call not allowed at TEST time');
-    } else {
-        return salsify_request(path, method, payload, version);
-    }
+function mock_salsify(path, method = 'GET', payload = null, version = 'v1') {
+    log('Salsify call not allowed at MOCK time', LOG_TYPE.ERROR);
 }
 
 /**
- * Fetches a record either from mock data or Salsify API based on TEST environment flag
+ * Makes a request to the Salsify API
+ * @param {string} path - The API endpoint path
+ * @param {string} [method='GET'] - The HTTP method to use for the request
+ * @param {object|null} [payload=null] - The request payload data
+ * @param {string} [version='v1'] - The API version to use
+ * @returns {Promise|undefined} Returns Promise from salsify_request or undefined if MOCK is true
+ */
+function salsify(path, method = 'GET', payload = null, version = 'v1') {
+    return salsify_request(path, method, payload, version);
+}
+
+/**
+ * Fetches a record either from mock data or Salsify API based on MOCK environment flag
+ * @param {string} id - The identifier of the record to fetch
+ * @returns {Promise<Object>} A promise that resolves with the fetched record data
+ * @throws {Error} If the record cannot be fetched
+ */
+function mock_fetchRecord(id) {
+    return mock_load(snake_case(id));
+}
+
+/**
+ * Fetches a record either from mock data or Salsify API based on MOCK environment flag
  * @param {string} id - The identifier of the record to fetch
  * @returns {Promise<Object>} A promise that resolves with the fetched record data
  * @throws {Error} If the record cannot be fetched
  */
 function fetchRecord(id) {
-    if(TEST) {
-        return load_mock(snake_case(id));
-    } else {
-        const PATH = '/products/';
-        return salsify(PATH + id);
-    }
+    const PATH = '/products/';
+    return salsify(PATH + id);
+}
+
+/**
+ * Fetches records for a given page and top ID from either a mock source (in test mode) or Salsify API
+ * @param {string} topId - The ancestor ID to filter records
+ * @param {number} page - The page number to fetch
+ * @returns {Promise<Object>} Promise that resolves to the fetched records
+ * @throws {Error} Possible API errors when fetching from Salsify
+ */
+function mock_fetchPageRecords(topId, page) {
+    return mock_load(snake_case("children"));
 }
 
 /**
@@ -155,12 +286,8 @@ function fetchRecord(id) {
  * @throws {Error} Possible API errors when fetching from Salsify
  */
 function fetchPageRecords(topId, page) {
-    if(TEST) {
-        return load_mock(snake_case("children"));
-    } else {
-        const PATH = `/records?filter=='salsify:ancestor_ids':'${encodeURIComponent(topId)}'&per_page=100&page=${page}`;
-        return salsify(PATH);
-    }
+    const PATH = `/records?filter=='salsify:ancestor_ids':'${encodeURIComponent(topId)}'&per_page=100&page=${page}`;
+    return salsify(PATH);
 }
 
 /**
@@ -168,19 +295,26 @@ function fetchPageRecords(topId, page) {
  * @param {string} id - The property ID to fetch enumerated values for
  * @returns {Object} An object containing the enumerated values data
  * @returns {Array} .data - Array of enumerated values
- * @throws {Error} When the API request fails (in non-TEST mode)
+ * @throws {Error} When the API request fails (in non-MOCK mode)
+ */
+function mock_fetchEnumerated(id) {
+    return mock_load(snake_case(id));
+}
+
+/**
+ * Fetches enumerated values for a given property ID
+ * @param {string} id - The property ID to fetch enumerated values for
+ * @returns {Object} An object containing the enumerated values data
+ * @returns {Array} .data - Array of enumerated values
+ * @throws {Error} When the API request fails (in non-MOCK mode)
  */
 function fetchEnumerated(id) {
-    if(TEST) {
-        return load_mock(snake_case(id));
-    } else {
-        let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=1&per_page=120`;
-        let result = salsify(BASE_PATH, 'GET', null, null);
-        let property_record = {
-            data: result && result.data ? result.data : []
-        }
-        return property_record;
+    let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=1&per_page=120`;
+    let result = salsify(BASE_PATH, 'GET', null, null);
+    let property_record = {
+        data: result && result.data ? result.data : []
     }
+    return property_record;
 }
 
 /**
@@ -213,146 +347,6 @@ function fetchChildRecords(id) {
 }
 
 /**
- * Builds a nested hierarchical structure from a root record and an array of related records.
- * Creates a tree-like structure where records are organized based on their parent-child relationships.
- *
- * @param {Object} root - The root record that serves as the top level of the hierarchy
- * @param {Object[]} records - Array of records to be organized into the nested structure
- * @param {string} root["salsify:id"] - Unique identifier for the root record
- * @param {string} root.ID - Name/identifier property of the root record
- * @param {string} root.Taxonomy - Taxonomy classification of the root record
- * @param {string} records[]."salsify:id" - Unique identifier for each record
- * @param {string} records[]."salsify:parent_id" - Reference to parent record's ID
- * @param {string} records[].ID - Name/identifier property of each record
- *
- * @returns {Object} A nested object structure with the following properties:
- *                   - id: Record identifier
- *                   - name: Record name
- *                   - taxonomy: Classification (only for root)
- *                   - children: Array of child records
- *
- * @example
- * const root = { "salsify:id": "root1", "ID": "Root", "Taxonomy": "Main" };
- * const records = [
- *   { "salsify:id": "child1", "salsify:parent_id": "root1", "ID": "Child 1" }
- * ];
- * const nested = buildNestedStructure(root, records);
- */
-function buildNestedStructure(root, records) {
-    // Constants for Property Names
-    const ID = "salsify:id";
-    const PARENT_ID = "salsify:parent_id";
-    const NAME = "ID";//"Salsify Name";
-    const TAXONOMY = "Taxonomy";
-    // const COLOR = "Color Name";
-    // const SIZE = "Size (US)";
-
-    // Local Function Variables
-    const rootId = root[ID];
-    const recordMap = {};
-
-    let rootRecord = {
-        id: root[ID],
-        name: root[NAME],
-        taxonomy: root[TAXONOMY],
-        children: []
-    };
-    rootRecord = root
-    rootRecord.children = [];
-
-    // Create a map of records by ID for quick lookup
-    records.forEach(record => {
-        const recordId = record[ID];
-        const parentId = record[PARENT_ID];
-
-        if (parentId === rootId) {
-            // middle tier record (tier 2)
-            recordMap[recordId] = {
-                id: recordId,
-                name: record[NAME],
-                // color: record[COLOR],
-                children: []
-            };
-        } else {
-            // middle tier record (tier 3)
-            recordMap[recordId] = {
-                id: recordId,
-                name: record[NAME],
-                // size: record[SIZE]
-            };
-        }
-    });
-
-    // Attach records to their parents
-    records.forEach(record => {
-        const currentRecord = recordMap[record[ID]];
-        const parentId = record[PARENT_ID];
-        if (parentId === rootId) {
-            // Attach directly to root if the parentId is the rootId
-            rootRecord.children.push(currentRecord);
-        } else {
-            const parentRecord = recordMap[parentId];
-            if (parentRecord) {
-                parentRecord.children.push(currentRecord);
-            } else {
-                // If the parent is not found, create a placeholder for the parent
-                recordMap[parentId] = {
-                    id: parentId,
-                    children: [currentRecord]
-                };
-            }
-        }
-    });
-
-  return rootRecord;
-}
-
-/**
- * Main function that processes product data and sends it to beeceptor endpoint.
- * If TEST mode is not enabled, it:
- * 1. Sets the locale from flow
- * 2. Loads product data using the root entity's external ID
- * 3. Sends the result to a beeceptor endpoint
- *
- * Note: Contains commented out legacy code for tree structure building
- *
- * @global
- * @function main
- * @requires TEST - Global boolean flag for test mode
- * @requires LOCALE - Global variable for locale setting
- * @requires flow.locale - Locale information from flow context
- * @requires context.entity.external_id - External ID from context
- * @requires load - Function to load product data
- * @requires beeceptor - Function to send data to beeceptor endpoint
- * @requires properties - Global properties configuration
- * @returns {void}
- */
-function main() {
-    if (typeof TEST === 'undefined') {
-        TEST = false;
-    }
-    if(!TEST) {
-        LOCALE = flow.locale;
-        const rootId = context.entity.external_id;
-        let result = load(rootId, properties);
-        beeceptor('/product/create_or_update?locale=fr-FR', result);
-        // const startTime = new Date();
-        // const rootId = context.entity.external_id;
-        // const rootProduct = fetchProduct(rootId, null);
-        // const childRecords = fetchChildRecords(rootId);
-        // let tree = buildNestedStructure(rootProduct, childRecords);
-        // tree.locale = LOCALE;
-        // const endTime = new Date();
-        // const duration = endTime - startTime;
-
-        // const minutes = Math.floor(duration / 60000);
-        // const seconds = ((duration % 60000) / 1000).toFixed(0);
-
-        // beeceptor('/product/create_or_update?locale=fr-FR', tree);
-    }
-}
-
-/**
  * Converts a string to snake_case by removing special characters and converting camelCase/PascalCase to snake_case.
  * @param {string} variable_name - The string to be converted to snake_case.
  * @returns {string} The converted string in snake_case format.
@@ -361,33 +355,13 @@ function main() {
  * snake_case("My-Variable123") // returns "my_variable123"
  */
 function snake_case(variable_name) {
-    let filteredName = variable_name.replace(/[^a-zA-Z0-9]/g, '_');
-    let snakeCase = '';
-    let i = 0;
-    while (i < filteredName.length) {
-        let char = filteredName[i];
-        if (char >= 'A' && char <= 'Z' && i + 1 < filteredName.length && filteredName[i + 1] >= 'A' && filteredName[i + 1] <= 'Z') {
-            while (i < filteredName.length && filteredName[i] >= 'A' && filteredName[i] <= 'Z') {
-                snakeCase += filteredName[i].toLowerCase();
-                i++;
-            }
-            if (i < filteredName.length && filteredName[i] !== '_') {
-                snakeCase += '_';
-            }
-        } else {
-            if (char >= 'A' && char <= 'Z') {
-                if (i > 0 && snakeCase[snakeCase.length - 1] !== '_') {
-                    snakeCase += '_';
-                }
-                char = char.toLowerCase();
-            }
-            snakeCase += char;
-            i++;
-        }
-    }
-
-    return snakeCase;
+    return variable_name
+        .replace(/([a-z])([A-Z])/g, '$1_$2')
+        .replace(/[\W_]+/g, '_')
+        .replace(/^_|_$/g, '')
+        .toLowerCase();
 }
+
 
 /**
  * Loads mock data from a JSON file hosted on GitHub
@@ -397,17 +371,15 @@ function snake_case(variable_name) {
  * @example
  * const mockData = load_mock('testId'); // Loads from testId_property_mock.json
  */
-function load_mock(id) {
+function mock_load(id) {
     const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/' + snake_case(id) + '_property_mock.json';
-    // const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/children_property_mock.json';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', PATH, false);
     xhr.send();
     if (xhr.status === 200) {
         return JSON.parse(xhr.responseText);
     } else {
-        console.error('Error loading JSON file : ' + PATH, xhr.statusText);
-        return undefined;
+        log('Error loading JSON file : ' + PATH + xhr.statusText, LOG_TYPE.ERROR);
     }
 }
 
@@ -418,7 +390,9 @@ function load_mock(id) {
  *   - 'undefined' if the value is undefined
  *   - 'string' if the value is a string
  *   - 'string_array' if the value is an array containing only strings
- *   - 'other' for any other type
+ *   - 'other_array' if the value is an array containing something else than strings
+ *   - 'object' for any other type (of object type)
+ *   - 'other' for any other type (of non object type)
  */
 function retrieve_type(value) {
     if (typeof value === 'undefined') {
@@ -453,7 +427,7 @@ function retrieve_type(value) {
  * get_localized_value({"en-US": "Hello", "fr-FR": "Bonjour"})
  */
 function get_localized_value(value) {
-    if (typeof value === 'string') {
+    if ((typeof value === 'number') || (typeof value === 'boolean') || (typeof value === 'string')) {
         return value;
     }
     if (typeof value === 'object' && value !== null) {
@@ -466,6 +440,7 @@ function get_localized_value(value) {
 
 /**
  * Loads a default property value into a record object
+ * Default property types are string, html, date, and rich_text
  * @param {Object} record - The target record object to modify
  * @param {Object} configured_property - The property configuration object
  * @param {*} property_value - The value to load into the record
@@ -482,46 +457,109 @@ function property_load_default(record, configured_property, property_value, root
     return record;
 }
 
-function property_load_digital_asset(record, configured_property, property_value, rootRecord) {
+/**
+ * Loads a numeric property value into a record object.
+ * @param {Object} record - The target record object to load the property into.
+ * @param {Object} configured_property - Configuration object for the property.
+ * @param {*} property_value - The value to be loaded (may be localized).
+ * @param {Object} rootRecord - The root record object.
+ * @returns {Object} The updated record object.
+ * @description Processes a property value by:
+ * 1. Getting its localized value
+ * 2. Converting to number if possible
+ * 3. Adding to record if value is not null (or if RETURN_NULL_VALUES is true)
+ */
+function property_load_number(record, configured_property, property_value, rootRecord) {
+    value = get_localized_value(property_value);
+    if ((value !== undefined)) {
+        if (value !== null) {
+            const numberValue = Number(value);
+            value = isNaN(numberValue) ? value : numberValue;
+        }
+        if  ((value !== null) || RETURN_NULL_VALUES) {
+            record[get_property_export_name(configured_property)] = value;
+        }
+    }
+    return record;
+}
+
+/**
+ * Loads a boolean property value into a record
+ * @param {Object} record - The target record object to load the property into
+ * @param {Object} configured_property - The configuration object for the property
+ * @param {*} property_value - The raw property value to load
+ * @param {Object} rootRecord - The root record object
+ * @returns {Object} The updated record object
+ *
+ * @description
+ * Takes a property value, processes it as a boolean ('true'/'false' string values are converted to boolean),
+ * and assigns it to the record using the configured export property name.
+ * The value is only assigned if it's defined and either not null or RETURN_NULL_VALUES is true.
+ */
+function property_load_boolean(record, configured_property, property_value, rootRecord) {
+    value = get_localized_value(property_value);
+    if ((value !== undefined)) {
+        if (value !== null) {
+            if (value === 'true') value = true;
+            if (value === 'false') value = false;
+        }
+        if  ((value !== null) || RETURN_NULL_VALUES) {
+            record[get_property_export_name(configured_property)] = value;
+        }
+    }
+    return record;
+}
+
+/**
+ * Loads and extracts specific values from an asset based on its ID
+ * @param {string} asset_id - The ID of the asset to find
+ * @param {string} configured_property - Property name used for error reporting if asset not found
+ * @param {Array<{name: string, export_name: string}>} returned_values - Array of objects specifying which values to extract from asset
+ * @param {Array<Object>} asset_list - List of assets to search through
+ * @returns {Object} Object containing requested values from the asset
+ * @throws {Error} If asset with given ID is not found in asset_list
+ */
+function load_asset(asset_id, configured_property, returned_values, asset_list) {
     const ASSET_ID = "salsify:id";
+    let asset = null;
+    asset = asset_list.find(asset => asset[ASSET_ID] === asset_id);
+    check_undefined(asset, 'Asset ' + asset_id + ' not found in ' + configured_property, true);
+    let asset_data = {};
+    returned_values.forEach(value => {
+        const asset_value = asset[value.name];
+        if (asset_value !== undefined) {
+            asset_data[value.export_name] = asset_value;
+        }
+    });
+    return asset_data;
+}
+
+/**
+ * Loads digital asset data from a root record and processes it according to configured properties
+ * @param {Object} record - The target record where the processed asset data will be stored
+ * @param {Object} configured_property - Configuration object containing export name and property values
+ * @param {*} property_value - The value containing asset ID(s) to be processed
+ * @param {Object} rootRecord - The root record containing the digital assets list
+ * @returns {Object|undefined} The updated record with asset data, or undefined if processing fails
+ *
+ * @example
+ * // Example configured_property structure:
+ * {
+ *   values: [{name: "url", export_name: "asset_url"}],
+ *   export_name: "digital_asset"
+ * }
+ *
+ * @throws {Error} Logs or throws errors for various failure conditions
+ */
+function property_load_digital_asset(record, configured_property, property_value, rootRecord) {
     const ASSET_LIST = "salsify:digital_assets";
     const property_export_name = get_property_export_name(configured_property)
     const value = get_localized_value(property_value);
-    if (value === undefined) {
-        console.error('asset value is missing in ' + configured_property);
-        return;
-    }
+    if (!check_undefined(value, 'Asset value is missing in ' + configured_property)) return;
     const returned_values = configured_property["values"];
-    if (returned_values === undefined) {
-        console.error('property_values is missing in ' + configured_property);
-        return;
-    }
     const returned_type = retrieve_type(value);
     const asset_list = rootRecord[ASSET_LIST];
-    if (asset_list === undefined) {
-        console.log('asset list is empty');
-        return;
-    }
-    function load_asset(asset_id, configured_property, returned_values, asset_list) {
-        let asset = null;
-        if (asset_id === undefined) {
-            console.error('asset_id is missing in ' + configured_property);
-            return;
-        }
-        asset = asset_list.find(asset => asset[ASSET_ID] === asset_id);
-        if (asset === undefined) {
-            console.error('impossible to load asset ' + asset_id + ' in ' + configured_property);
-            return;
-        }
-        let asset_data = {};
-        returned_values.forEach(value => {
-            const asset_value = asset[value.name];
-            if (asset_value !== undefined) {
-                asset_data[value.export_name] = asset_value;
-            }
-        });
-        return asset_data;
-    }
+    check_undefined(asset_list, 'Asset list is missing in ' + configured_property, true);
     switch (returned_type) {
         case "string":
             const asset_id = value;
@@ -544,10 +582,34 @@ function property_load_digital_asset(record, configured_property, property_value
             }
             break;
         default:
-            console.error('Unexpected type for ' + property_id + ' in ' + record.id);
-            break;
+            log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
     }
     return record;
+}
+
+/**
+ * Loads a product with its quantity and associated information
+ * @param {string|number} product_id - The ID of the product to load
+ * @param {number} product_qty - The quantity of the product
+ * @param {string} configured_property - The property name/path being configured (used for error messages)
+ * @param {Object} returned_values - Object containing previously returned/cached values
+ * @returns {Object|null} An object containing product ID, quantity and product info, or null if product not found and RETURN_NULL_VALUES is false
+ * @throws {Error} If product_id or product_qty is undefined, or if product cannot be loaded
+ */
+function load_product_with_qty(product_id, product_qty, configured_property, returned_values) {
+    let product_with_qty = null;
+    check_undefined(product_id, 'product_id is missing in ' + configured_property, true);
+    check_undefined(product_qty, 'product_qty is missing in ' + configured_property, true);
+    let sub_value = load(product_id, returned_values);
+    check_undefined(sub_value, 'impossible to load sub-product ' + configured_property, true);
+    if  ((sub_value !== null) || RETURN_NULL_VALUES) {
+        product_with_qty = {
+            id: product_id,
+            quantity: product_qty,
+            product_info: sub_value,
+        }
+    }
+    return product_with_qty
 }
 
 /**
@@ -557,7 +619,7 @@ function property_load_digital_asset(record, configured_property, property_value
  * @param {*} property_value - The value of the property to be processed
  * @param {Object} rootRecord - The root record object (unused in current implementation)
  * @returns {Object|undefined} The modified record with quantified product information, or undefined if processing fails
- * @throws {Error} Logs error messages to console for various failure conditions
+ * @throws {Error} Logs error messages or throws exceptions for various failure conditions
  *
  * @description
  * Processes product information with quantities, supporting both single objects and arrays.
@@ -571,35 +633,7 @@ function property_load_quantified_product(record, configured_property, property_
     const PRODUCT_QTY = "salsify:quantity"
     const returned_values = configured_property["values"];
     const property_export_name = get_property_export_name(configured_property)
-    if (returned_values === undefined) {
-        console.error('property_values is missing in ' + configured_property);
-        return;
-    }
     const returned_type = retrieve_type(property_value);
-    function load_product_with_qty(product_id, product_qty, configured_property, returned_values) {
-        let product_with_qty = null;
-        if (product_id === undefined) {
-            console.error('product_id is missing in ' + configured_property);
-            return;
-        }
-        if (product_qty === undefined) {
-            console.error('product_qty is missing in ' + configured_property);
-            return;
-        }
-        let sub_value = load(product_id, returned_values);
-        if (sub_value === undefined) {
-            console.error('impossible to load sub-product ' + configured_property);
-            return;
-        }
-        if  ((sub_value !== null) || RETURN_NULL_VALUES) {
-            product_with_qty = {
-                id: product_id,
-                quantity: product_qty,
-                product_info: sub_value,
-            }
-        }
-        return product_with_qty
-    }
     switch (returned_type) {
         case "object":
             const product_id = property_value[PRODUCT_ID];
@@ -624,8 +658,7 @@ function property_load_quantified_product(record, configured_property, property_
             }
             break;
         default:
-            console.error('Unexpected type for ' + property_id + ' in ' + record.id);
-            break;
+            log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
     }
     return record;
 }
@@ -643,10 +676,6 @@ function property_load_quantified_product(record, configured_property, property_
 function property_load_product(record, configured_property, property_value, rootRecord) {
     returned_values = configured_property["values"];
     property_export_name = get_property_export_name(configured_property)
-    if (returned_values === undefined) {
-        console.error('property_values is missing in ' + configured_property);
-        return;
-    }
     returned_type = retrieve_type(property_value);
     switch (returned_type) {
         case "string":
@@ -670,8 +699,7 @@ function property_load_product(record, configured_property, property_value, root
             }
             break;
         default:
-            console.error('Unexpected type for ' + property_id + ' in ' + record.id);
-            break;
+            log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
     }
     return record;
 }
@@ -698,16 +726,22 @@ function property_load_product(record, configured_property, property_value, root
  * 4. Adding processed values to the record using configured export name
  */
 function property_load_enumerated(record, configured_property, property_value, rootRecord) {
-    if (configured_property.name === undefined) {
-        console.error('property_name is missing in ' + configured_property);
-        record[get_property_export_name(configured_property)] = 'property_name is missing in ' + configured_property;
-        return;
-    }
     property_descriptor = fetchEnumerated(configured_property.name)
-    if (property_descriptor === undefined) {
-        console.error('property_descriptor is missing in ' + configured_property.name);
-        record[get_property_export_name(configured_property)] = 'property_descriptor is missing in ' + configured_property.name;
-        return;
+    if (!check_undefined(property_descriptor, 'property_descriptor is missing in ' + configured_property)) {
+        if (MOCK !== undefined && MOCK) {
+            record[get_property_export_name(configured_property)] = 'property_descriptor is missing in ' + configured_property.name;
+            return;
+        } else {
+            log('property_descriptor is missing in ' + configured_property.name, LOG_TYPE.ERROR);
+        }
+    }
+    if (!check_undefined(property_descriptor.data, 'property_descriptor.data is missing in ' + configured_property)) {
+        if (MOCK !== undefined && MOCK) {
+            record[get_property_export_name(configured_property)] = 'property_descriptor.data is missing in ' + configured_property.name;
+            return;
+        } else {
+            log('property_descriptor.data is missing in ' + configured_property.name, LOG_TYPE.ERROR);
+        }
     }
     property_export_name = get_property_export_name(configured_property)
     returned_type = retrieve_type(property_value);
@@ -720,27 +754,12 @@ function property_load_enumerated(record, configured_property, property_value, r
             enumerated_values = property_value;
             break;
         default:
-            console.error('Unexpected type for ' + property_id + ' in ' + record);
-            record[get_property_export_name(configured_property)] = 'Unexpected type for ' + property_id + ' in ' + record;
-            return;
+            log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
     }
     mapped_values = {};
-    if (property_descriptor.data === undefined) {
-        console.error('property_descriptor.data is missing in ' + configured_property.name);
-        record[get_property_export_name(configured_property)] = 'property_descriptor.data is missing in ' + configured_property.name;
-        return;
-    }
     property_descriptor.data.forEach(enumerated_value => {
-        if (enumerated_value === undefined) {
-            console.error('enumerated_value is missing in ' + configured_property.name);
-            record[get_property_export_name(configured_property)] = 'enumerated_value is missing in ' + configured_property.name;
-            return;
-        }
-        if (enumerated_value.localized_names === undefined) {
-            console.error('enumerated_value.localized_names is missing in ' + configured_property.name);
-            record[get_property_export_name(configured_property)] = 'enumerated_value.localized_names is missing in ' + configured_property.name;
-            return;
-        }
+        check_undefined(enumerated_value, 'enumerated_value is missing in ' + configured_property, true);
+        check_undefined(enumerated_value.localized_names, 'enumerated_value.localized_names is missing in ' + configured_property, true);
         localized_name = get_localized_value(enumerated_value.localized_names);
         if (localized_name === undefined) {
             localized_name = enumerated_value.name;
@@ -749,16 +768,8 @@ function property_load_enumerated(record, configured_property, property_value, r
     });
     records = []
     enumerated_values.forEach(enumerated_value => {
-        if (enumerated_value === undefined) {
-            console.error('enumerated_value is missing in ' + configured_property.name);
-            record[get_property_export_name(configured_property)] = 'enumerated_value is missing in ' + configured_property.name;
-            return;
-        }
-        if (mapped_values[enumerated_value] === undefined) {
-            console.error('mapped_values[enumerated_value] is missing in ' + configured_property.name);
-            record[get_property_export_name(configured_property)] = 'mapped_values[enumerated_value] is missing in ' + configured_property.name;
-            return;
-        }
+        check_undefined(enumerated_value, 'enumerated_value is missing in ' + configured_property, true);
+        check_undefined(mapped_values[enumerated_value], 'mapped_values[' + enumerated_value + '] is missing in ' + configured_property, true);
         localized_name = mapped_values[enumerated_value].localized_name;
         records.push({key: enumerated_value, value: localized_name});
     });
@@ -778,10 +789,7 @@ function property_load_enumerated(record, configured_property, property_value, r
  */
 function property_load_computed(record, configured_property, property_value, rootRecord) {
     computing_function = configured_property["computing_function"];
-    if (computing_function === undefined) {
-        console.error('computing_function is missing in ' + configured_property);
-        return;
-    }
+    check_undefined(computing_function, 'computing_function is missing in ' + configured_property, true);
     property_export_name = get_property_export_name(configured_property)
     record[property_export_name] = computing_function(record, configured_property, property_value, rootRecord);
     return record;
@@ -888,10 +896,7 @@ function property_load_children(record, configured_property, property_value, roo
  */
 function get_property_export_name(configured_property) {
     property_id = configured_property["name"];
-    if (property_id === undefined) {
-        console.error('property_name is missing in ' + configured_property);
-        return undefined;
-    }
+    check_undefined(property_id, 'property_name is missing in ' + configured_property, true);
     let property_export_name = configured_property["export_name"];
     if (property_export_name === undefined) {
         property_export_name = snake_case(property_id);
@@ -915,14 +920,6 @@ function load(rootId, configured_properties) {
     configured_properties.forEach(configured_property => {
         const property_type = configured_property["type"];
         const property_id = configured_property["name"];
-        if (property_type === undefined) {
-            console.error('property_type is missing in ' + configured_property);
-            return;
-        }
-        if (property_id === undefined) {
-            console.error('property_name is missing in ' + configured_property);
-            return;
-        }
         let property_export_name = configured_property["export_name"];
         if (property_export_name !== undefined) {
             property_export_name = snake_case(property_id);
@@ -931,8 +928,7 @@ function load(rootId, configured_properties) {
         if (associated_function !== undefined) {
             associated_function(record, configured_property, rootRecord[property_id], rootRecord)
         } else {
-            console.error('property_type is wrong in ' + configured_property.name);
-            return;
+            log('property_type is wrong in ' + configured_property.name, LOG_TYPE.ERROR);
         }
         return;
     });
@@ -951,6 +947,23 @@ function my_specific_computing_function(record, configured_property, property_va
     value1 = get_localized_value(rootRecord["ID"]);
     value2 = get_localized_value(rootRecord["Name"]);
     return "Specific computed property: " + value1 + " and also " + value2;
+}
+
+function main() {
+    MOCK = (typeof MOCK === 'undefined' ? false : true);
+    if(MOCK) {
+        LOCALE = 'en-GB';
+        send_to_recipient_API = mock_send_to_recipient_API;
+        salsify = mock_salsify;
+        fetchRecord = mock_fetchRecord;
+        fetchPageRecords = mock_fetchPageRecords;
+        fetchEnumerated = mock_fetchEnumerated;
+    } else {
+        LOCALE = flow.locale;
+        const rootId = context.entity.external_id;
+        let result = load(rootId, properties);
+        send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
+    }
 }
 
 main();

@@ -167,6 +167,6 @@ function myfetchEnumerated(id) {
     }
     result = mysearchProperty(id);
     result["locale"] = flow.locale;
-    return ;
+    return result;
 }
 beeceptor("", myfetchEnumerated("Group Species"));

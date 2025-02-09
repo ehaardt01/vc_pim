@@ -290,10 +290,23 @@ function fetchPageRecords(topId, page) {
     return salsify(PATH);
 }
 
+/**
+ * Mocks fetching enumerated data by loading from a snake-cased identifier
+ * @param {string} id - The identifier to fetch enumerated data for
+ * @returns {*} The mocked data corresponding to the snake-cased identifier
+ */
 function mock_fetchEnumerated(id) {
     return mock_load(snake_case(id));
 };
 
+/**
+ * Retrieves paginated enumerated values for a specific property.
+ * @param {string} id - The ID of the property to search for enumerated values.
+ * @param {string} [parent] - Optional parent value to filter results within.
+ * @param {number} page - The page number to retrieve.
+ * @param {number} perPage - The number of items per page.
+ * @returns {Array} An array of enumerated values. Returns empty array if no data found.
+ */
 function searchEnumeratedPage(id, parent, page, perPage) {
     let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
     if (parent !== undefined && parent !== '') {
@@ -303,6 +316,12 @@ function searchEnumeratedPage(id, parent, page, perPage) {
     return result && result.data ? result.data : [];
 };
 
+/**
+ * Searches and retrieves all enumerated records by paginating through the results.
+ * @param {string|number} id - The identifier to search for.
+ * @param {string} [parent=''] - Optional parent identifier to filter results.
+ * @returns {Array} An array containing all matching enumerated records.
+ */
 function searchEnumerated(id, parent='') {
     let allRecords = [];
     let page = 1;
@@ -1024,23 +1043,6 @@ function my_specific_computing_function(record, configured_property, property_va
 }
 
 function main() {
-    // LOCALE = "en-GB";
-    // const rootId = context.entity.external_id;
-    // let result = fetchRecord(rootId);
-    // result["Country Markets 2"] = property_value(context.entity, "Country Markets", 0)
-    // result["Group Species 2"] = property_value(context.entity, "Group Species", 0)
-    // result["Animal stage 2"] = property_value(context.entity, "Animal stage", 0)
-    // result["Country Markets 3"] = property_values(context.entity, "Country Markets")
-    // result["Group Species 3"] = property_values(context.entity, "Group Species")
-    // result["Animal stage 3"] = property_values(context.entity, "Animal stage")
-    // result["Country Markets 4"] = localized_property_value(context.entity, "Country Markets", LOCALE)
-    // result["Group Species 4"] = localized_property_value(context.entity, "Group Species", LOCALE)
-    // result["Animal stage 4"] = localized_property_value(context.entity, "Animal stage", LOCALE)
-    // result["Country Markets 5"] = localized_property_values(context.entity, "Country Markets", LOCALE)
-    // result["Group Species 5"] = localized_property_values(context.entity, "Group Species", LOCALE)
-    // result["Animal stage 5"] = localized_property_values(context.entity, "Animal stage", LOCALE)
-    // send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
-    // return;
     MOCK = (typeof MOCK === 'undefined' ? false : true);
     if(MOCK) {
         LOCALE = 'en-GB';

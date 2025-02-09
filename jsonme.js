@@ -526,7 +526,7 @@ function load_asset(asset_id, configured_property, returned_values, asset_list) 
     const ASSET_ID = "salsify:id";
     let asset = null;
     asset = asset_list.find(asset => asset[ASSET_ID] === asset_id);
-    check_undefined(asset, 'Asset ' + asset_id + ' not found in ' + configured_property, true);
+    check_undefined(asset, 'Asset ' + asset_id + ' not found in configured_property ' + configured_property.name, true);
     let asset_data = {};
     returned_values.forEach(value => {
         const asset_value = asset[value.name];
@@ -563,7 +563,7 @@ function property_load_digital_asset(record, configured_property, property_value
     const returned_values = configured_property["values"];
     const returned_type = retrieve_type(value);
     const asset_list = rootRecord[ASSET_LIST];
-    check_undefined(asset_list, 'Asset list is missing in ' + configured_property, true);
+    check_undefined(asset_list, 'Asset list is missing in configured_property ' + configured_property.name, true);
     switch (returned_type) {
         case "string":
             const asset_id = value;
@@ -602,8 +602,8 @@ function property_load_digital_asset(record, configured_property, property_value
  */
 function load_product_with_qty(product_id, product_qty, configured_property, returned_values) {
     let product_with_qty = null;
-    check_undefined(product_id, 'product_id is missing in ' + configured_property, true);
-    check_undefined(product_qty, 'product_qty is missing in ' + configured_property, true);
+    check_undefined(product_id, 'product_id is missing in configured_property ' + configured_property.name, true);
+    check_undefined(product_qty, 'product_qty is missing in configured_property ' + configured_property.name, true);
     let sub_value = load(product_id, returned_values);
     check_undefined(sub_value, 'impossible to load sub-product ' + configured_property, true);
     if  ((sub_value !== null) || RETURN_NULL_VALUES) {
@@ -765,8 +765,8 @@ function property_load_enumerated(record, configured_property, property_value, r
     }
     mapped_values = {};
     property_descriptor.data.forEach(enumerated_value => {
-        check_undefined(enumerated_value, 'enumerated_value is missing in ' + configured_property, true);
-        check_undefined(enumerated_value.localized_names, 'enumerated_value.localized_names is missing in ' + configured_property, true);
+        check_undefined(enumerated_value, 'enumerated_value is missing in configured_property ' + configured_property.name, true);
+        check_undefined(enumerated_value.localized_names, 'enumerated_value.localized_names is missing in configured_property ' + configured_property.name, true);
         localized_name = get_localized_value(enumerated_value.localized_names);
         if (localized_name === undefined) {
             localized_name = enumerated_value.name;
@@ -775,8 +775,8 @@ function property_load_enumerated(record, configured_property, property_value, r
     });
     records = []
     enumerated_values.forEach(enumerated_value => {
-        check_undefined(enumerated_value, 'enumerated_value is missing in ' + configured_property, true);
-        check_undefined(mapped_values[enumerated_value], 'mapped_values[' + enumerated_value + '] is missing in ' + configured_property, true);
+        check_undefined(enumerated_value, 'enumerated_value is missing in configured_property ' + configured_property.name, true);
+        check_undefined(mapped_values[enumerated_value], 'mapped_values[' + enumerated_value + '] is missing in configured_property ' + configured_property.name, true);
         localized_name = mapped_values[enumerated_value].localized_name;
         records.push({key: enumerated_value, value: localized_name});
     });
@@ -797,7 +797,7 @@ function property_load_enumerated(record, configured_property, property_value, r
 function property_load_computed(record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     computing_function = configured_property["computing_function"];
-    check_undefined(computing_function, 'computing_function is missing in ' + configured_property, true);
+    check_undefined(computing_function, 'computing_function is missing in configured_property ' + configured_property.name, true);
     property_export_name = get_property_export_name(configured_property)
     record[property_export_name] = computing_function(record, configured_property, property_value, rootRecord);
     return record;
@@ -904,7 +904,7 @@ function property_load_children(record, configured_property, property_value, roo
  */
 function get_property_export_name(configured_property) {
     property_id = configured_property["name"];
-    check_undefined(property_id, 'property_name is missing in ' + configured_property, true);
+    check_undefined(property_id, 'property_name is missing in configured_property ' + configured_property.name, true);
     let property_export_name = configured_property["export_name"];
     if (property_export_name === undefined) {
         property_export_name = snake_case(property_id);

@@ -863,6 +863,7 @@ function property_load_enumerated(record, configured_property, property_value, r
     const property_export_name = get_property_export_name(configured_property)
     const returned_type = retrieve_type(property_value);
     let records = fetchEnumerated(configured_property.name);
+    record[property_export_name + "1"] = records;
     if (records === undefined) {
         records = [];
     }

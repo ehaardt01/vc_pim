@@ -147,21 +147,24 @@ function myfetchEnumerated(id) {
         }
         return allRecords;
     }
-    let records = mysearchEnumerated(id, '');
-    let tree = [];
-    for (let item of records) {
-        let node = {
-            id: item.id,
-            name: item.name,
-            has_children: item.has_children,
-            localized_names: item.localized_names,
-            values: []
-        };
-        if (item.has_children) {
-            node.values = mysearchEnumerated(id, item.id);
+    function mysearchProperty(id, parent='') {
+        let records = mysearchEnumerated(id, parent);
+        let tree = [];
+        for (let item of records) {
+            let node = {
+                id: item.id,
+                name: item.name,
+                has_children: item.has_children,
+                localized_names: item.localized_names,
+                values: []
+            };
+            if (item.has_children) {
+                node.values = mysearchProperty(id, item.id);
+            }
+            tree.push(node);
         }
-        tree.push(node);
+        return tree;
     }
-    return tree;
+    return mysearchProperty(id);
 }
 beeceptor("", myfetchEnumerated("Taxonomy"));

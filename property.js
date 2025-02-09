@@ -135,8 +135,7 @@ function myfetchEnumerated(id) {
         let totalEntries = 0;
         let hasMoreData = true;
         while (hasMoreData) {
-            let records =     function mysearchEnumeratedPage(id, parent, page, perPage) {
-                (id, parent, page, perPage);
+            let records = mysearchEnumeratedPage(id, parent, page, perPage);
             if (records.length > 0) {
                 allRecords = allRecords.concat(records);
             }

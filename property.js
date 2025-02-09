@@ -116,4 +116,4 @@ function getEnumeratedValues(property, parentId = '') {
 
 // Example usage
 
-beeceptor("", getProperty("DWD"));
+beeceptor("", getProperty("Taxonomy"));

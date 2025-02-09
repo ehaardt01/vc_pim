@@ -1066,10 +1066,10 @@ function main() {
     LOCALE = flow.locale;
     const rootId = context.entity.external_id;
     let result = fetchRecord(rootId);
+    result["Country Markets 2"] = property_values(rootId, "Country Markets")
+    result["Group Species 2"] = property_values(rootId, "Group Species")
+    result["Animal stage 2"] = property_values(rootId, "")
     send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
-    result["Country Markets"] = property_values(rootId, "Country Markets")
-    result["Group Species"] = property_values(rootId, "Group Species")
-    result["Animal stage"] = property_values(rootId, "")
     return;
     MOCK = (typeof MOCK === 'undefined' ? false : true);
     if(MOCK) {

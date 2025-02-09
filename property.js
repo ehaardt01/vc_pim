@@ -120,7 +120,7 @@ function getEnumeratedValues(property, parentId = '') {
 // beeceptor("", getProperty("Taxonomy"));
 
 function myfetchEnumerated(id) {
-    function searchEnumeratedPage(id, parent, page, perPage) {
+    function mysearchEnumeratedPage(id, parent, page, perPage) {
         let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
         if (parent !== undefined && parent !== '') {
             BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
@@ -128,14 +128,15 @@ function myfetchEnumerated(id) {
         let result = salsify(BASE_PATH, 'GET', null, null);
         return result && result.data ? result.data : [];
     };
-    function searchEnumerated(id, parent='') {
+    function mysearchEnumerated(id, parent='') {
         let allRecords = [];
         let page = 1;
         const perPage = 120;
         let totalEntries = 0;
         let hasMoreData = true;
         while (hasMoreData) {
-            let records = searchEnumeratedPage(id, parent, page, perPage);
+            let records =     function mysearchEnumeratedPage(id, parent, page, perPage) {
+                (id, parent, page, perPage);
             if (records.length > 0) {
                 allRecords = allRecords.concat(records);
             }
@@ -147,7 +148,7 @@ function myfetchEnumerated(id) {
         }
         return allRecords;
     }
-    let records = searchEnumerated(id, '');
+    let records = mysearchEnumerated(id, '');
     let tree = [];
     for (let item of records) {
         let node = {
@@ -157,7 +158,7 @@ function myfetchEnumerated(id) {
             values: []
         };
         if (item.has_children) {
-            node.values = searchEnumerated(id, item.id);
+            node.values = mysearchEnumerated(id, item.id);
         }
         tree.push(node);
     }

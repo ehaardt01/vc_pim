@@ -1,0 +1,78 @@
+{
+    "properties": [
+        {
+            "id": "Taxonomy",
+            "role": "taxonomy",
+            "name": "Taxonomy",
+            "facetable": true,
+            "broken": false,
+            "data_type": "enumerated",
+            "type": "property",
+            "multi_valued": false,
+            "position": null,
+            "values_editable": true,
+            "localizable": false,
+            "filterability": "full",
+            "property_group": "General product info",
+            "property_group_id": "General product info",
+            "target_schema_field_id": null
+        }
+    ],
+    "property_groups": [
+        {
+            "id": "General product info",
+            "name": "General product info",
+            "position": 2,
+            "editable": true,
+            "deleteable": true
+        }
+    ],
+    "enumerated_values": [],
+    "data": [
+        {
+            "id": "Brand",
+            "name": "Brand",
+            "localized_names": {},
+            "has_children": false,
+            "property_id": "Taxonomy",
+            "parent_id": null
+        },
+        {
+            "id": "Analytical Constituents",
+            "name": "Composition",
+            "localized_names": {},
+            "has_children": true,
+            "property_id": "Taxonomy",
+            "parent_id": null
+        },
+        {
+            "id": "FAQ Petfood",
+            "name": "FAQ",
+            "localized_names": {},
+            "has_children": true,
+            "property_id": "Taxonomy",
+            "parent_id": null
+        },
+        {
+            "id": "Ingredients data",
+            "name": "Key benefits",
+            "localized_names": {},
+            "has_children": false,
+            "property_id": "Taxonomy",
+            "parent_id": null
+        },
+        {
+            "id": "Products",
+            "name": "Products",
+            "localized_names": {},
+            "has_children": true,
+            "property_id": "Taxonomy",
+            "parent_id": null
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "per_page": 30,
+        "total_entries": 5
+    }
+}

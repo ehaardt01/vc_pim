@@ -126,7 +126,7 @@ function myfetchEnumerated(id) {
             BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
         }
         let result = salsify(BASE_PATH, 'GET', null, null);
-        return result && result.data ? result : [];
+        return result && result.data ? result.data : [];
     };
     function searchEnumerated(id, parent='') {
         let allRecords = [];

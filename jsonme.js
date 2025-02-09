@@ -868,7 +868,7 @@ function property_load_enumerated(record, configured_property, property_value, r
     //     case "string":
     //         record = {
     //             key: property_value,
-    //             value: property_value,
+    //             value: localized_property_values(property_value, configured_property.name, LOCALE),
     //         }
     //         records.push(record);
     //         break;
@@ -887,18 +887,7 @@ function property_load_enumerated(record, configured_property, property_value, r
     // if ((records.length !== 0) || RETURN_NULL_VALUES) {
     //     record[property_export_name] = records;
     // }
-    returned_type = retrieve_type(property_value);
-    let records = [];
-    switch (returned_type) {
-        case "string":
-            record[property_export_name] = localized_property_values(entity, property_id, LOCALE);
-            break;
-        case "string_array":
-            record[property_export_name] = get_localized_property_values(record, configured_property.name);
-            break;
-        default:
-            log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
-    }
+    record[property_export_name] = property_values(records, configured_property.name);
     return record;
 }
 

@@ -1073,7 +1073,6 @@ function main() {
         LOCALE = flow.locale;
         const rootId = context.entity.external_id;
         let result = load(rootId, properties);
-        result["locale_id"] = flow.flow_data.locale_id;
         send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
     }
 }

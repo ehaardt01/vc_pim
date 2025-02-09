@@ -888,6 +888,7 @@ function property_load_enumerated(record, configured_property, property_value, r
     //     record[property_export_name] = records;
     // }
     record[property_export_name] = get_localized_property_values(record, configured_property.name);
+    record[property_export_name+"_1"] = get_localized_property_value(record, configured_property.name);
     return record;
 }
 

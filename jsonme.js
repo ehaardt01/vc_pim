@@ -290,24 +290,8 @@ function fetchPageRecords(topId, page) {
     return salsify(PATH);
 }
 
-/**
- * Fetches enumerated values for a given property ID
- * @param {string} id - The property ID to fetch enumerated values for
- * @returns {Object} An object containing the enumerated values data
- * @returns {Array} .data - Array of enumerated values
- * @throws {Error} When the API request fails (in non-MOCK mode)
- */
 function mock_fetchEnumerated(id) {
     return mock_load(snake_case(id));
-}
-
-function mock_searchEnumeratedPage(id, parent, page, perPage) {
-    let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
-    if (parent !== undefined && parent !== '') {
-        BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
-    }
-    let result = salsify(BASE_PATH, 'GET', null, null);
-    return result && result.data ? result.data : [];
 };
 
 function searchEnumeratedPage(id, parent, page, perPage) {
@@ -318,6 +302,30 @@ function searchEnumeratedPage(id, parent, page, perPage) {
     let result = salsify(BASE_PATH, 'GET', null, null);
     return result && result.data ? result.data : [];
 };
+
+function searchEnumerated(id, parent='') {
+    let allRecords = [];
+    let page = 1;
+    const perPage = 120;
+    let totalEntries = 0;
+    let hasMoreData = true;
+    while (hasMoreData) {
+        let search_results = searchEnumeratedPage(id, parent, page, perPage);
+        if (search_results !== undefined && search_results.data !== undefined) {
+            if (search_results.data.length > 0) {
+                allRecords = allRecords.concat(search_results.data);
+            }
+            if (page === 1 && search_results.meta && search_results.meta.total_entries) {
+                totalEntries = search_results.meta.total_entries;
+            }
+        } else {
+            hasMoreData = false;
+        }
+        hasMoreData = allRecords.length < totalEntries;
+        page++;
+    }
+    return allRecords;
+}
 
 /**
  * Fetches and builds a hierarchical tree structure of enumerated values for a given property ID.
@@ -343,27 +351,8 @@ function searchEnumeratedPage(id, parent, page, perPage) {
  * // }, ...]
  */
 function fetchEnumerated(id) {
-    function mysearchEnumerated(id, parent='') {
-        let allRecords = [];
-        let page = 1;
-        const perPage = 120;
-        let totalEntries = 0;
-        let hasMoreData = true;
-        while (hasMoreData) {
-            let records = searchEnumeratedPage(id, parent, page, perPage);
-            if (records.length > 0) {
-                allRecords = allRecords.concat(records);
-            }
-            if (page === 1 && records.meta && records.meta.total_entries) {
-                totalEntries = records.meta.total_entries;
-            }
-            hasMoreData = allRecords.length < totalEntries;
-            page++;
-        }
-        return allRecords;
-    }
     function mysearchProperty(id, parent='') {
-        let records = mysearchEnumerated(id, parent);
+        let records = searchEnumerated(id, parent);
         let tree = [];
         for (let item of records) {
             let node = {
@@ -380,7 +369,7 @@ function fetchEnumerated(id) {
         }
         return tree;
     }
-    return mysearchProperty(id);
+    return mysearchProperty(id, '');;
 }
 
 /**
@@ -871,9 +860,26 @@ function Old_property_load_enumerated(record, configured_property, property_valu
 }
 
 function property_load_enumerated(record, configured_property, property_value, rootRecord) {
-    // property_export_name = get_property_export_name(configured_property)
-    // returned_type = retrieve_type(property_value);
-    // let records = [];
+    const property_export_name = get_property_export_name(configured_property)
+    const returned_type = retrieve_type(property_value);
+    let records = fetchEnumerated(configured_property.name);
+    const mapped_values = [];
+    function flatten_tree(records, mapped_values) {
+        records.forEach(enumerated_value => {
+            let localized_name = get_localized_value(enumerated_value.localized_names);
+            localized_name = localized_name === undefined ? enumerated_value.name : localized_name;
+            mapped_values[enumerated_value.id] = localized_name;
+            if (enumerated_value.has_children) {
+                flatten_tree(enumerated_value.values, mapped_values);
+            }
+        });
+    }
+    if (records === undefined) {
+        records = {
+            data: [],
+        }
+    }
+    flatten_tree(records.data, mapped_values);
     // switch (returned_type) {
     //     case "string":
     //         record = {
@@ -897,7 +903,6 @@ function property_load_enumerated(record, configured_property, property_value, r
     // if ((records.length !== 0) || RETURN_NULL_VALUES) {
     //     record[property_export_name] = records;
     // }
-    record[property_export_name] = fetchEnumerated(configured_property.name)
     return record;
 }
 
@@ -1097,7 +1102,7 @@ function main() {
         salsify = mock_salsify;
         fetchRecord = mock_fetchRecord;
         fetchPageRecords = mock_fetchPageRecords;
-        fetchEnumerated = mock_fetchEnumerated;
+        fetchEnumerated = mock_fetchEnumerated
     } else {
         LOCALE = flow.locale;
         const rootId = context.entity.external_id;

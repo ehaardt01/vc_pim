@@ -1042,6 +1042,24 @@ function my_specific_computing_function(record, configured_property, property_va
     return "Specific computed property: " + value1 + " and also " + value2;
 }
 
+/**
+ * Main function that handles the flow execution whether in mock mode or production mode.
+ * In mock mode, it sets up mock functions and a fixed locale.
+ * In production mode, it loads data for a given root ID and sends it to the recipient API.
+ *
+ * @global {boolean} MOCK - Determines if the application runs in mock mode
+ * @global {string} LOCALE - The locale setting for the application
+ * @global {Function} send_to_recipient_API - Function to send data to recipient API
+ * @global {Object} salsify - Salsify integration object
+ * @global {Function} fetchRecord - Function to fetch a single record
+ * @global {Function} fetchPageRecords - Function to fetch page records
+ * @global {Function} fetchEnumerated - Function to fetch enumerated values
+ * @global {Object} flow - Contains flow-related information including locale
+ * @global {Object} context - Contains context information including entity data
+ * @global {Object} properties - Contains properties configuration
+ *
+ * @returns {void}
+ */
 function main() {
     MOCK = (typeof MOCK === 'undefined' ? false : true);
     if(MOCK) {
@@ -1055,6 +1073,7 @@ function main() {
         LOCALE = flow.locale;
         const rootId = context.entity.external_id;
         let result = load(rootId, properties);
+        result["new_locale"] = flow.locale;
         send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
     }
 }

@@ -1,172 +1,128 @@
 [
     {
-        "id": "Beef cattle",
-        "name": "Beef cattle",
-        "localized_names": {
-            "en-GB": "en-BG: Beef cattle"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Beef cattle",
+       "name": "Beef cattle",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Beef cattle" },
+       "values": []
     },
     {
-        "id": "Birds",
-        "name": "Birds",
-        "localized_names": {
-            "en-GB": "en-BG: Birds"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Birds",
+       "name": "Birds",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Birds" },
+       "values": []
     },
     {
-        "id": "Bovine",
-        "name": "Bovine",
-        "localized_names": {
-            "en-GB": "en-BG: Bovine"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Bovine",
+       "name": "Bovine",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Bovine" },
+       "values": []
     },
     {
-        "id": "Cat",
-        "name": "Cat",
-        "localized_names": {
-            "en-GB": "en-BG: Cat"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Cat",
+       "name": "Cat",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Cat" },
+       "values": []
     },
     {
-        "id": "Dairy cattle",
-        "name": "Dairy cattle",
-        "localized_names": {
-            "en-GB": "en-BG: Dairy Cattle"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Dairy cattle",
+       "name": "Dairy cattle",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Dairy Cattle" },
+       "values": []
     },
     {
-        "id": "Dog",
-        "name": "Dog",
-        "localized_names": {
-            "en-GB": "en-BG: Dog"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Dog",
+       "name": "Dog",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Dog" },
+       "values": []
     },
     {
-        "id": "Ferret",
-        "name": "Ferret",
-        "localized_names": {
-            "en-GB": "en-BG: Ferret"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Ferret",
+       "name": "Ferret",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Ferret" },
+       "values": []
     },
     {
-        "id": "Fish",
-        "name": "Fish",
-        "localized_names": {
-            "en-GB": "en-BG: Fish"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Fish",
+       "name": "Fish",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Fish" },
+       "values": []
     },
     {
-        "id": "Goat",
-        "name": "Goat",
-        "localized_names": {
-            "en-GB": "en-BG: Goat"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Goat",
+       "name": "Goat",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Goat" },
+       "values": []
     },
     {
-        "id": "Hen",
-        "name": "Hen",
-        "localized_names": {
-            "en-GB": "en-BG:Hen"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Hen",
+       "name": "Hen",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG:Hen" },
+       "values": []
     },
     {
-        "id": "Horse",
-        "name": "Horse",
-        "localized_names": {
-            "en-GB": "en-BG: Horse"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Horse",
+       "name": "Horse",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Horse" },
+       "values": []
     },
     {
-        "id": "Lizard",
-        "name": "Lizard",
-        "localized_names": {
-            "en-GB": "en-BG: Lizard"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Lizard",
+       "name": "Lizard",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Lizard" },
+       "values": []
     },
     {
-        "id": "Porcine",
-        "name": "Porcine",
-        "localized_names": {
-            "en-GB": "en-BG: Porcine"
-        },
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Porcine",
+       "name": "Porcine",
+       "has_children": false,
+       "localized_names": { "en-GB": "en-BG: Porcine" },
+       "values": []
     },
     {
-        "id": "Rabbit",
-        "name": "Rabbit",
-        "localized_names": {},
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Rabbit",
+       "name": "Rabbit",
+       "has_children": false,
+       "localized_names": {},
+       "values": []
     },
     {
-        "id": "Reptile",
-        "name": "Reptile",
-        "localized_names": {},
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Reptile",
+       "name": "Reptile",
+       "has_children": false,
+       "localized_names": {},
+       "values": []
     },
     {
-        "id": "Rodent",
-        "name": "Rodent",
-        "localized_names": {},
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Rodent",
+       "name": "Rodent",
+       "has_children": false,
+       "localized_names": {},
+       "values": []
     },
     {
-        "id": "Sheep",
-        "name": "Sheep",
-        "localized_names": {},
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Sheep",
+       "name": "Sheep",
+       "has_children": false,
+       "localized_names": {},
+       "values": []
     },
     {
-        "id": "Turtle",
-        "name": "Turtle",
-        "localized_names": {},
-        "has_children": false,
-        "property_id": "Group Species",
-        "parent_id": null
+       "id": "Turtle",
+       "name": "Turtle",
+       "has_children": false,
+       "localized_names": {},
+       "values": []
     }
-]
+ ]

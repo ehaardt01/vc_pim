@@ -861,14 +861,14 @@ function Old_property_load_enumerated(record, configured_property, property_valu
 }
 
 function property_load_enumerated(record, configured_property, property_value, rootRecord) {
-    property_export_name = get_property_export_name(configured_property)
+    // property_export_name = get_property_export_name(configured_property)
     // returned_type = retrieve_type(property_value);
     // let records = [];
     // switch (returned_type) {
     //     case "string":
     //         record = {
     //             key: property_value,
-    //             value: localized_property_values(property_value, configured_property.name, LOCALE),
+    //             value: "toto",
     //         }
     //         records.push(record);
     //         break;
@@ -876,7 +876,7 @@ function property_load_enumerated(record, configured_property, property_value, r
     //         returned_type.forEach(item => {
     //             record = {
     //                 key: item,
-    //                 value: item,
+    //                 value: "toto",
     //             }
     //             records.push(record);
     //         });
@@ -887,7 +887,7 @@ function property_load_enumerated(record, configured_property, property_value, r
     // if ((records.length !== 0) || RETURN_NULL_VALUES) {
     //     record[property_export_name] = records;
     // }
-    record[property_export_name] = property_values(record, configured_property.name);
+    record[property_export_name] = fetchEnumerated(configured_property.name)
     return record;
 }
 
@@ -1063,23 +1063,23 @@ function my_specific_computing_function(record, configured_property, property_va
 }
 
 function main() {
-    LOCALE = "en-GB";
-    const rootId = context.entity.external_id;
-    let result = fetchRecord(rootId);
-    result["Country Markets 2"] = property_value(context.entity, "Country Markets", 0)
-    result["Group Species 2"] = property_value(context.entity, "Group Species", 0)
-    result["Animal stage 2"] = property_value(context.entity, "Animal stage", 0)
-    result["Country Markets 3"] = property_values(context.entity, "Country Markets")
-    result["Group Species 3"] = property_values(context.entity, "Group Species")
-    result["Animal stage 3"] = property_values(context.entity, "Animal stage")
-    result["Country Markets 4"] = localized_property_value(context.entity, "Country Markets", LOCALE)
-    result["Group Species 4"] = localized_property_value(context.entity, "Group Species", LOCALE)
-    result["Animal stage 4"] = localized_property_value(context.entity, "Animal stage", LOCALE)
-    result["Country Markets 5"] = localized_property_values(context.entity, "Country Markets", LOCALE)
-    result["Group Species 5"] = localized_property_values(context.entity, "Group Species", LOCALE)
-    result["Animal stage 5"] = localized_property_values(context.entity, "Animal stage", LOCALE)
-    send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
-    return;
+    // LOCALE = "en-GB";
+    // const rootId = context.entity.external_id;
+    // let result = fetchRecord(rootId);
+    // result["Country Markets 2"] = property_value(context.entity, "Country Markets", 0)
+    // result["Group Species 2"] = property_value(context.entity, "Group Species", 0)
+    // result["Animal stage 2"] = property_value(context.entity, "Animal stage", 0)
+    // result["Country Markets 3"] = property_values(context.entity, "Country Markets")
+    // result["Group Species 3"] = property_values(context.entity, "Group Species")
+    // result["Animal stage 3"] = property_values(context.entity, "Animal stage")
+    // result["Country Markets 4"] = localized_property_value(context.entity, "Country Markets", LOCALE)
+    // result["Group Species 4"] = localized_property_value(context.entity, "Group Species", LOCALE)
+    // result["Animal stage 4"] = localized_property_value(context.entity, "Animal stage", LOCALE)
+    // result["Country Markets 5"] = localized_property_values(context.entity, "Country Markets", LOCALE)
+    // result["Group Species 5"] = localized_property_values(context.entity, "Group Species", LOCALE)
+    // result["Animal stage 5"] = localized_property_values(context.entity, "Animal stage", LOCALE)
+    // send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
+    // return;
     MOCK = (typeof MOCK === 'undefined' ? false : true);
     if(MOCK) {
         LOCALE = 'en-GB';

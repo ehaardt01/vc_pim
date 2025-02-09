@@ -784,81 +784,23 @@ function property_load_product(record, configured_property, property_value, root
 }
 
 /**
- * Loads and processes enumerated property values for a record.
- * Return is always an array of objects with key and localized value.
- * @param {Object} record - The record object to be modified
+ * Loads and processes enumerated property values for a record
+ * @param {Object} record - The target record to load the property into
  * @param {Object} configured_property - Configuration object for the property
- * @param {string} configured_property.name - Name of the configured property
- * @param {string|string[]} property_value - Value(s) to be processed, can be string or array of strings
- * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
- * @returns {Object|undefined} Modified record with added enumerated property, or undefined if validation fails
- *
- * @throws {Error} Logs error if property_name is missing in configured_property
- * @throws {Error} Logs error if property_descriptor cannot be loaded
- * @throws {Error} Logs error if property_value type is neither string nor string array
+ * @param {*} property_value - The value(s) to be processed
+ * @param {Object} rootRecord - The root record object
+ * @returns {Object} The updated record with the processed enumerated values
  *
  * @description
- * This function processes enumerated property values by:
- * 1. Loading property descriptor from mock data
- * 2. Converting input value(s) to array format
- * 3. Mapping enumerated values to their localized names
- * 4. Adding processed values to the record using configured export name
+ * This function handles enumerated property values by:
+ * 1. Fetching enumerated values for the property
+ * 2. Flattening any hierarchical structure into mapped values
+ * 3. Processing single values (string) or multiple values (string_array)
+ * 4. Converting IDs to their localized names
+ * 5. Storing results as an array of {key, value} pairs in the record
+ *
+ * @throws {Error} Logs error if property type is neither string nor string_array
  */
-function Old_property_load_enumerated(record, configured_property, property_value, rootRecord) {
-    if (property_value === undefined) return;
-    property_descriptor = fetchEnumerated(configured_property.name)
-    if (!check_undefined(property_descriptor, 'property_descriptor is missing in ' + configured_property)) {
-        if (MOCK !== undefined && MOCK) {
-            record[get_property_export_name(configured_property)] = 'property_descriptor is missing in ' + configured_property.name;
-            return;
-        } else {
-            log('property_descriptor is missing in ' + configured_property.name, LOG_TYPE.ERROR);
-        }
-    }
-    if (!check_undefined(property_descriptor.data, 'property_descriptor.data is missing in ' + configured_property)) {
-        if (MOCK !== undefined && MOCK) {
-            record[get_property_export_name(configured_property)] = 'property_descriptor.data is missing in ' + configured_property.name;
-            return;
-        } else {
-            log('property_descriptor.data is missing in ' + configured_property.name, LOG_TYPE.ERROR);
-        }
-    }
-    property_export_name = get_property_export_name(configured_property)
-    returned_type = retrieve_type(property_value);
-    let enumerated_values = [];
-    switch (returned_type) {
-        case "string":
-            enumerated_values.push(property_value);
-            break;
-        case "string_array":
-            enumerated_values = property_value;
-            break;
-        default:
-            log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
-    }
-    mapped_values = {};
-    property_descriptor.data.forEach(enumerated_value => {
-        check_undefined(enumerated_value, 'enumerated_value is missing in configured_property ' + configured_property.name, true);
-        check_undefined(enumerated_value.localized_names, 'enumerated_value.localized_names is missing in configured_property ' + configured_property.name, true);
-        localized_name = get_localized_value(enumerated_value.localized_names);
-        if (localized_name === undefined) {
-            localized_name = enumerated_value.name;
-        }
-        mapped_values[enumerated_value.id] = {localized_name: localized_name};
-    });
-    records = []
-    enumerated_values.forEach(enumerated_value => {
-        check_undefined(enumerated_value, 'enumerated_value is missing in configured_property ' + configured_property.name, true);
-        check_undefined(mapped_values[enumerated_value], 'mapped_values[' + enumerated_value + '] is missing in configured_property ' + configured_property.name, true);
-        localized_name = mapped_values[enumerated_value].localized_name;
-        records.push({key: enumerated_value, value: localized_name});
-    });
-    if ((records.length !== 0) || RETURN_NULL_VALUES) {
-        record[property_export_name] = records;
-    }
-    return record;
-}
-
 function property_load_enumerated(record, configured_property, property_value, rootRecord) {
     const property_export_name = get_property_export_name(configured_property)
     const returned_type = retrieve_type(property_value);

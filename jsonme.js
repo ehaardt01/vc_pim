@@ -1063,6 +1063,13 @@ function my_specific_computing_function(record, configured_property, property_va
 }
 
 function main() {
+    LOCALE = flow.locale;
+    const rootId = context.entity.external_id;
+    let result = fetchRecord(rootId);
+    send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
+
+
+    return;
     MOCK = (typeof MOCK === 'undefined' ? false : true);
     if(MOCK) {
         LOCALE = 'en-GB';

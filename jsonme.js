@@ -482,7 +482,7 @@ function retrieve_type(value) {
  * // Returns "Bonjour" if LOCALE is set to "fr-FR"
  * get_localized_value({"en-US": "Hello", "fr-FR": "Bonjour"})
  */
-function mock_get_localized_value(value) {
+function get_localized_value(value) {
     if ((typeof value === 'number') || (typeof value === 'boolean') || (typeof value === 'string')) {
         return value;
     }

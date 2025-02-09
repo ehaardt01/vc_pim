@@ -1063,7 +1063,7 @@ function my_specific_computing_function(record, configured_property, property_va
 }
 
 function main() {
-    LOCALE = flow.locale;
+    LOCALE = "en-GB";
     const rootId = context.entity.external_id;
     let result = fetchRecord(rootId);
     result["Country Markets 2"] = property_value(context.entity, "Country Markets", 0)

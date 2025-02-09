@@ -309,12 +309,28 @@ function mock_fetchEnumerated(id) {
  * @throws {Error} When the API request fails (in non-MOCK mode)
  */
 function fetchEnumerated(id) {
-    let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=1&per_page=120`;
-    let result = salsify(BASE_PATH, 'GET', null, null);
-    let property_record = {
-        data: result && result.data ? result.data : []
+    function searchEnumeratedPage(id, page, perPage) {
+        let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
+        let result = salsify(BASE_PATH, 'GET', null, null);
+        return result && result.data ? result : [];
+    };
+    let allRecords = [];
+    let page = 1;
+    const perPage = 120;
+    let totalEntries = 0;
+    let hasMoreData = true;
+    while (hasMoreData) {
+        let records = searchEnumeratedPage(id, page, perPage);
+        if (records.length > 0) {
+            allRecords = allRecords.concat(records);
+        }
+        if (page === 1 && records.meta && records.meta.total_entries) {
+            totalEntries = records.meta.total_entries;
+        }
+        hasMoreData = allRecords.length < totalEntries;
+        page++;
     }
-    return property_record;
+    return allRecords;
 }
 
 /**

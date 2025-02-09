@@ -6,18 +6,21 @@
    "searchable": false,
    "editable": true,
    "values": [
-      { "id": "Brand", "name": "Brand", "values": [] },
+      { "id": "Brand", "name": "Brand", "localized_names": {}, "values": [] },
       {
          "id": "Analytical Constituents",
          "name": "Composition",
+         "localized_names": {},
          "values": [
             {
                "id": "Analytical constituents",
                "name": "Analytical constituents",
+               "localized_names": {},
                "values": [
                   {
                      "id": "Petfood-W1-Adult",
                      "name": "Petfood-W1-Adult",
+                     "localized_names": {},
                      "values": []
                   }
                ]
@@ -27,73 +30,98 @@
       {
          "id": "FAQ Petfood",
          "name": "FAQ",
+         "localized_names": {},
          "values": [
-            { "id": "Veterinary HPM", "name": "Veterinary HPM", "values": [] }
+            {
+               "id": "Veterinary HPM",
+               "name": "Veterinary HPM",
+               "localized_names": {},
+               "values": []
+            }
          ]
       },
-      { "id": "Ingredients data", "name": "Key benefits", "values": [] },
+      {
+         "id": "Ingredients data",
+         "name": "Key benefits",
+         "localized_names": {},
+         "values": []
+      },
       {
          "id": "Products",
          "name": "Products",
+         "localized_names": {},
          "values": [
             {
                "id": "Companion animals",
                "name": "Companion animals",
+               "localized_names": {},
                "values": [
                   {
                      "id": "Dogs and cats",
                      "name": "Dogs and cats",
+                     "localized_names": {},
                      "values": [
                         {
                            "id": "Nutrition & Petcare",
                            "name": "Nutrition & Petcare",
+                           "localized_names": {},
                            "values": [
                               {
                                  "id": "Behavior",
                                  "name": "Behavior",
+                                 "localized_names": {},
                                  "values": []
                               },
                               {
                                  "id": "Dental",
                                  "name": "Dental",
+                                 "localized_names": {},
                                  "values": []
                               },
                               {
                                  "id": "Healthcare -Digestive",
                                  "name": "Healthcare -Digestive",
+                                 "localized_names": {},
                                  "values": []
                               },
                               {
                                  "id": "Healthcare -Mobility",
                                  "name": "Healthcare -Mobility",
+                                 "localized_names": {},
                                  "values": []
                               },
                               {
                                  "id": "Healthcare -Skin & Hygiene",
                                  "name": "Healthcare -Skin & Hygiene",
+                                 "localized_names": {},
                                  "values": []
                               },
                               {
                                  "id": "Healthcare -Urinary tract",
                                  "name": "Healthcare -Urinary tract",
+                                 "localized_names": {},
                                  "values": []
                               },
                               {
                                  "id": "Pet food",
                                  "name": "Pet food",
+                                 "localized_names": {},
                                  "values": [
                                     {
                                        "id": "Diet",
                                        "name": "Diet",
+                                       "localized_names": {},
                                        "values": [
                                           {
                                              "id": "Diet-cat",
                                              "name": "Cat",
+                                             "localized_names": {},
                                              "values": []
                                           },
                                           {
                                              "id": "Diet-Dog",
                                              "name": "Dog",
+                                             "localized_names": {},
                                              "values": []
                                           }
                                        ]
@@ -101,29 +129,35 @@
                                     {
                                        "id": "Physio",
                                        "name": "Physio",
+                                       "localized_names": {},
                                        "values": [
                                           {
                                              "id": "Cat",
                                              "name": "Cat",
+                                             "localized_names": {},
                                              "values": []
                                           },
                                           {
                                              "id": "Dog",
                                              "name": "Dog",
+                                             "localized_names": {},
                                              "values": [
                                                 {
                                                    "id": "Large & Medium",
                                                    "name": "Large & Medium",
+                                                   "localized_names": {},
                                                    "values": []
                                                 },
                                                 {
                                                    "id": "Neutered",
                                                    "name": "Neutered",
+                                                   "localized_names": {},
                                                    "values": []
                                                 },
                                                 {
                                                    "id": "Small & toy",
                                                    "name": "Small & toy",
+                                                   "localized_names": {},
                                                    "values": []
                                                 }
                                              ]
@@ -133,16 +167,23 @@
                                     {
                                        "id": "Wet food",
                                        "name": "Wet food",
+                                       "localized_names": {},
                                        "values": []
                                     }
                                  ]
                               }
                            ]
                         },
-                        { "id": "Other SA", "name": "Other SA", "values": [] },
+                        {
+                           "id": "Other SA",
+                           "name": "Other SA",
+                           "localized_names": {},
+                           "values": []
+                        },
                         {
                            "id": "Pharma & Bio",
                            "name": "Pharma & Bio",
+                           "localized_names": {},
                            "values": []
                         }
                      ]
@@ -150,32 +191,61 @@
                   {
                      "id": "Horses",
                      "name": "Horses",
+                     "localized_names": {},
                      "values": [
-                        { "id": "Equine", "name": "Equine", "values": [] },
+                        {
+                           "id": "Equine",
+                           "name": "Equine",
+                           "localized_names": {},
+                           "values": []
+                        },
                         {
                            "id": "Other SA - Horses",
                            "name": "Other SA",
+                           "localized_names": {},
                            "values": []
                         }
                      ]
                   },
-                  { "id": "Other pets", "name": "Other pets", "values": [] }
+                  {
+                     "id": "Other pets",
+                     "name": "Other pets",
+                     "localized_names": {},
+                     "values": []
+                  }
                ]
             },
             {
                "id": "Food produc. animals",
                "name": "Food produc. animals",
+               "localized_names": {},
                "values": [
-                  { "id": "Aquaculture", "name": "Aquaculture", "values": [] },
+                  {
+                     "id": "Aquaculture",
+                     "name": "Aquaculture",
+                     "localized_names": {},
+                     "values": []
+                  },
                   {
                      "id": "Pigs and poultry",
                      "name": "Pigs and poultry",
+                     "localized_names": {},
                      "values": []
                   },
-                  { "id": "Ruminants", "name": "Ruminants", "values": [] }
+                  {
+                     "id": "Ruminants",
+                     "name": "Ruminants",
+                     "localized_names": {},
+                     "values": []
+                  }
                ]
             },
-            { "id": "Other Business", "name": "Other Business", "values": [] }
+            {
+               "id": "Other Business",
+               "name": "Other Business",
+               "localized_names": {},
+               "values": []
+            }
          ]
       }
    ]

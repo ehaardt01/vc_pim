@@ -117,4 +117,50 @@ function getEnumeratedValues(property, parentId = '') {
 
 // Example usage
 
-beeceptor("", getProperty("Taxonomy"));
+// beeceptor("", getProperty("Taxonomy"));
+
+function myfetchEnumerated(id) {
+    function searchEnumeratedPage(id, parent, page, perPage) {
+        let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
+        if (parent) {
+            BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
+        }
+        let result = salsify(BASE_PATH, 'GET', null, null);
+        return result && result.data ? result : [];
+    };
+    function searchEnumerated(id, parent) {
+        let allRecords = [];
+        let page = 1;
+        const perPage = 120;
+        let totalEntries = 0;
+        let hasMoreData = true;
+        while (hasMoreData) {
+            let records = searchEnumeratedPage(id, parent, page, perPage);
+            if (records.length > 0) {
+                allRecords = allRecords.concat(records);
+            }
+            if (page === 1 && records.meta && records.meta.total_entries) {
+                totalEntries = records.meta.total_entries;
+            }
+            hasMoreData = allRecords.length < totalEntries;
+            page++;
+        }
+        return allRecords;
+    }
+    let records = searchEnumerated(id, parentId);
+    let tree = [];
+    for (let item of records) {
+        let node = {
+            id: item.id,
+            name: item.name,
+            localized_names: item.localized_names,
+            values: []
+        };
+        if (item.has_children) {
+            node.values = searchEnumerated(id, item.id);
+        }
+        tree.push(node);
+    }
+    return tree;
+}
+beeceptor("", myfetchEnumerated("Taxonomy"));

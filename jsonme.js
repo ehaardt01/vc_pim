@@ -863,6 +863,9 @@ function property_load_enumerated(record, configured_property, property_value, r
     const property_export_name = get_property_export_name(configured_property)
     const returned_type = retrieve_type(property_value);
     let records = fetchEnumerated(configured_property.name);
+    if (records === undefined) {
+        records = [];
+    }
     const mapped_values = [];
     function flatten_tree(records, mapped_values) {
         records.forEach(enumerated_value => {
@@ -875,29 +878,34 @@ function property_load_enumerated(record, configured_property, property_value, r
         });
     }
     flatten_tree(records, mapped_values);
-    // switch (returned_type) {
-    //     case "string":
-    //         record = {
-    //             key: property_value,
-    //             value: "toto",
-    //         }
-    //         records.push(record);
-    //         break;
-    //     case "string_array":
-    //         returned_type.forEach(item => {
-    //             record = {
-    //                 key: item,
-    //                 value: "toto",
-    //             }
-    //             records.push(record);
-    //         });
-    //         break;
-    //     default:
-    //         log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
-    // }
-    // if ((records.length !== 0) || RETURN_NULL_VALUES) {
-    //     record[property_export_name] = records;
-    // }
+    let enumerated_list = [];
+    switch (returned_type) {
+        case "string":
+            let value = mapped_values[property_value];
+            value = value === undefined ? property_value : value;
+            new_record = {
+                key: property_value,
+                value: value,
+            }
+            enumerated_list.push(new_record);
+            break;
+        case "string_array":
+            property_value.forEach(item => {
+                let value = mapped_values[item];
+                value = value === undefined ? item : value;
+                new_record = {
+                    key: item,
+                    value: value,
+                }
+                enumerated_list.push(new_record);
+            });
+            break;
+        default:
+            log('Unexpected type for ' + property_id + ' in ' + new_record.id, LOG_TYPE.ERROR);
+    }
+    if ((enumerated_list.length !== 0) || RETURN_NULL_VALUES) {
+        record[property_export_name] = enumerated_list;
+    }
     return record;
 }
 

@@ -122,7 +122,7 @@ function getEnumeratedValues(property, parentId = '') {
 function myfetchEnumerated(id) {
     function searchEnumeratedPage(id, parent, page, perPage) {
         let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
-        if (parent) {
+        if (parent !== undefined && parent !== '') {
             BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
         }
         let result = salsify(BASE_PATH, 'GET', null, null);
@@ -147,7 +147,7 @@ function myfetchEnumerated(id) {
         }
         return allRecords;
     }
-    let records = searchEnumerated(id, parent);
+    let records = searchEnumerated(id, '');
     let tree = [];
     for (let item of records) {
         let node = {

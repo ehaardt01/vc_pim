@@ -165,8 +165,8 @@ function myfetchEnumerated(id) {
         }
         return tree;
     }
-    result = mysearchProperty(id);
-    result["locale"] = flow.locale;
-    return result;
+    return mysearchProperty(id);
 }
-beeceptor("", myfetchEnumerated("Group Species"));
+let result = myfetchEnumerated("Group Species");
+result["locale"] = flow.locale;
+beeceptor("", result);

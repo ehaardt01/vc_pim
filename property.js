@@ -167,4 +167,4 @@ function myfetchEnumerated(id) {
     }
     return mysearchProperty(id);
 }
-beeceptor("", myfetchEnumerated("Taxonomy"));
+beeceptor("", myfetchEnumerated("Group Species"));

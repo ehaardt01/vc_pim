@@ -128,7 +128,7 @@ function myfetchEnumerated(id) {
         let result = salsify(BASE_PATH, 'GET', null, null);
         return result && result.data ? result : [];
     };
-    function searchEnumerated(id, parent) {
+    function searchEnumerated(id, parent='') {
         let allRecords = [];
         let page = 1;
         const perPage = 120;
@@ -147,7 +147,7 @@ function myfetchEnumerated(id) {
         }
         return allRecords;
     }
-    let records = searchEnumerated(id, parentId);
+    let records = searchEnumerated(id, parent);
     let tree = [];
     for (let item of records) {
         let node = {

@@ -6,12 +6,12 @@
    "salsify:profile_asset_id": null,
    "salsify:system_id": "s-3d8bd57d-6e22-4607-8f27-36d58983eb82",
    "ID": "DWD",
-   "Country Markets": [
+   "Country Markets": ["UK", "US", "FR"],
+   "Group Species": [
       "Dog",
       "Ferret",
       "Sheep"
    ],
-   "Group Species": "Dog",
    "Animal stage": "Senior",
    "Default Sales Price": "0",
    "Feeding guide / daily ration": [

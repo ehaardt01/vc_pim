@@ -1,61 +1,26 @@
-{
-   "properties": [
-       {
-           "id": "Country Markets",
-           "name": "Country Markets",
-           "facetable": true,
-           "broken": false,
-           "data_type": "enumerated",
-           "type": "property",
-           "multi_valued": true,
-           "position": null,
-           "values_editable": true,
-           "localizable": false,
-           "filterability": "full",
-           "property_group": "General product info",
-           "property_group_id": "General product info",
-           "target_schema_field_id": null
-       }
-   ],
-   "property_groups": [
-       {
-           "id": "General product info",
-           "name": "General product info",
-           "position": 2,
-           "editable": true,
-           "deleteable": true
-       }
-   ],
-   "enumerated_values": [],
-   "data": [
-       {
-           "id": "FR",
-           "name": "FR",
-           "localized_names": {},
-           "has_children": false,
-           "property_id": "Country Markets",
-           "parent_id": null
-       },
-       {
-           "id": "UK",
-           "name": "UK",
-           "localized_names": {},
-           "has_children": false,
-           "property_id": "Country Markets",
-           "parent_id": null
-       },
-       {
-           "id": "US",
-           "name": "US",
-           "localized_names": {},
-           "has_children": false,
-           "property_id": "Country Markets",
-           "parent_id": null
-       }
-   ],
-   "meta": {
-       "current_page": 1,
-       "per_page": 30,
-       "total_entries": 3
-   }
-}
+[
+    {
+        "id": "FR",
+        "name": "FR",
+        "localized_names": {},
+        "has_children": false,
+        "property_id": "Country Markets",
+        "parent_id": null
+    },
+    {
+        "id": "UK",
+        "name": "UK",
+        "localized_names": {},
+        "has_children": false,
+        "property_id": "Country Markets",
+        "parent_id": null
+    },
+    {
+        "id": "US",
+        "name": "US",
+        "localized_names": {},
+        "has_children": false,
+        "property_id": "Country Markets",
+        "parent_id": null
+    }
+]

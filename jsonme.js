@@ -874,12 +874,7 @@ function property_load_enumerated(record, configured_property, property_value, r
             }
         });
     }
-    if (records === undefined) {
-        records = {
-            data: [],
-        }
-    }
-    flatten_tree(records.data, mapped_values);
+    flatten_tree(records, mapped_values);
     // switch (returned_type) {
     //     case "string":
     //         record = {

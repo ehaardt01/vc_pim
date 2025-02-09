@@ -1066,9 +1066,18 @@ function main() {
     LOCALE = flow.locale;
     const rootId = context.entity.external_id;
     let result = fetchRecord(rootId);
-    result["Country Markets 2"] = property_values(context.entity, "Country Markets")
-    result["Group Species 2"] = property_values(context.entity, "Group Species")
-    result["Animal stage 2"] = property_values(context.entity, "Animal stage")
+    result["Country Markets 2"] = property_value(context.entity, "Country Markets", 0)
+    result["Group Species 2"] = property_value(context.entity, "Group Species", 0)
+    result["Animal stage 2"] = property_value(context.entity, "Animal stage", 0)
+    result["Country Markets 3"] = property_values(context.entity, "Country Markets")
+    result["Group Species 3"] = property_values(context.entity, "Group Species")
+    result["Animal stage 3"] = property_values(context.entity, "Animal stage")
+    result["Country Markets 4"] = localized_property_value(context.entity, "Country Markets", LOCALE)
+    result["Group Species 4"] = localized_property_value(context.entity, "Group Species", LOCALE)
+    result["Animal stage 4"] = localized_property_value(context.entity, "Animal stage", LOCALE)
+    result["Country Markets 5"] = localized_property_values(context.entity, "Country Markets", LOCALE)
+    result["Group Species 5"] = localized_property_values(context.entity, "Group Species", LOCALE)
+    result["Animal stage 5"] = localized_property_values(context.entity, "Animal stage", LOCALE)
     send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
     return;
     MOCK = (typeof MOCK === 'undefined' ? false : true);

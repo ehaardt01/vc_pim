@@ -253,9 +253,11 @@ function send_to_recipient_API(path, content) {
     const result = concatenateProperties(response);
 
     if ((response.status < 200) || (response.status > 299)) {
-        throw new Error(result);
+        throw new Error("Manual error message");
+        // We encountered a 'Error' with message: '- message: Unable to complete web request due to exception.'. Please double check your syntax.
     } else {
-        throw new Error(result);
+        throw new Error("Manual success message");
+        // We encountered a 'Error' with message: '- message: Success'. Please double check your syntax.
     }
 }
 

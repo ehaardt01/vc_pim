@@ -253,11 +253,11 @@ function send_to_recipient_API(path, content) {
     const result = concatenateProperties(response);
 
     if ((response.status < 200) || (response.status > 299)) {
-        ("Resolution A");
+        return "Resolution A";
         // throw new Error("Manual error message");
         // We encountered a 'Error' with message: '- message: Unable to complete web request due to exception.'. Please double check your syntax.
     } else {
-        ("Resolution B");
+        return "Resolution B";
         // throw new Error("Manual success message");
         // We encountered a 'Error' with message: '- message: Success'. Please double check your syntax.
     }
@@ -1137,7 +1137,8 @@ function main() {
         LOCALE = flow.locale;
         const rootId = context.entity.external_id;
         let result = load(rootId, properties);
-        send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
+        let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
+        return send_result;
     }
 }
 

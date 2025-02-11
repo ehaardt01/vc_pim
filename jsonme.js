@@ -264,7 +264,7 @@ function mock_fetchRecord(id) {
  */
 function fetchRecord(id) {
     const PATH = '/products/';
-    return salsify(PATH + id);
+    return salsify(PATH + encodeURIComponent(id));
 }
 
 /**

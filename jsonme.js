@@ -233,10 +233,12 @@ function send_to_recipient_API(path, content) {
         return_status: true
     };
     response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    response.forEach((item) => {
+        response_string = response_string + " / " + item + ": " + response[item];
     if ((response.status < 200) || (response.status > 299)) {
-        throw new Error(response.status + "Il y a une erreur");
+        throw new Error(response_string);
     } else {
-        throw new Error(response.status + "Tout est ok");
+        throw new Error(response_string);
     }
 }
 

@@ -224,9 +224,9 @@ function send_to_recipient_API(path, content) {
     var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
     const METHOD = 'post';
     const URL = DOMAIN + path;
-    let secret = secret_value("ibexa_bearer_token");
+    let secret = "Bearer " + secret_value("ibexa_bearer_token");
     const HEADERS = {
-        Authorization: "Bearer my-token",
+        Authorization: secret,
         "Content-Type": "application/json"
     };
     const OPTIONS = {

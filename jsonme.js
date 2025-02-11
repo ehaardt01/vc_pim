@@ -233,6 +233,26 @@ function send_to_recipient_API(path, content) {
         return_status: true
     };
     response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    if ((response.status < 200) || (response.status > 299)) {
+        // Do some treatment like create a "failed" task with the error code and message in it
+        // response looks like:
+        // {
+        //   'message': 'Success',
+        //   'code': 200,
+        //   'body': { ... }
+        // }
+        reject("my outcome failed", {
+            fail_task: true,
+            context_key: "my_context_key",
+            "salsify:status": "rejected"
+          });
+    } else {
+        resolve("my outcome succeeded", {
+            complete_task: true,
+            context_key: "my_context_key",
+            "salsify:status": "resolved"
+        });
+    }
 }
 
 /**

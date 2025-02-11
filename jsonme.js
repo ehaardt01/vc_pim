@@ -232,30 +232,31 @@ function send_to_recipient_API(path, content) {
     const OPTIONS = {
         return_status: true
     };
-    response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    // response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
 
-    function concatenateProperties(obj) {
-        let properties = "";
-        function parseObj(currentObj, parentKey = "") {
-            for (const key in currentObj) {
-                const fullKey = parentKey ? `${parentKey}.${key}` : key;
-                if (typeof currentObj[key] === 'object' && currentObj[key] !== null) {
-                    parseObj(currentObj[key], fullKey);
-                } else {
-                    properties += ` - ${fullKey}: ${currentObj[key]}\n`;
-                }
-            }
-        }
-        parseObj(obj);
-        return properties.trim();
-    }
-    const result = concatenateProperties(response);
+    // function concatenateProperties(obj) {
+    //     let properties = "";
+    //     function parseObj(currentObj, parentKey = "") {
+    //         for (const key in currentObj) {
+    //             const fullKey = parentKey ? `${parentKey}.${key}` : key;
+    //             if (typeof currentObj[key] === 'object' && currentObj[key] !== null) {
+    //                 parseObj(currentObj[key], fullKey);
+    //             } else {
+    //                 properties += ` - ${fullKey}: ${currentObj[key]}\n`;
+    //             }
+    //         }
+    //     }
+    //     parseObj(obj);
+    //     return properties.trim();
+    // }
+    // const result = concatenateProperties(response);
 
-    if ((response.status < 200) || (response.status > 299)) {
-        throw new Error(result);
-    } else {
-        throw new Error(result);
-    }
+    // if ((response.status < 200) || (response.status > 299)) {
+    //     throw new Error(result);
+    // } else {
+    //     throw new Error(result);
+    // }
 }
 
 /**

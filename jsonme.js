@@ -232,7 +232,7 @@ function send_to_recipient_API(path, content) {
     const OPTIONS = {
         return_status: true
     };
-    const response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
 
     function concatenateProperties(obj) {
         let properties = "";

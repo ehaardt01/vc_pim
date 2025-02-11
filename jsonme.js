@@ -697,6 +697,7 @@ function load_product_with_qty(product_id, product_qty, configured_property, ret
     check_undefined(product_id, 'product_id is missing in configured_property ' + configured_property.name, true);
     check_undefined(product_qty, 'product_qty is missing in configured_property ' + configured_property.name, true);
     let sub_value = load(product_id, returned_values);
+    if (sub_value === undefined) {return;}
     check_undefined(sub_value, 'impossible to load sub-product ' + configured_property, true);
     if  ((sub_value !== null) || RETURN_NULL_VALUES) {
         product_with_qty = {
@@ -824,7 +825,6 @@ function property_load_enumerated(record, configured_property, property_value, r
     const property_export_name = get_property_export_name(configured_property)
     const returned_type = retrieve_type(property_value);
     let records = fetchEnumerated(configured_property.name);
-    record[property_export_name + "2"] = searchEnumeratedPage(configured_property.name, '', 1, 30);
     if (records === undefined) {
         records = [];
     }
@@ -1009,6 +1009,7 @@ function get_property_export_name(configured_property) {
 function load(rootId, configured_properties) {
     var rootRecord;
     rootRecord = fetchRecord(rootId);
+    if (rootRecord === undefined) {return;}
     let record = {"id": rootId};
     configured_properties.forEach(configured_property => {
         const property_type = configured_property["type"];

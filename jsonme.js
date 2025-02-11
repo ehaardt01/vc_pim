@@ -234,9 +234,9 @@ function send_to_recipient_API(path, content) {
     };
     response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
     if ((response.status < 200) || (response.status > 299)) {
-        throw new Error(response.status + " - " + response.body + " - " + response.message);
+        throw new Error(response.status + "Il y a une erreur");
     } else {
-        throw new Error(response.status + " - " + response.body + " - " + response.message);
+        throw new Error(response.status + "Tout est ok");
     }
 }
 

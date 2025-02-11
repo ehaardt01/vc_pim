@@ -1,0 +1,220 @@
+{
+    // Parent + Variant
+    "id": "ee969a49-bb06-4e2e-bbba-cf4332d196e4",
+    // Variant
+    "parent_id": "ee969a49-bb06-4e2e-bbba-cf4332d196e5",
+    // Variant
+    "sku": "2468-1",
+    // Parent + Variant
+    "locale": "en",
+    // Parent + Variant
+    "country_markets": [
+        {
+            "key": "UK",
+            "value": "UK"
+        },
+        {
+            "key": "US",
+            "value": "US"
+        }
+    ],
+    // Parent + Variant
+    "name": "Veterinary HPM Baby do small & toy",
+    // Parent (non-required)
+    "short_name": "Baby Dog Small & Toy",
+    // Parent (non-required)
+    "family_name": "Veterinary HPM",
+    // Parent
+    "animals": [
+        {
+            "id": "dog",
+            "label": "Dog"
+        },
+        {
+            "id": "cat",
+            "label": "Cat"
+        }
+    ],
+    // Parent
+    "types": [
+        {
+            "id": "food",
+            "label": "Food"
+        },
+        {
+            "id": "shampoo",
+            "label": "Shampoo"
+        },
+        {
+            "id": "calming",
+            "label": "Calming"
+        },
+        {
+            "id": "dental",
+            "label": "Dental"
+        },
+        {
+            "id": "digestive",
+            "label": "Digestive"
+        },
+        {
+            "id": "ear_cleaner",
+            "label": "Ear cleaner"
+        },
+        {
+            "id": "joint",
+            "label": "Joint"
+        },
+        {
+            "id": "kidney",
+            "label": "Kidney"
+        }
+    ],
+    // Parent (non-required)
+    "diets": [
+        {
+            "id": "kidney",
+            "label": "Kidney"
+        },
+        {
+            "id": "digestive",
+            "label": "Digestive"
+        },
+        {
+            "id": "hypoallergenic",
+            "label": "Hypoallergenic"
+        },
+        {
+            "id": "joint",
+            "label": "Joint"
+        },
+        {
+            "id": "skin_coat",
+            "label": "Skin & coat"
+        },
+        {
+            "id": "urinary",
+            "label": "Urinary"
+        },
+        {
+            "id": "weight",
+            "label": "Weight"
+        }
+    ],
+    // Parent (non-required)
+    "food_type": {
+        "id": "dry",
+        "label": "Dry"
+    },
+    // Parent (non-required)
+    "breed": {
+        "id": "small",
+        "label": "Small"
+    },
+    // Parent (non-required)
+    "neutered": {
+        id: "sterilized",
+        label: "Sterilized"
+    },
+    // Parent
+    "short_description": "Puppies from small breeds have intense requirements, especially in terms of energy, proteins and minerals, for healthy growth over a short period.   Puppies from small breeds have intense requirements, especially in terms of energy, proteins and minerals, for healthy growth over a short period.",
+    // Parent (non-required)
+    "description": "<p>Lorem ipsum ...</p>",
+    // Parent (non-required) (TODO: See if the below structure is possible with Salsify)
+    "health_benefits": {
+        "description": "<p>Lorem ipsum ...</p>",
+        "list": [
+            {
+                "name": "Growth",
+                "description": "<p>Lorem ipsum ...</p>"
+            },
+            {
+                "name": "Digestive safety",
+                "description": "<p>Lorem ipsum ...</p>"
+            },
+            {
+                "name": "Dental health",
+                "description": "<p>Lorem ipsum ...</p>"
+            }
+        ]
+    },
+    // Parent (non-required) (TODO: See if the below structure is possible with Salsify)
+    "composition": {
+        "description": "<p>Lorem ipsum ...</p>",
+        "ingredients": "<p>Lorem ipsum ...</p>",
+        "details": [
+            {
+                "title": "Analytical constituents",
+                "subtitle": "(in % of crude matte)",
+                "list": [
+                    {
+                        "name": "Moisture",
+                        "value": "9%"
+                    },
+                    {
+                        "name": "Protein",
+                        "value": "32%"
+                    },
+                    {
+                        "name": "Fat",
+                        "value": "20%"
+                    },
+                    {
+                        "name": "Carbohydrates",
+                        "value": "30%"
+                    },
+                    {
+                        "name": "Crude fiber",
+                        "value": "2%"
+                    }
+                ]
+            }
+        ]
+    },
+    // Parent (non-required) (TODO: See if the below structure is possible with Salsify)
+    "rations": {
+        "unit": "g/day",
+        "weight_unit": "kg",
+        "list": [
+            {
+                "weight": 0.5,
+                "age": "2 months",
+                "quantity": 50
+            },
+            {
+                "weight": 1,
+                "age": "3 months",
+                "quantity": 80
+            }
+        ]
+    },
+    // Parent (non-required)
+    "faq": [
+        {
+            "id": "FAQ-W1",
+            "question": "Locale en-GB: \nIs Dog Weight Loss & Diabetes W1 suitable for my dog?",
+            "answer": "Locale en-GB: Dog Weight Loss & Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. It’s also suitable for: - Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss & Control W2 instead). - Managing fibre-responsive colitis. - Managing lipid metabolism disorders (hyperlipidaemia). Dog Weight Loss & Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease."
+        },
+        {
+            "id": "FAQ-W1-1",
+            "question": "Locale en-GB: My dog has reached their target weight – what should I feed them now?",
+            "answer": "Locale en-GB: Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss & Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight."
+        }
+    ],
+    // Parent (non-required)
+    "related_products": [
+        {
+            // Parent product Salsify ID
+            "id": "12345"
+        },
+        {
+            "id": "12346"
+        }
+    ],
+    // Parent (possible values ACTIVE, INACTIVE)
+    "status": "ACTIVE",
+    // Parent + Variant
+    "updated_at": "2021-06-01T00:00:00Z",
+    // Parent + Variant
+    "created_at": "2021-06-01T00:00:00Z"
+}

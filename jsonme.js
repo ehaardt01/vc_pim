@@ -16,56 +16,57 @@ const LOG_TYPE = {ERROR: "error", LOG: "log"};
 * }>}
 */
 const properties = [
-   {name: "ID", type: "string", export_name: "id"},
-   {name: "salsify:parent_id", type: "string", export_name: "parent_id"},
-   {name: "salsify:created_at", type: "date", export_name: "created_at"},
-   {name: "salsify:updated_at", type: "date", export_name: "updated_at"},
-   {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
-   {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
-   {name: "salsify:version", type: "number", export_name: "version"},
-   {name: "salsify:profile_asset_id", type: "string", export_name: "profile_asset_id"},
-   {name: "salsify:system_id", type: "string", export_name: "system_id"},
-   {name: "Group Species", type: "enumerated", export_name: "group_species"},
-   {name: "Default Sales Price", type: "number", export_name: "default_sales_price"},
-   {name: "LIB_MARQUE", type: "string", export_name: "lib_marque"},
-   {name: "Taxonomy", type: "enumerated", export_name: "taxonomy"},
-   {name: "Business category level 1", type: "enumerated", export_name: "business_category_level_1"},
-   {name: "Business category level 2", type: "enumerated", export_name: "business_category_level_2"},
-   {name: "Business category level 3", type: "enumerated", export_name: "business_category_level_3"},
-   {name: "Business category level 4", type: "enumerated", export_name: "business_category_level_4"},
-   {name: "Visible online ?", type: "boolean", export_name: "visible_online"},
-   {name: "Name", type: "string", export_name: "name"},
-   {name: "B2C Short description", type: "string", export_name: "b2c_short_description"},
-   {name: "B2C Full Description", type: "rich_text", export_name: "b2c_full_description"},
-   {name: "B2B Short description", type: "string", export_name: "b2b_short_description"},
-   {name: "SEO Product Title", type: "string", export_name: "seo_product_title"},
-   {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
-   {name: "Key figures", type: "string", export_name: "key_figures"},
-   {name: "Computed property", type: "computed", export_name: "computed_property", computing_function: my_specific_computing_function},
-   {name: "Children", type: "children", export_name: "children"},
-   {name: "locale", type: "locale", export_name: "locale"},
-   {name: "status", type: "status", export_name: "status"},
-   {name: "Related products", type: "product", export_name: "related_products"},
-   {name: "Composition - Analytical constituents", type: "composition", export_name: "composition_analytical_constituents"},
-   {name: "Composition - Analytical constituents - Notes", type: "string", export_name: "composition_analytical_constituents_notes"},
-   {name: "Composition - Functional ingredients", type: "composition", export_name: "composition_functional_ingredients"},
-   {name: "Composition - Functional ingredients - Notes", type: "string", export_name: "composition_functional_ingredients_notes"},
-   {name: "Composition - Ingredients / Additives", type: "composition", export_name: "composition_ingredients_additives"},
-   {name: "Composition - Ingredients / Additives - Notes", type: "string", export_name: "composition_ingredients_additives_notes"},
-   {name: "A+ content", type: "digital_asset", export_name: "a_plus_content", values: [
-    {name: "salsify:id", type: "string", export_name: "salsify_id"},
-    {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
-    {name: "salsify:name", type: "string", export_name: "name"},
-    {name: "salsify:status", type: "string", export_name: "salsify_status"},
-    {name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},
-    {name: "salsify:format", type: "string", export_name: "format"}]},
-   {name: "Packaging", type: "digital_asset", export_name: "packaging", values: [
-    {name: "salsify:id", type: "string", export_name: "salsify_id"},
-    {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
-    {name: "salsify:name", type: "string", export_name: "name"},
-    {name: "salsify:status", type: "string", export_name: "salsify_status"},
-    {name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},
-    {name: "salsify:format", type: "string", export_name: "format"}]},
+    {name: "ID", type: "string", export_name: "id"},
+    {name: "salsify:system_id", type: "string", export_name: "system_id"},
+    {name: "salsify:parent_id", type: "string", export_name: "parent_id"},
+    {name: "salsify:created_at", type: "date", export_name: "created_at"},
+    {name: "salsify:updated_at", type: "date", export_name: "updated_at"},
+    {name: "salsify:version", type: "number", export_name: "version"},
+    {name: "salsify:profile_asset_id", type: "string", export_name: "profile_asset_id"},
+    {name: "locale", type: "locale", export_name: "locale"},
+    {name: "Name", type: "string", export_name: "name"},
+    {name: "Visible online ?", type: "boolean", export_name: "visible_online"},
+    {name: "Sellable online ?", type: "boolean", export_name: "sellable_online"},
+    {name: "status", type: "status", export_name: "status"},
+    {name: "B2C Short description", type: "string", export_name: "b2c_short_description"},
+    {name: "B2C Full Description", type: "rich_text", export_name: "b2c_full_description"},
+    {name: "B2B Short description", type: "string", export_name: "b2b_short_description"},
+    {name: "SEO Product Title", type: "string", export_name: "seo_product_title"},
+    {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
+    {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
+    {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
+    {name: "Group Species", type: "enumerated", export_name: "group_species"},
+    {name: "Default Sales Price", type: "number", export_name: "default_sales_price"},
+    {name: "LIB_MARQUE", type: "string", export_name: "lib_marque"},
+    {name: "Taxonomy", type: "enumerated", export_name: "taxonomy"},
+    {name: "Business category level 1", type: "enumerated", export_name: "business_category_level_1"},
+    {name: "Business category level 2", type: "enumerated", export_name: "business_category_level_2"},
+    {name: "Business category level 3", type: "enumerated", export_name: "business_category_level_3"},
+    {name: "Business category level 4", type: "enumerated", export_name: "business_category_level_4"},
+    {name: "Key figures", type: "string", export_name: "key_figures"},
+    {name: "Children", type: "children", export_name: "children"},
+    {name: "Composition - Analytical constituents", type: "composition", export_name: "composition_analytical_constituents"},
+    {name: "Composition - Analytical constituents - Notes", type: "string", export_name: "composition_analytical_constituents_notes"},
+    {name: "Composition - Functional ingredients", type: "composition", export_name: "composition_functional_ingredients"},
+    {name: "Composition - Functional ingredients - Notes", type: "string", export_name: "composition_functional_ingredients_notes"},
+    {name: "Composition - Ingredients / Additives", type: "composition", export_name: "composition_ingredients_additives"},
+    {name: "Composition - Ingredients / Additives - Notes", type: "string", export_name: "composition_ingredients_additives_notes"},
+    {name: "A+ content", type: "digital_asset", export_name: "a_plus_content", values: [
+       {name: "salsify:id", type: "string", export_name: "salsify_id"},
+       {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
+       {name: "salsify:name", type: "string", export_name: "name"},
+       {name: "salsify:status", type: "string", export_name: "salsify_status"},
+       {name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},
+       {name: "salsify:format", type: "string", export_name: "format"}]},
+    {name: "Packaging", type: "digital_asset", export_name: "packaging", values: [
+        {name: "salsify:id", type: "string", export_name: "salsify_id"},
+        {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
+        {name: "salsify:name", type: "string", export_name: "name"},
+        {name: "salsify:status", type: "string", export_name: "salsify_status"},
+        {name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},
+        {name: "salsify:format", type: "string", export_name: "format"}]},
+    {name: "Related products", type: "product", export_name: "related_products"},
+    {name: "Computed property", type: "computed", export_name: "computed_property", computing_function: my_specific_computing_function},
 ];
 
 /**
@@ -73,6 +74,7 @@ const properties = [
 * @constant
 * @type {Object.<string, Function>}
 * @property {Function} string - Default loader for string properties
+* @property {Function} composition - Default loader for string properties
 * @property {Function} rich_text - Default loader for rich text properties
 * @property {Function} quantified_product - Loader for quantified product properties
 * @property {Function} product - Loader for product properties
@@ -89,6 +91,7 @@ const properties = [
 */
 const salsify_property_types = {
    "string": property_load_default,
+   "composition": property_load_composition,
    "rich_text": property_load_default,
    "quantified_product": property_load_quantified_product,
    "product": property_load_product,
@@ -548,6 +551,27 @@ function property_load_default(record, configured_property, property_value, root
     if ((value !== undefined)) {
         if  ((value !== null) || RETURN_NULL_VALUES) {
             record[get_property_export_name(configured_property)] = value;
+        }
+    }
+    return record;
+}
+
+function property_load_composition(record, configured_property, property_value, rootRecord) {
+    // We expect a multiline string representing a CSV with ';' separator. The CSV should have 3 columns: name, value, unit
+    if (property_value === undefined) {return;}
+    value = get_localized_value(property_value);
+    if ((value !== undefined)) {
+        if  ((value !== null) || RETURN_NULL_VALUES) {
+            // We have to check that the entry string is well formed (multiple line with, for each, 3 values separated by a comma)
+            const lines = value.split('\n');
+            const composition = [];
+            for (let line of lines) {
+                const values = line.split(';');
+                if (values.length === 3) {
+                    composition.push({name: values[0], value: values[1], unit: values[2]});
+                }
+            }
+            record[get_property_export_name(configured_property)] = composition;
         }
     }
     return record;

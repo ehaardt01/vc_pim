@@ -234,18 +234,9 @@ function send_to_recipient_API(path, content) {
     };
     response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
     if ((response.status < 200) || (response.status > 299)) {
-        // reject("my outcome failed", {
-        //     fail_task: true,
-        //     context_key: "my_context_key",
-        //     "salsify:status": "rejected"
-        //   });
-        log('Error sending data to recipient API', LOG_TYPE.ERROR, true);
+        throw new Error(response.status + " - " + response.body + " - " + response.message);
     } else {
-        // resolve("my outcome succeeded", {
-        //     complete_task: true,
-        //     context_key: "my_context_key",
-        //     "salsify:status": "resolved"
-        // });
+        throw new Error(response.status + " - " + response.body + " - " + response.message);
     }
 }
 

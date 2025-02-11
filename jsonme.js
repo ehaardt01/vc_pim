@@ -232,14 +232,29 @@ function send_to_recipient_API(path, content) {
     const OPTIONS = {
         return_status: true
     };
-    response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
-    response.forEach((item) => {
-        response_string = response_string + " / " + item + ": " + response[item];
-    });
+    const response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+
+    function concatenateProperties(obj) {
+        let properties = "";
+        function parseObj(currentObj, parentKey = "") {
+            for (const key in currentObj) {
+                const fullKey = parentKey ? `${parentKey}.${key}` : key;
+                if (typeof currentObj[key] === 'object' && currentObj[key] !== null) {
+                    parseObj(currentObj[key], fullKey);
+                } else {
+                    properties += ` - ${fullKey}: ${currentObj[key]}\n`;
+                }
+            }
+        }
+        parseObj(obj);
+        return properties.trim();
+    }
+    const result = concatenateProperties(response);
+
     if ((response.status < 200) || (response.status > 299)) {
-        throw new Error(response_string);
+        throw new Error(result);
     } else {
-        throw new Error(response_string);
+        throw new Error(result);
     }
 }
 

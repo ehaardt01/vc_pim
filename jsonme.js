@@ -234,35 +234,35 @@ function send_to_recipient_API(path, content) {
     const OPTIONS = {
         return_status: true
     };
-    // web_request(URL, METHOD, content, HEADERS, OPTIONS);
-    response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    // response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
 
-    function concatenateProperties(obj) {
-        let properties = "";
-        function parseObj(currentObj, parentKey = "") {
-            for (const key in currentObj) {
-                const fullKey = parentKey ? `${parentKey}.${key}` : key;
-                if (typeof currentObj[key] === 'object' && currentObj[key] !== null) {
-                    parseObj(currentObj[key], fullKey);
-                } else {
-                    properties += ` - ${fullKey}: ${currentObj[key]}\n`;
-                }
-            }
-        }
-        parseObj(obj);
-        return properties.trim();
-    }
-    const result = concatenateProperties(response);
+    // function concatenateProperties(obj) {
+    //     let properties = "";
+    //     function parseObj(currentObj, parentKey = "") {
+    //         for (const key in currentObj) {
+    //             const fullKey = parentKey ? `${parentKey}.${key}` : key;
+    //             if (typeof currentObj[key] === 'object' && currentObj[key] !== null) {
+    //                 parseObj(currentObj[key], fullKey);
+    //             } else {
+    //                 properties += ` - ${fullKey}: ${currentObj[key]}\n`;
+    //             }
+    //         }
+    //     }
+    //     parseObj(obj);
+    //     return properties.trim();
+    // }
+    // const result = concatenateProperties(response);
 
-    if ((response.status < 200) || (response.status > 299)) {
-        return "Resolution A";
-        // throw new Error("Manual error message");
-        // We encountered a 'Error' with message: '- message: Unable to complete web request due to exception.'. Please double check your syntax.
-    } else {
-        return "Resolution B";
-        // throw new Error("Manual success message");
-        // We encountered a 'Error' with message: '- message: Success'. Please double check your syntax.
-    }
+    // if ((response.status < 200) || (response.status > 299)) {
+    //     return "Resolution A";
+    //     // throw new Error("Manual error message");
+    //     // We encountered a 'Error' with message: '- message: Unable to complete web request due to exception.'. Please double check your syntax.
+    // } else {
+    //     return "Resolution B";
+    //     // throw new Error("Manual success message");
+    //     // We encountered a 'Error' with message: '- message: Success'. Please double check your syntax.
+    // }
 }
 
 /**

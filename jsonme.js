@@ -52,7 +52,7 @@ const properties = [
     {name: "Composition - Functional ingredients - Notes", type: "string", export_name: "composition_functional_ingredients_notes"},
     {name: "Composition - Ingredients / Additives", type: "composition", export_name: "composition_ingredients_additives"},
     {name: "Composition - Ingredients / Additives - Notes", type: "string", export_name: "composition_ingredients_additives_notes"},
-    {name: "Daily ration / Feeding guide", type: "portion", export_name: "ration"},
+    {name: "Daily ration / Feeding guide", type: "html", export_name: "ration"},
     {name: "A+ content", type: "digital_asset", export_name: "a_plus_content", values: [
        {name: "salsify:id", type: "string", export_name: "salsify_id"},
        {name: "salsify:source_url", type: "string", export_name: "cdn_url"},

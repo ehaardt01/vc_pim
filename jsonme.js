@@ -36,6 +36,7 @@ const properties = [
     {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
     {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
     {name: "Group Species", type: "enumerated", export_name: "group_species"},
+    {name: "Animal stage", type: "enumerated", export_name: "animal_stage"},
     {name: "Default Sales Price", type: "number", export_name: "default_sales_price"},
     {name: "LIB_MARQUE", type: "string", export_name: "lib_marque"},
     {name: "Taxonomy", type: "enumerated", export_name: "taxonomy"},
@@ -51,6 +52,7 @@ const properties = [
     {name: "Composition - Functional ingredients - Notes", type: "string", export_name: "composition_functional_ingredients_notes"},
     {name: "Composition - Ingredients / Additives", type: "composition", export_name: "composition_ingredients_additives"},
     {name: "Composition - Ingredients / Additives - Notes", type: "string", export_name: "composition_ingredients_additives_notes"},
+    {name: "Daily ration / Feeding guide", type: "portion", export_name: "ration"},
     {name: "A+ content", type: "digital_asset", export_name: "a_plus_content", values: [
        {name: "salsify:id", type: "string", export_name: "salsify_id"},
        {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
@@ -92,6 +94,7 @@ const properties = [
 const salsify_property_types = {
    "string": property_load_default,
    "composition": property_load_composition,
+   "ration": property_load_ration,
    "rich_text": property_load_default,
    "quantified_product": property_load_quantified_product,
    "product": property_load_product,
@@ -592,6 +595,26 @@ function property_load_default(record, configured_property, property_value, root
     return record;
 }
 
+/**
+ * Processes and loads composition data from a CSV-formatted string into a record object.
+ * The CSV string should contain three columns: name, value, and unit, separated by semicolons.
+ *
+ * @param {Object} record - The target record object to store the processed composition.
+ * @param {Object} configured_property - Configuration object for the property.
+ * @param {string|undefined} property_value - Multiline CSV string containing composition data.
+ * @param {Object} rootRecord - The root record object (unused in current implementation).
+ * @returns {Object} The modified record object with added composition data.
+ *
+ * @example
+ * // Input CSV format:
+ * // name1;value1
+ * // name2;value2
+ *
+ * @example
+ * // Resulting composition array format:
+ * // [{name: "name1", value: "value1"},
+ * //  {name: "name2", value: "value2"}]
+ */
 function property_load_composition(record, configured_property, property_value, rootRecord) {
     // We expect a multiline string representing a CSV with ';' separator. The CSV should have 3 columns: name, value, unit
     if (property_value === undefined) {return;}
@@ -603,14 +626,18 @@ function property_load_composition(record, configured_property, property_value, 
             const composition = [];
             for (let line of lines) {
                 const values = line.split(';');
-                if (values.length === 3) {
-                    composition.push({name: values[0], value: values[1], unit: values[2]});
+                if (values.length === 2) {
+                    composition.push({name: values[0], value: values[1]});
                 }
             }
             record[get_property_export_name(configured_property)] = composition;
         }
     }
     return record;
+}
+
+function property_load_ration(record, configured_property, property_value, rootRecord) {
+    return property_load_default(record, configured_property, property_value, rootRecord);
 }
 
 /**

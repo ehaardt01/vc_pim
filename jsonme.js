@@ -1,5 +1,6 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
+const DOMAIN = 'https://virbac-pim.free.beeceptor.com';
 
 /**
  * Array of property configurations for a product data model
@@ -223,7 +224,6 @@ function mock_send_to_recipient_API(path, content) {
  * @returns {void}
  */
 function send_to_recipient_API(path, content) {
-    var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
     const METHOD = 'post';
     const URL = DOMAIN + path;
     let secret = "Bearer " + secret_value("ibexa_bearer_token");
@@ -234,35 +234,17 @@ function send_to_recipient_API(path, content) {
     const OPTIONS = {
         return_status: true
     };
-    web_request(URL, METHOD, content, HEADERS, OPTIONS);
-    // response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
-
-    // function concatenateProperties(obj) {
-    //     let properties = "";
-    //     function parseObj(currentObj, parentKey = "") {
-    //         for (const key in currentObj) {
-    //             const fullKey = parentKey ? `${parentKey}.${key}` : key;
-    //             if (typeof currentObj[key] === 'object' && currentObj[key] !== null) {
-    //                 parseObj(currentObj[key], fullKey);
-    //             } else {
-    //                 properties += ` - ${fullKey}: ${currentObj[key]}\n`;
-    //             }
-    //         }
-    //     }
-    //     parseObj(obj);
-    //     return properties.trim();
-    // }
-    // const result = concatenateProperties(response);
-
-    // if ((response.status < 200) || (response.status > 299)) {
-    //     return "Resolution A";
-    //     // throw new Error("Manual error message");
-    //     // We encountered a 'Error' with message: '- message: Unable to complete web request due to exception.'. Please double check your syntax.
-    // } else {
-    //     return "Resolution B";
-    //     // throw new Error("Manual success message");
-    //     // We encountered a 'Error' with message: '- message: Success'. Please double check your syntax.
-    // }
+    let response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    if (response === undefined) {
+        response = {};
+    } else {
+        if ((response.code < 200) || (response.code > 299)) {
+            response["returned_status"] = "error " + response.code;
+        } else {
+            response["returned_status"] = "success " + response.code;
+        }
+    }
+    return response;
 }
 
 /**
@@ -1159,7 +1141,6 @@ function main() {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;
         let result = load(rootId, properties);
-        result["current_locale"] = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
         return send_result;
     }

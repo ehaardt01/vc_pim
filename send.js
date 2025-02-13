@@ -54,7 +54,7 @@ function main() {
     const rootId = context.entity.external_id;
     let result = {};
     result["root_id"] = rootId;
-    result["current_locale"] = flow.current_locale
+    result["current_locale"] = context.current_locale
     result["flow_locale"] = flow.locale
     let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
     return send_result;

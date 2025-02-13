@@ -94,7 +94,6 @@ const properties = [
 const salsify_property_types = {
    "string": property_load_default,
    "composition": property_load_composition,
-   "ration": property_load_ration,
    "rich_text": property_load_default,
    "quantified_product": property_load_quantified_product,
    "product": property_load_product,
@@ -634,10 +633,6 @@ function property_load_composition(record, configured_property, property_value, 
         }
     }
     return record;
-}
-
-function property_load_ration(record, configured_property, property_value, rootRecord) {
-    return property_load_default(record, configured_property, property_value, rootRecord);
 }
 
 /**

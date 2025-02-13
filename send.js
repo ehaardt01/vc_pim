@@ -57,6 +57,9 @@ function main() {
     result["current_locale"] = context.current_locale
     result["flow_locale"] = flow.locale
     let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
+    send_result["root_id"] = rootId;
+    send_result["current_locale"] = context.current_locale
+    send_result["flow_locale"] = flow.locale
     return send_result;
 }
 

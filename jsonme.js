@@ -1148,15 +1148,14 @@ function my_specific_computing_function(record, configured_property, property_va
  */
 function main() {
     MOCK = (typeof MOCK === 'undefined' ? false : true);
+    LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
     if(MOCK) {
-        LOCALE = 'en-GB';
         send_to_recipient_API = mock_send_to_recipient_API;
         salsify = mock_salsify;
         fetchRecord = mock_fetchRecord;
         fetchPageRecords = mock_fetchPageRecords;
         fetchEnumerated = mock_fetchEnumerated
     } else {
-        LOCALE = flow.locale;
         const rootId = context.entity.external_id;
         let result = load(rootId, properties);
         result["current_locale"] = flow.current_locale

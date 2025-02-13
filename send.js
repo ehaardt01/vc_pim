@@ -19,8 +19,11 @@ function send_to_recipient_API(path, content) {
     const OPTIONS = {
         return_status: true
     };
-    return web_request(URL, METHOD, content, HEADERS, OPTIONS);
-    // response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    let response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    if (response === undefined) {
+        response = {};
+    }
+    return response;
 
     // function concatenateProperties(obj) {
     //     let properties = "";

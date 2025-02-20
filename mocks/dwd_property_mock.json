@@ -1,183 +1,117 @@
 {
-    "salsify:id": "DWD",
-    "salsify:created_at": "2025-01-13T14:39:49.109Z",
-    "salsify:updated_at": "2025-02-11T10:34:19.083Z",
-    "salsify:version": 67,
-    "salsify:profile_asset_id": null,
-    "salsify:system_id": "s-3d8bd57d-6e22-4607-8f27-36d58983eb82",
-    "ID": "DWD",
-    "Country Markets": [
-        "UK",
-        "FR"
-    ],
-    "Group Species": [
-        "Dog",
-        "Ferret",
-        "Sheep"
-    ],
-    "Animal stage": "Senior",
-    "Feeding guide / daily ration": [
-        "<p><strong>In case of obesity without diabetes</strong></p>\n<table>\n <thead>\n  <tr>\n   <th rowspan=\"2\" scope=\"col\"><strong>Target Body Weight&nbsp; (kg)</strong></th>\n   <th colspan=\"2\" scope=\"col\"><strong>Daily Ration (g/day)*</strong></th>\n  </tr>\n  <tr>\n   <th scope=\"col\"><strong>High Restrictions&nbsp;</strong></th>\n   <th scope=\"col\"><strong>Moderate Restrictions&nbsp;</strong></th>\n  </tr>\n </thead>\n <tbody>\n  <tr>\n   <th scope=\"row\">3</th>\n   <td align=\"center\">55</td>\n   <td align=\"center\">75</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">5</th>\n   <td align=\"center\">80</td>\n   <td align=\"center\">105</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">8</th>\n   <td align=\"center\">110</td>\n   <td align=\"center\">145</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">10</th>\n   <td align=\"center\">125</td>\n   <td align=\"center\">170</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">15</th>\n   <td align=\"center\">165</td>\n   <td align=\"center\">220</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">20</th>\n   <td align=\"center\">200</td>\n   <td align=\"center\">270</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">25</th>\n   <td align=\"center\">235</td>\n   <td align=\"center\">310</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">30</th>\n   <td align=\"center\">265</td>\n   <td align=\"center\">350</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">40</th>\n   <td align=\"center\">320</td>\n   <td align=\"center\">425</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">60</th>\n   <td align=\"center\">420</td>\n   <td align=\"center\">560</td>\n  </tr>\n </tbody>\n <tfoot>\n  <tr>\n   <td class=\"text-note\" colspan=\"3\">* The daily ration is based on the target body weight of the dog.&nbsp;&nbsp;</td>\n  </tr>\n </tfoot>\n</table>",
-        "<p><strong>In case of obesity associated with diabetes</strong></p>\n<table>\n <thead>\n  <tr>\n   <th rowspan=\"1\" scope=\"col\"><strong>Target Body Weight (kg)</strong></th>\n   <th colspan=\"1\" scope=\"col\"><strong>Daily Ration (g/day)*</strong></th>\n  </tr>\n </thead>\n <tbody>\n  <tr>\n   <th scope=\"row\">3</th>\n   <td align=\"center\">75</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">5</th>\n   <td align=\"center\">105</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">8</th>\n   <td align=\"center\">145</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">10</th>\n   <td align=\"center\">170</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">15</th>\n   <td align=\"center\">220</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">20</th>\n   <td align=\"center\">270</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">25</th>\n   <td align=\"center\">310</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">30</th>\n   <td align=\"center\">350</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">40</th>\n   <td align=\"center\">425</td>\n  </tr>\n  <tr>\n   <th scope=\"row\">60</th>\n   <td align=\"center\">560</td>\n  </tr>\n </tbody>\n <tfoot>\n  <tr>\n   <td class=\"text-note\" colspan=\"2\">* The daily ration is based on the target body weight of the dog.&nbsp;</td>\n  </tr>\n </tfoot>\n</table>"
-    ],
-    "FAQ": [
-        "Is Dog Weight Loss &amp; Diabetes W1 suitable for my dog?",
-        "Dog Weight Loss &amp; Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week.<br><br>It’s also suitable for:<br>  <ul><li>Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss &amp; Control W2 instead).</li></ul>    <ul><li>Managing fibre-responsive colitis.</li></ul>    <ul><li>Managing lipid metabolism disorders (hyperlipidaemia).</li></ul>  <br>Dog Weight Loss &amp; Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease.",
-        "My dog has reached their target weight – what should I feed them now?",
-        "Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss &amp; Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight.",
-        "What's the difference between Weight Loss &amp; Diabetes W1 and Weight Loss &amp; Control W2?",
-        "Weight Loss &amp; Diabetes W1 is designed for overweight dogs, with or without diabetes, to help them reach a healthy weight. In the case of diabetes, it can also help to regulate blood sugar.<br><br>Weight Loss &amp; Control W2 is ideal both for helping your dog to lose weight, and for helping them to maintain a stable weight long-term. It can also help to regulate blood sugar in dogs with diabetes, but in this case, it is only suitable for dogs already at a healthy weight.<br><br>Always consult your vet when switching between these two foods as portions may need to be adjusted to avoid weight gain."
-    ],
-    "LIB_MARQUE": "Vet HPM",
-    "Related product": "DWC",
-    "Taxonomy": "Pet food",
-    "Business category level 1": "Companion animals",
-    "Business category level 2": "Dogs and cats",
-    "Business category level 3": "Nutrition & Petcare",
-    "Business category level 4": "Pet food",
-    "Visible online ?": true,
-    "FAQ data table": [
-        "FAQ-W1",
-        "FAQ-W1-1"
-    ],
-    "Protein Qty": "34",
-    "Protein UOM": "%",
-    "Moisture Qty": "9",
-    "Moisture UOM": "%",
-    "Fat Qty": "11.5",
-    "Fat UOM": "%",
-    "ME calculated Qty": "274",
-    "ME calculated UOM": "kcal/100g",
-    "Sellable online ?": true,
-    "Name": {
-        "en-GB": "HPM Diet - Dog W1 Weight Loss & Diabetes",
-        "en": "HPM Diet - Dog W1 Weight Loss & Diabetes"
-    },
-    "B2C Short description": {
-        "en-GB": "en-GB Helps your dog to lose excess weight and regulate their blood sugar. Weight loss doesn’t have to mean hunger, with a high-protein, high-fibre recipe to keep your dog happy and satisfied on their journey to a healthy weight.",
-        "en": "Helps your dog to lose excess weight and regulate their blood sugar. Weight loss doesn’t have to mean hunger, with a high-protein, high-fibre recipe to keep your dog happy and satisfied on their journey to a healthy weight."
-    },
-    "B2C Full Description": {
-        "en-GB": " en-GB&nbsp;Dog Weight Loss &amp; Diabetes W1 weight loss dog food <br>Help your dog to shed excess weight quickly with Dog Weight Loss &amp; Diabetes W1 weight loss dog food.<br><br><br>Weight loss for dogs isn’t as simple as cutting down their portion sizes. To make sure your dog is losing weight the healthy way, you need a complete and balanced weight control dog food with low energy density, like Dog Weight Loss &amp; Diabetes W1.<br><br><br>Dog Weight Loss &amp; Diabetes W1:<br><br><br>• Contains the ideal ratio of high protein and low carbohydrates to help your dog preserve muscle mass while they lose fat.<br><br>• Prevents glucose spikes after eating and keeps blood sugar stable, helping to manage diabetes.<br><br>• Keeps your dog happy with a tasty combination of rich animal proteins and satisfying fats.<br><br><br>Because excess weight can be tough on the joints, Dog Weight Loss &amp; Diabetes W1 contains chondroitin and chitosan to protect the joints and halt degenration. It also features extra vitamins and minerals to make sure your dog is getting all the nutrients they need from smaller rations.",
-        "en": "Dog Weight Loss &amp; Diabetes W1 weight loss dog food<br><br>Help your dog to shed excess weight quickly with Dog Weight Loss &amp; Diabetes W1 weight loss dog food.<br><br>Weight loss for dogs isn’t as simple as cutting down their portion sizes. To make sure your dog is losing weight the healthy way, you need a complete and balanced weight control dog food with low energy density, like Dog Weight Loss &amp; Diabetes W1.<br><br>Dog Weight Loss &amp; Diabetes W1:<br><br>• Contains the ideal ratio of high protein and low carbohydrates to help your dog preserve muscle mass while they lose fat.<br>• Prevents glucose spikes after eating and keeps blood sugar stable, helping to manage diabetes.<br>• Keeps your dog happy with a tasty combination of rich animal proteins and satisfying fats.<br><br>Because excess weight can be tough on the joints, Dog Weight Loss &amp; Diabetes W1 contains chondroitin and chitosan to protect the joints and halt degenration. It also features extra vitamins and minerals to make sure your dog is getting all the nutrients they need from smaller rations."
-    },
-    "SEO Product Title": {
-        "en-GB": "Adult Dog W1 Weight Loss & Diabetes",
-        "en": "Dog Weight Loss & Diabetes W1 - Dry Food for Dogs - Weight Loss & Glucose Management"
-    },
-    "Composition - Analytical constituents": {
-        "en-GB": "en-GB;0;NA\nMoisture;9;%\nProtein;24;%\nAnimal to vegetable protein ratio ;100;/100\nFat;18%\nMinerals;7;%\nCrude Fibre;4.5;%\nNFE*;37.5;%\nStarch;36;%\nCalcium;0.9;%\nPhosphorus;0.7;%\nSodium;0.4;%\nMethionine + Cystine;1.2;%\nOmega-6;3;%\nOmega-3;0.5;%\nME** calculated;377;kcal/100g\nME** measured in vivo;384;kcal/100g",
-        "en": "Moisture;9;%\nProtein;24;%\nAnimal to vegetable protein ratio ;100;/100\nFat;18%\nMinerals;7;%\nCrude Fibre;4.5;%\nNFE*;37.5;%\nStarch;36;%\nCalcium;0.9;%\nPhosphorus;0.7;%\nSodium;0.4;%\nMethionine + Cystine;1.2;%\nOmega-6;3;%\nOmega-3;0.5;%\nME** calculated;377;kcal/100g\nME** measured in vivo;384;kcal/100g"
-    },
-    "Composition - Functional ingredients": {
-        "en-GB": "en-GB;0;NA\nMoisture;9;%\nProtein;24;%\nAnimal to vegetable protein ratio ;100;/100\nFat;18%\nMinerals;7;%\nCrude Fibre;4.5;%\nNFE*;37.5;%\nStarch;36;%\nCalcium;0.9;%\nPhosphorus;0.7;%\nSodium;0.4;%\nMethionine + Cystine;1.2;%\nOmega-6;3;%\nOmega-3;0.5;%\nME** calculated;377;kcal/100g\nME** measured in vivo;384;kcal/100g",
-        "en": "Moisture;9;%\nProtein;24;%\nAnimal to vegetable protein ratio ;100;/100\nFat;18%\nMinerals;7;%\nCrude Fibre;4.5;%\nNFE*;37.5;%\nStarch;36;%\nCalcium;0.9;%\nPhosphorus;0.7;%\nSodium;0.4;%\nMethionine + Cystine;1.2;%\nOmega-6;3;%\nOmega-3;0.5;%\nME** calculated;377;kcal/100g\nME** measured in vivo;384;kcal/100g"
-    },
-    "Composition - Functional ingredients - Notes": {
-        "en-GB": "en-GB\n* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy",
-        "en": "* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy"
-    },
-    "Composition - Analytical constituents - Notes": {
-        "en-GB": "en-GB\n* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy",
-        "en": "* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy"
-    },
-    "Composition - Ingredients / Additives": {
-        "en-GB": "en-GB;0;NA\nMoisture;9;%\nProtein;24;%\nAnimal to vegetable protein ratio ;100;/100\nFat;18%\nMinerals;7;%\nCrude Fibre;4.5;%\nNFE*;37.5;%\nStarch;36;%\nCalcium;0.9;%\nPhosphorus;0.7;%\nSodium;0.4;%\nMethionine + Cystine;1.2;%\nOmega-6;3;%\nOmega-3;0.5;%\nME** calculated;377;kcal/100g\nME** measured in vivo;384;kcal/100g",
-        "en": "Moisture;9;%\nProtein;24;%\nAnimal to vegetable protein ratio ;100;/100\nFat;18%\nMinerals;7;%\nCrude Fibre;4.5;%\nNFE*;37.5;%\nStarch;36;%\nCalcium;0.9;%\nPhosphorus;0.7;%\nSodium;0.4;%\nMethionine + Cystine;1.2;%\nOmega-6;3;%\nOmega-3;0.5;%\nME** calculated;377;kcal/100g\nME** measured in vivo;384;kcal/100g"
-    },
-    "Composition - Ingredients / Additives - Notes": {
-        "en-GB": "en-GB\n* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy",
-        "en": "* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy"
-    },
-    "B2B Short description": {
-        "en": "Helps your dog to lose excess weight and regulate their blood sugar. Weight loss doesn’t have to mean hunger, with a high-protein, high-fibre recipe to keep your dog happy and satisfied on their journey to a healthy weight."
-    },
-    "Marketing Product name": {
-        "en": "Veterinary HPM Dog Weight Loss & Diabetes W1"
-    },
-    "A+ content": {
-        "en": [
-            "cefce45b6a379104cf19714036573fd7bce2d0d0",
-            "25f362f49f45347e95029d95f0a38fe6784aaa58"
-        ]
-    },
-    "Packaging": {
-        "en": "6c278d2dde83fd761d25e9a3c702e7708610ac56"
-    },
-    "Key benefit list": {
-        "en": [
-            "Promotes fast weight loss",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-            "Preserves lean muscle mass ",
-            "Regulates blood sugar (in the case of diabetes)",
-            "High in essential nutrients",
-            "Supports healthy joints"
-        ]
-    },
-    "Key benefit summary text": {
-        "en": "Dog Weight Loss & Diabetes W1 features a high-protein, low-carb formula to help your dog lose weight quickly and effectively. It’s proven to help dogs reach their healthiest weight up to 7 weeks faster than other weight loss dog foods.  "
-    },
-    "Key figures": {
-        "en": [
-            "100%",
-            "of dogs reached their target weight in trials. ",
-            "2.2%",
-            "body weight lost per week. ",
-            "7 weeks",
-            "faster than competition, to reach optimal weight"
-        ]
-    },
-    "salsify:digital_assets": [
-        {
-            "salsify:id": "6c278d2dde83fd761d25e9a3c702e7708610ac56",
-            "salsify:url": "http://images.salsify.com/image/upload/s--fNjtH_vw--/72d726aae3474c18d9568d6f9687e42d778c010a.jpg",
-            "salsify:source_url": "https://virbac.widen.net/content/lzxrxthnax/jpeg/360189_Packshot_HPM-KJ2_cat-1%2C5kg_right.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
-            "salsify:name": "360189_Packshot_HPM-KJ2_cat-1,5kg_right.jpeg",
-            "salsify:created_at": "2025-01-13T16:52:52.802Z",
-            "salsify:updated_at": "2025-01-13T16:53:24.775Z",
-            "salsify:status": "completed",
-            "salsify:asset_height": 2000,
-            "salsify:asset_width": 2000,
-            "salsify:asset_resource_type": "image",
-            "salsify:filename": "360189_Packshot_HPM-KJ2_cat-1%2C5kg_right.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
-            "salsify:bytes": 237470,
-            "salsify:format": "jpg",
-            "salsify:etag": "14ea7f20e3e5659fea41e0b467f19a7c",
-            "salsify:system_id": "s-ab68898d-638a-4c0b-a9a6-2a10585c72de"
-        },
-        {
-            "salsify:id": "cefce45b6a379104cf19714036573fd7bce2d0d0",
-            "salsify:url": "http://images.salsify.com/image/upload/s--8pVbRRLh--/8aa614f81460a8c3a925d9f23c7212986c570cd1.jpg",
-            "salsify:source_url": "https://virbac.widen.net/content/1af9e2wgdd/jpeg/360190_Packshot_HPM-KJ2_cat-3kg_left.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
-            "salsify:name": "360190_Packshot_HPM-KJ2_cat-3kg_left.jpeg",
-            "salsify:created_at": "2025-01-13T16:52:52.802Z",
-            "salsify:updated_at": "2025-01-13T16:53:25.374Z",
-            "salsify:status": "completed",
-            "salsify:asset_height": 2000,
-            "salsify:asset_width": 2000,
-            "salsify:asset_resource_type": "image",
-            "salsify:filename": "360190_Packshot_HPM-KJ2_cat-3kg_left.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
-            "salsify:bytes": 250032,
-            "salsify:format": "jpg",
-            "salsify:etag": "fa42bdd933f041fb2e18fcce6797e0ee",
-            "salsify:system_id": "s-04b724c9-4160-4329-98fd-7345be08d68b"
-        },
-        {
-            "salsify:id": "25f362f49f45347e95029d95f0a38fe6784aaa58",
-            "salsify:url": "http://images.salsify.com/image/upload/s--BC-pJw1X--/6a11713dba675f61bde6d549edc718793d78deff.jpg",
-            "salsify:source_url": "https://virbac.widen.net/content/eecotyibnm/jpeg/360190_Packshot_HPM-KJ2_cat-3kg_back.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
-            "salsify:name": "360190_Packshot_HPM-KJ2_cat-3kg_back.jpeg",
-            "salsify:created_at": "2025-01-13T16:52:52.802Z",
-            "salsify:updated_at": "2025-01-13T16:53:25.433Z",
-            "salsify:status": "completed",
-            "salsify:asset_height": 2048,
-            "salsify:asset_width": 2048,
-            "salsify:asset_resource_type": "image",
-            "salsify:filename": "360190_Packshot_HPM-KJ2_cat-3kg_back.jpeg?position=c&color=ffffffff&quality=80&u=wuhf7a",
-            "salsify:bytes": 608996,
-            "salsify:format": "jpg",
-            "salsify:etag": "03cacbda474d94300d48ea3e5b972e1a",
-            "salsify:system_id": "s-604bfab7-479b-47fd-ad23-5b6fe41c7699"
-        }
-    ]
+   "salsify:id": "DWD",
+   "salsify:created_at": "2025-01-13T14:39:49.109Z",
+   "salsify:updated_at": "2025-02-17T20:58:48.929Z",
+   "salsify:version": 133,
+   "salsify:profile_asset_id": null,
+   "salsify:system_id": "s-3d8bd57d-6e22-4607-8f27-36d58983eb82",
+   "ID": "DWD",
+   "Country Markets": ["UK", "FR"],
+   "Regulation agreement": "Less regulated",
+   "Group Species": "Dog",
+   "Animal stage": "Adult",
+   "Needs / product coverage / Concerns": "overweight",
+   "Feeding guide / daily ration": [
+      "\u003cp\u003e\u003cstrong\u003eIn case of obesity without diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight\u0026nbsp; (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eHigh Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eModerate Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e55\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e80\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e110\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e125\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e165\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e200\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e235\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e265\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e320\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e420\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"3\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e",
+      "\u003cp\u003e\u003cstrong\u003eIn case of obesity associated with diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"2\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e"
+   ],
+   "LIB_MARQUE": "Vet HPM",
+   "Related product": "DWC",
+   "Taxonomy": "Diet",
+   "Business category level 1": "Companion animals",
+   "Business category level 2": "Dogs and cats",
+   "Business category level 3": "Nutrition \u0026 Petcare",
+   "Business category level 4": "Pet food",
+   "FAQ data table": ["FAQ-W1", "FAQ-W1-1", "FAQ-W1-2"],
+   "Sellable online ?": "Y",
+   "Ibexa Export Status": "non défini",
+   "Benefit data table": [
+      "Promotes fast weight loss",
+      "Preserves lean muscle mass",
+      "Regulates blood sugar (in the case of diabetes)",
+      "High in essential nutrients",
+      "Supports healthy joints "
+   ],
+   "Range category": "Weight loss",
+   "Name": {
+      "en-GB": "HPM Diet - Dog W1 Weight Loss \u0026 Diabetes ",
+      "en": "HPM Diet - Dog W1 Weight Loss \u0026 Diabetes"
+   },
+   "B2C Short description": {
+      "en-GB": "en-GB Helps your dog to lose excess weight and regulate their blood sugar. Weight loss doesn’t have to mean hunger, with a high-protein, high-fibre recipe to keep your dog happy and satisfied on their journey to a healthy weight.",
+      "en": "Helps your dog to lose excess weight and regulate their blood sugar. Weight loss doesn’t have to mean hunger, with a high-protein, high-fibre recipe to keep your dog happy and satisfied on their journey to a healthy weight."
+   },
+   "B2C Full Description": {
+      "en-GB": "  en-GB\u0026nbsp;Dog Weight Loss \u0026amp; Diabetes W1 weight loss dog food\u0026nbsp;\u003cbr\u003e Help your dog to shed excess weight quickly with Dog Weight Loss \u0026amp; Diabetes W1 weight loss dog food.\u003cbr\u003e\u003cbr\u003e\u003cbr\u003eWeight loss for dogs isn’t as simple as cutting down their portion sizes. To make sure your dog is losing weight the healthy way, you need a complete and balanced weight control dog food with low energy density, like Dog Weight Loss \u0026amp; Diabetes W1.\u003cbr\u003e\u003cbr\u003e\u003cbr\u003eDog Weight Loss \u0026amp; Diabetes W1:\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e• Contains the ideal ratio of high protein and low carbohydrates to help your dog preserve muscle mass while they lose fat.\u003cbr\u003e\u003cbr\u003e• Prevents glucose spikes after eating and keeps blood sugar stable, helping to manage diabetes.\u003cbr\u003e\u003cbr\u003e• Keeps your dog happy with a tasty combination of rich animal proteins and satisfying fats.\u003cbr\u003e\u003cbr\u003e\u003cbr\u003eBecause excess weight can be tough on the joints, Dog Weight Loss \u0026amp; Diabetes W1 contains chondroitin and chitosan to protect the joints and halt degenration. It also features extra vitamins and minerals to make sure your dog is getting all the nutrients they need from smaller rations.",
+      "en": "Dog Weight Loss \u0026 Diabetes W1 weight loss dog food \n\nHelp your dog to shed excess weight quickly with Dog Weight Loss \u0026 Diabetes W1 weight loss dog food. \n\nWeight loss for dogs isn’t as simple as cutting down their portion sizes. To make sure your dog is losing weight the healthy way, you need a complete and balanced weight control dog food with low energy density, like Dog Weight Loss \u0026 Diabetes W1.\n\nDog Weight Loss \u0026 Diabetes W1:\n\n• Contains the ideal ratio of high protein and low carbohydrates to help your dog preserve muscle mass while they lose fat. \n• Prevents glucose spikes after eating and keeps blood sugar stable, helping to manage diabetes. \n• Keeps your dog happy with a tasty combination of rich animal proteins and satisfying fats. \n\nBecause excess weight can be tough on the joints, Dog Weight Loss \u0026 Diabetes W1 contains chondroitin and chitosan to protect the joints and halt degenration. It also features extra vitamins and minerals to make sure your dog is getting all the nutrients they need from smaller rations. "
+   },
+   "SEO Product Title": {
+      "en-GB": "Adult Dog W1 Weight Loss \u0026 Diabetes",
+      "en": "Dog Weight Loss \u0026 Diabetes W1 - Dry Food for Dogs - Weight Loss \u0026 Glucose Management"
+   },
+   "Marketing Product name": {
+      "en-GB": "HPM Dog weight loss W1",
+      "en": "Veterinary HPM Dog Weight Loss \u0026 Diabetes W1"
+   },
+   "Visible online ?": { "en-GB": "y", "en": "Y" },
+   "Composition - Analytical constituents": {
+      "en-GB": "Moisture;9%\nProtein;24%\nAnimal to vegetable protein ratio ;100/100\nFat;18%\nMinerals;7%\nCrude Fibre;4.5%\nNFE*;37.5%\nStarch;36%\nCalcium;0.9%\nPhosphorus;0.7%\nSodium;0.4%\nMethionine + Cystine;1.2%\nOmega-6;3%\nOmega-3;0.5%\nME** calculated;377kcal/100g\nME** measured in vivo;384kcal/100g",
+      "en": "Moisture;9%\nProtein;24%\nAnimal to vegetable protein ratio ;100/100\nFat;18%\nMinerals;7%\nCrude Fibre;4.5%\nNFE*;37.5%\nStarch;36%\nCalcium;0.9%\nPhosphorus;0.7%\nSodium;0.4%\nMethionine + Cystine;1.2%\nOmega-6;3%\nOmega-3;0.5%\nME** calculated;377kcal/100g\nME** measured in vivo;384kcal/100g"
+   },
+   "Composition - Functional ingredients": {
+      "en-GB": "Bentonite;5 g/kg\nKilled Lactobacilli;7 mg/kg\nL-carnitine;330 mg/kg\nChondroitin Sulphate;440 mg/kg\nChitosan;440 mg/kg",
+      "en": "Bentonite;5 g/kg\nKilled Lactobacilli;7 mg/kg\nL-carnitine;330 mg/kg\nChondroitin Sulphate;440 mg/kg\nChitosan;440 mg/kg"
+   },
+   "Composition - Functional ingredients - Notes": {
+      "en-GB": "Functional Ingredients note",
+      "en": "Functional Ingredients note"
+   },
+   "Composition - Analytical constituents - Notes": {
+      "en-GB": "en-GB\n* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy",
+      "en": "* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy"
+   },
+   "Composition - Vitamins and trace elements": {
+      "en-GB": "Vitamin A;12 600 IU/kg\nVitamin D3;1 260 IU/kg\nVitamin E;650 mg/kg\nVitamin B1;4.4 mg/kg\nVitamin B2;12.6 mg/kg\nVitamin B3;34 mg/kg\nVitamin B5;30 mg/kg\nVitamin B6;3.2 mg/kg\nVitamin B9;0.55 mg/kg\nVitamin B12;0.071 mg/kg\nCholine;850 mg/kg\nTaurine;1 725 mg/kg\nCopper;17 mg/kg\nIodine;1.3 mg/kg\nZinc;140 mg/kg",
+      "en": "Vitamin A;12 600 IU/kg\nVitamin D3;1 260 IU/kg\nVitamin E;650 mg/kg\nVitamin B1;4.4 mg/kg\nVitamin B2;12.6 mg/kg\nVitamin B3;34 mg/kg\nVitamin B5;30 mg/kg\nVitamin B6;3.2 mg/kg\nVitamin B9;0.55 mg/kg\nVitamin B12;0.071 mg/kg\nCholine;850 mg/kg\nTaurine;1 725 mg/kg\nCopper;17 mg/kg\nIodine;1.3 mg/kg\nZinc;140 mg/kg"
+   },
+   "Composition": {
+      "en-GB": "Dehydrated pork and poultry proteins, Potato starch(1), Lignocellulose, Hydrolysed pork and poultry proteins, Faba bean hulls, Animal fats, Minerals, Linseed, Beet pulp, Psyllium fibre (Plantago (L.) spp.), Fructo-oligosaccharides, Brewers yeast, Hydrolysed crustacean (source of chitosan), Lactobacillus acidophilus, Chondroitin sulphate.",
+      "en": "Dehydrated pork and poultry proteins, Potato starch(1), Lignocellulose, Hydrolysed pork and poultry proteins, Faba bean hulls, Animal fats, Minerals, Linseed, Beet pulp, Psyllium fibre (Plantago (L.) spp.), Fructo-oligosaccharides, Brewers yeast, Hydrolysed crustacean (source of chitosan), Lactobacillus acidophilus, Chondroitin sulphate."
+   },
+   "Packaging": { "en": "9172b549943a5ae18b32de941aff5d8d3d2793fc" },
+   "Key benefit summary text": {
+      "en": "Dog Weight Loss \u0026 Diabetes W1 features a high-protein, low-carb formula to help your dog lose weight quickly and effectively. It’s proven to help dogs reach their healthiest weight up to 7 weeks faster than other weight loss dog foods.  "
+   },
+   "Key figures": {
+      "en": [
+         "100%",
+         "of dogs reached their target weight in trials. ",
+         "2.2%",
+         "body weight lost per week. ",
+         "7 weeks",
+         "faster than competition, to reach optimal weight"
+      ]
+   },
+   "Key Selling Points": {
+      "en": " \u003cul\u003e\u003cli\u003eSupports fast weight loss\u003c/li\u003e\u003cli\u003eHelps to manage diabetes\u003c/li\u003e\u003cli\u003eFilling and tasty\u0026nbsp;\u003c/li\u003e\u003c/ul\u003e "
+   },
+   "salsify:digital_assets": [
+      {
+         "salsify:id": "9172b549943a5ae18b32de941aff5d8d3d2793fc",
+         "salsify:url": "http://images.salsify.com/image/upload/s--Msvakwuk--/4809bc91309c2a1c7523b02a7dfdd43555126160.jpg",
+         "salsify:source_url": "https://virbac.widen.net/content/jpmy7nq9w4/jpeg/360105_Bag_HPM-W1_dog-7kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "salsify:name": "360105_Bag_HPM-W1_dog-7kg_face.jpeg",
+         "salsify:created_at": "2025-01-13T16:52:50.641Z",
+         "salsify:updated_at": "2025-01-13T16:53:07.369Z",
+         "salsify:status": "completed",
+         "salsify:asset_height": 2048,
+         "salsify:asset_width": 2048,
+         "salsify:asset_resource_type": "image",
+         "salsify:filename": "360105_Bag_HPM-W1_dog-7kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "salsify:bytes": 171225,
+         "salsify:format": "jpg",
+         "salsify:etag": "207c167f5c0ef9f351372d82159b3b38",
+         "salsify:system_id": "s-5f31871a-ea61-4758-ac51-1f38e681278e"
+      }
+   ]
 }

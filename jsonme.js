@@ -1077,7 +1077,6 @@ function get_property_export_name(configured_property) {
 function load(rootId, configured_properties) {
     var rootRecord;
     rootRecord = fetchRecord(rootId);
-    return rootRecord;
     if (rootRecord === undefined) {return;}
     let record = {"id": rootId};
     configured_properties.forEach(configured_property => {
@@ -1133,7 +1132,7 @@ function my_specific_computing_function(record, configured_property, property_va
 function main() {
     MOCK = (typeof MOCK === 'undefined' ? false : true);
     if(MOCK) {
-        LOCALE = "en-GB";
+        LOCALE = "en";
         send_to_recipient_API = mock_send_to_recipient_API;
         salsify = mock_salsify;
         fetchRecord = mock_fetchRecord;

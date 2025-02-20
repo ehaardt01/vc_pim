@@ -47,6 +47,7 @@ const properties = [
     {name: "Business category level 4", type: "enumerated", export_name: "business_category_level_4"},
     {name: "Key figures", type: "string", export_name: "key_figures"},
     {name: "Children", type: "children", export_name: "children"},
+    {name: "Feeding guide / daily ration", type: "html", export_name: "feeding_guide_daily_ration"},
     {name: "Composition - Analytical constituents", type: "composition", export_name: "composition_analytical_constituents"},
     {name: "Composition - Analytical constituents - Notes", type: "string", export_name: "composition_analytical_constituents_notes"},
     {name: "Composition - Functional ingredients", type: "composition", export_name: "composition_functional_ingredients"},
@@ -54,7 +55,7 @@ const properties = [
     {name: "Composition - Ingredients / Additives", type: "composition", export_name: "composition_ingredients_additives"},
     {name: "Composition - Ingredients / Additives - Notes", type: "string", export_name: "composition_ingredients_additives_notes"},
     {name: "Daily ration / Feeding guide", type: "html", export_name: "ration"},
-    {name: "A+ content", type: "digital_asset", export_name: "a_plus_content", values: [
+    {name: "A+ content", type: "digital_asset", export_name: "a_content", values: [
        {name: "salsify:id", type: "string", export_name: "salsify_id"},
        {name: "salsify:source_url", type: "string", export_name: "cdn_url"},
        {name: "salsify:name", type: "string", export_name: "name"},

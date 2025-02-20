@@ -34,8 +34,8 @@ function send_to_recipient_API(path, content) {
 
 function main() {
     const rootId = context.entity.external_id;
-    const PATH = '/products/';
-    let rootRecord = salsify_request(PATH + encodeURIComponent(id), 'GET', null, 'v1');
+    const PATH = '/products/DWD';
+    let rootRecord = salsify_request(PATH, 'GET', null, 'v1');
     rootRecord["root_id"] = rootId;
     rootRecord["current_locale"] = context.current_locale
     rootRecord["flow_locale"] = flow.locale

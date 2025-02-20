@@ -1077,6 +1077,7 @@ function get_property_export_name(configured_property) {
 function load(rootId, configured_properties) {
     var rootRecord;
     rootRecord = fetchRecord(rootId);
+    return rootRecord;
     if (rootRecord === undefined) {return;}
     let record = {"id": rootId};
     configured_properties.forEach(configured_property => {

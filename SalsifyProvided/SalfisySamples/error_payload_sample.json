@@ -1,0 +1,39 @@
+{
+    "success": false,
+    "error": {
+        "success": false,
+        "function": "main()",
+        "description": "Main function execution",
+        "parameters": {
+            "id": "Example01a"
+        },
+        "message": "Ruby exception",
+        "timestamp": "2025-02-17T03:23:05.188Z",
+        "error": {
+            "success": false,
+            "function": "fetchRecord(id, version)",
+            "description": "Fetch 1 record by External Id",
+            "parameters": {
+                "id": "Example01a",
+                "version": "v1",
+                "requestPath": "/products/Example01a"
+            },
+            "message": "Ruby exception",
+            "timestamp": "2025-02-17T03:23:05.188Z",
+            "error": {
+                "success": false,
+                "function": "salsify(path, method, payload, version)",
+                "description": "JS helper function wrapper for salsify_request function.",
+                "parameters": {
+                    "path": "/products/Example01a",
+                    "method": "GET",
+                    "payload": null,
+                    "version": "v1"
+                },
+                "message": "Ruby exception",
+                "timestamp": "2025-02-17T03:23:05.188Z",
+                "error": "Ruby exception"
+            }
+        }
+    }
+}

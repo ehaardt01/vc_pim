@@ -97,7 +97,7 @@ const properties = [
     {name: "Key figures", type: "string", export_name: "key_figures"},
     {name: "FAQ data table", type: "product", export_name: "faq_data_table", values: [{name: "FAQ reference - Question", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
     {name: "Sellable online ?", type: "string", export_name: "sellable_online"},
-    // {name: "Composition - Analytical constituents", type: "composition", export_name: "composition_analytical_constituents"},
+    {name: "Composition - Analytical constituents", type: "composition", export_name: "composition_analytical_constituents"},
     // {name: "Composition - Functional ingredients", type: "composition", export_name: "composition_functional_ingredients"},
     {name: "Composition - Functional ingredients - Notes", type: "string", export_name: "composition_functional_ingredients_notes"},
     {name: "Composition - Analytical constituents - Notes", type: "string", export_name: "composition_analytical_constituents_notes"},

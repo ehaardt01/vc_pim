@@ -1137,7 +1137,7 @@ function load(rootId, configured_properties) {
         if (associated_function !== undefined) {
             associated_function(record, configured_property, rootRecord[property_id], rootRecord)
         } else {
-            log('property_type is wrong in ' + configured_property.name, LOG_TYPE.ERROR);
+            log('property_type (' + property_type + ') is wrong in ' + property_id, LOG_TYPE.ERROR);
         }
         return;
     });

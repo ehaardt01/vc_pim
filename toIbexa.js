@@ -116,7 +116,6 @@ function wrapWithArgs(fn, fnName) {
             if (!error_treated) {
                 error_treated = true;
                 let stackLines = error.stack.split("\n").map(line => line.trim());
-                // // Associer chaque ligne à la bonne fonction
                 let newStack = [];
                 let functionIndex = callStack.length - 1;
                 let increment = stackLines.length;
@@ -132,15 +131,12 @@ function wrapWithArgs(fn, fnName) {
                     }
                     increment--;
                 }
-                // // Créer un nouvel objet d'erreur avec la stack mise à jour
                 const wrappedError = new Error(error.message);
                 wrappedError.stack = newStack.join("\n");
                 throw wrappedError;
             } else {
                 throw error;
             }
-        } finally {
-            // callStack.pop(); // Nettoyer la pile après l'exécution
         }
     };
 }
@@ -1225,7 +1221,8 @@ try {
 } catch (error) {
     const errorData = {
         message: error.message,
-        stack: error.stack.split("\n").map(line => line.trim()) // Nettoyage de la stack
+        stack: error.stack.split("\n").map(line => line.trim())
     };
-    throw new Error(JSON.stringify(errorData, null, 2)); // Affichage formaté en JSON
+    throw new Error(JSON.stringify(errorData, null, 2));
+    throw error;
 }

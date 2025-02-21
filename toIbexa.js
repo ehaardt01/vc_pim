@@ -1147,23 +1147,4 @@ function main() {
     }
 }
 
-function main2() {
-    MOCK = (typeof MOCK === 'undefined' ? false : true);
-    if(MOCK) {
-        LOCALE = "en";
-        send_to_recipient_API = mock_send_to_recipient_API;
-        salsify = mock_salsify;
-        fetchRecord = mock_fetchRecord;
-        fetchPageRecords = mock_fetchPageRecords;
-        fetchEnumerated = mock_fetchEnumerated
-    } else {
-        LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
-        const rootId = context.entity.external_id;
-        let result = searchEnumerated("Animal stage", "");
-        let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
-        return send_result;
-    }
-}
-
-
-main2();
+main();

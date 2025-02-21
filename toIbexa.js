@@ -34,7 +34,7 @@ const properties = [
     {name: "B2B Short description", type: "string", export_name: "b2b_short_description"},
     {name: "SEO Product Title", type: "string", export_name: "seo_product_title"},
     {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
-    {name: "FAQ data table", type: "product", export_name: "faq", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
+    {name: "FAQ data table", type: "product", export_name: "faq_data_table", values: [{name: "FAQ reference - Question ", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
     {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
     {name: "Group Species", type: "enumerated", export_name: "group_species"},
     {name: "Animal stage", type: "enumerated", export_name: "animal_stage"},
@@ -1159,7 +1159,7 @@ function main2() {
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;
-        let result = searchEnumeratedPage("Animal stage", "", 1, 100);
+        let result = searchEnumerated("Animal stage", "");
         let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
         return send_result;
     }

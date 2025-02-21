@@ -340,7 +340,7 @@ function searchEnumeratedPage(id, parent, page, perPage) {
         BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
     }
     let result = salsify(BASE_PATH, 'GET', null, null);
-    return result && result.data ? result.data : [];
+    return result;
 };
 
 /**

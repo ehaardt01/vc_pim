@@ -73,8 +73,19 @@ const DOMAIN = 'https://virbac-pim.free.beeceptor.com';
 //     {name: "Related products", type: "product", export_name: "related_products"},
 //     {name: "Computed property", type: "computed", export_name: "computed_property", computing_function: my_specific_computing_function},
 // ];
+const SYSTEM_PROPERTIES = [
+    {name: "ID", type: "string", export_name: "id"},
+    {name: "salsify:system_id", type: "string", export_name: "system_id"},
+    {name: "salsify:created_at", type: "date", export_name: "created_at"},
+    {name: "salsify:updated_at", type: "date", export_name: "updated_at"},
+    {name: "salsify:version", type: "number", export_name: "version"},
+    {name: "salsify:parent_id", type: "string", export_name: "parent_id"},
+    {name: "Children", type: "children", export_name: "children"},
+    {name: "locale", type: "locale", export_name: "locale"},
+];
 
-const properties = [
+
+const properties = SYSTEM_PROPERTIES.concat([
     {name: "ID", type: "string", export_name: "id"},
     {name: "Name", type: "string", export_name: "name"},
     {name: "Brand Identity", type: "string", export_name: "brand_identity"},
@@ -98,16 +109,16 @@ const properties = [
     {name: "FAQ data table", type: "product", export_name: "faq_data_table", values: [{name: "FAQ reference - Question", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
     {name: "Sellable online ?", type: "string", export_name: "sellable_online"},
     {name: "Composition - Analytical constituents", type: "composition", export_name: "composition_analytical_constituents"},
-    // {name: "Composition - Functional ingredients", type: "composition", export_name: "composition_functional_ingredients"},
+    {name: "Composition - Functional ingredients", type: "composition", export_name: "composition_functional_ingredients"},
     {name: "Composition - Functional ingredients - Notes", type: "string", export_name: "composition_functional_ingredients_notes"},
     {name: "Composition - Analytical constituents - Notes", type: "string", export_name: "composition_analytical_constituents_notes"},
-    // {name: "Composition - Ingredients / Additives", type: "composition", export_name: "composition_ingredients_additives"},
+    {name: "Composition - Ingredients / Additives", type: "composition", export_name: "composition_ingredients_additives"},
     {name: "Composition - Ingredients / Additives - Notes", type: "string", export_name: "composition_ingredients_additives_notes"},
-    // {name: "Composition - Vitamins and trace elements", type: "composition", export_name: "composition_vitamins_and_trace_elements"},
+    {name: "Composition - Vitamins and trace elements", type: "composition", export_name: "composition_vitamins_and_trace_elements"},
     {name: "Composition - Vitamins and trace elements - Notes", type: "string", export_name: "composition_vitamins_and_trace_elements_notes"},
     {name: "Composition", type: "string", export_name: "composition"},
     {name: "Sellable SKU Measurement unit", type: "enumerated", export_name: "sellable_sku_measurement_unit"},
-    // {name: "Sellable SKU Unit Value", type: "number", export_name: "sellable_sku_unit_value"},
+    {name: "Sellable SKU Unit Value", type: "number", export_name: "sellable_sku_unit_value"},
     {name: "Sellable SKU format size", type: "enumerated", export_name: "sellable_sku_format_size"},
     // {name: "Benefit data table", type: "product", export_name: "benefit_data_table", values: [{name: "Benefit data table - item label", type: "string", export_name: "label"}, {name: "Benefit data table - long description", type: "string", export_name: "description"}]},
     // {name: "Key Selling Points", type: "rich_text", export_name: "key_selling_points"},
@@ -117,7 +128,7 @@ const properties = [
     {name: "Neutered", type: "enumerated", export_name: "neutered"},
     // {name: "Replaced Product", type: "product", export_name: "replaced_product", values: [{name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}, {name: "", type: "", export_name: ""}]},
     // {name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}
-];
+]);
 
 /**
 * Mapping of Salsify property types to their corresponding loader functions.

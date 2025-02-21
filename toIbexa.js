@@ -890,6 +890,7 @@ function property_load_product(record, configured_property, property_value, root
  * @throws {Error} Logs error if property type is neither string nor string_array
  */
 function property_load_enumerated(record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
     const property_export_name = get_property_export_name(configured_property)
     const returned_type = retrieve_type(property_value);
     let records = fetchEnumerated(configured_property.name);
@@ -1147,22 +1148,4 @@ function main() {
     }
 }
 
-function main2() {
-    MOCK = (typeof MOCK === 'undefined' ? false : true);
-    if(MOCK) {
-        LOCALE = "en";
-        send_to_recipient_API = mock_send_to_recipient_API;
-        salsify = mock_salsify;
-        fetchRecord = mock_fetchRecord;
-        fetchPageRecords = mock_fetchPageRecords;
-        fetchEnumerated = mock_fetchEnumerated
-    } else {
-        LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
-        const rootId = context.entity.external_id;
-        let result = fetchEnumerated("Animal stage");
-        let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
-        return send_result;
-    }
-}
-
-main2();
+main();

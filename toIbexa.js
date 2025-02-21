@@ -72,44 +72,6 @@ const properties = SYSTEM_PROPERTIES.concat([
 ]);
 
 /**
-* Mapping of Salsify property types to their corresponding loader functions.
-* @constant
-* @type {Object.<string, Function>}
-* @property {Function} string - Default loader for string properties
-* @property {Function} composition - Default loader for string properties
-* @property {Function} rich_text - Default loader for rich text properties
-* @property {Function} quantified_product - Loader for quantified product properties
-* @property {Function} product - Loader for product properties
-* @property {Function} number - Default loader for numeric properties
-* @property {Function} html - Default loader for HTML properties
-* @property {Function} enumerated - Loader for enumerated properties
-* @property {Function} digital_asset - Loader for digital asset properties
-* @property {Function} date - Default loader for date properties
-* @property {Function} boolean - Default loader for boolean properties
-* @property {Function} computed - Loader for computed properties
-* @property {Function} children - Loader for children properties
-* @property {Function} locale - Loader for locale properties
-* @property {Function} status - Loader for status properties
-*/
-const salsify_property_types = {
-    "string": property_load_default,
-    "composition": property_load_composition,
-    "rich_text": property_load_default,
-    "quantified_product": property_load_quantified_product,
-    "product": property_load_product,
-    "number": property_load_number,
-    "html": property_load_default,
-    "enumerated": property_load_enumerated,
-    "digital_asset": property_load_digital_asset,
-    "date": property_load_default,
-    "boolean": property_load_boolean,
-    "computed": property_load_computed,
-    "children": property_load_children,
-    "locale": property_load_locale,
-    "status": property_load_status,
- };
-
-/**
  * Error management constant and variables
  */
 const callStack = [];
@@ -1185,6 +1147,44 @@ const my_specific_computing_function = wrapWithArgs(function (record, configured
 }, "my_specific_computing_function");
 
 /**
+* Mapping of Salsify property types to their corresponding loader functions.
+* @constant
+* @type {Object.<string, Function>}
+* @property {Function} string - Default loader for string properties
+* @property {Function} composition - Default loader for string properties
+* @property {Function} rich_text - Default loader for rich text properties
+* @property {Function} quantified_product - Loader for quantified product properties
+* @property {Function} product - Loader for product properties
+* @property {Function} number - Default loader for numeric properties
+* @property {Function} html - Default loader for HTML properties
+* @property {Function} enumerated - Loader for enumerated properties
+* @property {Function} digital_asset - Loader for digital asset properties
+* @property {Function} date - Default loader for date properties
+* @property {Function} boolean - Default loader for boolean properties
+* @property {Function} computed - Loader for computed properties
+* @property {Function} children - Loader for children properties
+* @property {Function} locale - Loader for locale properties
+* @property {Function} status - Loader for status properties
+*/
+const salsify_property_types = {
+    "string": property_load_default,
+    "composition": property_load_composition,
+    "rich_text": property_load_default,
+    "quantified_product": property_load_quantified_product,
+    "product": property_load_product,
+    "number": property_load_number,
+    "html": property_load_default,
+    "enumerated": property_load_enumerated,
+    "digital_asset": property_load_digital_asset,
+    "date": property_load_default,
+    "boolean": property_load_boolean,
+    "computed": property_load_computed,
+    "children": property_load_children,
+    "locale": property_load_locale,
+    "status": property_load_status,
+ };
+
+/**
  * Main function that handles the flow execution whether in mock mode or production mode.
  * In mock mode, it sets up mock functions and a fixed locale.
  * In production mode, it loads data for a given root ID and sends it to the recipient API.
@@ -1227,6 +1227,5 @@ try {
         message: error.message,
         stack: error.stack.split("\n").map(line => line.trim()) // Nettoyage de la stack
     };
-    throw error;
-    console.log(JSON.stringify(errorData, null, 2)); // Affichage formaté en JSON
+    throw new Error(JSON.stringify(errorData, null, 2)); // Affichage formaté en JSON
 }

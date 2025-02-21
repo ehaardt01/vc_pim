@@ -40,7 +40,7 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "SEO Meta description", type: "string", export_name: "seo_meta_description"},
     {name: "Tutorials", type: "html", export_name: "tutorials"},
     {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
-    // {name: "Related product", type: "product", export_name: "related_product"},
+    {name: "Related product", type: "product", export_name: "related_product"},
     {name: "A+ content", type: "digital_asset", export_name: "a_content", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]},
     {name: "Packaging", type: "digital_asset", export_name: "packaging", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]},
     {name: "Taxonomy", type: "enumerated", export_name: "taxonomy"},
@@ -67,7 +67,7 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Range category", type: "enumerated", export_name: "range_category"},
     {name: "Type of food", type: "enumerated", export_name: "type_of_food"},
     {name: "Neutered", type: "enumerated", export_name: "neutered"},
-    // {name: "Replaced Product", type: "product", export_name: "replaced_product", values: [{name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}, {name: "", type: "", export_name: ""}]},
+    {name: "Replaced Product", type: "product", export_name: "replaced_product", values: [{name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}, {name: "", type: "", export_name: ""}]},
     {name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}
 ]);
 
@@ -254,7 +254,7 @@ const mock_send_to_recipient_API = wrapWithArgs(function (path, content) {
  * @param {*} content - The content/payload to be sent in the POST request
  * @returns {void}
  */
-const send_to_recipient_API = wrapWithArgs(function (path, content) {
+let send_to_recipient_API = wrapWithArgs(function (path, content) {
     const METHOD = 'post';
     const URL = DOMAIN + path;
     let secret = "Bearer " + secret_value("ibexa_bearer_token");
@@ -299,7 +299,7 @@ const mock_salsify = wrapWithArgs(function (path, method = 'GET', payload = null
  * @param {string} [version='v1'] - The API version to use
  * @returns {Promise|undefined} Returns Promise from salsify_request or undefined if MOCK is true
  */
-const salsify = wrapWithArgs(function (path, method = 'GET', payload = null, version = 'v1') {
+let salsify = wrapWithArgs(function (path, method = 'GET', payload = null, version = 'v1') {
     return salsify_request(path, method, payload, version);
 }, "salsify");
 
@@ -319,7 +319,7 @@ const mock_fetchRecord = wrapWithArgs(function (id) {
  * @returns {Promise<Object>} A promise that resolves with the fetched record data
  * @throws {Error} If the record cannot be fetched
  */
-const fetchRecord = wrapWithArgs(function (id) {
+let fetchRecord = wrapWithArgs(function (id) {
     const PATH = '/products/';
     return salsify(PATH + encodeURIComponent(id));
 }, "fetchRecord");
@@ -342,7 +342,7 @@ const mock_fetchPageRecords = wrapWithArgs(function (topId, page) {
  * @returns {Promise<Object>} Promise that resolves to the fetched records
  * @throws {Error} Possible API errors when fetching from Salsify
  */
-const fetchPageRecords = wrapWithArgs(function (topId, page) {
+let fetchPageRecords = wrapWithArgs(function (topId, page) {
     const PATH = `/records?filter=='salsify:ancestor_ids':'${encodeURIComponent(topId)}'&per_page=100&page=${page}`;
     return salsify(PATH);
 }, "fetchPageRecords");
@@ -426,7 +426,7 @@ const searchEnumerated = wrapWithArgs(function (id, parent='') {
  * //   values: [...]
  * // }, ...]
  */
-const fetchEnumerated = wrapWithArgs(function (id) {
+let fetchEnumerated = wrapWithArgs(function (id) {
     function mysearchProperty(id, parent='') {
         let records = searchEnumerated(id, parent);
         let tree = [];
@@ -1105,7 +1105,7 @@ const get_property_export_name = wrapWithArgs(function (configured_property) {
  * the specified properties. Property names are converted to snake_case.
  * Only properties that exist in the fetched record are included in the result.
  */
-const load = wrapWithArgs(function (rootId, configured_properties) {
+let load = wrapWithArgs(function (rootId, configured_properties) {
     var rootRecord;
     rootRecord = fetchRecord(rootId);
     if (rootRecord === undefined) {return;}

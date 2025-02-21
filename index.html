@@ -10,80 +10,10 @@
 <body>
     <textarea id="display" style="width: 100%; height: 600px"></textarea>
     <script>
-        // const record_id = "DWD";
-        // let result = load(record_id, properties);
-        // console.log("Hello boy");
-        // document.getElementById('display').value = JSON.stringify(result, null, 4);
-const callStack = [];
-let error_treated = false;
-function isOdd(nombre) {
-    return nombre % 2 !== 0;
-}
-function wrapWithArgs(fn, fnName) {
-    return function (...args) {
-        callStack.push({ name: fnName, args: JSON.stringify(args) });
-        try {
-            return fn.apply(this, args);
-        } catch (error) {
-            if (!error_treated) {
-                error_treated = true;
-                let stackLines = error.stack.split("\n").map(line => line.trim());
-                // // Associer chaque ligne à la bonne fonction
-                let newStack = [];
-                let functionIndex = callStack.length - 1;
-                let increment = stackLines.length;
-                for (let line of stackLines) {
-                    if (isOdd(increment)) {
-                        call_stack_idx = Math.floor(increment / 2) - 1;
-                        if (call_stack_idx >= 0) {
-                            let { name, args } = callStack[call_stack_idx];
-                            newStack.push(`Function: ${name}, Args: ${args} -> ${line}`);
-                        } else {
-                            newStack.push(line);
-                        }
-                    }
-                    increment--;
-                }
-                // // Créer un nouvel objet d'erreur avec la stack mise à jour
-                const wrappedError = new Error(error.message);
-                wrappedError.stack = newStack.join("\n");
-                throw wrappedError;
-            } else {
-                throw error;
-            }
-        } finally {
-            // callStack.pop(); // Nettoyer la pile après l'exécution
-        }
-    };
-}
-// Exemple de fonctions
-const foo3 = wrapWithArgs(function (arg1, arg3) {
-    throw new Error("Error from foo3");
-}, "foo3");
-
-const foo2 = wrapWithArgs(function (arg1) {
-    foo3(arg1, "myarg3");
-}, "foo2");
-
-const foo1 = wrapWithArgs(function (arg1, arg2) {
-    foo2(arg1);
-}, "foo1");
-
-const main2 = wrapWithArgs(function () {
-    foo1("myarg1", "myarg2");
-}, "main2");
-
-try {
-    main2();
-} catch (error) {
-    const errorData = {
-        message: error.message,
-        stack: error.stack.split("\n").map(line => line.trim()) // Nettoyage de la stack
-    };
-
-    console.log(JSON.stringify(errorData, null, 2)); // Affichage formaté en JSON
-}
-
+        const record_id = "DWD";
+        let result = load(record_id, properties);
+        console.log("Hello boy");
+        document.getElementById('display').value = JSON.stringify(result, null, 4);
     </script>
 </body>
 </html>

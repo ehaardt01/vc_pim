@@ -1,0 +1,20 @@
+{
+    "salsify:id": "DWC",
+    "salsify:created_at": "2025-01-13T14:39:49.109Z",
+    "salsify:updated_at": "2025-02-20T21:12:02.515Z",
+    "salsify:version": 6,
+    "salsify:profile_asset_id": null,
+    "salsify:system_id": "s-8b40ec11-5e2b-4928-803b-c6c0bf5494fc",
+    "ID": "DWC",
+    "Country Markets": "UK",
+    "LIB_MARQUE": "Vet HPM",
+    "Taxonomy": "Diet",
+    "Business category level 1": "Companion animals",
+    "Business category level 2": "Dogs and cats",
+    "Business category level 3": "Nutrition & Petcare",
+    "Business category level 4": "Pet food",
+    "Name": {
+        "en-GB": "HPM Diet - Dog W2 Weight Loss & Control",
+        "en": "HPM Diet - Dog W2 Weight Loss & Control"
+    }
+}

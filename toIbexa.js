@@ -120,7 +120,7 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Sellable SKU Measurement unit", type: "enumerated", export_name: "sellable_sku_measurement_unit"},
     {name: "Sellable SKU Unit Value", type: "number", export_name: "sellable_sku_unit_value"},
     {name: "Sellable SKU format size", type: "enumerated", export_name: "sellable_sku_format_size"},
-    // {name: "Benefit data table", type: "product", export_name: "benefit_data_table", values: [{name: "Benefit data table - item label", type: "string", export_name: "label"}, {name: "Benefit data table - long description", type: "string", export_name: "description"}]},
+    {name: "Benefit data table", type: "product", export_name: "benefit_data_table", values: [{name: "Benefit data table - item label", type: "string", export_name: "label"}, {name: "Benefit data table - long description", type: "string", export_name: "description"}]},
     {name: "Key Selling Points", type: "rich_text", export_name: "key_selling_points"},
     {name: "Animal size", type: "enumerated", export_name: "animal_size"},
     {name: "Range category", type: "enumerated", export_name: "range_category"},

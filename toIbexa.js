@@ -18,6 +18,7 @@ const DOMAIN = 'https://virbac-pim.free.beeceptor.com';
 */
 const properties = [
     {name: "ID", type: "string", export_name: "id"},
+    {name: "Benefit data table", type: "product", export_name: "benefit_data_table", values: [{name: "Benefit data table - item label", type: "string", export_name: "label"}, {name: "Benefit data table - long description", type: "string", export_name: "description"}]},
     {name: "salsify:system_id", type: "string", export_name: "system_id"},
     {name: "salsify:parent_id", type: "string", export_name: "parent_id"},
     {name: "salsify:created_at", type: "date", export_name: "created_at"},

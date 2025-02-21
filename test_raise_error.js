@@ -88,8 +88,26 @@ function main() {
 // Calling main and storing result
 // var result = main();
 // beeceptor("result", result);
-let result = {
-    error: "The error",
-    message: "The error message"
+
+function foo2(arg1) {
+    throw "Error from foo2";
 }
-throw(JSON.stringify(result));
+
+function foo1(arg1, arg2) {
+    try {
+        foo2(arg1);
+    }
+    catch (error) {
+        throw "Error from foo1";
+    }
+}
+
+function main() {
+    try {
+        foo1("myarg1", "myarg2");
+    } catch (error) {
+        throw "Error from main";
+    }
+}
+
+main();

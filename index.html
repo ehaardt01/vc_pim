@@ -10,10 +10,39 @@
 <body>
     <textarea id="display" style="width: 100%; height: 600px"></textarea>
     <script>
-        const record_id = "DWD";
-        let result = load(record_id, properties);
-        console.log("Hello boy");
-        document.getElementById('display').value = JSON.stringify(result, null, 4);
+        // const record_id = "DWD";
+        // let result = load(record_id, properties);
+        // console.log("Hello boy");
+        // document.getElementById('display').value = JSON.stringify(result, null, 4);
+        function wrapWithArgs(fn, name) {
+            return function (...args) {
+                try {
+                    return fn.apply(this, args);
+                } catch (error) {
+                    // Ajoute le nom de la fonction et ses arguments à l'erreur
+                    error.stack = `Function: ${name}, Args: ${JSON.stringify(args)}\n` + error.stack;
+                    throw error;
+                }
+            };
+        }
+
+        const foo2 = wrapWithArgs(function (arg1) {
+            throw new Error("Error from foo2");
+        }, "foo2");
+
+        const foo1 = wrapWithArgs(function (arg1, arg2) {
+            foo2(arg1);
+        }, "foo1");
+
+        const main = wrapWithArgs(function () {
+            foo1("myarg1", "myarg2");
+        }, "main");
+
+        try {
+            main();
+        } catch (error) {
+            console.error(error.stack);
+        }
     </script>
 </body>
 </html>

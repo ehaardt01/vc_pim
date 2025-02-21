@@ -86,8 +86,8 @@ function main() {
 }
 
 // Calling main and storing result
-var result = main();
-beeceptor("result", result);
+// var result = main();
+// beeceptor("result", result);
 result = {
     "error": "The error",
     "message": "The error message",

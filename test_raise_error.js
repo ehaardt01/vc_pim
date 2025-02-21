@@ -92,4 +92,4 @@ result = {
     "error": "The error",
     "message": "The error message"
 }
-throw(result);
+throw("an error specific");

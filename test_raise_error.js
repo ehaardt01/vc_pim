@@ -92,4 +92,4 @@ result = {
     "error": "The error",
     "message": "The error message",
 }
-result;
+throw(JSON.stringify(result,null,4));

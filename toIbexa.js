@@ -1224,5 +1224,6 @@ try {
         message: error.message,
         stack: error.stack.split("\n").map(line => line.trim())
     };
+
     throw new Error(JSON.stringify(errorData, null, 2));
 }

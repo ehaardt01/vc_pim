@@ -121,13 +121,13 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Sellable SKU Unit Value", type: "number", export_name: "sellable_sku_unit_value"},
     {name: "Sellable SKU format size", type: "enumerated", export_name: "sellable_sku_format_size"},
     // {name: "Benefit data table", type: "product", export_name: "benefit_data_table", values: [{name: "Benefit data table - item label", type: "string", export_name: "label"}, {name: "Benefit data table - long description", type: "string", export_name: "description"}]},
-    // {name: "Key Selling Points", type: "rich_text", export_name: "key_selling_points"},
+    {name: "Key Selling Points", type: "rich_text", export_name: "key_selling_points"},
     {name: "Animal size", type: "enumerated", export_name: "animal_size"},
     {name: "Range category", type: "enumerated", export_name: "range_category"},
     {name: "Type of food", type: "enumerated", export_name: "type_of_food"},
     {name: "Neutered", type: "enumerated", export_name: "neutered"},
     // {name: "Replaced Product", type: "product", export_name: "replaced_product", values: [{name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}, {name: "", type: "", export_name: ""}]},
-    // {name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}
+    {name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}
 ]);
 
 /**

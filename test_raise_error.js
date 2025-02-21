@@ -90,6 +90,6 @@ function main() {
 // beeceptor("result", result);
 result = {
     "error": "The error",
-    "message": "The error message",
+    "message": "The error message"
 }
-throw(JSON.stringify(result,null,4));
+throw(result);

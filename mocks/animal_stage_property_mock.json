@@ -1,0 +1,38 @@
+[
+    {
+        "id": "Adult",
+        "name": "Adult",
+        "has_children": false,
+        "localized_names": {
+            "en-GB": "Adult"
+        },
+        "values": []
+    },
+    {
+        "id": "Baby",
+        "name": "Baby",
+        "has_children": false,
+        "localized_names": {
+            "en-GB": "Puppy"
+        },
+        "values": []
+    },
+    {
+        "id": "Junior",
+        "name": "Junior",
+        "has_children": false,
+        "localized_names": {
+            "en-US": "Junior"
+        },
+        "values": []
+    },
+    {
+        "id": "Senior",
+        "name": "Senior",
+        "has_children": false,
+        "localized_names": {
+            "en-GB": "Senior"
+        },
+        "values": []
+    }
+]

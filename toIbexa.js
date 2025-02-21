@@ -1219,7 +1219,7 @@ const main = wrapWithArgs(function () {
 try {
     main();
 } catch (error) {
-    throw error;
+    throw JSON.stringify(errorData, null, 2);
     const errorData = {
         message: error.message,
         stack: error.stack.split("\n").map(line => line.trim())

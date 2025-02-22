@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>let MOCK=true;</script>
+    <script>let DEBUG=true;</script>
     <script src="toIbexa.js"></script>
 </head>
 <body>
@@ -13,13 +14,6 @@
         try {
             const record_id = "DWD";
             let result = load(record_id, properties);
-            properties.forEach(configured_property => {
-                const property_id = configured_property["export_name"];
-                let property = result[property_id];
-                if (property === undefined) {
-                    result[property_export_name] = "not found";
-                }
-            });
             console.log("Hello boy");
             document.getElementById('display').value = JSON.stringify(result, null, 4);
         } catch (error) {

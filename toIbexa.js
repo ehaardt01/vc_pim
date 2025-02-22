@@ -813,9 +813,6 @@ function property_load_quantified_product (record, configured_property, property
  * @throws {Error} Logs error if property_values is missing in configuration or if type is unexpected.
  */
 function property_load_product (record, configured_property, property_value, rootRecord) {
-    if (configured_property.name === "Benefit data table") {
-        test = 1;
-    };
     if (property_value === undefined) return;
     returned_values = configured_property["values"];
     property_export_name = get_property_export_name(configured_property)
@@ -1147,6 +1144,7 @@ const salsify_property_types = {
  */
 function main () {
     MOCK = (typeof MOCK === 'undefined' ? false : true);
+    DEBUG = (typeof DEBUG === 'undefined' ? false : true);
     if(MOCK) {
         LOCALE = "en";
         send_to_recipient_API = mock_send_to_recipient_API;
@@ -1158,6 +1156,15 @@ function main () {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;
         let result = load(rootId, properties);
+        if (DEBUG) {
+            properties.forEach(configured_property => {
+                const property_id = configured_property["export_name"];
+                let property = result[property_id];
+                if (property === undefined) {
+                    result[property_id] = "not found";
+                }
+            });
+        }
         let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
         return send_result;
     }

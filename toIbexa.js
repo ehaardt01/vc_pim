@@ -813,6 +813,9 @@ function property_load_quantified_product (record, configured_property, property
  * @throws {Error} Logs error if property_values is missing in configuration or if type is unexpected.
  */
 function property_load_product (record, configured_property, property_value, rootRecord) {
+    if (configured_property.name === "Benefit data table") {
+        test = 1;
+    };
     if (property_value === undefined) return;
     returned_values = configured_property["values"];
     property_export_name = get_property_export_name(configured_property)

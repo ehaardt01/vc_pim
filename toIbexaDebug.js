@@ -4,4 +4,3 @@ fetch('https://raw.githubusercontent.com/ehaardt01/vc_pim/refs/heads/main/toIbex
     .then(scriptText => {
         eval(scriptText);
     });
-return RESULT;

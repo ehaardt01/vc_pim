@@ -1,0 +1,135 @@
+{
+   "id": "DWD",
+   "system_id": "s-3d8bd57d-6e22-4607-8f27-36d58983eb82",
+   "created_at": "2025-01-13T14:39:49.109Z",
+   "updated_at": "2025-02-21T22:34:48.031Z",
+   "version": 149,
+   "children": [
+      { "id": "457633" },
+      { "id": "457634" },
+      { "id": "457635" },
+      { "id": "468592" }
+   ],
+   "locale": "en",
+   "name": "HPM Diet - Dog W1 Weight Loss \u0026 Diabetes",
+   "group_species": [{ "key": "Cat", "value": "Cat" }],
+   "b2c_short_description": "Helps your dog to lose excess weight and regulate their blood sugar. Weight loss doesn’t have to mean hunger, with a high-protein, high-fibre recipe to keep your dog happy and satisfied on their journey to a healthy weight.",
+   "b2c_full_description": "Dog Weight Loss \u0026 Diabetes W1 weight loss dog food \n\nHelp your dog to shed excess weight quickly with Dog Weight Loss \u0026 Diabetes W1 weight loss dog food. \n\nWeight loss for dogs isn’t as simple as cutting down their portion sizes. To make sure your dog is losing weight the healthy way, you need a complete and balanced weight control dog food with low energy density, like Dog Weight Loss \u0026 Diabetes W1.\n\nDog Weight Loss \u0026 Diabetes W1:\n\n• Contains the ideal ratio of high protein and low carbohydrates to help your dog preserve muscle mass while they lose fat. \n• Prevents glucose spikes after eating and keeps blood sugar stable, helping to manage diabetes. \n• Keeps your dog happy with a tasty combination of rich animal proteins and satisfying fats. \n\nBecause excess weight can be tough on the joints, Dog Weight Loss \u0026 Diabetes W1 contains chondroitin and chitosan to protect the joints and halt degenration. It also features extra vitamins and minerals to make sure your dog is getting all the nutrients they need from smaller rations. ",
+   "seo_product_title": "Dog Weight Loss \u0026 Diabetes W1 - Dry Food for Dogs - Weight Loss \u0026 Glucose Management",
+   "marketing_product_name": "HPM Diet - Dog W1 Weight Loss \u0026 Diabetes",
+   "related_product": { "id": "DWC" },
+   "packaging": {
+      "salsify_id": "9172b549943a5ae18b32de941aff5d8d3d2793fc",
+      "cdn_url": "https://virbac.widen.net/content/jpmy7nq9w4/jpeg/360105_Bag_HPM-W1_dog-7kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+      "name": "360105_Bag_HPM-W1_dog-7kg_face.jpeg",
+      "salsify_status": "completed",
+      "resource_type": "image",
+      "format": "jpg"
+   },
+   "taxonomy": [{ "key": "Diet", "value": "Diet" }],
+   "key_benefit_summary_text": "Dog Weight Loss \u0026 Diabetes W1 features a high-protein, low-carb formula to help your dog lose weight quickly and effectively. It’s proven to help dogs reach their healthiest weight up to 7 weeks faster than other weight loss dog foods.  ",
+   "visible_online": "Y",
+   "key_figures": [
+      "100%",
+      "of dogs reached their target weight in trials. ",
+      "2.2%",
+      "body weight lost per week. ",
+      "7 weeks",
+      "faster than competition, to reach optimal weight"
+   ],
+   "faq_data_table": [
+      {
+         "id": "FAQ-W1",
+         "question": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog?",
+         "answer": "Dog Weight Loss \u0026 Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. \n\nIt’s also suitable for: \n- Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026 Control W2 instead). \n- Managing fibre-responsive colitis.\n- Managing lipid metabolism disorders (hyperlipidaemia). \n\nDog Weight Loss \u0026 Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease. "
+      },
+      {
+         "id": "FAQ-W1-1",
+         "question": "My dog has reached their target weight – what should I feed them now?",
+         "answer": "Congrats! Now that your dog has reached a healthy weight, you can help them stay there by switching to Weight Loss \u0026 Control W2 weight control dog food. With more energy per portion, this food is ideal for stabilising your dog's weight. "
+      },
+      {
+         "id": "FAQ-W1-2",
+         "question": "Is Dog Weight Loss \u0026 Diabetes W1 safe for dogs with allergies or intolerances? ",
+         "answer": "Dog Weight Loss \u0026 Diabetes W1 is free from the following common allergens: dairy, lamb, fish, egg, wheat, maize, soya and gluten. If in doubt, ask your vet if this food is suitable for your dog."
+      }
+   ],
+   "sellable_online": "Y",
+   "composition_analytical_constituents": [
+      { "name": "Moisture", "value": "9%" },
+      { "name": "Protein", "value": "24%" },
+      { "name": "Animal to vegetable protein ratio ", "value": "100/100" },
+      { "name": "Fat", "value": "18%" },
+      { "name": "Minerals", "value": "7%" },
+      { "name": "Crude Fibre", "value": "4.5%" },
+      { "name": "NFE*", "value": "37.5%" },
+      { "name": "Starch", "value": "36%" },
+      { "name": "Calcium", "value": "0.9%" },
+      { "name": "Phosphorus", "value": "0.7%" },
+      { "name": "Sodium", "value": "0.4%" },
+      { "name": "Methionine + Cystine", "value": "1.2%" },
+      { "name": "Omega-6", "value": "3%" },
+      { "name": "Omega-3", "value": "0.5%" },
+      { "name": "ME** calculated", "value": "377kcal/100g" },
+      { "name": "ME** measured in vivo", "value": "384kcal/100g" }
+   ],
+   "composition_functional_ingredients": [
+      { "name": "Bentonite", "value": "5 g/kg" },
+      { "name": "Killed Lactobacilli", "value": "7 mg/kg" },
+      { "name": "L-carnitine", "value": "330 mg/kg" },
+      { "name": "Chondroitin Sulphate", "value": "440 mg/kg" },
+      { "name": "Chitosan", "value": "440 mg/kg" }
+   ],
+   "composition_functional_ingredients_notes": "Functional Ingredients note",
+   "composition_analytical_constituents_notes": "* Nitrogen Free Extract: Carbohydrates\n** Metabolisable energy",
+   "composition_vitamins_and_trace_elements": [
+      { "name": "Vitamin A", "value": "12 600 IU/kg" },
+      { "name": "Vitamin D3", "value": "1 260 IU/kg" },
+      { "name": "Vitamin E", "value": "650 mg/kg" },
+      { "name": "Vitamin B1", "value": "4.4 mg/kg" },
+      { "name": "Vitamin B2", "value": "12.6 mg/kg" },
+      { "name": "Vitamin B3", "value": "34 mg/kg" },
+      { "name": "Vitamin B5", "value": "30 mg/kg" },
+      { "name": "Vitamin B6", "value": "3.2 mg/kg" },
+      { "name": "Vitamin B9", "value": "0.55 mg/kg" },
+      { "name": "Vitamin B12", "value": "0.071 mg/kg" },
+      { "name": "Choline", "value": "850 mg/kg" },
+      { "name": "Taurine", "value": "1 725 mg/kg" },
+      { "name": "Copper", "value": "17 mg/kg" },
+      { "name": "Iodine", "value": "1.3 mg/kg" },
+      { "name": "Zinc", "value": "140 mg/kg" }
+   ],
+   "composition": "Dehydrated pork and poultry proteins, Potato starch(1), Lignocellulose, Hydrolysed pork and poultry proteins, Faba bean hulls, Animal fats, Minerals, Linseed, Beet pulp, Psyllium fibre (Plantago (L.) spp.), Fructo-oligosaccharides, Brewers yeast, Hydrolysed crustacean (source of chitosan), Lactobacillus acidophilus, Chondroitin sulphate.",
+   "benefit_data_table": [
+      {
+         "id": "BEN-3",
+         "label": "Promotes fast weight loss",
+         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+      },
+      {
+         "id": "BEN-2",
+         "label": "Preserves lean muscle mass ",
+         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+      },
+      {
+         "id": "BEN-4",
+         "label": "Regulates blood sugar (in the case of diabetes)",
+         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+      },
+      {
+         "id": "BEN-1",
+         "label": "High in essential nutrients",
+         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+      },
+      {
+         "id": "BEN-5",
+         "label": "Supports healthy joints",
+         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+      }
+   ],
+   "key_selling_points": " \u003cul\u003e\u003cli\u003eSupports fast weight loss\u003c/li\u003e\u003cli\u003eHelps to manage diabetes\u003c/li\u003e\u003cli\u003eFilling and tasty\u0026nbsp;\u003c/li\u003e\u003c/ul\u003e ",
+   "range_category": [{ "key": "Weight loss", "value": "Weight loss" }],
+   "type_of_food": [{ "key": "Dry", "value": "Dry" }],
+   "neutered": [{ "key": "entire", "value": "entire" }],
+   "replaced_product": { "id": "448302" }
+}

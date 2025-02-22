@@ -1,6 +1,7 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
-const DOMAIN = 'https://virbac-pim.free.beeceptor.com';
+const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
+const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
 let RESULT = "";
 
 /**
@@ -186,9 +187,8 @@ function check_configuration (properties_list=properties) {
  * @see {@link https://beeceptor.com/|Beeceptor Documentation}
  */
 function mock_send_to_recipient_API (path, content) {
-    var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
     const METHOD = 'post';
-    const URL = DOMAIN + path;
+    const URL = TARGET_DOMAIN + path;
     web_request(URL, METHOD, content); // fixed parameter assignment
 }
 
@@ -200,7 +200,7 @@ function mock_send_to_recipient_API (path, content) {
  */
 function send_to_recipient_API (path, content) {
     const METHOD = 'post';
-    const URL = DOMAIN + path;
+    const URL = TARGET_DOMAIN + path;
     let secret = "Bearer " + secret_value("ibexa_bearer_token");
     const HEADERS = {
         Authorization: secret,
@@ -446,7 +446,7 @@ function snake_case (variable_name) {
  * const mockData = load_mock('testId'); // Loads from testId_property_mock.json
  */
 function mock_load (id) {
-    const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/' + snake_case(id) + '_property_mock.json';
+    const PATH = MOCK_DOMAIN + snake_case(id) + '_property_mock.json';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', PATH, false);
     xhr.send();
@@ -1168,7 +1168,7 @@ function main () {
                 }
             });
         }
-        let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
+        let send_result = send_to_recipient_API('', result);
         return send_result;
     }
 }

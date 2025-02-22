@@ -4,103 +4,54 @@ function beeceptor(path, content) {
     web_request(API_DOMAIN + path, METHOD_POST, content);
 }
 
-// Centralized error handling function
-function handleError(functionName, functionDescription, parameters, error) {
-    return {
-        success: false,
-		"function": functionName,
-        "description": functionDescription,
-        "parameters": parameters,
-        "message": error.message || String(error),
-        "timestamp": new Date().toISOString(),
-        "error": error
+function wrapWithArgs(fn, fnName) {
+    return function (...args) {
+        callStack.push({ name: fnName, args: JSON.stringify(args) });
+        try {
+            return fn.apply(this, args);
+        } catch (error) {
+            if (!error_treated) {
+                error_treated = true;
+                let stackLines = error.stack.split("\n").map(line => line.trim());
+                let newStack = [];
+                let functionIndex = callStack.length - 1;
+                let increment = stackLines.length;
+                for (let line of stackLines) {
+                    if (isOdd(increment)) {
+                        call_stack_idx = Math.floor(increment / 2) - 1;
+                        if (call_stack_idx >= 0) {
+                            let { name, args } = callStack[call_stack_idx];
+                            newStack.push(`Function: ${name}, Args: ${args} -> ${line}`);
+                        } else {
+                            newStack.push(line);
+                        }
+                    }
+                    increment--;
+                }
+                const wrappedError = new Error(error.message);
+                wrappedError.stack = newStack.join("\n");
+                throw wrappedError;
+            } else {
+                throw error;
+            }
+        }
     };
-}
-
-function salsify(path, method = 'GET', payload = null, version = 'v1') {
-	const FUNCTION_NAME = `${salsify.name}(path, method, payload, version)`;
-    const MESSAGE_FETCH_SALSIFY = "JS helper function wrapper for all salsify_request functions.";
-    let response;
-
-    try {
-        response = salsify_request(path, method, payload, version);
-    } catch (error) {
-        throw handleError(
-            FUNCTION_NAME,
-            MESSAGE_FETCH_SALSIFY,
-            { path, method, payload, version },
-            error
-        );
-    }
-
-    return response;
-}
-
-
-function fetchRecord(id, version = 'v1') {
-    const FUNCTION_NAME = `${fetchRecord.name}(id, version)`;
-    const FUNCTION_DESCRIPTION = "Fetch 1 record by External Id";
-    const PATH = `/products/${id}`;
-    const METHOD_GET = 'GET';
-    let response;
-
-    try {
-        response = salsify(PATH, METHOD_GET, null, version);
-    } catch (error) {
-        throw handleError(
-            FUNCTION_NAME,
-            FUNCTION_DESCRIPTION,
-            { id, version, requestPath: PATH },
-            error
-        );
-    }
-
-    return response;
-}
-
-
-function main() {
-    const FUNCTION_NAME = `${main.name}()`;
-    const FUNCTION_DESCRIPTION = "Main function execution";
-    const id = "fakeid";
-
-    let result = {
-        "success": false,  // Default to false, updated on success
-        "error": null
-    };
-
-    try {
-        const response = fetchRecord(id);
-        result.success = true;
-    } catch (error) {
-        const formattedError = handleError(
-            FUNCTION_NAME,
-            FUNCTION_DESCRIPTION,
-            { id },
-            error
-        );
-        result.error = JSON.stringify(formattedError,null,4); // Store the error object
-        throw(formattedError);
-    }
-    return result;
 }
 
 // Calling main and storing result
 // var result = main();
 // beeceptor("result", result);
+const foo3 = wrapWithArgs(function (arg1, arg2) {
+    throw "Error from foo3";
+}, "foo3");
 
-function foo2(arg1) {
-    throw "Error from foo2";
-}
+const foo2 = wrapWithArgs(function (arg1) {
+    foo3(arg1, "arg3");
+}, "foo2");
 
-function foo1(arg1, arg2) {
-    try {
-        foo2(arg1);
-    }
-    catch (error) {
-        throw "Error from foo1";
-    }
-}
+const foo1 = wrapWithArgs(function (arg1, arg2) {
+    foo2(arg1);
+}, "foo1");
 
 function main() {
     try {

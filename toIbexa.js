@@ -40,7 +40,7 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "SEO Meta description", type: "string", export_name: "seo_meta_description"},
     {name: "Tutorials", type: "html", export_name: "tutorials"},
     {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
-    {name: "Related product", type: "product", export_name: "related_product", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"}]},
+    {name: "Related product", type: "product", export_name: "related_product"},
     {name: "A+ content", type: "digital_asset", export_name: "a_content", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]},
     {name: "Packaging", type: "digital_asset", export_name: "packaging", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]},
     {name: "Taxonomy", type: "enumerated", export_name: "taxonomy"},
@@ -72,76 +72,6 @@ const properties = SYSTEM_PROPERTIES.concat([
 ]);
 
 /**
- * Error management constant and variables
- */
-const callStack = [];
-let error_treated = false;
-
-/**
- * Determines whether a number is odd.
- * @param {number} nombre - The number to check.
- * @returns {boolean} True if the number is odd, false otherwise.
- */
-function isOdd(nombre) {
-    return nombre % 2 !== 0;
-}
-
-/**
- * Wraps a function with error handling and stack trace enhancement capabilities.
- *
- * @param {Function} fn - The function to wrap
- * @param {string} fnName - The name of the function being wrapped
- * @returns {Function} A wrapped function that includes error handling and stack trace enhancement
- *
- * @throws {Error} Throws a wrapped error with enhanced stack trace on first occurrence
- * @throws {Error} Throws the original error on subsequent occurrences
- *
- * @description
- * This function creates a wrapper around another function that:
- * - Tracks function calls in a call stack
- * - Enhances error stack traces with function names and arguments
- * - Only processes the first error occurrence
- * - Preserves the original function's context through apply()
- *
- * @example
- * const wrappedFunction = wrapWithArgs(myFunction, "myFunction");
- * wrappedFunction(arg1, arg2);
- */
-function wrapWithArgs(fn, fnName) {
-    return function (...args) {
-        callStack.push({ name: fnName, args: JSON.stringify(args) });
-        try {
-            return fn.apply(this, args);
-        } catch (error) {
-            if (!error_treated) {
-                error_treated = true;
-                let stackLines = error.stack.split("\n").map(line => line.trim());
-                let newStack = [];
-                let functionIndex = callStack.length - 1;
-                let increment = stackLines.length;
-                for (let line of stackLines) {
-                    if (isOdd(increment)) {
-                        call_stack_idx = Math.floor(increment / 2) - 1;
-                        if (call_stack_idx >= 0) {
-                            let { name, args } = callStack[call_stack_idx];
-                            newStack.push(`Function: ${name}, Args: ${args} -> ${line}`);
-                        } else {
-                            newStack.push(line);
-                        }
-                    }
-                    increment--;
-                }
-                const wrappedError = new Error(error.message);
-                wrappedError.stack = newStack.join("\n");
-                throw wrappedError;
-            } else {
-                throw error;
-            }
-        }
-    };
-}
-
-/**
  * Logs messages or errors with different logging types and optional error raising.
  * Enables more clear error message at Salsify task level
  * @param {string|Error} message_or_error - The message or error to be logged
@@ -149,21 +79,20 @@ function wrapWithArgs(fn, fnName) {
  * @param {boolean} [raise_error=true] - Whether to throw an error after logging
  * @throws {Error} If raise_error is true and log_type is LOG_TYPE.ERROR
  */
-const log = wrapWithArgs(function (message_or_error, log_type=LOG_TYPE.ERROR, raise_error=true) {
+function log (message_or_error, log_type=LOG_TYPE.ERROR, raise_error=true) {
     switch (log_type) {
         case LOG_TYPE.ERROR:
-            function getStackTrace() {
+            function getError(message) {
                 try {
-                    throw new Error('An error occurred');
-                } catch (error) {
-                    return error.stack;
+                    throw new Error(message);
+                } catch (err) {
+                    return err;
                 }
             }
-            const stack_trace = getStackTrace();
-            const log_message = message_or_error + "\n" + stack_trace;
-            console.error(log_message);
+            error = getError(message_or_error)
+            console.error(JSON.stringify(error, null, 4));
             if (raise_error) {
-                throw new Error(log_message);
+                throw error;
             }
             break;
         case LOG_TYPE.LOG:
@@ -173,7 +102,21 @@ const log = wrapWithArgs(function (message_or_error, log_type=LOG_TYPE.ERROR, ra
             break;
     }
     console.error(message_or_error);
-}, "log");
+}
+
+/**
+ * Flattens an error stack trace by joining its lines with double dashes.
+ * @param {Error} error - The error object containing the stack trace to flatten
+ * @returns {string} A single string where stack trace lines are separated by " -- "
+ */
+function flatten_error(error) {
+    let error_stack = error.stack.split("\n");
+    let new_stack = [];
+    for (let line of error_stack) {
+        new_stack.push(line.trim());
+    }
+    return new_stack.join(" -- ");
+}
 
 /**
  * Checks if a value is undefined and logs a message accordingly
@@ -182,13 +125,13 @@ const log = wrapWithArgs(function (message_or_error, log_type=LOG_TYPE.ERROR, ra
  * @param {boolean} [raise_error=false] - If true, logs as error and throws exception, otherwise logs as regular log
  * @returns {void}
  */
-const check_undefined = wrapWithArgs(function (value, message, raise_error=false) {
+function check_undefined (value, message, raise_error=false) {
     if (value === undefined) {
         log(message, (raise_error ? LOG_TYPE.ERROR : LOG_TYPE.LOG), raise_error);
         return false;
     }
     return true;
-}, "check_undefined");
+}
 
 /**
  * Validates the configuration of a list of properties by checking their attributes and types.
@@ -204,7 +147,7 @@ const check_undefined = wrapWithArgs(function (value, message, raise_error=false
  * - When value is undefined for types requiring it
  * - When value is defined for types not requiring it
  */
-const check_configuration = wrapWithArgs(function (properties_list=properties) {
+function check_configuration (properties_list=properties) {
     properties_list.forEach(property => {
         if (property.name  === undefined) {
             log('Property name is undefined', LOG_TYPE.ERROR);
@@ -232,7 +175,7 @@ const check_configuration = wrapWithArgs(function (properties_list=properties) {
                 break;
         }
     });
-}, "check_configuration");
+}
 
 /**
  * Sends a POST request to the Beeceptor API endpoint
@@ -241,12 +184,12 @@ const check_configuration = wrapWithArgs(function (properties_list=properties) {
  * @returns {void}
  * @see {@link https://beeceptor.com/|Beeceptor Documentation}
  */
-const mock_send_to_recipient_API = wrapWithArgs(function (path, content) {
+function mock_send_to_recipient_API (path, content) {
     var DOMAIN = 'https://virbac-pim.free.beeceptor.com';
     const METHOD = 'post';
     const URL = DOMAIN + path;
     web_request(URL, METHOD, content); // fixed parameter assignment
-}, "mock_send_to_recipient_API");
+}
 
 /**
  * Sends a POST request to the the recipient API endpoint
@@ -254,7 +197,7 @@ const mock_send_to_recipient_API = wrapWithArgs(function (path, content) {
  * @param {*} content - The content/payload to be sent in the POST request
  * @returns {void}
  */
-let send_to_recipient_API = wrapWithArgs(function (path, content) {
+function send_to_recipient_API (path, content) {
     const METHOD = 'post';
     const URL = DOMAIN + path;
     let secret = "Bearer " + secret_value("ibexa_bearer_token");
@@ -276,7 +219,7 @@ let send_to_recipient_API = wrapWithArgs(function (path, content) {
         }
     }
     return response;
-}, "send_to_recipient_API");
+}
 
 /**
  * Makes a request to the Salsify API
@@ -287,9 +230,9 @@ let send_to_recipient_API = wrapWithArgs(function (path, content) {
  * @returns {Promise|undefined} Returns Promise from salsify_request or undefined if MOCK is true
  * @throws {Error} Raise error if MOCK is true
  */
-const mock_salsify = wrapWithArgs(function (path, method = 'GET', payload = null, version = 'v1') {
+function mock_salsify (path, method = 'GET', payload = null, version = 'v1') {
     log('Salsify call not allowed at MOCK time', LOG_TYPE.ERROR);
-}, "mock_salsify");
+}
 
 /**
  * Makes a request to the Salsify API
@@ -299,9 +242,9 @@ const mock_salsify = wrapWithArgs(function (path, method = 'GET', payload = null
  * @param {string} [version='v1'] - The API version to use
  * @returns {Promise|undefined} Returns Promise from salsify_request or undefined if MOCK is true
  */
-let salsify = wrapWithArgs(function (path, method = 'GET', payload = null, version = 'v1') {
+function salsify (path, method = 'GET', payload = null, version = 'v1') {
     return salsify_request(path, method, payload, version);
-}, "salsify");
+}
 
 /**
  * Fetches a record either from mock data or Salsify API based on MOCK environment flag
@@ -309,9 +252,9 @@ let salsify = wrapWithArgs(function (path, method = 'GET', payload = null, versi
  * @returns {Promise<Object>} A promise that resolves with the fetched record data
  * @throws {Error} If the record cannot be fetched
  */
-const mock_fetchRecord = wrapWithArgs(function (id) {
+function mock_fetchRecord (id) {
     return mock_load(snake_case(id));
-}, "mock_fetchRecord");
+}
 
 /**
  * Fetches a record either from mock data or Salsify API based on MOCK environment flag
@@ -319,10 +262,10 @@ const mock_fetchRecord = wrapWithArgs(function (id) {
  * @returns {Promise<Object>} A promise that resolves with the fetched record data
  * @throws {Error} If the record cannot be fetched
  */
-let fetchRecord = wrapWithArgs(function (id) {
+function fetchRecord (id) {
     const PATH = '/products/';
     return salsify(PATH + encodeURIComponent(id));
-}, "fetchRecord");
+}
 
 /**
  * Fetches records for a given page and top ID from either a mock source (in test mode) or Salsify API
@@ -331,9 +274,9 @@ let fetchRecord = wrapWithArgs(function (id) {
  * @returns {Promise<Object>} Promise that resolves to the fetched records
  * @throws {Error} Possible API errors when fetching from Salsify
  */
-const mock_fetchPageRecords = wrapWithArgs(function (topId, page) {
+function mock_fetchPageRecords (topId, page) {
     return mock_load(snake_case("children"));
-}, "mock_fetchPageRecords");
+}
 
 /**
  * Fetches records for a given page and top ID from either a mock source (in test mode) or Salsify API
@@ -342,19 +285,19 @@ const mock_fetchPageRecords = wrapWithArgs(function (topId, page) {
  * @returns {Promise<Object>} Promise that resolves to the fetched records
  * @throws {Error} Possible API errors when fetching from Salsify
  */
-let fetchPageRecords = wrapWithArgs(function (topId, page) {
+function fetchPageRecords (topId, page) {
     const PATH = `/records?filter=='salsify:ancestor_ids':'${encodeURIComponent(topId)}'&per_page=100&page=${page}`;
     return salsify(PATH);
-}, "fetchPageRecords");
+}
 
 /**
  * Mocks fetching enumerated data by loading from a snake-cased identifier
  * @param {string} id - The identifier to fetch enumerated data for
  * @returns {*} The mocked data corresponding to the snake-cased identifier
  */
-const mock_fetchEnumerated = wrapWithArgs(function (id) {
+function mock_fetchEnumerated (id) {
     return mock_load(snake_case(id));
-}, "mock_fetchEnumerated");
+}
 
 /**
  * Retrieves paginated enumerated values for a specific property.
@@ -364,14 +307,14 @@ const mock_fetchEnumerated = wrapWithArgs(function (id) {
  * @param {number} perPage - The number of items per page.
  * @returns {Array} An array of enumerated values. Returns empty array if no data found.
  */
-const searchEnumeratedPage = wrapWithArgs(function (id, parent, page, perPage) {
+function searchEnumeratedPage (id, parent, page, perPage) {
     let BASE_PATH = `/properties/${encodeURIComponent(id)}/enumerated_values?page=${page}&per_page=${perPage}`;
     if (parent !== undefined && parent !== '') {
         BASE_PATH += `&within_value=${encodeURIComponent(parent)}`;
     }
     let result = salsify(BASE_PATH, 'GET', null, null);
     return result;
-}, "searchEnumeratedPage");
+}
 
 /**
  * Searches and retrieves all enumerated records by paginating through the results.
@@ -379,7 +322,7 @@ const searchEnumeratedPage = wrapWithArgs(function (id, parent, page, perPage) {
  * @param {string} [parent=''] - Optional parent identifier to filter results.
  * @returns {Array} An array containing all matching enumerated records.
  */
-const searchEnumerated = wrapWithArgs(function (id, parent='') {
+function searchEnumerated (id, parent='') {
     let allRecords = [];
     let page = 1;
     const perPage = 120;
@@ -401,7 +344,7 @@ const searchEnumerated = wrapWithArgs(function (id, parent='') {
         page++;
     }
     return allRecords;
-}, "searchEnumerated");
+}
 
 /**
  * Fetches and builds a hierarchical tree structure of enumerated values for a given property ID.
@@ -426,7 +369,7 @@ const searchEnumerated = wrapWithArgs(function (id, parent='') {
  * //   values: [...]
  * // }, ...]
  */
-let fetchEnumerated = wrapWithArgs(function (id) {
+function fetchEnumerated (id) {
     function mysearchProperty(id, parent='') {
         let records = searchEnumerated(id, parent);
         let tree = [];
@@ -446,7 +389,7 @@ let fetchEnumerated = wrapWithArgs(function (id) {
         return tree;
     }
     return mysearchProperty(id, '');;
-}, "fetchEnumerated");
+}
 
 /**
  * Fetches all child records for a given ID by paginating through the results
@@ -457,7 +400,7 @@ let fetchEnumerated = wrapWithArgs(function (id) {
  * the total number of records to fetch.
  * @throws {Error} May throw an error if the fetchPageRecords fails
  */
-const fetchChildRecords = wrapWithArgs(function (id) {
+function fetchChildRecords (id) {
     let allRecords = [];
     let page = 1;
     let totalRecords = 0;
@@ -475,7 +418,7 @@ const fetchChildRecords = wrapWithArgs(function (id) {
     } while (response && response.data && allRecords.length < totalRecords);
 
     return allRecords;
-}, "fetchChildRecords");
+}
 
 /**
  * Converts a string to snake_case by removing special characters and converting camelCase/PascalCase to snake_case.
@@ -485,13 +428,13 @@ const fetchChildRecords = wrapWithArgs(function (id) {
  * snake_case("HelloWorld") // returns "hello_world"
  * snake_case("My-Variable123") // returns "my_variable123"
  */
-const snake_case = wrapWithArgs(function (variable_name) {
+function snake_case (variable_name) {
     return variable_name
         .replace(/([a-z])([A-Z])/g, '$1_$2')
         .replace(/[\W_]+/g, '_')
         .replace(/^_|_$/g, '')
         .toLowerCase();
-}, "snake_case");
+}
 
 /**
  * Loads mock data from a JSON file hosted on GitHub
@@ -501,7 +444,7 @@ const snake_case = wrapWithArgs(function (variable_name) {
  * @example
  * const mockData = load_mock('testId'); // Loads from testId_property_mock.json
  */
-const mock_load = wrapWithArgs(function (id) {
+function mock_load (id) {
     const PATH = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/' + snake_case(id) + '_property_mock.json';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', PATH, false);
@@ -512,7 +455,7 @@ const mock_load = wrapWithArgs(function (id) {
         log('Error loading JSON file : ' + PATH + xhr.statusText, LOG_TYPE.LOG, false);
         return;
     }
-}, "wrapWithArgs");
+}
 
 /**
  * Determines the type of the input value with specific handling for string arrays
@@ -525,7 +468,7 @@ const mock_load = wrapWithArgs(function (id) {
  *   - 'object' for any other type (of object type)
  *   - 'other' for any other type (of non object type)
  */
-const retrieve_type = wrapWithArgs(function (value) {
+function retrieve_type (value) {
     if (typeof value === 'undefined') {
         return 'undefined';
     } else if (typeof value === 'string') {
@@ -541,7 +484,7 @@ const retrieve_type = wrapWithArgs(function (value) {
     } else {
         return 'other';
     }
-}, "retrieve_type");
+}
 
 /**
  * Retrieves the localized value from a string or an object containing localized values. Locale is globally defined
@@ -557,7 +500,7 @@ const retrieve_type = wrapWithArgs(function (value) {
  * // Returns "Bonjour" if LOCALE is set to "fr-FR"
  * get_localized_value({"en-US": "Hello", "fr-FR": "Bonjour"})
  */
-const get_localized_value = wrapWithArgs(function (value) {
+function get_localized_value (value) {
     if ((typeof value === 'number') || (typeof value === 'boolean') || (typeof value === 'string')) {
         return value;
     }
@@ -567,7 +510,7 @@ const get_localized_value = wrapWithArgs(function (value) {
         }
     }
     return undefined;
-}, "get_localized_value");
+}
 
 /**
  * Retrieves the localized value from a string or an object containing localized values. Locale is globally defined
@@ -583,9 +526,9 @@ const get_localized_value = wrapWithArgs(function (value) {
  * // Returns "Bonjour" if LOCALE is set to "fr-FR"
  * get_localized_value({"en-US": "Hello", "fr-FR": "Bonjour"})
  */
-const get_localized_property_values = wrapWithArgs(function (entity, property_id) {
+function get_localized_property_values (entity, property_id) {
     return localized_property_values(entity, property_id, LOCALE);
-}, "get_localized_property_values");
+}
 
 /**
  * Loads a default property value into a record object
@@ -596,7 +539,7 @@ const get_localized_property_values = wrapWithArgs(function (entity, property_id
  * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
  * @returns {Object} The modified record object
  */
-const property_load_default = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_default (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
@@ -605,7 +548,7 @@ const property_load_default = wrapWithArgs(function (record, configured_property
         }
     }
     return record;
-}, "property_load_default");
+}
 
 /**
  * Processes and loads composition data from a CSV-formatted string into a record object.
@@ -627,7 +570,7 @@ const property_load_default = wrapWithArgs(function (record, configured_property
  * // [{name: "name1", value: "value1"},
  * //  {name: "name2", value: "value2"}]
  */
-const property_load_composition = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_composition (record, configured_property, property_value, rootRecord) {
     // We expect a multiline string representing a CSV with ';' separator. The CSV should have 3 columns: name, value, unit
     if (property_value === undefined) {return;}
     value = get_localized_value(property_value);
@@ -646,7 +589,7 @@ const property_load_composition = wrapWithArgs(function (record, configured_prop
         }
     }
     return record;
-}, "property_load_composition");
+}
 
 /**
  * Loads a numeric property value into a record object.
@@ -660,7 +603,7 @@ const property_load_composition = wrapWithArgs(function (record, configured_prop
  * 2. Converting to number if possible
  * 3. Adding to record if value is not null (or if RETURN_NULL_VALUES is true)
  */
-const property_load_number = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_number (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
@@ -673,7 +616,7 @@ const property_load_number = wrapWithArgs(function (record, configured_property,
         }
     }
     return record;
-}, "property_load_number");
+}
 
 /**
  * Loads a boolean property value into a record
@@ -688,7 +631,7 @@ const property_load_number = wrapWithArgs(function (record, configured_property,
  * and assigns it to the record using the configured export property name.
  * The value is only assigned if it's defined and either not null or RETURN_NULL_VALUES is true.
  */
-const property_load_boolean = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_boolean (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
@@ -701,7 +644,7 @@ const property_load_boolean = wrapWithArgs(function (record, configured_property
         }
     }
     return record;
-}, "property_load_boolean");
+}
 
 /**
  * Loads and extracts specific values from an asset based on its ID
@@ -712,7 +655,7 @@ const property_load_boolean = wrapWithArgs(function (record, configured_property
  * @returns {Object} Object containing requested values from the asset
  * @throws {Error} If asset with given ID is not found in asset_list
  */
-const load_asset = wrapWithArgs(function (asset_id, configured_property, returned_values, asset_list) {
+function load_asset (asset_id, configured_property, returned_values, asset_list) {
     const ASSET_ID = "salsify:id";
     let asset = null;
     asset = asset_list.find(asset => asset[ASSET_ID] === asset_id);
@@ -725,7 +668,7 @@ const load_asset = wrapWithArgs(function (asset_id, configured_property, returne
         }
     });
     return asset_data;
-}, "load_asset");
+}
 
 /**
  * Loads digital asset data from a root record and processes it according to configured properties
@@ -744,7 +687,7 @@ const load_asset = wrapWithArgs(function (asset_id, configured_property, returne
  *
  * @throws {Error} Logs or throws errors for various failure conditions
  */
-const property_load_digital_asset = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_digital_asset (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     const ASSET_LIST = "salsify:digital_assets";
     const property_export_name = get_property_export_name(configured_property)
@@ -779,7 +722,7 @@ const property_load_digital_asset = wrapWithArgs(function (record, configured_pr
             log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
     }
     return record;
-}, "property_load_digital_asset");
+}
 
 /**
  * Loads a product with its quantity and associated information
@@ -790,7 +733,7 @@ const property_load_digital_asset = wrapWithArgs(function (record, configured_pr
  * @returns {Object|null} An object containing product ID, quantity and product info, or null if product not found and RETURN_NULL_VALUES is false
  * @throws {Error} If product_id or product_qty is undefined, or if product cannot be loaded
  */
-const load_product_with_qty = wrapWithArgs(function (product_id, product_qty, configured_property, returned_values) {
+function load_product_with_qty (product_id, product_qty, configured_property, returned_values) {
     let product_with_qty = null;
     check_undefined(product_id, 'product_id is missing in configured_property ' + configured_property.name, true);
     check_undefined(product_qty, 'product_qty is missing in configured_property ' + configured_property.name, true);
@@ -805,7 +748,7 @@ const load_product_with_qty = wrapWithArgs(function (product_id, product_qty, co
         }
     }
     return product_with_qty
-}, "load_product_with_qty");
+}
 
 /**
  * Loads and processes quantified product information into a record based on configured properties
@@ -823,7 +766,7 @@ const load_product_with_qty = wrapWithArgs(function (product_id, product_qty, co
  * - Single object with product ID and quantity
  * - Array of objects, each containing product ID and quantity
  */
-const property_load_quantified_product = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_quantified_product (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     const PRODUCT_ID = "salsify:product_id"
     const PRODUCT_QTY = "salsify:quantity"
@@ -857,7 +800,7 @@ const property_load_quantified_product = wrapWithArgs(function (record, configur
             log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
     }
     return record;
-}, "property_load_quantified_product");
+}
 
 /**
  * Loads and processes a property value for a product record based on configuration.
@@ -869,7 +812,7 @@ const property_load_quantified_product = wrapWithArgs(function (record, configur
  * @returns {Object} The updated record object with the processed property value.
  * @throws {Error} Logs error if property_values is missing in configuration or if type is unexpected.
  */
-const property_load_product = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_product (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     returned_values = configured_property["values"];
     property_export_name = get_property_export_name(configured_property)
@@ -899,7 +842,7 @@ const property_load_product = wrapWithArgs(function (record, configured_property
             log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
     }
     return record;
-}, "property_load_product");
+}
 
 /**
  * Loads and processes enumerated property values for a record
@@ -919,7 +862,7 @@ const property_load_product = wrapWithArgs(function (record, configured_property
  *
  * @throws {Error} Logs error if property type is neither string nor string_array
  */
-const property_load_enumerated = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_enumerated (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     const property_export_name = get_property_export_name(configured_property)
     const returned_type = retrieve_type(property_value);
@@ -968,7 +911,7 @@ const property_load_enumerated = wrapWithArgs(function (record, configured_prope
         record[property_export_name] = enumerated_list;
     }
     return record;
-}, "property_load_enumerated");
+}
 
 /**
  * Loads and computes a property value for a record using a configured computing function
@@ -978,14 +921,14 @@ const property_load_enumerated = wrapWithArgs(function (record, configured_prope
  * @param {Object} rootRecord - The root record object for context in computation
  * @returns {Object|undefined} The modified record object or undefined if computing function is missing
  */
-const property_load_computed = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_computed (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     computing_function = configured_property["computing_function"];
     check_undefined(computing_function, 'computing_function is missing in configured_property ' + configured_property.name, true);
     property_export_name = get_property_export_name(configured_property)
     record[property_export_name] = computing_function(record, configured_property, property_value, rootRecord);
     return record;
-}, "property_load_computed");
+}
 
 /**
  * Loads locale information into a record.
@@ -996,17 +939,17 @@ const property_load_computed = wrapWithArgs(function (record, configured_propert
  * @returns {Object} The modified record with locale information.
  * @param {*} rootRecord - The root record. Rarely used except in case of computed properties
  */
-const property_load_locale = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_locale (record, configured_property, property_value, rootRecord) {
     property_export_name = get_property_export_name(configured_property)
     record[property_export_name] = LOCALE;
     return record;
-}, "property_load_locale");
+}
 
-const property_load_status = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_status (record, configured_property, property_value, rootRecord) {
     property_export_name = get_property_export_name(configured_property)
     record[property_export_name] = "active";
     return record;
-}, "property_load_status");
+}
 
 /**
  * Loads and organizes child records into a hierarchical structure based on parent-child relationships.
@@ -1031,7 +974,7 @@ const property_load_status = wrapWithArgs(function (record, configured_property,
  * - get_property_export_name function to be defined
  * - RETURN_NULL_VALUES constant to be defined
  */
-const property_load_children = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function property_load_children (record, configured_property, property_value, rootRecord) {
     const ID = "salsify:id";
     const PARENT_ID = "salsify:parent_id";
     const rootId = record["id"];
@@ -1076,7 +1019,7 @@ const property_load_children = wrapWithArgs(function (record, configured_propert
         record[get_property_export_name(configured_property)] = children;
     }
     return record;
-}, "property_load_children");
+}
 
 /**
  * Retrieves the export name for a configured property.
@@ -1086,7 +1029,7 @@ const property_load_children = wrapWithArgs(function (record, configured_propert
  * @param {string} [configured_property.export_name] - Optional custom export name
  * @returns {string|null} The export name to use, or null if the property name is missing
  */
-const get_property_export_name = wrapWithArgs(function (configured_property) {
+function get_property_export_name (configured_property) {
     property_id = configured_property["name"];
     check_undefined(property_id, 'property_name is missing in configured_property ' + configured_property.name, true);
     let property_export_name = configured_property["export_name"];
@@ -1094,7 +1037,7 @@ const get_property_export_name = wrapWithArgs(function (configured_property) {
         property_export_name = snake_case(property_id);
     }
     return property_export_name;
-}, "get_property_export_name");
+}
 
 /**
  * Retrieves a record by its ID and extracts specified properties
@@ -1105,7 +1048,7 @@ const get_property_export_name = wrapWithArgs(function (configured_property) {
  * the specified properties. Property names are converted to snake_case.
  * Only properties that exist in the fetched record are included in the result.
  */
-let load = wrapWithArgs(function (rootId, configured_properties) {
+function load (rootId, configured_properties) {
     var rootRecord;
     rootRecord = fetchRecord(rootId);
     if (rootRecord === undefined) {return;}
@@ -1126,7 +1069,7 @@ let load = wrapWithArgs(function (rootId, configured_properties) {
         return;
     });
     return record;
-}, "load");
+}
 
 /**
  * Computes a specific value based on record properties (example function)
@@ -1136,11 +1079,11 @@ let load = wrapWithArgs(function (rootId, configured_properties) {
  * @param {Object} rootRecord - The root record containing ID and Name
  * @returns {string} A concatenated string with localized values of ID and Name
  */
-const my_specific_computing_function = wrapWithArgs(function (record, configured_property, property_value, rootRecord) {
+function my_specific_computing_function (record, configured_property, property_value, rootRecord) {
     value1 = get_localized_value(rootRecord["ID"]);
     value2 = get_localized_value(rootRecord["Name"]);
     return "Specific computed property: " + value1 + " and also " + value2;
-}, "my_specific_computing_function");
+}
 
 /**
 * Mapping of Salsify property types to their corresponding loader functions.
@@ -1198,7 +1141,7 @@ const salsify_property_types = {
  *
  * @returns {void}
  */
-const main = wrapWithArgs(function () {
+function main () {
     MOCK = (typeof MOCK === 'undefined' ? false : true);
     if(MOCK) {
         LOCALE = "en";
@@ -1214,15 +1157,10 @@ const main = wrapWithArgs(function () {
         let send_result = send_to_recipient_API('/product/create_or_update?locale=fr-FR', result);
         return send_result;
     }
-}, "main");
+}
 
 try {
     main();
 } catch (error) {
-    throw JSON.stringify(errorData, null, 2);
-    const errorData = {
-        message: error.message,
-        stack: error.stack.split("\n").map(line => line.trim())
-    };
-    throw new Error(JSON.stringify(errorData, null, 2));
+    throw new Error(flatten_error(error));
 }

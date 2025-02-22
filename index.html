@@ -12,10 +12,10 @@
     <textarea id="display" style="width: 100%; height: 600px"></textarea>
     <script>
         try {
-            const record_id = "DWD";
-            let result = load(record_id, properties);
+            // const record_id = "DWD";
+            // let result = load(record_id, properties);
             console.log("Hello boy");
-            document.getElementById('display').value = JSON.stringify(result, null, 4);
+            document.getElementById('display').value = JSON.stringify(RESULT, null, 4);
         } catch (error) {
             if (flatten_error === undefined) {
                 console.error(error);

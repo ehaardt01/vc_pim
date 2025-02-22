@@ -1,6 +1,7 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
 const DOMAIN = 'https://virbac-pim.free.beeceptor.com';
+let RESULT = "";
 
 /**
  * Array of property configurations for a product data model
@@ -1152,6 +1153,8 @@ function main () {
         fetchRecord = mock_fetchRecord;
         fetchPageRecords = mock_fetchPageRecords;
         fetchEnumerated = mock_fetchEnumerated
+        const record_id = "DWD";
+        RESULT = load(record_id, properties);
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;

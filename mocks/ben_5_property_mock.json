@@ -1,0 +1,22 @@
+{
+    "salsify:id": "BEN-5",
+    "salsify:created_at": "2025-02-12T15:26:35.569Z",
+    "salsify:updated_at": "2025-02-21T17:46:11.663Z",
+    "salsify:version": 4,
+    "salsify:profile_asset_id": null,
+    "salsify:system_id": "s-4c393556-002b-4b27-bab3-7c72a4168de1",
+    "ID": "BEN-5",
+    "Country Markets": "UK",
+    "Taxonomy": "HPM",
+    "Benefit data table - item label": {
+        "en-GB": "en gb - Benefit 5",
+        "en": "Supports healthy joints"
+    },
+    "Benefit data table - long description": {
+        "en-GB": "en gb - Benefit 5 desc",
+        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+    },
+    "Name": {
+        "en": "Supports healthy joints "
+    }
+}

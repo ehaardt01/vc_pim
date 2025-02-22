@@ -1,0 +1,21 @@
+{
+    "salsify:id": "BEN-2",
+    "salsify:created_at": "2025-02-12T15:24:35.136Z",
+    "salsify:updated_at": "2025-02-21T17:44:02.302Z",
+    "salsify:version": 5,
+    "salsify:profile_asset_id": null,
+    "salsify:system_id": "s-673c2156-c000-4a53-a7d2-717275a99651",
+    "ID": "BEN-2",
+    "Taxonomy": "HPM",
+    "Benefit data table - item label": {
+        "en-GB": "-- en GB -- Preserves lean muscle mass",
+        "en": "Preserves lean muscle mass "
+    },
+    "Benefit data table - long description": {
+        "en-GB": "-- en BG --  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim eleifend consectetur. Nulla luctus vitae mauris sit amet placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+    },
+    "Name": {
+        "en": "Preserves lean muscle mass "
+    }
+}

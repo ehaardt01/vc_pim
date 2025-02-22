@@ -1,0 +1,53 @@
+{
+    "properties": [
+        {
+            "id": "Neutered",
+            "name": "[search filter] Neutered",
+            "facetable": true,
+            "broken": false,
+            "data_type": "enumerated",
+            "type": "property",
+            "multi_valued": true,
+            "position": 6,
+            "values_editable": true,
+            "localizable": false,
+            "filterability": "full",
+            "property_group": "Web / Digital",
+            "property_group_id": "Web / Digital",
+            "target_schema_field_id": null
+        }
+    ],
+    "property_groups": [
+        {
+            "id": "Web / Digital",
+            "name": "Web / Digital",
+            "position": 7,
+            "editable": true,
+            "deleteable": true
+        }
+    ],
+    "enumerated_values": [],
+    "data": [
+        {
+            "id": "entire",
+            "name": "entire",
+            "localized_names": {},
+            "has_children": false,
+            "property_id": "Neutered",
+            "parent_id": null
+        },
+        {
+            "id": "neutered",
+            "name": "neutered",
+            "localized_names": {},
+            "has_children": false,
+            "property_id": "Neutered",
+            "parent_id": null
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "per_page": 30,
+        "total_entries": 2
+    }
+}

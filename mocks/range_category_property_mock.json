@@ -1,0 +1,61 @@
+{
+    "properties": [
+        {
+            "id": "Range category",
+            "name": "[search filter] Nutrition & petcare Range",
+            "facetable": true,
+            "broken": false,
+            "data_type": "enumerated",
+            "type": "property",
+            "multi_valued": true,
+            "position": 4,
+            "values_editable": true,
+            "localizable": false,
+            "filterability": "full",
+            "property_group": "Web / Digital",
+            "property_group_id": "Web / Digital",
+            "target_schema_field_id": null
+        }
+    ],
+    "property_groups": [
+        {
+            "id": "Web / Digital",
+            "name": "Web / Digital",
+            "position": 7,
+            "editable": true,
+            "deleteable": true
+        }
+    ],
+    "enumerated_values": [],
+    "data": [
+        {
+            "id": "Dietetic",
+            "name": "Dietetic",
+            "localized_names": {},
+            "has_children": true,
+            "property_id": "Range category",
+            "parent_id": null
+        },
+        {
+            "id": "Pet care",
+            "name": "Pet care",
+            "localized_names": {},
+            "has_children": true,
+            "property_id": "Range category",
+            "parent_id": null
+        },
+        {
+            "id": "Physiological",
+            "name": "Physiological",
+            "localized_names": {},
+            "has_children": false,
+            "property_id": "Range category",
+            "parent_id": null
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "per_page": 30,
+        "total_entries": 3
+    }
+}

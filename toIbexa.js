@@ -67,7 +67,7 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Range category", type: "enumerated", export_name: "range_category"},
     {name: "Type of food", type: "enumerated", export_name: "type_of_food"},
     {name: "Neutered", type: "enumerated", export_name: "neutered"},
-    {name: "Replaced Product", type: "product", export_name: "replaced_product", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"}]},
+    {name: "Replaced Product", type: "product", export_name: "replaced_product"},
     {name: "Key Ingredients", type: "rich_text", export_name: "key_ingredients"}
 ]);
 
@@ -1049,10 +1049,11 @@ function get_property_export_name (configured_property) {
  * Only properties that exist in the fetched record are included in the result.
  */
 function load (rootId, configured_properties) {
+    let record = {"id": rootId};
+    if (configured_properties === undefined) {return record;}
     var rootRecord;
     rootRecord = fetchRecord(rootId);
-    if (rootRecord === undefined) {return;}
-    let record = {"id": rootId};
+    if (rootRecord === undefined) {return record;}
     configured_properties.forEach(configured_property => {
         const property_type = configured_property["type"];
         const property_id = configured_property["name"];

@@ -2,21 +2,52 @@
    "id": "457632",
    "system_id": "s-4a32f5ce-fb94-4750-9c91-e8eef2870b10",
    "created_at": "2025-01-13T15:46:32.812Z",
-   "updated_at": "2025-02-26T14:46:22.643Z",
-   "version": 10,
+   "updated_at": "2025-03-04T16:16:20.958Z",
+   "version": 16,
    "parent_id": "CDS2",
    "children": [],
    "locale": "en",
    "name": "VET HPM CAT DERMATOLOGY 3KG",
+   "code_ref_locale": "360102",
+   "feeding_guide_daily_ration": "Toto",
    "marketing_product_name": "VET HPM CAT DERMATOLOGY 3KG",
-   "packaging": {
-      "salsify_id": "b00e4f0a60ba4d937ae0b6f434b118a61d56908e",
-      "cdn_url": "https://virbac.widen.net/content/s4wxxkk4el/jpeg/360102_Packshot_HPM-D1_cat-3kg_right.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
-      "name": "360102_Packshot_HPM-D1_cat-3kg_right.jpeg",
-      "salsify_status": "completed",
-      "resource_type": "image",
-      "format": "jpg"
-   },
+   "a_content": [
+      {
+         "salsify_id": "b00e4f0a60ba4d937ae0b6f434b118a61d56908e",
+         "cdn_url": "https://virbac.widen.net/content/s4wxxkk4el/jpeg/360102_Packshot_HPM-D1_cat-3kg_right.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360102_Packshot_HPM-D1_cat-3kg_right.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "89d3449222c741ddabf4c5248a3a03e54e2bcf91",
+         "cdn_url": "https://virbac.widen.net/content/cxfs7eszap/jpeg/360190_Packshot_HPM-KJ2_cat-3kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360190_Packshot_HPM-KJ2_cat-3kg_face.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      }
+   ],
+   "packaging": [
+      {
+         "salsify_id": "b00e4f0a60ba4d937ae0b6f434b118a61d56908e",
+         "cdn_url": "https://virbac.widen.net/content/s4wxxkk4el/jpeg/360102_Packshot_HPM-D1_cat-3kg_right.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360102_Packshot_HPM-D1_cat-3kg_right.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "2f492431327bcfc97c9f528b6d8fc1c23f1ef9ae",
+         "cdn_url": "https://virbac.widen.net/content/oksts1zxwn/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_left.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360192_Packshot_HPM-KJ3_cat-3kg_left.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      }
+   ],
    "sellable_sku_measurement_unit": [{ "key": "kg", "value": "kg" }],
-   "sellable_sku_unit_value": 3
+   "sellable_sku_unit_value": 3,
+   "sellable_sku_format_size": [{ "key": "S", "value": "S" }]
 }

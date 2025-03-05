@@ -1,0 +1,22 @@
+{
+   "id": "457632",
+   "system_id": "s-4a32f5ce-fb94-4750-9c91-e8eef2870b10",
+   "created_at": "2025-01-13T15:46:32.812Z",
+   "updated_at": "2025-02-26T14:46:22.643Z",
+   "version": 10,
+   "parent_id": "CDS2",
+   "children": [],
+   "locale": "en",
+   "name": "VET HPM CAT DERMATOLOGY 3KG",
+   "marketing_product_name": "VET HPM CAT DERMATOLOGY 3KG",
+   "packaging": {
+      "salsify_id": "b00e4f0a60ba4d937ae0b6f434b118a61d56908e",
+      "cdn_url": "https://virbac.widen.net/content/s4wxxkk4el/jpeg/360102_Packshot_HPM-D1_cat-3kg_right.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+      "name": "360102_Packshot_HPM-D1_cat-3kg_right.jpeg",
+      "salsify_status": "completed",
+      "resource_type": "image",
+      "format": "jpg"
+   },
+   "sellable_sku_measurement_unit": [{ "key": "kg", "value": "kg" }],
+   "sellable_sku_unit_value": 3
+}

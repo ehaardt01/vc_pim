@@ -1,0 +1,111 @@
+{
+   "id": "CDS2",
+   "system_id": "s-3d973b6d-44d9-4c9e-af25-9bbb194fd4fa",
+   "created_at": "2025-01-13T14:39:49.109Z",
+   "updated_at": "2025-02-26T20:21:52.102Z",
+   "version": 52,
+   "children": [{ "id": "457632" }],
+   "locale": "en",
+   "name": "HPM Diet - Cat  D1 Dermatology Support",
+   "group_species": [{ "key": "Cat", "value": "Cat" }],
+   "animal_stage": [{ "key": "Adult", "value": "Adult" }],
+   "b2c_short_description": "A therapeutic dry cat food to support skin function and manage medium- and long-term skin and coat conditions. Suitable for cats with dermatosis (non-inflammatory skin problems), excessive hair loss*, dermatitis or pruritus (itching).\n\n(*When cat food allergies are not suspected.)",
+   "b2c_full_description": "Product Details\n\nHelp your cat to find fast relief from skin and coat disorders with VETERINARY HPM® Dermatology Support Food for Cats. Suitable for cats with dermatosis, excessive hair loss, dermatitis and itching.\n\nDermatological conditions can damage the natural skin barrier and lead to irritation, itching, redness, poor coat condition and excessive hair loss in cats. VETERINARY HPM® Dermatology Support is a complete and balanced food made with an expert blend of ingredients to help manage common dermatologic conditions, control inflammation and restore your cat’s skin and coat health.\n\nDermatology Support is rich in high-quality animal proteins, providing  sulphur amino acids that promote skin healing and hair regrowth. It also features our signature DERMA Plus complex with essential nutrients to promote recovery and protection from dermatological conditions: \n\n• Omega 3 fatty acids (including EPA and DHA). \n• Omega 6 fatty acids (including linoleic acid). \n• Antioxidant vitamins A and E.  \n\nVETERINARY HPM® Dermatology Support is suitable for cats of all ages and breeds. In pets with suspected cat food allergies or intolerances, we recommend trying the VETERINARY HPM® Allergy range first.",
+   "seo_product_title": "Dermatology Support Cat Food – Healthy Skin \u0026 Shiny Coat",
+   "seo_meta_description": "Soothe your cat’s skin with VETERINARY HPM® Dermatology Support. Reduces hair loss. Rich in Omega-3 \u0026 antioxidants",
+   "marketing_product_name": "Cat Dermatology Support D1",
+   "related_product": [
+      { "id": "457643" },
+      { "id": "457644" },
+      { "id": "457645" }
+   ],
+   "taxonomy": [{ "key": "Diet", "value": "Diet" }],
+   "key_benefit_summary_text": "lorem ipsum lorem ipsum",
+   "key_figures": [
+      "Soothes inflammation and irritation",
+      "Restores natural skin defences  ",
+      "Improves coat quality "
+   ],
+   "composition_analytical_constituents": [
+      { "name": "Moisture", "value": "5.5%" },
+      { "name": "Protein", "value": "44%" },
+      { "name": "Animal to vegetable protein ration", "value": "91/09" },
+      { "name": "Fat", "value": "17.5%" },
+      { "name": "Minerals", "value": "8.5%" },
+      { "name": "Crude Fibre", "value": "5%" },
+      { "name": "NFE*", "value": "19.5%" },
+      { "name": "Starch", "value": "14%" },
+      { "name": "Calcium", "value": "13%" },
+      { "name": "Phosphorus", "value": "1.1%" },
+      { "name": "Sodium", "value": "0.7%" },
+      { "name": "Methionine + Cysteine", "value": "1.5%" },
+      { "name": "Phenylalanine + Tyrosine", "value": "2.6%" },
+      { "name": "Omega-6", "value": "3.5%" },
+      { "name": "Omega-3", "value": "1.1%" },
+      { "name": "EPA + DHA", "value": "0.8%" },
+      { "name": "LA", "value": "3.4%" },
+      { "name": "ME** calculated", "value": "395 kcal/100g" },
+      { "name": "ME** measured in vivo", "value": "437 kcal/100g" }
+   ],
+   "composition_functional_ingredients": [
+      { "name": "Bentonite", "value": "5 g/kg" },
+      { "name": "Killed Lactobacilli", "value": "7 mg/kg" },
+      { "name": "Chitosan", "value": "800 mg/kg" },
+      { "name": "L-carnitine", "value": "540 mg/kg" }
+   ],
+   "composition_functional_ingredients_notes": "note 2 Lorem ipsum",
+   "composition_analytical_constituents_notes": "note Lorem ipsum",
+   "composition_ingredients_additives": [],
+   "composition_ingredients_additives_notes": "Dehydrated pork and poultry proteins, potato starch, peas, hydrolysed pork and poultry proteins, minerals, lignocellulose, animal fats, fish oil, beet pulp, sunflower oil, brewer’s yeast, borage seed, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, hydrolysed crustacean (source of chitosan), chondroitin sulfate, Lactobacillus acidophilus.",
+   "composition_vitamins_and_trace_elements": [
+      { "name": "Vitamin 4", "value": "17 000 IU/kg" },
+      { "name": "Vitamin D3", "value": "1 700 IU/kg" },
+      { "name": "Vitamin E", "value": "610 mg/kg" },
+      { "name": "Vitamin K3", "value": " 0.22 mg/kg" },
+      { "name": "Vitamin B1", "value": " 11.2 mg/kg" },
+      { "name": "Vitamin B1", "value": " 11.2 mg/kg" },
+      { "name": "Vitamin B2", "value": " 8 mg/kg" },
+      { "name": "Vitamin B3", "value": " 113.4 mg/kg" },
+      { "name": "Vitamin B5", "value": " 14.5 mg/kg" },
+      { "name": "Vitamin B6", "value": "7.6 mg/kg" },
+      { "name": "Vitamin B8", "value": "0.15 mg/kg" },
+      { "name": "Vitamin B9", "value": "1.9 mg/kg" },
+      { "name": "Vitamin B12", "value": "0.046 mg/kg" },
+      { "name": "Choline", "value": "1 760 mg/kg" },
+      { "name": "Taurine", "value": "2 460 mg/kg" },
+      { "name": "Copper", "value": "12 mg/kg" },
+      { "name": "Iodine", "value": "0.4 mg/kg" },
+      { "name": "Zinc", "value": "110 mg/kg" }
+   ],
+   "composition": "Dehydrated pork and poultry proteins, potato starch, peas, hydrolysed pork and poultry proteins, minerals, lignocellulose, animal fats, fish oil, beet pulp, sunflower oil, brewer’s yeast, borage seed, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, hydrolysed crustacean (source of chitosan), chondroitin sulfate, Lactobacillus acidophilus.",
+   "benefit_data_table": [
+      {
+         "id": "BEN-6",
+         "label": "Improves skin health",
+         "description": "Addresses signs of dermatosis (non-inflammatory skin conditions) and dermatitis. "
+      },
+      {
+         "id": "BEN-9",
+         "label": "Calms irritated skin",
+         "description": "Soothes inflammation, irritation and itchiness caused by skin and coat disorders."
+      },
+      {
+         "id": "BEN-7",
+         "label": "Repairs the skin barrier ",
+         "description": "Hydrates, heals and restores the skin’s natural protective barrier. "
+      },
+      {
+         "id": "BEN-8",
+         "label": " Restores the coat",
+         "description": "Leaves your cat with a fuller, shinier coat and reduced hair shedding. "
+      }
+   ],
+   "key_selling_points": " Soothes inflammation and irritation\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Restores natural skin defences\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Improves coat quality\u0026nbsp; ",
+   "animal_size": [{ "key": "Medium", "value": "Medium" }],
+   "range_category": [{ "key": "Dermatology", "value": "Dermatology" }],
+   "type_of_food": [{ "key": "Dry", "value": "Dry" }],
+   "neutered": [
+      { "key": "neutered", "value": "neutered" },
+      { "key": "entire", "value": "entire" }
+   ]
+}

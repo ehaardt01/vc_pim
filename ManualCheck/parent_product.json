@@ -2,8 +2,8 @@
    "id": "CDS2",
    "system_id": "s-3d973b6d-44d9-4c9e-af25-9bbb194fd4fa",
    "created_at": "2025-01-13T14:39:49.109Z",
-   "updated_at": "2025-03-05T09:06:44.533Z",
-   "version": 66,
+   "updated_at": "2025-03-05T09:14:15.960Z",
+   "version": 67,
    "children": [{ "id": "457632" }],
    "locale": "en",
    "name": "HPM Diet - Cat  D1 Dermatology Support",
@@ -99,8 +99,29 @@
    ],
    "composition_functional_ingredients_notes": "note 2 Lorem ipsum",
    "composition_analytical_constituents_notes": "Loremp ipsum",
-   "composition_ingredients_additives": [],
-   "composition_ingredients_additives_notes": "Dehydrated pork and poultry proteins, potato starch, peas, hydrolysed pork and poultry proteins, minerals, lignocellulose, animal fats, fish oil, beet pulp, sunflower oil, brewer’s yeast, borage seed, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, hydrolysed crustacean (source of chitosan), chondroitin sulfate, Lactobacillus acidophilus.",
+   "composition_ingredients_additives": [
+      { "name": "Dehydrated pork and poultry proteins", "value": "additive" },
+      { "name": "potato starch", "value": "additive" },
+      { "name": "peas", "value": "additive" },
+      { "name": "hydrolysed pork and poultry proteins", "value": "additive" },
+      { "name": "minerals", "value": "additive" },
+      { "name": "lignocellulose", "value": "additive" },
+      { "name": "animal fats", "value": "additive" },
+      { "name": "fish oil", "value": "additive" },
+      { "name": "beet pulp", "value": "additive" },
+      { "name": "sunflower oil", "value": "additive" },
+      { "name": "brewer’s yeast", "value": "additive" },
+      { "name": "borage seed", "value": "additive" },
+      { "name": "psyllium fibre (Plantago (L.) spp.)", "value": "additive" },
+      { "name": "fructo-oligosaccharides", "value": "additive" },
+      {
+         "name": "hydrolysed crustacean (source of chitosan)",
+         "value": "additive"
+      },
+      { "name": "chondroitin sulfate", "value": "additive" },
+      { "name": "Lactobacillus acidophilus", "value": "additive" }
+   ],
+   "composition_ingredients_additives_notes": "note additives Lorem ipsum",
    "composition_vitamins_and_trace_elements": [
       { "name": "Vitamin 4", "value": "17 000 IU/kg" },
       { "name": "Vitamin D3", "value": "1 700 IU/kg" },
@@ -153,5 +174,6 @@
       { "key": "neutered", "value": "neutered" },
       { "key": "entire", "value": "entire" }
    ],
-   "replaced_product": { "id": "457622" }
+   "replaced_product": { "id": "457622" },
+   "key_ingredients": " \u003cb\u003eEssential fatty acids\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Omega 3’s EPA and DHA soothe inflammation and reduce itchiness, while omega 6 linoleic acid strengthens the skin’s protective barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eVitamins A and E\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  These antioxidant vitamins fight inflammation, encourage skin and hair renewal, and provide moisture and hydration to the skin barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eHigh-quality protein\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Contains high-quality animal proteins rich in sulphur amino acids, which form the building blocks of healthy skin and hair. "
 }

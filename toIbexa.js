@@ -507,6 +507,8 @@ function get_localized_value (value) {
     if (typeof value === 'object' && value !== null) {
         if (value.hasOwnProperty(LOCALE)) {
             return value[LOCALE];
+        } else {
+            return value;
         }
     }
     return undefined;
@@ -540,6 +542,25 @@ function get_localized_property_values (entity, property_id) {
  * @returns {Object} The modified record object
  */
 function property_load_default (record, configured_property, property_value, rootRecord) {
+    if (property_value === undefined) return;
+    value = get_localized_value(property_value);
+    if ((value !== undefined)) {
+        if  ((value !== null) || RETURN_NULL_VALUES) {
+            record[get_property_export_name(configured_property)] = value;
+        }
+    }
+    return record;
+}
+
+/**
+ * Loads HTML property values into a record object
+ * @param {Object} record - The target record object to store the property value
+ * @param {Object} configured_property - The property configuration object
+ * @param {*} property_value - The property value to process
+ * @param {Object} rootRecord - The root record object (unused parameter)
+ * @returns {Object|undefined} The updated record object or undefined if property_value is undefined
+ */
+function property_load_html (record, configured_property, property_value, rootRecord) {
     if (property_value === undefined) return;
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
@@ -872,14 +893,18 @@ function property_load_enumerated (record, configured_property, property_value, 
     }
     const mapped_values = [];
     function flatten_tree(records, mapped_values) {
-        records.forEach(enumerated_value => {
-            let localized_name = get_localized_value(enumerated_value.localized_names);
-            localized_name = localized_name === undefined ? enumerated_value.name : localized_name;
-            mapped_values[enumerated_value.id] = localized_name;
-            if (enumerated_value.has_children) {
-                flatten_tree(enumerated_value.values, mapped_values);
-            }
-        });
+        try {
+            records.forEach(enumerated_value => {
+                let localized_name = get_localized_value(enumerated_value.localized_names);
+                localized_name = localized_name === undefined ? enumerated_value.name : localized_name;
+                mapped_values[enumerated_value.id] = localized_name;
+                if (enumerated_value.has_children) {
+                    flatten_tree(enumerated_value.values, mapped_values);
+                }
+            });
+        } catch (error) {
+            console.log('Error while processing enumerated values for ' + configured_property.name, LOG_TYPE.ERROR);
+        }
     }
     flatten_tree(records, mapped_values);
     let enumerated_list = [];
@@ -1113,7 +1138,7 @@ const salsify_property_types = {
     "quantified_product": property_load_quantified_product,
     "product": property_load_product,
     "number": property_load_number,
-    "html": property_load_default,
+    "html": property_load_html,
     "enumerated": property_load_enumerated,
     "digital_asset": property_load_digital_asset,
     "date": property_load_default,

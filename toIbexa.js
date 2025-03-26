@@ -32,6 +32,7 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "ID", type: "string", export_name: "id"},
     {name: "Name", type: "string", export_name: "name"},
     {name: "CODE_REF_LOCALE", type: "string", export_name: "code_ref_locale"},
+    {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
     {name: "Group Species", type: "enumerated", export_name: "group_species"},
     {name: "Animal stage", type: "enumerated", export_name: "animal_stage"},
     {name: "Flavour", type: "enumerated", export_name: "flavour"},

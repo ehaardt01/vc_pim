@@ -47,7 +47,7 @@
          "format": "jpg"
       }
    ],
-   "sellable_sku_measurement_unit": [{ "key": "kg", "value": "kg" }],
+   "sellable_sku_measurement_unit": [{ "key": "kg", "value": {} }],
    "sellable_sku_unit_value": 3,
-   "sellable_sku_format_size": [{ "key": "S", "value": "S" }]
+   "sellable_sku_format_size": [{ "key": "S", "value": {} }]
 }

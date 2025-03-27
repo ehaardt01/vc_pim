@@ -2,11 +2,12 @@
    "id": "CDS2",
    "system_id": "s-3d973b6d-44d9-4c9e-af25-9bbb194fd4fa",
    "created_at": "2025-01-13T14:39:49.109Z",
-   "updated_at": "2025-03-05T09:14:15.960Z",
-   "version": 67,
-   "children": [{ "id": "457632" }],
+   "updated_at": "2025-03-10T19:50:59.604Z",
+   "version": 75,
+   "children": [{ "id": "360102" }],
    "locale": "en",
    "name": "HPM Diet - Cat  D1 Dermatology Support",
+   "country_markets": [{ "key": "UK", "value": {} }],
    "group_species": [{ "key": "Cat", "value": { "en-GB": "en-BG: Cat" } }],
    "animal_stage": [{ "key": "Adult", "value": { "en-GB": "Adult" } }],
    "flavour": [{ "key": "Fish", "value": {} }],
@@ -20,29 +21,6 @@
    "seo_meta_description": "Soothe your cat’s skin with VETERINARY HPM® Dermatology Support. Reduces hair loss. Rich in Omega-3 \u0026 antioxidants",
    "tutorials": " \u003cul\u003e\u003cli\u003e\u003cb\u003eLOREM IPSUM\u003c/b\u003e\u003c/li\u003e\u003c/ul\u003e  \u003cbr\u003e  Lorem Ipsum ",
    "marketing_product_name": "Cat Dermatology Support D1",
-   "related_product": [
-      { "id": "457643" },
-      { "id": "457644" },
-      { "id": "457645" }
-   ],
-   "a_content": [
-      {
-         "salsify_id": "63589a3cffef902795117fb4bbf4c6a651c2f4f3",
-         "cdn_url": "https://virbac.widen.net/content/a2xyekqbdr/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
-         "name": "360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      },
-      {
-         "salsify_id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
-         "cdn_url": "https://virbac.widen.net/content/1efsap3www/jpeg/360191_Bag_HPM-KJ3_cat-1%2C5kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
-         "name": "360191_Bag_HPM-KJ3_cat-1,5kg_face.jpeg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      }
-   ],
    "packaging": [
       {
          "salsify_id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
@@ -178,6 +156,5 @@
       { "key": "neutered", "value": {} },
       { "key": "entire", "value": {} }
    ],
-   "replaced_product": { "id": "457622" },
    "key_ingredients": " \u003cb\u003eEssential fatty acids\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Omega 3’s EPA and DHA soothe inflammation and reduce itchiness, while omega 6 linoleic acid strengthens the skin’s protective barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eVitamins A and E\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  These antioxidant vitamins fight inflammation, encourage skin and hair renewal, and provide moisture and hydration to the skin barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eHigh-quality protein\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Contains high-quality animal proteins rich in sulphur amino acids, which form the building blocks of healthy skin and hair. "
 }

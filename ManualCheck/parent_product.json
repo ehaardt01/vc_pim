@@ -21,6 +21,24 @@
    "seo_meta_description": "Soothe your cat’s skin with VETERINARY HPM® Dermatology Support. Reduces hair loss. Rich in Omega-3 \u0026 antioxidants",
    "tutorials": " \u003cul\u003e\u003cli\u003e\u003cb\u003eLOREM IPSUM\u003c/b\u003e\u003c/li\u003e\u003c/ul\u003e  \u003cbr\u003e  Lorem Ipsum ",
    "marketing_product_name": "Cat Dermatology Support D1",
+   "a_content": [
+      {
+         "salsify_id": "63589a3cffef902795117fb4bbf4c6a651c2f4f3",
+         "cdn_url": "https://virbac.widen.net/content/a2xyekqbdr/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
+         "cdn_url": "https://virbac.widen.net/content/1efsap3www/jpeg/360191_Bag_HPM-KJ3_cat-1%2C5kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360191_Bag_HPM-KJ3_cat-1,5kg_face.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      }
+   ],
    "packaging": [
       {
          "salsify_id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",

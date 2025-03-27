@@ -1183,6 +1183,7 @@ function main () {
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;
+        return context.entity;
         let result = load(rootId, properties);
         if (DEBUG) {
             properties.forEach(configured_property => {

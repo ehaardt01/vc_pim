@@ -1183,8 +1183,10 @@ function main () {
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;
-        let send_result = send_to_recipient_API('', context.entity);
+
+        let send_result = send_to_recipient_API('', fetchRecord(rootId));
         return send_result;
+
         // let result = load(rootId, properties);
         // if (DEBUG) {
         //     properties.forEach(configured_property => {

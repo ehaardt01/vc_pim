@@ -597,15 +597,15 @@ function property_load_composition (record, configured_property, property_value,
     if (property_value === undefined) {return;}
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
-        if  ((value !== null) || RETURN_NULL_VALUES) {
-            // We have to check that the entry string is well formed (multiple line with, for each, 3 values separated by a comma)
+        if  (((value !== null) || RETURN_NULL_VALUES) && (typeof value === 'string')) {
+            // We have to check that the entry string is well formed (multiple line with, for each, 2 values separated by a comma)
             const lines = value.split('\n');
             const composition = [];
             for (let line of lines) {
                 const values = line.split(';');
-                if (values.length === 2) {
+                // if (values.length === 2) {
                     composition.push({name: values[0], value: values[1]});
-                }
+                // }
             }
             record[get_property_export_name(configured_property)] = composition;
         }

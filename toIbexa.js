@@ -597,7 +597,7 @@ function property_load_composition (record, configured_property, property_value,
     if (property_value === undefined) {return;}
     value = get_localized_value(property_value);
     if ((value !== undefined)) {
-        if  (((value !== null) || RETURN_NULL_VALUES) && (typeof value === 'string')) {
+        if  ((value !== null) && (typeof value === 'string')) {
             // We have to check that the entry string is well formed (multiple line with, for each, 2 values separated by a comma)
             const lines = value.split('\n');
             const composition = [];

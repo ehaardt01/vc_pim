@@ -596,19 +596,17 @@ function property_load_composition (record, configured_property, property_value,
     // We expect a multiline string representing a CSV with ';' separator. The CSV should have 3 columns: name, value, unit
     if (property_value === undefined) {return;}
     value = get_localized_value(property_value);
-    if ((value !== undefined)) {
-        if  ((value !== null) && (typeof value === 'string')) {
-            // We have to check that the entry string is well formed (multiple line with, for each, 2 values separated by a comma)
-            const lines = value.split('\n');
-            const composition = [];
-            for (let line of lines) {
-                const values = line.split(';');
-                // if (values.length === 2) {
-                    composition.push({name: values[0], value: values[1]});
-                // }
-            }
-            record[get_property_export_name(configured_property)] = composition;
+    if ((value !== undefined) && (value !== null) && (typeof value === 'string')) {
+        // We have to check that the entry string is well formed (multiple line with, for each, 2 values separated by a comma)
+        const lines = value.split('\n');
+        const composition = [];
+        for (let line of lines) {
+            const values = line.split(';');
+            // if (values.length === 2) {
+                composition.push({name: values[0], value: values[1]});
+            // }
         }
+        record[get_property_export_name(configured_property)] = composition;
     }
     return record;
 }

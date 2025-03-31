@@ -741,7 +741,7 @@ function property_load_digital_asset (record, configured_property, property_valu
             }
             break;
         default:
-            log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR);
+            log('Unexpected type for ' + property_id + ' in ' + record.id, LOG_TYPE.ERROR + '. Current type is: ' + returned_type);
     }
     return record;
 }

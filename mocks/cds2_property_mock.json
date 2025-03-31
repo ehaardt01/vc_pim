@@ -1,0 +1,168 @@
+{
+   "salsify:id": "CDS2",
+   "salsify:created_at": "2025-01-13T14:39:49.109Z",
+   "salsify:updated_at": "2025-03-10T19:50:59.604Z",
+   "salsify:version": 75,
+   "salsify:profile_asset_id": null,
+   "salsify:system_id": "s-3d973b6d-44d9-4c9e-af25-9bbb194fd4fa",
+   "ID": "CDS2",
+   "Country Markets": "UK",
+   "Group Species": "Cat",
+   "Animal stage": "Adult",
+   "Flavour": "Fish",
+   "Feeding guide / daily ration": [
+      "\u003cp\u003e\u003cstrong\u003eIn case of obesity without diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight\u0026nbsp; (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eHigh Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eModerate Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e55\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e80\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e110\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e125\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e165\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e200\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e235\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e265\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e320\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e420\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"3\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e",
+      "\u003cp\u003e\u003cstrong\u003eIn case of obesity associated with diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"2\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e"
+   ],
+   "LIB_MARQUE": "Vet HPM",
+   "Taxonomy": "Pet food",
+   "FAQ data table": "FAQ-W1",
+   "Affiliate": "27",
+   "Country ISO code": "Unknown",
+   "Benefit data table": ["BEN-6", "BEN-9", "BEN-7", "BEN-8"],
+   "Animal size": "Medium",
+   "Range category": "Dermatology",
+   "Neutered": ["neutered", "entire"],
+   "Type of food": "Dry",
+   "Product categories": "Pet Food",
+   "Brand data table": "Vet HPM",
+   "BUSINESS_SEGMENT": "Companion animals",
+   "BUSINESS_SUB_SEGMENT": "Dogs and cats",
+   "MEDICAL_SEGMENT": "Nutrition \u0026 Petcare",
+   "MEDICAL_SUB_SEGMENT": "Pet food",
+   "Name": {
+      "en-GB": "HPM Diet - Cat  D1 Dermatology Support",
+      "en": "HPM Diet - Cat  D1 Dermatology Support"
+   },
+   "Marketing Product name": {
+      "en-GB": "HPM Diet - Cat  D1 Dermatology Support",
+      "en": "Cat Dermatology Support D1"
+   },
+   "B2C Short description": {
+      "en": "A therapeutic dry cat food to support skin function and manage medium- and long-term skin and coat conditions. Suitable for cats with dermatosis (non-inflammatory skin problems), excessive hair loss*, dermatitis or pruritus (itching).\n\n(*When cat food allergies are not suspected.)"
+   },
+   "B2C Full Description": {
+      "en": "Product Details\n\nHelp your cat to find fast relief from skin and coat disorders with VETERINARY HPM® Dermatology Support Food for Cats. Suitable for cats with dermatosis, excessive hair loss, dermatitis and itching.\n\nDermatological conditions can damage the natural skin barrier and lead to irritation, itching, redness, poor coat condition and excessive hair loss in cats. VETERINARY HPM® Dermatology Support is a complete and balanced food made with an expert blend of ingredients to help manage common dermatologic conditions, control inflammation and restore your cat’s skin and coat health.\n\nDermatology Support is rich in high-quality animal proteins, providing  sulphur amino acids that promote skin healing and hair regrowth. It also features our signature DERMA Plus complex with essential nutrients to promote recovery and protection from dermatological conditions: \n\n• Omega 3 fatty acids (including EPA and DHA). \n• Omega 6 fatty acids (including linoleic acid). \n• Antioxidant vitamins A and E.  \n\nVETERINARY HPM® Dermatology Support is suitable for cats of all ages and breeds. In pets with suspected cat food allergies or intolerances, we recommend trying the VETERINARY HPM® Allergy range first."
+   },
+   "SEO Product Title": {
+      "en": "Dermatology Support Cat Food – Healthy Skin \u0026 Shiny Coat"
+   },
+   "SEO Meta description": {
+      "en": "Soothe your cat’s skin with VETERINARY HPM® Dermatology Support. Reduces hair loss. Rich in Omega-3 \u0026 antioxidants"
+   },
+   "Tutorials": {
+      "en": " \u003cul\u003e\u003cli\u003e\u003cb\u003eLOREM IPSUM\u003c/b\u003e\u003c/li\u003e\u003c/ul\u003e  \u003cbr\u003e  Lorem Ipsum "
+   },
+   "A+ content": {
+      "en": [
+         "63589a3cffef902795117fb4bbf4c6a651c2f4f3",
+         "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7"
+      ]
+   },
+   "Packaging": {
+      "en": [
+         "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
+         "462f8e6cbec50eae2bff52c8b0ad20dd6aea1ed3"
+      ]
+   },
+   "Key benefit summary text": { "en": "lorem ipsum lorem ipsum" },
+   "Visible online ?": { "en": "Y" },
+   "Key figures": {
+      "en": [
+         "Soothes inflammation and irritation",
+         "Restores natural skin defences  ",
+         "Improves coat quality "
+      ]
+   },
+   "FAQ reference - Answer": { "en": "Lorem ipsum" },
+   "Sellable online ?": { "en": "Y" },
+   "Composition - Analytical constituents": {
+      "en": "Moisture;5.5%\nProtein;44%\nAnimal to vegetable protein ration;91/09\nFat;17.5%\nMinerals;8.5%\nCrude Fibre;5%\nNFE*;19.5%\nStarch;14%\nCalcium;13%\nPhosphorus;1.1%\nSodium;0.7%\nMethionine + Cysteine;1.5%\nPhenylalanine + Tyrosine;2.6%\nOmega-6;3.5%\nOmega-3;1.1%\nEPA + DHA;0.8%\nLA;3.4%\nME** calculated;395 kcal/100g\nME** measured in vivo;437 kcal/100g\n* Nitrogen Free Extract: Carbohydrates\n**Metabolisable energy"
+   },
+   "Composition - Functional ingredients": {
+      "en": "Bentonite;5 g/kg\nKilled Lactobacilli;7 mg/kg\nChitosan;800 mg/kg\nL-carnitine;540 mg/kg"
+   },
+   "Composition - Functional ingredients - Notes": {
+      "en": "note 2 Lorem ipsum"
+   },
+   "Composition - Analytical constituents - Notes": { "en": "Loremp ipsum" },
+   "Composition - Ingredients / Additives": {
+      "en": "Dehydrated pork and poultry proteins;additive\npotato starch;additive\npeas;additive\nhydrolysed pork and poultry proteins;additive\nminerals;additive\nlignocellulose;additive\nanimal fats;additive\nfish oil;additive\nbeet pulp;additive\nsunflower oil;additive\nbrewer’s yeast;additive\nborage seed;additive\npsyllium fibre (Plantago (L.) spp.);additive\nfructo-oligosaccharides;additive\nhydrolysed crustacean (source of chitosan);additive\nchondroitin sulfate;additive\nLactobacillus acidophilus;additive"
+   },
+   "Composition - Ingredients / Additives - Notes": {
+      "en": "note additives Lorem ipsum"
+   },
+   "Composition - Vitamins and trace elements": {
+      "en": "Vitamin 4;17 000 IU/kg\nVitamin D3;1 700 IU/kg\nVitamin E;610 mg/kg\nVitamin K3; 0.22 mg/kg\nVitamin B1; 11.2 mg/kg\nVitamin B1; 11.2 mg/kg\nVitamin B2; 8 mg/kg\nVitamin B3; 113.4 mg/kg\nVitamin B5; 14.5 mg/kg\nVitamin B6;7.6 mg/kg\nVitamin B8;0.15 mg/kg\nVitamin B9;1.9 mg/kg\nVitamin B12;0.046 mg/kg\nCholine;1 760 mg/kg\nTaurine;2 460 mg/kg\nCopper;12 mg/kg\nIodine;0.4 mg/kg\nZinc;110 mg/kg"
+   },
+   "Composition - Vitamins and trace elements - Notes": { "en": "LOREM IPSUM" },
+   "Composition": {
+      "en": "Dehydrated pork and poultry proteins, potato starch, peas, hydrolysed pork and poultry proteins, minerals, lignocellulose, animal fats, fish oil, beet pulp, sunflower oil, brewer’s yeast, borage seed, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, hydrolysed crustacean (source of chitosan), chondroitin sulfate, Lactobacillus acidophilus."
+   },
+   "Benefit data table - item label": { "en": "Lorem ipsum" },
+   "Benefit data table - long description": { "en": "Lorem ipsum" },
+   "Key Selling Points": {
+      "en": " Soothes inflammation and irritation\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Restores natural skin defences\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Improves coat quality\u0026nbsp; "
+   },
+   "FAQ reference - Question": { "en": "Lorem ipsum" },
+   "Key ingredients": {
+      "en": " \u003cb\u003eEssential fatty acids\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Omega 3’s EPA and DHA soothe inflammation and reduce itchiness, while omega 6 linoleic acid strengthens the skin’s protective barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eVitamins A and E\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  These antioxidant vitamins fight inflammation, encourage skin and hair renewal, and provide moisture and hydration to the skin barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eHigh-quality protein\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Contains high-quality animal proteins rich in sulphur amino acids, which form the building blocks of healthy skin and hair. "
+   },
+   "Brand Name": {
+      "en-GB": "HPM Diet - Cat  D1 Dermatology Support",
+      "en": "HPM Diet - Cat  D1 Dermatology Support"
+   },
+   "salsify:digital_assets": [
+      {
+         "salsify:id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
+         "salsify:url": "http://images.salsify.com/image/upload/s--WdXwa8Ir--/67148f39b190d51a9f420e2bc98bae1f83affcca.jpg",
+         "salsify:source_url": "https://virbac.widen.net/content/1efsap3www/jpeg/360191_Bag_HPM-KJ3_cat-1%2C5kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "salsify:name": "360191_Bag_HPM-KJ3_cat-1,5kg_face.jpeg",
+         "salsify:created_at": "2025-01-13T16:52:52.802Z",
+         "salsify:updated_at": "2025-01-13T16:53:24.642Z",
+         "salsify:status": "completed",
+         "salsify:asset_height": 2000,
+         "salsify:asset_width": 2000,
+         "salsify:asset_resource_type": "image",
+         "salsify:filename": "360191_Bag_HPM-KJ3_cat-1%2C5kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "salsify:bytes": 131655,
+         "salsify:format": "jpg",
+         "salsify:etag": "18bf5bc9fa96543b0288ef0be9a26e6d",
+         "salsify:system_id": "s-3378aaf1-6038-49c2-a10b-3a52d78d5022"
+      },
+      {
+         "salsify:id": "63589a3cffef902795117fb4bbf4c6a651c2f4f3",
+         "salsify:url": "http://images.salsify.com/image/upload/s--xT9XMI0N--/079ba968077cb9488fbd5c9c17a184476fa0bcab.jpg",
+         "salsify:source_url": "https://virbac.widen.net/content/a2xyekqbdr/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "salsify:name": "360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg",
+         "salsify:created_at": "2025-01-13T16:52:52.802Z",
+         "salsify:updated_at": "2025-01-13T16:53:24.721Z",
+         "salsify:status": "completed",
+         "salsify:asset_height": 2000,
+         "salsify:asset_width": 2000,
+         "salsify:asset_resource_type": "image",
+         "salsify:filename": "360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "salsify:bytes": 572796,
+         "salsify:format": "jpg",
+         "salsify:etag": "bee8d0fca2546e507954de089438b865",
+         "salsify:system_id": "s-7e3c690c-9dfb-4d71-a508-24c0476198ea"
+      },
+      {
+         "salsify:id": "462f8e6cbec50eae2bff52c8b0ad20dd6aea1ed3",
+         "salsify:url": "http://images.salsify.com/image/upload/s--oNSRg0P8--/c11195b74bf5d6b46806d60c01d1d0a3cc55752a.jpg",
+         "salsify:source_url": "https://virbac.widen.net/content/ztxfxmnohd/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_right.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "salsify:name": "360192_Packshot_HPM-KJ3_cat-3kg_right.jpeg",
+         "salsify:created_at": "2025-01-13T16:52:52.802Z",
+         "salsify:updated_at": "2025-01-13T16:53:24.668Z",
+         "salsify:status": "completed",
+         "salsify:asset_height": 2048,
+         "salsify:asset_width": 2048,
+         "salsify:asset_resource_type": "image",
+         "salsify:filename": "360192_Packshot_HPM-KJ3_cat-3kg_right.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "salsify:bytes": 256981,
+         "salsify:format": "jpg",
+         "salsify:etag": "5207116f001f5128dcc189b3f373f677",
+         "salsify:system_id": "s-ea88fcb7-c1f1-4873-b1ce-f1d663ef1dec"
+      }
+   ]
+}

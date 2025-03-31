@@ -1178,7 +1178,7 @@ function main () {
         fetchRecord = mock_fetchRecord;
         fetchPageRecords = mock_fetchPageRecords;
         fetchEnumerated = mock_fetchEnumerated
-        const record_id = "DWD";
+        const record_id = "CDS2";
         RESULT = load(record_id, properties);
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;

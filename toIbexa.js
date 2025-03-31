@@ -1184,21 +1184,21 @@ function main () {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;
 
-        let send_result = send_to_recipient_API('', fetchRecord(rootId));
-        return send_result;
-
-        // let result = load(rootId, properties);
-        // if (DEBUG) {
-        //     properties.forEach(configured_property => {
-        //         const property_id = configured_property["export_name"];
-        //         let property = result[property_id];
-        //         if (property === undefined) {
-        //             result[property_id] = "not found";
-        //         }
-        //     });
-        // }
-        // let send_result = send_to_recipient_API('', result);
+        // let send_result = send_to_recipient_API('', fetchRecord(rootId));
         // return send_result;
+
+        let result = load(rootId, properties);
+        if (DEBUG) {
+            properties.forEach(configured_property => {
+                const property_id = configured_property["export_name"];
+                let property = result[property_id];
+                if (property === undefined) {
+                    result[property_id] = "not found";
+                }
+            });
+        }
+        let send_result = send_to_recipient_API('', result);
+        return send_result;
     }
 }
 

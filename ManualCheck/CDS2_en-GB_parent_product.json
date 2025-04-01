@@ -1,0 +1,196 @@
+{
+   "id": "CDS2",
+   "system_id": "s-3d973b6d-44d9-4c9e-af25-9bbb194fd4fa",
+   "created_at": "2025-01-13T14:39:49.109Z",
+   "updated_at": "2025-03-31T15:50:14.414Z",
+   "version": 84,
+   "children": [{ "id": "360102" }],
+   "locale": "en-GB",
+   "name": "HPM Diet - Cat  D1 Dermatology Support",
+   "country_markets": [{ "key": "UK", "value": "UK" }],
+   "group_species": [{ "key": "Cat", "value": "en-BG: Cat" }],
+   "animal_stage": [{ "key": "Adult", "value": "Adult" }],
+   "flavour": [{ "key": "Fish", "value": "Fish" }],
+   "b2c_short_description": "A therapeutic dry cat food to support skin function and manage medium- and long-term skin and coat conditions. Suitable for cats with dermatosis (non-inflammatory skin problems), excessive hair loss*, dermatitis or pruritus (itching).\n\n(*When cat food allergies are not suspected.)",
+   "b2c_full_description": "Product Details\n\nHelp your cat to find fast relief from skin and coat disorders with VETERINARY HPM® Dermatology Support Food for Cats. Suitable for cats with dermatosis, excessive hair loss, dermatitis and itching.\n\nDermatological conditions can damage the natural skin barrier and lead to irritation, itching, redness, poor coat condition and excessive hair loss in cats. VETERINARY HPM® Dermatology Support is a complete and balanced food made with an expert blend of ingredients to help manage common dermatologic conditions, control inflammation and restore your cat’s skin and coat health.\n\nDermatology Support is rich in high-quality animal proteins, providing  sulphur amino acids that promote skin healing and hair regrowth. It also features our signature DERMA Plus complex with essential nutrients to promote recovery and protection from dermatological conditions: \n\n• Omega 3 fatty acids (including EPA and DHA). \n• Omega 6 fatty acids (including linoleic acid). \n• Antioxidant vitamins A and E.  \n\nVETERINARY HPM® Dermatology Support is suitable for cats of all ages and breeds. In pets with suspected cat food allergies or intolerances, we recommend trying the VETERINARY HPM® Allergy range first.",
+   "feeding_guide_daily_ration": [
+      "\u003cp\u003e\u003cstrong\u003eIn case of obesity without diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight\u0026nbsp; (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eHigh Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eModerate Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e55\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e80\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e110\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e125\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e165\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e200\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e235\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e265\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e320\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e420\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"3\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e",
+      "\u003cp\u003e\u003cstrong\u003eIn case of obesity associated with diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"2\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e"
+   ],
+   "seo_product_title": "Dermatology Support Cat Food – Healthy Skin \u0026 Shiny Coat",
+   "seo_meta_description": "Soothe your cat’s skin with VETERINARY HPM® Dermatology Support. Reduces hair loss. Rich in Omega-3 \u0026 antioxidants",
+   "tutorials": "\u003cul\u003e\u003cli\u003e\u003cb\u003eLOREM IPSUM\u003c/b\u003e\u003c/li\u003e\u003c/ul\u003e  \u003cbr\u003e  Lorem Ipsum",
+   "marketing_product_name": [
+      "Cat Dermatology Support D1",
+      "HPM Diet - Cat  D1 Dermatology Support"
+   ],
+   "related_product": { "id": "360115" },
+   "a_content": [
+      {
+         "salsify_id": "63589a3cffef902795117fb4bbf4c6a651c2f4f3",
+         "cdn_url": "https://virbac.widen.net/content/a2xyekqbdr/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
+         "cdn_url": "https://virbac.widen.net/content/1efsap3www/jpeg/360191_Bag_HPM-KJ3_cat-1%2C5kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360191_Bag_HPM-KJ3_cat-1,5kg_face.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "69904ac2e9bdc0176b4e345459083b225bdbdaf3",
+         "name": "303438_Packshot_Enzymatic-Toothpaste_43g_back.jpeg.jpg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      }
+   ],
+   "packaging": [
+      {
+         "salsify_id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
+         "cdn_url": "https://virbac.widen.net/content/1efsap3www/jpeg/360191_Bag_HPM-KJ3_cat-1%2C5kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360191_Bag_HPM-KJ3_cat-1,5kg_face.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "462f8e6cbec50eae2bff52c8b0ad20dd6aea1ed3",
+         "cdn_url": "https://virbac.widen.net/content/ztxfxmnohd/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_right.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360192_Packshot_HPM-KJ3_cat-3kg_right.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "6348e8389f743d73ef047b24c447c6162cbf20c7",
+         "name": "Veterinary HPM_logo_BLACK.jpg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "0606fe7e5e90d70974f8751bf332975dc1338ff7",
+         "name": "TP_Packshot-opened_Ayradia_100ml_US_right.jpg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      },
+      {
+         "salsify_id": "69b03aa451a86706bf5040b9c089da52b61927c9",
+         "cdn_url": "https://virbac.widen.net/content/7mgbnhlgp1/jpeg/360189_Packshot_HPM-KJ2_cat-1%2C5kg_back.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
+         "name": "360189_Packshot_HPM-KJ2_cat-1,5kg_back.jpeg",
+         "salsify_status": "completed",
+         "resource_type": "image",
+         "format": "jpg"
+      }
+   ],
+   "key_benefit_summary_text": "lorem ipsum lorem ipsum",
+   "visible_online": "Y",
+   "key_figures": [
+      "Soothes inflammation and irritation",
+      "Restores natural skin defences",
+      "Improves coat quality"
+   ],
+   "faq_data_table": {
+      "id": "FAQ-W1",
+      "question": {
+         "en": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog?"
+      },
+      "answer": "Locale en-GB: Dog Weight Loss \u0026 Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. It’s also suitable for: - Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026 Control W2 instead). - Managing fibre-responsive colitis. - Managing lipid metabolism disorders (hyperlipidaemia). Dog Weight Loss \u0026 Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease."
+   },
+   "sellable_online": "Y",
+   "composition_analytical_constituents": [
+      { "name": "Moisture", "value": "5.5%" },
+      { "name": "Protein", "value": "44%" },
+      { "name": "Animal to vegetable protein ration", "value": "91/09" },
+      { "name": "Fat", "value": "17.5%" },
+      { "name": "Minerals", "value": "8.5%" },
+      { "name": "Crude Fibre", "value": "5%" },
+      { "name": "NFE*", "value": "19.5%" },
+      { "name": "Starch", "value": "14%" },
+      { "name": "Calcium", "value": "13%" },
+      { "name": "Phosphorus", "value": "1.1%" },
+      { "name": "Sodium", "value": "0.7%" },
+      { "name": "Methionine + Cysteine", "value": "1.5%" },
+      { "name": "Phenylalanine + Tyrosine", "value": "2.6%" },
+      { "name": "Omega-6", "value": "3.5%" },
+      { "name": "Omega-3", "value": "1.1%" },
+      { "name": "EPA + DHA", "value": "0.8%" },
+      { "name": "LA", "value": "3.4%" },
+      { "name": "ME** calculated", "value": "395 kcal/100g" },
+      { "name": "ME** measured in vivo", "value": "437 kcal/100g" },
+      { "name": "* Nitrogen Free Extract: Carbohydrates", "value": null },
+      { "name": "**Metabolisable energy", "value": null }
+   ],
+   "composition_functional_ingredients": [
+      { "name": "Bentonite", "value": "5 g/kg" },
+      { "name": "Killed Lactobacilli", "value": "7 mg/kg" },
+      { "name": "Chitosan", "value": "800 mg/kg" },
+      { "name": "L-carnitine", "value": "540 mg/kg" }
+   ],
+   "composition_functional_ingredients_notes": "note 2 Lorem ipsum",
+   "composition_analytical_constituents_notes": "Loremp ipsum",
+   "composition_ingredients_additives": [
+      { "name": "Dehydrated pork and poultry proteins", "value": "additive" },
+      { "name": "potato starch", "value": "additive" },
+      { "name": "peas", "value": "additive" },
+      { "name": "hydrolysed pork and poultry proteins", "value": "additive" },
+      { "name": "minerals", "value": "additive" },
+      { "name": "lignocellulose", "value": "additive" },
+      { "name": "animal fats", "value": "additive" },
+      { "name": "fish oil", "value": "additive" },
+      { "name": "beet pulp", "value": "additive" },
+      { "name": "sunflower oil", "value": "additive" },
+      { "name": "brewer’s yeast", "value": "additive" },
+      { "name": "borage seed", "value": "additive" },
+      { "name": "psyllium fibre (Plantago (L.) spp.)", "value": "additive" },
+      { "name": "fructo-oligosaccharides", "value": "additive" },
+      {
+         "name": "hydrolysed crustacean (source of chitosan)",
+         "value": "additive"
+      },
+      { "name": "chondroitin sulfate", "value": "additive" },
+      { "name": "Lactobacillus acidophilus", "value": "additive" }
+   ],
+   "composition_ingredients_additives_notes": "note additives Lorem ipsum",
+   "composition_vitamins_and_trace_elements_notes": "LOREM IPSUM",
+   "composition": "Dehydrated pork and poultry proteins, potato starch, peas, hydrolysed pork and poultry proteins, minerals, lignocellulose, animal fats, fish oil, beet pulp, sunflower oil, brewer’s yeast, borage seed, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, hydrolysed crustacean (source of chitosan), chondroitin sulfate, Lactobacillus acidophilus.",
+   "benefit_data_table": [
+      {
+         "id": "BEN-6",
+         "label": "Improves skin health",
+         "description": "Addresses signs of dermatosis (non-inflammatory skin conditions) and dermatitis. "
+      },
+      {
+         "id": "BEN-9",
+         "label": "Calms irritated skin",
+         "description": "Soothes inflammation, irritation and itchiness caused by skin and coat disorders."
+      },
+      {
+         "id": "BEN-7",
+         "label": "Repairs the skin barrier ",
+         "description": "Hydrates, heals and restores the skin’s natural protective barrier. "
+      },
+      {
+         "id": "BEN-8",
+         "label": " Restores the coat",
+         "description": "Leaves your cat with a fuller, shinier coat and reduced hair shedding. "
+      }
+   ],
+   "key_selling_points": "Soothes inflammation and irritation\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Restores natural skin defences\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Improves coat quality\u0026nbsp;",
+   "animal_size": [{ "key": "Medium", "value": "Medium" }],
+   "range_category": [{ "key": "Dermatology", "value": {} }],
+   "type_of_food": [{ "key": "Dry", "value": "Dry" }],
+   "neutered": [
+      { "key": "neutered", "value": "neutered" },
+      { "key": "entire", "value": "entire" }
+   ],
+   "replaced_product": { "id": "360101" },
+   "key_ingredients": "\u003cb\u003eEssential fatty acids\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Omega 3’s EPA and DHA soothe inflammation and reduce itchiness, while omega 6 linoleic acid strengthens the skin’s protective barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eVitamins A and E\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  These antioxidant vitamins fight inflammation, encourage skin and hair renewal, and provide moisture and hydration to the skin barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eHigh-quality protein\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Contains high-quality animal proteins rich in sulphur amino acids, which form the building blocks of healthy skin and hair."
+}

@@ -1,8 +1,8 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
-const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
+// const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
 const TARGET_DOMAIN_2 = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
-// const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
+const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
 let RESULT = "";
 
@@ -205,13 +205,8 @@ function check_configuration (properties_list=properties) {
  */
 function mock_send_to_recipient_API (path, content) {
     const METHOD = 'post';
-    const URL = TARGET_DOMAIN + path;
-    let secret = "Bearer "
-    if(MOCK) {
-        secret = secret + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDM1MDYyMDQsImV4cCI6MTc3NTA0MjIwNCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGltX2FwaSJ9.yy3vfyyYkQ8qnNXg3FWQSJwCDESzQeYiwvMRm6M8Z2M';
-    } else {
-        secret = secret + secret_value("ibexa_bearer_token");
-    }
+    const URL = TARGET_DOMAIN_2 + path;
+    let secret = "Bearer ERROR"; // Set ERROR or NORMAL
     const HEADERS = {
         Authorization: secret,
         "Content-Type": "application/json"
@@ -248,6 +243,7 @@ function mock_send_to_recipient_API (path, content) {
             response["returned_status"] = "success " + response.code;
         }
     }
+    return response;
 }
 
 /**
@@ -1210,6 +1206,16 @@ const salsify_property_types = {
     "status": property_load_status,
  };
 
+function check_response(response) {
+    if (!response || Object.keys(response).length === 0) {
+        throw new Error('Empty response from recipient API');
+    }
+    if (response?.code && response.code !== 200) {
+        const errorBody = response?.body ? JSON.stringify(response.body) : 'No error details';
+        throw new Error('Error while sending data to recipient API: ' + response.status + ' - ' + errorBody);
+    }
+}
+
 /**
  * Main function that handles the flow execution whether in mock mode or production mode.
  * In mock mode, it sets up mock functions and a fixed locale.
@@ -1240,14 +1246,15 @@ function main () {
         fetchEnumerated = mock_fetchEnumerated
         const record_id = "CDS2";
         result = load(record_id, properties);
-        let send_result = send_to_recipient_API('', result);
-        return send_result;
+        let response = send_to_recipient_API('', result);
+        check_response(response)
+        return response;
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;
 
-        // let send_result = send_to_recipient_API('', fetchRecord(rootId));
-        // return send_result;
+        // let response = send_to_recipient_API('', fetchRecord(rootId));
+        // return response;
 
         let result = load(rootId, properties);
         if (DEBUG) {
@@ -1259,8 +1266,8 @@ function main () {
                 }
             });
         }
-        let send_result = send_to_recipient_API('', result);
-        return send_result;
+        let response = send_to_recipient_API('', result);
+        return response;
     }
 }
 

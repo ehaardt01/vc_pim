@@ -7,6 +7,7 @@
    "children": [{ "id": "360102" }],
    "locale": "en-GB",
    "name": "HPM Diet - Cat  D1 Dermatology Support",
+   "brand_data_table": { "id": "Vet HPM", "brand_name": "Veterinary HPM" },
    "country_markets": [{ "key": "UK", "value": "UK" }],
    "group_species": [
       { "key": "Cat", "value": { "en-US": "Cat", "fr-FR": "Chat" } }

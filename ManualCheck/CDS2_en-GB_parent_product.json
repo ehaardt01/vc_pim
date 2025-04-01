@@ -2,13 +2,15 @@
    "id": "CDS2",
    "system_id": "s-3d973b6d-44d9-4c9e-af25-9bbb194fd4fa",
    "created_at": "2025-01-13T14:39:49.109Z",
-   "updated_at": "2025-04-01T09:28:58.386Z",
-   "version": 85,
+   "updated_at": "2025-04-01T13:38:43.436Z",
+   "version": 91,
    "children": [{ "id": "360102" }],
    "locale": "en-GB",
    "name": "HPM Diet - Cat  D1 Dermatology Support",
    "country_markets": [{ "key": "UK", "value": "UK" }],
-   "group_species": [{ "key": "Cat", "value": "en-BG: Cat" }],
+   "group_species": [
+      { "key": "Cat", "value": { "en-US": "Cat", "fr-FR": "Chat" } }
+   ],
    "animal_stage": [{ "key": "Adult", "value": "Adult" }],
    "flavour": [{ "key": "Fish", "value": "Fish" }],
    "b2c_short_description": "A therapeutic dry cat food to support skin function and manage medium- and long-term skin and coat conditions. Suitable for cats with dermatosis (non-inflammatory skin problems), excessive hair loss*, dermatitis or pruritus (itching).\n\n(*When cat food allergies are not suspected.)",
@@ -25,71 +27,6 @@
       "HPM Diet - Cat  D1 Dermatology Support"
    ],
    "related_product": { "id": "360115" },
-   "a_content": [
-      {
-         "salsify_id": "63589a3cffef902795117fb4bbf4c6a651c2f4f3",
-         "cdn_url": "https://virbac.widen.net/content/a2xyekqbdr/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
-         "name": "360192_Packshot_HPM-KJ3_cat-3kg_back.jpeg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      },
-      {
-         "salsify_id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
-         "cdn_url": "https://virbac.widen.net/content/1efsap3www/jpeg/360191_Bag_HPM-KJ3_cat-1%2C5kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
-         "name": "360191_Bag_HPM-KJ3_cat-1,5kg_face.jpeg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      },
-      {
-         "salsify_id": "69904ac2e9bdc0176b4e345459083b225bdbdaf3",
-         "name": "303438_Packshot_Enzymatic-Toothpaste_43g_back.jpeg.jpg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      }
-   ],
-   "packaging": [
-      {
-         "salsify_id": "d4b727b3cb77637b7fd9ce2f9f39900f9b8ac1f7",
-         "cdn_url": "https://virbac.widen.net/content/1efsap3www/jpeg/360191_Bag_HPM-KJ3_cat-1%2C5kg_face.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
-         "name": "360191_Bag_HPM-KJ3_cat-1,5kg_face.jpeg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      },
-      {
-         "salsify_id": "462f8e6cbec50eae2bff52c8b0ad20dd6aea1ed3",
-         "cdn_url": "https://virbac.widen.net/content/ztxfxmnohd/jpeg/360192_Packshot_HPM-KJ3_cat-3kg_right.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
-         "name": "360192_Packshot_HPM-KJ3_cat-3kg_right.jpeg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      },
-      {
-         "salsify_id": "6348e8389f743d73ef047b24c447c6162cbf20c7",
-         "name": "Veterinary HPM_logo_BLACK.jpg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      },
-      {
-         "salsify_id": "0606fe7e5e90d70974f8751bf332975dc1338ff7",
-         "name": "TP_Packshot-opened_Ayradia_100ml_US_right.jpg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      },
-      {
-         "salsify_id": "69b03aa451a86706bf5040b9c089da52b61927c9",
-         "cdn_url": "https://virbac.widen.net/content/7mgbnhlgp1/jpeg/360189_Packshot_HPM-KJ2_cat-1%2C5kg_back.jpeg?position=c\u0026color=ffffffff\u0026quality=80\u0026u=wuhf7a",
-         "name": "360189_Packshot_HPM-KJ2_cat-1,5kg_back.jpeg",
-         "salsify_status": "completed",
-         "resource_type": "image",
-         "format": "jpg"
-      }
-   ],
    "key_benefit_summary_text": "lorem ipsum lorem ipsum",
    "visible_online": "Y",
    "key_figures": [
@@ -97,13 +34,30 @@
       "Restores natural skin defences",
       "Improves coat quality"
    ],
-   "faq_data_table": {
-      "id": "FAQ-W1",
-      "question": {
-         "en": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog?"
+   "faq_data_table": [
+      {
+         "id": "FAQ-W1",
+         "question": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog?",
+         "answer": "Dog Weight Loss \u0026 Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. \n\nIt’s also suitable for: \n- Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026 Control W2 instead). \n- Managing fibre-responsive colitis.\n- Managing lipid metabolism disorders (hyperlipidaemia). \n\nDog Weight Loss \u0026 Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease. "
       },
-      "answer": "Locale en-GB: Dog Weight Loss \u0026 Diabetes W1 is a weight loss dog food for overweight dogs. In trials, it has been shown to help overweight dogs lose 2.2% of their body weight per week. It’s also suitable for: - Regulating blood sugar in diabetic dogs, but only those who are obese (for diabetic dogs already at a healthy weight, try Dog Weight Loss \u0026 Control W2 instead). - Managing fibre-responsive colitis. - Managing lipid metabolism disorders (hyperlipidaemia). Dog Weight Loss \u0026 Diabetes W1 is not suitable for puppies, pregnant/lactating dogs, and dogs with chronic kidney disease."
-   },
+      {
+         "id": "FAQ-HPM3",
+         "question": "I think my dog has food allergies – what should I do?",
+         "answer": "If you suspect your dog has food allergies, it's important to consult your veterinarian. They may want to try an elimination diet to determine whether your dog's symptoms are caused by allergies (and which ones) or another underlying health problem. \n\nThe VETERINARY HPM® Allergy range can be used during an elimination diet and long-term if allergies are confirmed. If allergies are not determined to be the cause of your dog's skin problems or hair loss, we recommend trying VETERINARY HPM® Dermatology Support instead."
+      },
+      {
+         "id": "FAQ-Test_Not_Translated",
+         "question": {
+            "fr-FR": "La question n'est pas traduite en en-GB",
+            "en": "The question is not translated in en-GB"
+         },
+         "answer": {
+            "fr-FR": "La réponse n'est pas traduite en en-GB",
+            "en": "The answer is not translated in en-GB"
+         }
+      },
+      { "id": "FAQ-Test_No_Values" }
+   ],
    "sellable_online": "Y",
    "composition_analytical_constituents": [
       { "name": "Moisture", "value": "5.5%" },

@@ -1267,6 +1267,7 @@ function main () {
             });
         }
         let response = send_to_recipient_API('', result);
+        check_response(response)
         return response;
     }
 }

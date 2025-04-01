@@ -1,10 +1,13 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
-const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
+// const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
 const TARGET_DOMAIN_2 = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
-// const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
+const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
 let RESULT = "";
+
+// FAQ: il faut reprendre la locale
+// Ask to Salsify why there are blank value cdn url
 
 // https://staging-unity.virbac.com/api/v1/login
 // https://staging-unity.virbac.com/api/v1/products
@@ -202,7 +205,48 @@ function check_configuration (properties_list=properties) {
 function mock_send_to_recipient_API (path, content) {
     const METHOD = 'post';
     const URL = TARGET_DOMAIN + path;
-    web_request(URL, METHOD, content); // fixed parameter assignment
+    let secret = "Bearer "
+    if(MOCK) {
+        secret = secret + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDM1MDYyMDQsImV4cCI6MTc3NTA0MjIwNCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGltX2FwaSJ9.yy3vfyyYkQ8qnNXg3FWQSJwCDESzQeYiwvMRm6M8Z2M';
+    } else {
+        secret = secret + secret_value("ibexa_bearer_token");
+    }
+    const HEADERS = {
+        Authorization: secret,
+        "Content-Type": "application/json"
+    };
+    const OPTIONS = {
+        return_status: true
+    };
+
+    let response = {};
+    try {
+        const xhr = new XMLHttpRequest();
+        xhr.open(METHOD, URL, false); // synchronous request
+
+        Object.keys(HEADERS).forEach(header => {
+            xhr.setRequestHeader(header, HEADERS[header]);
+        });
+        let stringifiedContent = JSON.stringify(content);
+        xhr.send(stringifiedContent);
+        response = {
+            code: xhr.status,
+            body: xhr.responseText ? JSON.parse(xhr.responseText) : null
+        };
+    } catch (error) {
+        console.error("Error in mock_send_to_recipient_API:", error);
+        response = { code: 500, error: error.message };
+    }
+
+    if (response === undefined) {
+        response = {};
+    } else {
+        if ((response.code < 200) || (response.code > 299)) {
+            response["returned_status"] = "error " + response.code;
+        } else {
+            response["returned_status"] = "success " + response.code;
+        }
+    }
 }
 
 /**
@@ -1194,7 +1238,9 @@ function main () {
         fetchPageRecords = mock_fetchPageRecords;
         fetchEnumerated = mock_fetchEnumerated
         const record_id = "CDS2";
-        RESULT = load(record_id, properties);
+        result = load(record_id, properties);
+        let send_result = send_to_recipient_API('', result);
+        return send_result;
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         const rootId = context.entity.external_id;

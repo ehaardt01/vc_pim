@@ -1,8 +1,8 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
-// const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
+const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
 const TARGET_DOMAIN_2 = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
-const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
+// const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
 let RESULT = "";
 

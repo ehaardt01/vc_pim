@@ -1,8 +1,19 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
-const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
+const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
+// const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
 let RESULT = "";
+
+// https://staging-unity.virbac.com/api/v1/login
+// https://staging-unity.virbac.com/api/v1/products
+// https://unity:unity00!@staging-unity.virbac.com/api/v1/login
+// https://unity:unity00!@staging-unity.virbac.com/api/v1/products
+// {
+//     "username": "pim_api",
+//     "password": "YzVjMmFiNzVhZTFk1"
+// }
+// eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDM1MDYyMDQsImV4cCI6MTc3NTA0MjIwNCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGltX2FwaSJ9.yy3vfyyYkQ8qnNXg3FWQSJwCDESzQeYiwvMRm6M8Z2M
 
 /**
  * Array of property configurations for a product data model

@@ -260,10 +260,6 @@ function send_to_recipient_API (path, content) {
     const OPTIONS = {
         return_status: true
     };
-    if (TARGET_DOMAIN_2 !== undefined) {
-        const URL_2 = TARGET_DOMAIN_2 + path;
-        let response_2 = web_request(URL_2, METHOD, content, HEADERS, OPTIONS);
-    }
     let response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
     if (response === undefined) {
         response = {};
@@ -273,6 +269,10 @@ function send_to_recipient_API (path, content) {
         } else {
             response["returned_status"] = "success " + response.code;
         }
+    }
+    if (TARGET_DOMAIN_2 !== undefined) {
+        const URL_2 = TARGET_DOMAIN_2 + path;
+        let response_2 = web_request(URL_2, METHOD, content, HEADERS, OPTIONS);
     }
     return response;
 }

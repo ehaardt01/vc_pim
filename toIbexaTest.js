@@ -13,8 +13,8 @@ function main () {
     response = {
         code: rootId,
         body: {
-            "success": false,
-            "error": null
+            "success": true,
+            "error": "a fake error"
         }
     };
     return response;

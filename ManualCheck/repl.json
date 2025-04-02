@@ -1,7 +1,7 @@
 {
-    "id": "s-1a03fc9a-2d68-4285-b475-0f0e25dfc665",
+    "id": "s-7fe4bb65-ff43-49ac-8f6b-711bbdedc5e9",
     "flow": {
-      "id": "s-1c276901-13c0-4e61-acdc-3e2200d6d07f",
+      "id": "s-c902fc88-c79b-4299-8fd4-5e97a37d6f07",
       "locale": "en",
       "status": "active",
       "context": {
@@ -1365,10 +1365,10 @@
         },
         "trigger_info": {
           "action": "initiate_flow",
-          "trigger_id": "892aab61-80ec-4964-9a53-64acdea7174b",
-          "system_message_id": "892aab61-80ec-4964-9a53-64acdea7174b",
+          "trigger_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
+          "system_message_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
           "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
-          "system_message_timestamp": "2025-04-02T15:09:18.999Z"
+          "system_message_timestamp": "2025-04-02T15:15:09.255Z"
         }
       },
       "entity_id": "s-85f3d41d-361a-4cfb-9c08-e4c664677e23",
@@ -3889,17 +3889,23 @@
       "step_id": "s-59ce033f-e571-4e63-8605-a56e6c17c618",
       "trigger_info": {
         "action": "initiate_flow",
-        "trigger_id": "892aab61-80ec-4964-9a53-64acdea7174b",
-        "system_message_id": "892aab61-80ec-4964-9a53-64acdea7174b",
+        "trigger_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
+        "system_message_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
         "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
-        "system_message_timestamp": "2025-04-02T15:09:18.999Z"
+        "system_message_timestamp": "2025-04-02T15:15:09.255Z"
       },
-      "export_result": "360102",
+      "export_result": {
+        "body": {
+          "error": null,
+          "success": false
+        },
+        "code": "360102"
+      },
       "repl_template_methods": "shortened_url(url);\ntitlecase(string);\nvalue_from_data_source(classifier, data_source_name_or_path, ...value_path);\nsecret_value(secret_id);\nevaluate_template(template, data_source = null);\nurl_encode(url);\nproperty_values(entity, property_id, external_id_value = null);\nlist_name(list_id);\ncontent_flow_development_enabled();\nproperty_value(entity, property_id, index = null);\nlocalized_property_value(entity, property_id, locale_id = null);\nlocalized_property_values(entity, property_id, locale_id = null);\nproperty_name(property_id);\nuniversal_property(alias_id);\nuniversal_properties(alias_ids);\nload_script(path);\nvalue_from_salsify(api_path, ...value_path);\ngenerate_salsify_uuid();\nworkflow_name(workflow_id);\nget_resource(path);\nget_json(path, ...value_path);\nget_csv(path);\ndigital_asset_system_id(external_id);\nproduct_system_id(external_id);\nproperty_system_ids(external_ids);\nproperty_system_ids_for_group(group_external_id);\nuser_system_id(email);\ngroup_system_id(group_name);\nflow_template_system_id(flow_template_template_name);\ntask_template_system_id(task_template_template_name);\nflow_step_system_id(step_identifier = null);\ntask_configuration_system_id(step_identifier = null);\nproperty_system_id(external_id, options = null);\ndigital_asset_create(external_id, source_url, property_value_assignments = null);\nchangeset_save(params = null);\nsalsify_request(path, method, payload = null, api_version = null, options = null);\nsalsify_graphql_request(operation, variables);\nweb_request(url, method, payload = null, headers = null, options = null);\npost_comment(params = null);\npost_task_property_comments(task_id, property_comments, conversation_id = null);\nrequest_product_validation(product, domain, callback_url = null, correlation_id = null);\nmerge_ai_suggested_values(suggestions_by_attribute_id);\ninitiate_workflow(id, entity = null, data = null, options = null);\nupload_file(data, options = null);\npost_file(url, file_body, options = null);\ndownload_zipfile(url, options = null);\ndownload_file_base64(url, options = null);\nproduct_update(id, data = null);\ndigital_asset_update(id, data = null);"
     },
-    "flow_id": "s-1c276901-13c0-4e61-acdc-3e2200d6d07f",
+    "flow_id": "s-c902fc88-c79b-4299-8fd4-5e97a37d6f07",
     "summary": null,
-    "task_url": "https://app.salsify.com/app/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/content-flow/tasks?active_task_id=s-1a03fc9a-2d68-4285-b475-0f0e25dfc665",
+    "task_url": "https://app.salsify.com/app/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/content-flow/tasks?active_task_id=s-7fe4bb65-ff43-49ac-8f6b-711bbdedc5e9",
     "automated": false,
     "group_key": "",
     "task_data": {
@@ -3992,9 +3998,9 @@
             {
               "config": {
                 "value": {
-                  "id": "s-1a03fc9a-2d68-4285-b475-0f0e25dfc665",
+                  "id": "s-7fe4bb65-ff43-49ac-8f6b-711bbdedc5e9",
                   "flow": {
-                    "id": "s-1c276901-13c0-4e61-acdc-3e2200d6d07f",
+                    "id": "s-c902fc88-c79b-4299-8fd4-5e97a37d6f07",
                     "locale": "en",
                     "status": "active",
                     "context": {
@@ -5358,10 +5364,10 @@
                       },
                       "trigger_info": {
                         "action": "initiate_flow",
-                        "trigger_id": "892aab61-80ec-4964-9a53-64acdea7174b",
-                        "system_message_id": "892aab61-80ec-4964-9a53-64acdea7174b",
+                        "trigger_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
+                        "system_message_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
                         "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
-                        "system_message_timestamp": "2025-04-02T15:09:18.999Z"
+                        "system_message_timestamp": "2025-04-02T15:15:09.255Z"
                       }
                     },
                     "entity_id": "s-85f3d41d-361a-4cfb-9c08-e4c664677e23",
@@ -7882,17 +7888,23 @@
                     "step_id": "s-59ce033f-e571-4e63-8605-a56e6c17c618",
                     "trigger_info": {
                       "action": "initiate_flow",
-                      "trigger_id": "892aab61-80ec-4964-9a53-64acdea7174b",
-                      "system_message_id": "892aab61-80ec-4964-9a53-64acdea7174b",
+                      "trigger_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
+                      "system_message_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
                       "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
-                      "system_message_timestamp": "2025-04-02T15:09:18.999Z"
+                      "system_message_timestamp": "2025-04-02T15:15:09.255Z"
                     },
-                    "export_result": "360102",
+                    "export_result": {
+                      "body": {
+                        "error": null,
+                        "success": false
+                      },
+                      "code": "360102"
+                    },
                     "repl_template_methods": "shortened_url(url);\ntitlecase(string);\nvalue_from_data_source(classifier, data_source_name_or_path, ...value_path);\nsecret_value(secret_id);\nevaluate_template(template, data_source = null);\nurl_encode(url);\nproperty_values(entity, property_id, external_id_value = null);\nlist_name(list_id);\ncontent_flow_development_enabled();\nproperty_value(entity, property_id, index = null);\nlocalized_property_value(entity, property_id, locale_id = null);\nlocalized_property_values(entity, property_id, locale_id = null);\nproperty_name(property_id);\nuniversal_property(alias_id);\nuniversal_properties(alias_ids);\nload_script(path);\nvalue_from_salsify(api_path, ...value_path);\ngenerate_salsify_uuid();\nworkflow_name(workflow_id);\nget_resource(path);\nget_json(path, ...value_path);\nget_csv(path);\ndigital_asset_system_id(external_id);\nproduct_system_id(external_id);\nproperty_system_ids(external_ids);\nproperty_system_ids_for_group(group_external_id);\nuser_system_id(email);\ngroup_system_id(group_name);\nflow_template_system_id(flow_template_template_name);\ntask_template_system_id(task_template_template_name);\nflow_step_system_id(step_identifier = null);\ntask_configuration_system_id(step_identifier = null);\nproperty_system_id(external_id, options = null);\ndigital_asset_create(external_id, source_url, property_value_assignments = null);\nchangeset_save(params = null);\nsalsify_request(path, method, payload = null, api_version = null, options = null);\nsalsify_graphql_request(operation, variables);\nweb_request(url, method, payload = null, headers = null, options = null);\npost_comment(params = null);\npost_task_property_comments(task_id, property_comments, conversation_id = null);\nrequest_product_validation(product, domain, callback_url = null, correlation_id = null);\nmerge_ai_suggested_values(suggestions_by_attribute_id);\ninitiate_workflow(id, entity = null, data = null, options = null);\nupload_file(data, options = null);\npost_file(url, file_body, options = null);\ndownload_zipfile(url, options = null);\ndownload_file_base64(url, options = null);\nproduct_update(id, data = null);\ndigital_asset_update(id, data = null);"
                   },
-                  "flow_id": "s-1c276901-13c0-4e61-acdc-3e2200d6d07f",
+                  "flow_id": "s-c902fc88-c79b-4299-8fd4-5e97a37d6f07",
                   "summary": null,
-                  "task_url": "https://app.salsify.com/app/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/content-flow/tasks?active_task_id=s-1a03fc9a-2d68-4285-b475-0f0e25dfc665",
+                  "task_url": "https://app.salsify.com/app/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/content-flow/tasks?active_task_id=s-7fe4bb65-ff43-49ac-8f6b-711bbdedc5e9",
                   "automated": false,
                   "group_key": null,
                   "task_data": {},
@@ -7906,7 +7918,7 @@
                   "lock_version": 0,
                   "assignee_type": null,
                   "callback_runs": {
-                    "2025-04-02 15:09:31 UTC": {
+                    "2025-04-02 15:15:22 UTC": {
                       "before_waiting": [
                         {
                           "status": "succeeded",
@@ -7976,7 +7988,7 @@
                   "status_message": null,
                   "task_image_url": null,
                   "organization_id": "s-e8cb4aec-71e2-433b-9355-edf0312746cc",
-                  "flow_progress_id": "s-966c97ea-a5ca-4879-8a68-02d3b6b74b4f",
+                  "flow_progress_id": "s-58786085-ed55-458d-9895-aaf56b8dfa1b",
                   "status_callbacks": {
                     "before_waiting": [
                       {
@@ -8085,7 +8097,7 @@
     "lock_version": 0,
     "assignee_type": "user",
     "callback_runs": {
-      "2025-04-02 15:09:31 UTC": {
+      "2025-04-02 15:15:22 UTC": {
         "before_waiting": [
           {
             "status": "succeeded",
@@ -8155,7 +8167,7 @@
     "status_message": null,
     "task_image_url": null,
     "organization_id": "s-e8cb4aec-71e2-433b-9355-edf0312746cc",
-    "flow_progress_id": "s-966c97ea-a5ca-4879-8a68-02d3b6b74b4f",
+    "flow_progress_id": "s-58786085-ed55-458d-9895-aaf56b8dfa1b",
     "status_callbacks": {
       "before_waiting": [
         {

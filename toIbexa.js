@@ -4,6 +4,7 @@ const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
 const TARGET_DOMAIN_2 = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 // const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
+const NOT_TRANSLATED = "";
 let RESULT = "";
 
 // https://staging-unity.virbac.com/api/v1/login
@@ -565,9 +566,9 @@ function get_localized_value (value) {
     }
     if (Array.isArray(value) && value.every(item => typeof item === 'string')) {
         // TODO Uncomment to return a concatenated string instead of a String array
-        if (value.length > 0) {
-            return value.join('\n');
-        }
+        // if (value.length > 0) {
+        //     return value.join('\n');
+        // }
         return value[0];  // Return first string from array in case one only
     }
     if (typeof value === 'object' && value !== null) {
@@ -575,7 +576,7 @@ function get_localized_value (value) {
             return value[LOCALE];
         } else {
             // TODO Uncomment to return a "not translated" message
-            return "NOT TRANSLATED";
+            // return NOT_TRANSLATED;
             return value;
         }
     }
@@ -979,13 +980,13 @@ function property_load_enumerated (record, configured_property, property_value, 
             let value = mapped_values[property_value];
             value = value === undefined ? property_value : value;
             // TODO Uncomment to use the adapted value
-            if (typeof value === 'string') {
-                value = value
-            } else if (typeof value === 'object' && value !== null) {
-                value = value[LOCALE] || property_value;
-            } else {
-                value = property_value;
-            }
+            // if (typeof value === 'string') {
+            //     value = value
+            // } else if (typeof value === 'object' && value !== null) {
+            //     value = value[LOCALE] || property_value;
+            // } else {
+            //     value = property_value;
+            // }
             new_record = {
                 key: property_value,
                 value: value,

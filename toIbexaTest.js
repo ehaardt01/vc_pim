@@ -49,5 +49,12 @@ try {
             "error_stack": error.stack
         }
     };
+    salsify_request("/products", "post", {
+        data: {
+          property_values: [
+            { property_id: "Ibexa report", values: [JSON.stringify(response)] }
+          ]
+        }
+      });
     response;
 }

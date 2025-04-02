@@ -10,14 +10,6 @@ function flatten_error(error) {
 function main () {
     LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
     const rootId = context.entity.external_id;
-    const params = {
-        body: "This is my insightful contribution.",
-        // From a Workflow Javascript Bot, `id`
-        // will reference the running Task's ID.
-        entity_id: id,
-        entity_type: "task"
-    };
-    post_comment(params);
     response = {
         code: 200,
         body: {
@@ -28,13 +20,13 @@ function main () {
             "error_stack": ""
         }
     };
+    throw new Error("This is a test error");
     return response;
 }
 
 try {
     main();
-    throw new Error("This is a test error");
-
+    // product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "" ] } ] }); // No error, we reset the ibexa_report field
 } catch (error) {
     const errorMessage = error.message;
     response = {

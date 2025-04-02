@@ -49,9 +49,6 @@ try {
             "error_stack": error.stack
         }
     };
-    // const options = { return_status: true };
-    // const payload = [{ ibexa_report: JSON.stringify(response) }];
-    // const response = salsify_request("/products/"+context.entity.external_id, "put", payload, "v1", options);
-    product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ 'boo' ] } ] });
+    product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ JSON.stringify(response) ] } ] });
     JSON.stringify(response);
 }

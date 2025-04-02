@@ -64,6 +64,7 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Key figures", type: "string", export_name: "key_figures"},
     {name: "FAQ data table", type: "product", export_name: "faq_data_table", values: [{name: "FAQ reference - Question", type: "string", export_name: "question"}, {name: "FAQ reference - Answer", type: "string", export_name: "answer"}]},
     {name: "Sellable online ?", type: "string", export_name: "sellable_online"},
+    {name: "Sellable SKU format size", type: "enumerated", export_name: "sellable_sku_format_size"},
     {name: "Composition - Analytical constituents", type: "composition", export_name: "composition_analytical_constituents"},
     {name: "Composition - Functional ingredients", type: "composition", export_name: "composition_functional_ingredients"},
     {name: "Composition - Functional ingredients - Notes", type: "string", export_name: "composition_functional_ingredients_notes"},
@@ -75,7 +76,6 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Composition", type: "string", export_name: "composition"},
     {name: "Sellable SKU Measurement unit", type: "enumerated", export_name: "sellable_sku_measurement_unit"},
     {name: "Sellable SKU Unit Value", type: "number", export_name: "sellable_sku_unit_value"},
-    {name: "Sellable SKU format size", type: "enumerated", export_name: "sellable_sku_format_size"},
     {name: "Benefit data table", type: "product", export_name: "benefit_data_table", values: [{name: "Benefit data table - item label", type: "string", export_name: "label"}, {name: "Benefit data table - long description", type: "string", export_name: "description"}]},
     {name: "Key Selling Points", type: "rich_text", export_name: "key_selling_points"},
     {name: "Animal size", type: "enumerated", export_name: "animal_size"},
@@ -563,10 +563,19 @@ function get_localized_value (value) {
     if ((typeof value === 'number') || (typeof value === 'boolean') || (typeof value === 'string')) {
         return value;
     }
+    if (Array.isArray(value) && value.every(item => typeof item === 'string')) {
+        // TODO Uncomment to return a concatenated string instead of a String array
+        if (value.length > 0) {
+            return value.join('\n');
+        }
+        return value[0];  // Return first string from array in case one only
+    }
     if (typeof value === 'object' && value !== null) {
         if (value.hasOwnProperty(LOCALE)) {
             return value[LOCALE];
         } else {
+            // TODO Uncomment to return a "not translated" message
+            return "NOT TRANSLATED";
             return value;
         }
     }
@@ -969,6 +978,14 @@ function property_load_enumerated (record, configured_property, property_value, 
         case "string":
             let value = mapped_values[property_value];
             value = value === undefined ? property_value : value;
+            // TODO Uncomment to use the adapted value
+            if (typeof value === 'string') {
+                value = value
+            } else if (typeof value === 'object' && value !== null) {
+                value = value[LOCALE] || property_value;
+            } else {
+                value = property_value;
+            }
             new_record = {
                 key: property_value,
                 value: value,

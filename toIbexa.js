@@ -245,6 +245,8 @@ function mock_send_to_recipient_API (path, content) {
 
 /**
  * Sends a POST request to the the recipient API endpoint
+ * Authorization: Basic dW5pdHk6dW5pdHkwMCE=
+ * X-Token-Auth: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDM1OTE3MDEsImV4cCI6MTc3NTEyNzcwMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGltX2FwaSJ9.b9EBfaXgpmmI2U3VxMIJm7LvfpM86EJ7Gw3dm2It_RA
  * @param {string} path - The API endpoint path to be appended to the base domain
  * @param {*} content - The content/payload to be sent in the POST request
  * @returns {void}
@@ -254,7 +256,8 @@ function send_to_recipient_API (path, content) {
     const URL = TARGET_DOMAIN + path;
     let secret = "Bearer " + secret_value("ibexa_bearer_token");
     const HEADERS = {
-        Authorization: secret,
+        "Authorization": "Basic dW5pdHk6dW5pdHkwMCE=",
+        "X-Token-Auth": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDM1OTE3MDEsImV4cCI6MTc3NTEyNzcwMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGltX2FwaSJ9.b9EBfaXgpmmI2U3VxMIJm7LvfpM86EJ7Gw3dm2It_RA",
         "Content-Type": "application/json"
     };
     const OPTIONS = {

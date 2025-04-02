@@ -11,10 +11,13 @@ function main () {
     LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
     const rootId = context.entity.external_id;
     response = {
-        code: rootId,
+        code: 200,
         body: {
             "success": true,
-            "error": "a fake error"
+            "product_id": context.entity.external_id,
+            "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
+            "error_message": "",
+            "error_stack": ""
         }
     };
     return response;
@@ -22,6 +25,19 @@ function main () {
 
 try {
     main();
+    throw new Error("This is a test error");
+
 } catch (error) {
-    throw new Error(flatten_error(error));
+    const errorMessage = error.message;
+    response = {
+        code: 400,
+        body: {
+            "success": false,
+            "product_id": context.entity.external_id,
+            "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
+            "error_message": error.message,
+            "error_stack": error.stack
+        }
+    };
+    response;
 }

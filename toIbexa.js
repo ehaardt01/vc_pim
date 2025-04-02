@@ -6,9 +6,6 @@ const TARGET_DOMAIN_2 = 'https://virbac-pim.free.beeceptor.com/product/create_or
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
 let RESULT = "";
 
-// FAQ: il faut reprendre la locale
-// Ask to Salsify why there are blank value cdn url
-
 // https://staging-unity.virbac.com/api/v1/login
 // https://staging-unity.virbac.com/api/v1/products
 // https://unity:unity00!@staging-unity.virbac.com/api/v1/login
@@ -660,9 +657,9 @@ function property_load_composition (record, configured_property, property_value,
         const composition = [];
         for (let line of lines) {
             const values = line.split(';');
-            // if (values.length === 2) {
+            if (values.length >= 2) {
                 composition.push({name: values[0], value: values[1]});
-            // }
+            }
         }
         record[get_property_export_name(configured_property)] = composition;
     }
@@ -1192,7 +1189,6 @@ const salsify_property_types = {
     "string": property_load_default,
     "composition": property_load_composition,
     "rich_text": property_load_default,
-    "quantified_product": property_load_quantified_product,
     "product": property_load_product,
     "number": property_load_number,
     "html": property_load_html,
@@ -1200,8 +1196,9 @@ const salsify_property_types = {
     "digital_asset": property_load_digital_asset,
     "date": property_load_default,
     "boolean": property_load_boolean,
-    "computed": property_load_computed,
     "children": property_load_children,
+    "quantified_product": property_load_quantified_product,
+    "computed": property_load_computed,
     "locale": property_load_locale,
     "status": property_load_status,
  };

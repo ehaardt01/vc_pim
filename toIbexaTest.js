@@ -10,6 +10,14 @@ function flatten_error(error) {
 function main () {
     LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
     const rootId = context.entity.external_id;
+    const params = {
+        body: "This is my insightful contribution.",
+        // From a Workflow Javascript Bot, `id`
+        // will reference the running Task's ID.
+        entity_id: id,
+        entity_type: "task"
+    };
+    post_comment(params);
     response = {
         code: 200,
         body: {

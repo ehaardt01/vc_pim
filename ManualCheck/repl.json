@@ -1,7 +1,7 @@
 {
-    "id": "s-7fe4bb65-ff43-49ac-8f6b-711bbdedc5e9",
+    "id": "s-415ec5e5-330b-4f33-8a28-6046352546d6",
     "flow": {
-      "id": "s-c902fc88-c79b-4299-8fd4-5e97a37d6f07",
+      "id": "s-d9695619-0d62-4852-8385-d4f0384c40b1",
       "locale": "en",
       "status": "active",
       "context": {
@@ -1365,10 +1365,10 @@
         },
         "trigger_info": {
           "action": "initiate_flow",
-          "trigger_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
-          "system_message_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
+          "trigger_id": "0e0a0ce9-5ba6-4860-8d00-d32362106e7e",
+          "system_message_id": "0e0a0ce9-5ba6-4860-8d00-d32362106e7e",
           "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
-          "system_message_timestamp": "2025-04-02T15:15:09.255Z"
+          "system_message_timestamp": "2025-04-02T16:00:05.763Z"
         }
       },
       "entity_id": "s-85f3d41d-361a-4cfb-9c08-e4c664677e23",
@@ -3886,26 +3886,30 @@
           }
         ]
       },
-      "step_id": "s-59ce033f-e571-4e63-8605-a56e6c17c618",
+      "step_id": "s-e1b0eeb0-d88b-4733-9549-d3317b92da92",
       "trigger_info": {
         "action": "initiate_flow",
-        "trigger_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
-        "system_message_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
+        "trigger_id": "0e0a0ce9-5ba6-4860-8d00-d32362106e7e",
+        "system_message_id": "0e0a0ce9-5ba6-4860-8d00-d32362106e7e",
         "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
-        "system_message_timestamp": "2025-04-02T15:15:09.255Z"
+        "system_message_timestamp": "2025-04-02T16:00:05.763Z"
       },
       "export_result": {
         "body": {
-          "error": null,
-          "success": false
+          "locale": "en",
+          "success": false,
+          "product_id": "360102",
+          "error_stack": "Error: This is a test error\n    at <anonymous>:28:11",
+          "error_message": "This is a test error"
         },
-        "code": "360102"
+        "code": 400
       },
-      "repl_template_methods": "shortened_url(url);\ntitlecase(string);\nvalue_from_data_source(classifier, data_source_name_or_path, ...value_path);\nsecret_value(secret_id);\nevaluate_template(template, data_source = null);\nurl_encode(url);\nproperty_values(entity, property_id, external_id_value = null);\nlist_name(list_id);\ncontent_flow_development_enabled();\nproperty_value(entity, property_id, index = null);\nlocalized_property_value(entity, property_id, locale_id = null);\nlocalized_property_values(entity, property_id, locale_id = null);\nproperty_name(property_id);\nuniversal_property(alias_id);\nuniversal_properties(alias_ids);\nload_script(path);\nvalue_from_salsify(api_path, ...value_path);\ngenerate_salsify_uuid();\nworkflow_name(workflow_id);\nget_resource(path);\nget_json(path, ...value_path);\nget_csv(path);\ndigital_asset_system_id(external_id);\nproduct_system_id(external_id);\nproperty_system_ids(external_ids);\nproperty_system_ids_for_group(group_external_id);\nuser_system_id(email);\ngroup_system_id(group_name);\nflow_template_system_id(flow_template_template_name);\ntask_template_system_id(task_template_template_name);\nflow_step_system_id(step_identifier = null);\ntask_configuration_system_id(step_identifier = null);\nproperty_system_id(external_id, options = null);\ndigital_asset_create(external_id, source_url, property_value_assignments = null);\nchangeset_save(params = null);\nsalsify_request(path, method, payload = null, api_version = null, options = null);\nsalsify_graphql_request(operation, variables);\nweb_request(url, method, payload = null, headers = null, options = null);\npost_comment(params = null);\npost_task_property_comments(task_id, property_comments, conversation_id = null);\nrequest_product_validation(product, domain, callback_url = null, correlation_id = null);\nmerge_ai_suggested_values(suggestions_by_attribute_id);\ninitiate_workflow(id, entity = null, data = null, options = null);\nupload_file(data, options = null);\npost_file(url, file_body, options = null);\ndownload_zipfile(url, options = null);\ndownload_file_base64(url, options = null);\nproduct_update(id, data = null);\ndigital_asset_update(id, data = null);"
+      "repl_template_methods": "shortened_url(url);\ntitlecase(string);\nvalue_from_data_source(classifier, data_source_name_or_path, ...value_path);\nsecret_value(secret_id);\nevaluate_template(template, data_source = null);\nurl_encode(url);\nproperty_values(entity, property_id, external_id_value = null);\nlist_name(list_id);\ncontent_flow_development_enabled();\nproperty_value(entity, property_id, index = null);\nlocalized_property_value(entity, property_id, locale_id = null);\nlocalized_property_values(entity, property_id, locale_id = null);\nproperty_name(property_id);\nuniversal_property(alias_id);\nuniversal_properties(alias_ids);\nload_script(path);\nvalue_from_salsify(api_path, ...value_path);\ngenerate_salsify_uuid();\nworkflow_name(workflow_id);\nget_resource(path);\nget_json(path, ...value_path);\nget_csv(path);\ndigital_asset_system_id(external_id);\nproduct_system_id(external_id);\nproperty_system_ids(external_ids);\nproperty_system_ids_for_group(group_external_id);\nuser_system_id(email);\ngroup_system_id(group_name);\nflow_template_system_id(flow_template_template_name);\ntask_template_system_id(task_template_template_name);\nflow_step_system_id(step_identifier = null);\ntask_configuration_system_id(step_identifier = null);\nproperty_system_id(external_id, options = null);\ndigital_asset_create(external_id, source_url, property_value_assignments = null);\nchangeset_save(params = null);\nsalsify_request(path, method, payload = null, api_version = null, options = null);\nsalsify_graphql_request(operation, variables);\nweb_request(url, method, payload = null, headers = null, options = null);\npost_comment(params = null);\npost_task_property_comments(task_id, property_comments, conversation_id = null);\nrequest_product_validation(product, domain, callback_url = null, correlation_id = null);\nmerge_ai_suggested_values(suggestions_by_attribute_id);\ninitiate_workflow(id, entity = null, data = null, options = null);\nupload_file(data, options = null);\npost_file(url, file_body, options = null);\ndownload_zipfile(url, options = null);\ndownload_file_base64(url, options = null);\nproduct_update(id, data = null);\ndigital_asset_update(id, data = null);",
+      "task_resolution_label": "Error in script"
     },
-    "flow_id": "s-c902fc88-c79b-4299-8fd4-5e97a37d6f07",
+    "flow_id": "s-d9695619-0d62-4852-8385-d4f0384c40b1",
     "summary": null,
-    "task_url": "https://app.salsify.com/app/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/content-flow/tasks?active_task_id=s-7fe4bb65-ff43-49ac-8f6b-711bbdedc5e9",
+    "task_url": "https://app.salsify.com/app/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/content-flow/tasks?active_task_id=s-415ec5e5-330b-4f33-8a28-6046352546d6",
     "automated": false,
     "group_key": "",
     "task_data": {
@@ -3998,9 +4002,9 @@
             {
               "config": {
                 "value": {
-                  "id": "s-7fe4bb65-ff43-49ac-8f6b-711bbdedc5e9",
+                  "id": "s-415ec5e5-330b-4f33-8a28-6046352546d6",
                   "flow": {
-                    "id": "s-c902fc88-c79b-4299-8fd4-5e97a37d6f07",
+                    "id": "s-d9695619-0d62-4852-8385-d4f0384c40b1",
                     "locale": "en",
                     "status": "active",
                     "context": {
@@ -5364,10 +5368,10 @@
                       },
                       "trigger_info": {
                         "action": "initiate_flow",
-                        "trigger_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
-                        "system_message_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
+                        "trigger_id": "0e0a0ce9-5ba6-4860-8d00-d32362106e7e",
+                        "system_message_id": "0e0a0ce9-5ba6-4860-8d00-d32362106e7e",
                         "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
-                        "system_message_timestamp": "2025-04-02T15:15:09.255Z"
+                        "system_message_timestamp": "2025-04-02T16:00:05.763Z"
                       }
                     },
                     "entity_id": "s-85f3d41d-361a-4cfb-9c08-e4c664677e23",
@@ -7885,26 +7889,30 @@
                         }
                       ]
                     },
-                    "step_id": "s-59ce033f-e571-4e63-8605-a56e6c17c618",
+                    "step_id": "s-e1b0eeb0-d88b-4733-9549-d3317b92da92",
                     "trigger_info": {
                       "action": "initiate_flow",
-                      "trigger_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
-                      "system_message_id": "971b302a-6519-46f9-80ec-c8d05a47819b",
+                      "trigger_id": "0e0a0ce9-5ba6-4860-8d00-d32362106e7e",
+                      "system_message_id": "0e0a0ce9-5ba6-4860-8d00-d32362106e7e",
                       "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
-                      "system_message_timestamp": "2025-04-02T15:15:09.255Z"
+                      "system_message_timestamp": "2025-04-02T16:00:05.763Z"
                     },
                     "export_result": {
                       "body": {
-                        "error": null,
-                        "success": false
+                        "locale": "en",
+                        "success": false,
+                        "product_id": "360102",
+                        "error_stack": "Error: This is a test error\n    at <anonymous>:28:11",
+                        "error_message": "This is a test error"
                       },
-                      "code": "360102"
+                      "code": 400
                     },
-                    "repl_template_methods": "shortened_url(url);\ntitlecase(string);\nvalue_from_data_source(classifier, data_source_name_or_path, ...value_path);\nsecret_value(secret_id);\nevaluate_template(template, data_source = null);\nurl_encode(url);\nproperty_values(entity, property_id, external_id_value = null);\nlist_name(list_id);\ncontent_flow_development_enabled();\nproperty_value(entity, property_id, index = null);\nlocalized_property_value(entity, property_id, locale_id = null);\nlocalized_property_values(entity, property_id, locale_id = null);\nproperty_name(property_id);\nuniversal_property(alias_id);\nuniversal_properties(alias_ids);\nload_script(path);\nvalue_from_salsify(api_path, ...value_path);\ngenerate_salsify_uuid();\nworkflow_name(workflow_id);\nget_resource(path);\nget_json(path, ...value_path);\nget_csv(path);\ndigital_asset_system_id(external_id);\nproduct_system_id(external_id);\nproperty_system_ids(external_ids);\nproperty_system_ids_for_group(group_external_id);\nuser_system_id(email);\ngroup_system_id(group_name);\nflow_template_system_id(flow_template_template_name);\ntask_template_system_id(task_template_template_name);\nflow_step_system_id(step_identifier = null);\ntask_configuration_system_id(step_identifier = null);\nproperty_system_id(external_id, options = null);\ndigital_asset_create(external_id, source_url, property_value_assignments = null);\nchangeset_save(params = null);\nsalsify_request(path, method, payload = null, api_version = null, options = null);\nsalsify_graphql_request(operation, variables);\nweb_request(url, method, payload = null, headers = null, options = null);\npost_comment(params = null);\npost_task_property_comments(task_id, property_comments, conversation_id = null);\nrequest_product_validation(product, domain, callback_url = null, correlation_id = null);\nmerge_ai_suggested_values(suggestions_by_attribute_id);\ninitiate_workflow(id, entity = null, data = null, options = null);\nupload_file(data, options = null);\npost_file(url, file_body, options = null);\ndownload_zipfile(url, options = null);\ndownload_file_base64(url, options = null);\nproduct_update(id, data = null);\ndigital_asset_update(id, data = null);"
+                    "repl_template_methods": "shortened_url(url);\ntitlecase(string);\nvalue_from_data_source(classifier, data_source_name_or_path, ...value_path);\nsecret_value(secret_id);\nevaluate_template(template, data_source = null);\nurl_encode(url);\nproperty_values(entity, property_id, external_id_value = null);\nlist_name(list_id);\ncontent_flow_development_enabled();\nproperty_value(entity, property_id, index = null);\nlocalized_property_value(entity, property_id, locale_id = null);\nlocalized_property_values(entity, property_id, locale_id = null);\nproperty_name(property_id);\nuniversal_property(alias_id);\nuniversal_properties(alias_ids);\nload_script(path);\nvalue_from_salsify(api_path, ...value_path);\ngenerate_salsify_uuid();\nworkflow_name(workflow_id);\nget_resource(path);\nget_json(path, ...value_path);\nget_csv(path);\ndigital_asset_system_id(external_id);\nproduct_system_id(external_id);\nproperty_system_ids(external_ids);\nproperty_system_ids_for_group(group_external_id);\nuser_system_id(email);\ngroup_system_id(group_name);\nflow_template_system_id(flow_template_template_name);\ntask_template_system_id(task_template_template_name);\nflow_step_system_id(step_identifier = null);\ntask_configuration_system_id(step_identifier = null);\nproperty_system_id(external_id, options = null);\ndigital_asset_create(external_id, source_url, property_value_assignments = null);\nchangeset_save(params = null);\nsalsify_request(path, method, payload = null, api_version = null, options = null);\nsalsify_graphql_request(operation, variables);\nweb_request(url, method, payload = null, headers = null, options = null);\npost_comment(params = null);\npost_task_property_comments(task_id, property_comments, conversation_id = null);\nrequest_product_validation(product, domain, callback_url = null, correlation_id = null);\nmerge_ai_suggested_values(suggestions_by_attribute_id);\ninitiate_workflow(id, entity = null, data = null, options = null);\nupload_file(data, options = null);\npost_file(url, file_body, options = null);\ndownload_zipfile(url, options = null);\ndownload_file_base64(url, options = null);\nproduct_update(id, data = null);\ndigital_asset_update(id, data = null);",
+                    "task_resolution_label": "Error in script"
                   },
-                  "flow_id": "s-c902fc88-c79b-4299-8fd4-5e97a37d6f07",
+                  "flow_id": "s-d9695619-0d62-4852-8385-d4f0384c40b1",
                   "summary": null,
-                  "task_url": "https://app.salsify.com/app/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/content-flow/tasks?active_task_id=s-7fe4bb65-ff43-49ac-8f6b-711bbdedc5e9",
+                  "task_url": "https://app.salsify.com/app/orgs/s-e8cb4aec-71e2-433b-9355-edf0312746cc/content-flow/tasks?active_task_id=s-415ec5e5-330b-4f33-8a28-6046352546d6",
                   "automated": false,
                   "group_key": null,
                   "task_data": {},
@@ -7918,7 +7926,7 @@
                   "lock_version": 0,
                   "assignee_type": null,
                   "callback_runs": {
-                    "2025-04-02 15:15:22 UTC": {
+                    "2025-04-02 16:00:31 UTC": {
                       "before_waiting": [
                         {
                           "status": "succeeded",
@@ -7945,10 +7953,10 @@
                             "y": 66
                           }
                         },
-                        "s-59ce033f-e571-4e63-8605-a56e6c17c618": {
-                          "JavaScript REPL": {
-                            "x": 877.5,
-                            "y": 388,
+                        "s-89051e07-8cd1-4254-bf89-df11ef682d95": {
+                          "JavaScript Program": {
+                            "x": 991.5,
+                            "y": 552,
                             "connectedToTrigger": false
                           }
                         },
@@ -7957,6 +7965,20 @@
                             "x": 877.5,
                             "y": 227,
                             "connectedToTrigger": true
+                          }
+                        },
+                        "s-a18774e2-80ff-4ab1-bd9f-2e81e416ff0c": {
+                          "Conditional Branch": {
+                            "x": 877.5,
+                            "y": 388,
+                            "connectedToTrigger": false
+                          }
+                        },
+                        "s-e1b0eeb0-d88b-4733-9549-d3317b92da92": {
+                          "JavaScript REPL": {
+                            "x": 740.5,
+                            "y": 551,
+                            "connectedToTrigger": false
                           }
                         }
                       }
@@ -7988,7 +8010,7 @@
                   "status_message": null,
                   "task_image_url": null,
                   "organization_id": "s-e8cb4aec-71e2-433b-9355-edf0312746cc",
-                  "flow_progress_id": "s-58786085-ed55-458d-9895-aaf56b8dfa1b",
+                  "flow_progress_id": "s-1930c461-a9c7-4602-b755-3c3c353b44a4",
                   "status_callbacks": {
                     "before_waiting": [
                       {
@@ -8029,13 +8051,13 @@
                   "task_template_id": null,
                   "activation_lock_id": null,
                   "task_configuration": {
-                    "id": "s-36b3370f-3d51-4b18-b274-dbfb66fb0acf",
-                    "name": "s-59ce033f-e571-4e63-8605-a56e6c17c618/S/JavaScript REPL",
-                    "step_id": "s-59ce033f-e571-4e63-8605-a56e6c17c618",
+                    "id": "s-00b663a1-081c-4a6e-b768-5b4e94177c6f",
+                    "name": "s-e1b0eeb0-d88b-4733-9549-d3317b92da92/S/JavaScript REPL",
+                    "step_id": "s-e1b0eeb0-d88b-4733-9549-d3317b92da92",
                     "automated": false,
-                    "import_id": "s-59ce033f-e571-4e63-8605-a56e6c17c618/S/JavaScript REPL",
+                    "import_id": "s-e1b0eeb0-d88b-4733-9549-d3317b92da92/S/JavaScript REPL",
                     "created_at": "Undefined Conversion",
-                    "facet_name": "JavaScript REPL",
+                    "facet_name": "Error in script",
                     "updated_at": "Undefined Conversion",
                     "destroyed_at": null,
                     "configuration": {
@@ -8056,7 +8078,7 @@
                   },
                   "task_resolution_id": null,
                   "assignment_policy_id": null,
-                  "task_configuration_id": "s-36b3370f-3d51-4b18-b274-dbfb66fb0acf",
+                  "task_configuration_id": "s-00b663a1-081c-4a6e-b768-5b4e94177c6f",
                   "task_data_context_key": null
                 },
                 "mode": "json",
@@ -8097,7 +8119,7 @@
     "lock_version": 0,
     "assignee_type": "user",
     "callback_runs": {
-      "2025-04-02 15:15:22 UTC": {
+      "2025-04-02 16:00:31 UTC": {
         "before_waiting": [
           {
             "status": "succeeded",
@@ -8124,10 +8146,10 @@
               "y": 66
             }
           },
-          "s-59ce033f-e571-4e63-8605-a56e6c17c618": {
-            "JavaScript REPL": {
-              "x": 877.5,
-              "y": 388,
+          "s-89051e07-8cd1-4254-bf89-df11ef682d95": {
+            "JavaScript Program": {
+              "x": 991.5,
+              "y": 552,
               "connectedToTrigger": false
             }
           },
@@ -8136,6 +8158,20 @@
               "x": 877.5,
               "y": 227,
               "connectedToTrigger": true
+            }
+          },
+          "s-a18774e2-80ff-4ab1-bd9f-2e81e416ff0c": {
+            "Conditional Branch": {
+              "x": 877.5,
+              "y": 388,
+              "connectedToTrigger": false
+            }
+          },
+          "s-e1b0eeb0-d88b-4733-9549-d3317b92da92": {
+            "JavaScript REPL": {
+              "x": 740.5,
+              "y": 551,
+              "connectedToTrigger": false
             }
           }
         }
@@ -8167,7 +8203,7 @@
     "status_message": null,
     "task_image_url": null,
     "organization_id": "s-e8cb4aec-71e2-433b-9355-edf0312746cc",
-    "flow_progress_id": "s-58786085-ed55-458d-9895-aaf56b8dfa1b",
+    "flow_progress_id": "s-1930c461-a9c7-4602-b755-3c3c353b44a4",
     "status_callbacks": {
       "before_waiting": [
         {
@@ -8219,13 +8255,13 @@
     "task_template_id": null,
     "activation_lock_id": null,
     "task_configuration": {
-      "id": "s-36b3370f-3d51-4b18-b274-dbfb66fb0acf",
-      "name": "s-59ce033f-e571-4e63-8605-a56e6c17c618/S/JavaScript REPL",
-      "step_id": "s-59ce033f-e571-4e63-8605-a56e6c17c618",
+      "id": "s-00b663a1-081c-4a6e-b768-5b4e94177c6f",
+      "name": "s-e1b0eeb0-d88b-4733-9549-d3317b92da92/S/JavaScript REPL",
+      "step_id": "s-e1b0eeb0-d88b-4733-9549-d3317b92da92",
       "automated": false,
-      "import_id": "s-59ce033f-e571-4e63-8605-a56e6c17c618/S/JavaScript REPL",
+      "import_id": "s-e1b0eeb0-d88b-4733-9549-d3317b92da92/S/JavaScript REPL",
       "created_at": "Undefined Conversion",
-      "facet_name": "JavaScript REPL",
+      "facet_name": "Error in script",
       "updated_at": "Undefined Conversion",
       "destroyed_at": null,
       "configuration": {
@@ -8246,6 +8282,6 @@
     },
     "task_resolution_id": null,
     "assignment_policy_id": "s-4c2322e6-d1ee-479e-80f1-955a66dd55c8",
-    "task_configuration_id": "s-36b3370f-3d51-4b18-b274-dbfb66fb0acf",
+    "task_configuration_id": "s-00b663a1-081c-4a6e-b768-5b4e94177c6f",
     "task_data_context_key": null
   }

@@ -1,8 +1,8 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
-// const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
+const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
 const TARGET_DOMAIN_2 = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
-const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
+// const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
 let RESULT = "";
 
@@ -260,6 +260,10 @@ function send_to_recipient_API (path, content) {
     const OPTIONS = {
         return_status: true
     };
+    if (TARGET_DOMAIN_2 !== undefined) {
+        const URL_2 = TARGET_DOMAIN_2 + path;
+        let response_2 = web_request(URL_2, METHOD, content, HEADERS, OPTIONS);
+    }
     let response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
     if (response === undefined) {
         response = {};
@@ -269,10 +273,6 @@ function send_to_recipient_API (path, content) {
         } else {
             response["returned_status"] = "success " + response.code;
         }
-    }
-    if (TARGET_DOMAIN_2 !== undefined) {
-        const URL_2 = TARGET_DOMAIN_2 + path;
-        let response_2 = web_request(URL_2, METHOD, content, HEADERS, OPTIONS);
     }
     return response;
 }

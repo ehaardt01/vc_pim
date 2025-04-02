@@ -51,6 +51,6 @@ try {
     };
     const options = { return_status: true };
     const payload = [{ ibexa_report: JSON.stringify(response) }];
-    const response = salsify_request("/products", "put", payload, "v1", options);
+    const response = salsify_request("/products/"+context.entity.external_id, "put", payload, "v1", options);
     JSON.stringify(response, null, 4);
 }

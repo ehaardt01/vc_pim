@@ -25,7 +25,6 @@ function main () {
             "product_id": context.entity.external_id,
             "task_id": id,
             "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
-            "error_message": "",
             "error_stack": ""
         }
     };
@@ -45,8 +44,7 @@ try {
             "product_id": context.entity.external_id,
             "task_id": id,
             "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
-            "error_message": error.message,
-            "error_stack": error.stack
+            "error_stack": flatten_error(error)
         }
     };
     product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ JSON.stringify(response) ] } ] });

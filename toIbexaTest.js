@@ -23,6 +23,7 @@ function main () {
         body: {
             "success": true,
             "product_id": context.entity.external_id,
+            "task_id": id,
             "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
             "error_message": "",
             "error_stack": ""
@@ -42,6 +43,7 @@ try {
         body: {
             "success": false,
             "product_id": context.entity.external_id,
+            "task_id": id,
             "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
             "error_message": error.message,
             "error_stack": error.stack

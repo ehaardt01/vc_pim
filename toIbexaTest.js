@@ -49,7 +49,8 @@ try {
             "error_stack": error.stack
         }
     };
-    const payload = [{ "Ibexa report": JSON.stringify(response) }];
-    salsify_request("/products", "put", payload, "v1");
-    response;
+    const options = { return_status: true };
+    const payload = [{ ibexa_report: JSON.stringify(response) }];
+    const response = salsify_request("/products", "put", payload, "v1", options);
+    JSON.stringify(response, null, 4);
 }

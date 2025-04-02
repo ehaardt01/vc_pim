@@ -10,7 +10,14 @@ function flatten_error(error) {
 function main () {
     LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
     const rootId = context.entity.external_id;
-    return rootId;
+    response = {
+        code: rootId,
+        body: {
+            "success": false,
+            "error": null
+        }
+    };
+    return response;
 }
 
 try {

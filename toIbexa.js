@@ -206,14 +206,9 @@ function check_configuration (properties_list=properties) {
 function mock_send_to_recipient_API (path, content) {
     const METHOD = 'post';
     const URL = TARGET_DOMAIN_2 + path;
-    let secret = "Bearer ERROR"; // Set ERROR or NORMAL
-    // const HEADERS = {
-    //     Authorization: secret,
-    //     "Content-Type": "application/json"
-    // };
+    let secret = "Bearer NORMAL"; // Set ERROR or NORMAL
     const HEADERS = {
-        "Authorization": "Basic dW5pdHk6dW5pdHkwMCE=",
-        "X-Token-Auth": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDM1OTE3MDEsImV4cCI6MTc3NTEyNzcwMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGltX2FwaSJ9.b9EBfaXgpmmI2U3VxMIJm7LvfpM86EJ7Gw3dm2It_RA",
+        Authorization: secret,
         "Content-Type": "application/json"
     };
     const OPTIONS = {
@@ -248,7 +243,7 @@ function mock_send_to_recipient_API (path, content) {
                 product_id: PRODUCT_ID,
                 task_id: TASK_ID,
                 locale: LOCALE,
-                error_stack: "The Ibexa API did not return a response."
+                message_body: "The Ibexa API did not return a response."
             }
         };
     } else {
@@ -260,11 +255,11 @@ function mock_send_to_recipient_API (path, content) {
                 product_id: PRODUCT_ID,
                 task_id: TASK_ID,
                 locale: LOCALE,
-                error_stack: JSON.stringify(response.body)
+                message_body: JSON.stringify(response.body)
             }
         };
     }
-    return response;
+    return new_response;
 }
 
 /**
@@ -298,7 +293,7 @@ function send_to_recipient_API (path, content) {
                 product_id: PRODUCT_ID,
                 task_id: TASK_ID,
                 locale: LOCALE,
-                error_stack: "The Ibexa API did not return a response."
+                message_body: "The Ibexa API did not return a response."
             }
         };
     } else {
@@ -310,7 +305,7 @@ function send_to_recipient_API (path, content) {
                 product_id: PRODUCT_ID,
                 task_id: TASK_ID,
                 locale: LOCALE,
-                error_stack: JSON.stringify(response.body)
+                message_body: JSON.stringify(response.body)
             }
         };
     }
@@ -1338,13 +1333,13 @@ try {
             product_id: PRODUCT_ID,
             task_id: TASK_ID,
             locale: LOCALE,
-            error_stack: flatten_error(error)
+            message_body: flatten_error(error)
         }
     };
 }
 const now = new Date();
 const dateString = now.toISOString();
-product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "Last update: " + dateString + " - Response: " + JSON.stringify(response) ] } ] });
+// product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "Last update: " + dateString + " - Response: " + JSON.stringify(response) ] } ] });
 let call_status = "success";
 if (!response.body.success) {
     call_status = response.body.origin;

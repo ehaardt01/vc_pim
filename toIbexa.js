@@ -1342,7 +1342,13 @@ try {
         }
     };
 }
+let call_status = "success";
 const now = new Date();
 const dateString = now.toISOString();
 product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "Last update: " + dateString + " - Response: " + JSON.stringify(response) ] } ] });
-product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_status', values: [ response.body.success === undefined ? 'undefined' : response.body.success.toString() ] } ] });
+if (response.body.success === undefined) {
+    call_status = "undefined";
+} else  {
+    call_status = response.body.success;
+}
+product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_status', values: [ call_status ] } ] });

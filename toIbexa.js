@@ -1345,4 +1345,4 @@ try {
 const now = new Date();
 const dateString = now.toISOString();
 product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "Last update: " + dateString + " - Response: " + JSON.stringify(response) ] } ] });
-product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_status', values: [ response.success === undefined ? 'undefined' : response.success.toString() ] } ] });
+product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_status', values: [ response.body.success === undefined ? 'undefined' : response.body.success.toString() ] } ] });

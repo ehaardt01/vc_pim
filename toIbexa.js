@@ -1344,4 +1344,13 @@ let call_status = "success";
 if (!response.body.success) {
     call_status = response.body.origin;
 }
+if (response.body.success === undefined) {
+    call_status = "undefined: " + JSON.stringify(response.body);
+} else if (response.body.success === false) {
+    call_status = "false: " + JSON.stringify(response.body);
+} else if (response.body.success === true) {
+    call_status = "true: " + JSON.stringify(response.body);
+} else {
+    call_status = "unknown: " + JSON.stringify(response.body);
+}
 product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_status', values: [ call_status ] } ] });

@@ -286,28 +286,28 @@ function send_to_recipient_API (path, content) {
         }
         let json_original_body = "";
         if (!response.body) {
-            response.body = {};
+            response["body"] = {};
             json_original_body = "The response didn't have a body";
         } else {
             json_original_body = JSON.stringify(response.body);
         }
         if (response.body.success === undefined) {
-            response.body.success = ((response.code < 200) || (response.code > 299)) ? false : true;
+            response.body["success"] = ((response.code < 200) || (response.code > 299)) ? false : true;
         }
         if (response.body.origin === undefined) {
-            response.body.origin = "Ibexa API";
+            response.body["origin"] = "Ibexa API";
         }
         if (response.body.product_id === undefined) {
-            response.body.product_id = context.entity.external_id;
+            response.body["product_id"] = context.entity.external_id;
         }
         if (response.body.task_id === undefined) {
-            response.body.task_id = id;
+            response.body["task_id"] = id;
         }
         if (response.body.locale === undefined) {
-            response.body.locale = (context.current_locale === undefined) ? flow.locale : context.current_locale;
+            response.body["locale"] = (context.current_locale === undefined) ? flow.locale : context.current_locale;
         }
         if (response.body.error_stack === undefined) {
-            response.body.error_stack = json_original_body;
+            response.body["error_stack"] = json_original_body;
         }
     }
     if (TARGET_DOMAIN_2 !== undefined) {

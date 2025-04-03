@@ -310,36 +310,49 @@ function send_to_recipient_API (path, content) {
         };
         response["returned_status"] = "error " + response.code;
     } else {
-        if ((response.code < 200) || (response.code > 299)) {
-            response["returned_status"] = "error " + response.code;
-        } else {
-            response["returned_status"] = "success " + response.code;
-        }
-        let json_original_body = "";
-        if (response.body === undefined) {
-            response["body"] = {};
-            json_original_body = "The response didn't have a body";
-        } else {
-            json_original_body = JSON.stringify(response.body);
-        }
-        if (response.body.success === undefined) {
-            response.body["success"] = ((response.code < 200) || (response.code > 299)) ? false : true;
-        }
-        if (response.body.origin === undefined) {
-            response.body["origin"] = "Ibexa API";
-        }
-        if (response.body.product_id === undefined) {
-            response.body["product_id"] = PRODUCT_ID;
-        }
-        if (response.body.task_id === undefined) {
-            response.body["task_id"] = TASK_ID;
-        }
-        if (response.body.locale === undefined) {
-            response.body["locale"] = (context.current_locale === undefined) ? flow.locale : context.current_locale;
-        }
-        if (response.body.error_stack === undefined) {
-            response.body["error_stack"] = json_original_body;
-        }
+        response = {
+            code: 400,
+            body: {
+                success: false,
+                origin: "js script",
+                product_id: PRODUCT_ID,
+                task_id: TASK_ID,
+                locale: (context.current_locale === undefined) ? flow.locale : context.current_locale,
+                error_stack: "An error message for testing"
+            }
+        };
+
+
+        // if ((response.code < 200) || (response.code > 299)) {
+        //     response["returned_status"] = "error " + response.code;
+        // } else {
+        //     response["returned_status"] = "success " + response.code;
+        // }
+        // let json_original_body = "";
+        // if (response.body === undefined) {
+        //     response["body"] = {};
+        //     json_original_body = "The response didn't have a body";
+        // } else {
+        //     json_original_body = JSON.stringify(response.body);
+        // }
+        // if (response.body.success === undefined) {
+        //     response.body["success"] = ((response.code < 200) || (response.code > 299)) ? false : true;
+        // }
+        // if (response.body.origin === undefined) {
+        //     response.body["origin"] = "Ibexa API";
+        // }
+        // if (response.body.product_id === undefined) {
+        //     response.body["product_id"] = PRODUCT_ID;
+        // }
+        // if (response.body.task_id === undefined) {
+        //     response.body["task_id"] = TASK_ID;
+        // }
+        // if (response.body.locale === undefined) {
+        //     response.body["locale"] = (context.current_locale === undefined) ? flow.locale : context.current_locale;
+        // }
+        // if (response.body.error_stack === undefined) {
+        //     response.body["error_stack"] = json_original_body;
+        // }
     }
     if (TARGET_DOMAIN_2 !== undefined) {
         const URL_2 = TARGET_DOMAIN_2 + path;

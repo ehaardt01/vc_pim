@@ -269,12 +269,12 @@ function send_to_recipient_API (path, content) {
         response = {
             code: 400,
             body: {
-                "success": false,
-                "origin": "Ibexa API",
-                "product_id": context.entity.external_id,
-                "task_id": id,
-                "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
-                "error_stack": "The Ibexa API did not return a response."
+                success: false,
+                origin: "Ibexa API",
+                product_id: context.entity.external_id,
+                task_id: id,
+                locale: (context.current_locale === undefined) ? flow.locale : context.current_locale,
+                error_stack: "The Ibexa API did not return a response."
             }
         };
         response["returned_status"] = "error " + response.code;
@@ -1333,12 +1333,12 @@ try {
     response = {
         code: 400,
         body: {
-            "success": false,
-            "origin": "js script",
-            "product_id": context.entity.external_id,
-            "task_id": id,
-            "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
-            "error_stack": flatten_error(error)
+            success: false,
+            origin: "js script",
+            product_id: context.entity.external_id,
+            task_id: id,
+            locale: (context.current_locale === undefined) ? flow.locale : context.current_locale,
+            error_stack: flatten_error(error)
         }
     };
 }

@@ -1342,13 +1342,11 @@ try {
         }
     };
 }
-let call_status = "success";
 const now = new Date();
 const dateString = now.toISOString();
 product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "Last update: " + dateString + " - Response: " + JSON.stringify(response) ] } ] });
-if (response.body.success === undefined) {
-    call_status = "undefined";
-} else  {
-    call_status = response.body.success;
+let call_status = "success";
+if (!response.body.success) {
+    call_status = response.body.origin;
 }
 product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_status', values: [ call_status ] } ] });

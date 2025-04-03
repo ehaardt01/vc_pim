@@ -6,6 +6,8 @@ const TARGET_DOMAIN_2 = 'https://virbac-pim.free.beeceptor.com/product/create_or
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
 const NOT_TRANSLATED = "";
 let RESULT = "";
+let TASK_ID = "";
+let PRODUCT_ID = "";
 
 // https://staging-unity.virbac.com/api/v1/login
 // https://staging-unity.virbac.com/api/v1/products
@@ -83,7 +85,6 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Range category", type: "enumerated", export_name: "range_category"},
     {name: "Type of food", type: "enumerated", export_name: "type_of_food"},
     {name: "Neutered", type: "enumerated", export_name: "neutered"},
-    {name: "Replaced Product", type: "product", export_name: "replaced_product"},
     {name: "Weight Ranges", type: "string", export_name: "weight_ranges"},
     {name: "Key ingredients", type: "rich_text", export_name: "key_ingredients"}
 ]);
@@ -205,8 +206,13 @@ function mock_send_to_recipient_API (path, content) {
     const METHOD = 'post';
     const URL = TARGET_DOMAIN_2 + path;
     let secret = "Bearer ERROR"; // Set ERROR or NORMAL
+    // const HEADERS = {
+    //     Authorization: secret,
+    //     "Content-Type": "application/json"
+    // };
     const HEADERS = {
-        Authorization: secret,
+        "Authorization": "Basic dW5pdHk6dW5pdHkwMCE=",
+        "X-Token-Auth": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDM1OTE3MDEsImV4cCI6MTc3NTEyNzcwMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGltX2FwaSJ9.b9EBfaXgpmmI2U3VxMIJm7LvfpM86EJ7Gw3dm2It_RA",
         "Content-Type": "application/json"
     };
     const OPTIONS = {
@@ -240,6 +246,31 @@ function mock_send_to_recipient_API (path, content) {
         } else {
             response["returned_status"] = "success " + response.code;
         }
+        let json_original_body = "";
+        if (response.body === undefined) {
+            response["body"] = {};
+            json_original_body = "The response didn't have a body";
+        } else {
+            json_original_body = JSON.stringify(response.body);
+        }
+        if (response.body.success === undefined) {
+            response.body["success"] = ((response.code < 200) || (response.code > 299)) ? false : true;
+        }
+        if (response.body.origin === undefined) {
+            response.body["origin"] = "Ibexa API";
+        }
+        if (response.body.product_id === undefined) {
+            response.body["product_id"] = PRODUCT_ID;
+        }
+        if (response.body.task_id === undefined) {
+            response.body["task_id"] = TASK_ID;
+        }
+        if (response.body.locale === undefined) {
+            response.body["locale"] = (context.current_locale === undefined) ? flow.locale : context.current_locale;
+        }
+        if (response.body.error_stack === undefined) {
+            response.body["error_stack"] = json_original_body;
+        }
     }
     return response;
 }
@@ -271,8 +302,8 @@ function send_to_recipient_API (path, content) {
             body: {
                 success: false,
                 origin: "Ibexa API",
-                product_id: context.entity.external_id,
-                task_id: id,
+                product_id: PRODUCT_ID,
+                task_id: TASK_ID,
                 locale: (context.current_locale === undefined) ? flow.locale : context.current_locale,
                 error_stack: "The Ibexa API did not return a response."
             }
@@ -285,7 +316,7 @@ function send_to_recipient_API (path, content) {
             response["returned_status"] = "success " + response.code;
         }
         let json_original_body = "";
-        if (!response.body) {
+        if (response.body === undefined) {
             response["body"] = {};
             json_original_body = "The response didn't have a body";
         } else {
@@ -298,10 +329,10 @@ function send_to_recipient_API (path, content) {
             response.body["origin"] = "Ibexa API";
         }
         if (response.body.product_id === undefined) {
-            response.body["product_id"] = context.entity.external_id;
+            response.body["product_id"] = PRODUCT_ID;
         }
         if (response.body.task_id === undefined) {
-            response.body["task_id"] = id;
+            response.body["task_id"] = TASK_ID;
         }
         if (response.body.locale === undefined) {
             response.body["locale"] = (context.current_locale === undefined) ? flow.locale : context.current_locale;
@@ -1186,6 +1217,7 @@ function get_property_export_name (configured_property) {
  */
 function load (rootId, configured_properties) {
     let record = {"id": rootId};
+    record["task_id"] = TASK_ID;
     if (configured_properties === undefined) {return record;}
     var rootRecord;
     rootRecord = fetchRecord(rootId);
@@ -1293,33 +1325,28 @@ function main () {
     DEBUG = (typeof DEBUG === 'undefined' ? false : true);
     if(MOCK) {
         LOCALE = "en";
+        TASK_ID = "TASK001"
+        PRODUCT_ID = "CDS2";
         send_to_recipient_API = mock_send_to_recipient_API;
         salsify = mock_salsify;
         fetchRecord = mock_fetchRecord;
         fetchPageRecords = mock_fetchPageRecords;
         fetchEnumerated = mock_fetchEnumerated
-        const record_id = "CDS2";
+        const record_id = PRODUCT_ID;
         result = load(record_id, properties);
         let response = send_to_recipient_API('', result);
         // check_response(response)
         return response;
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
-        const rootId = context.entity.external_id;
+        TASK_ID = id
+        PRODUCT_ID = context.entity.external_id;
+        const rootId = PRODUCT_ID;
 
         // let response = send_to_recipient_API('', fetchRecord(rootId));
         // return response;
 
         let result = load(rootId, properties);
-        if (DEBUG) {
-            properties.forEach(configured_property => {
-                const property_id = configured_property["export_name"];
-                let property = result[property_id];
-                if (property === undefined) {
-                    result[property_id] = "not found";
-                }
-            });
-        }
         let response = send_to_recipient_API('', result);
         // check_response(response)
         return response;
@@ -1335,8 +1362,8 @@ try {
         body: {
             success: false,
             origin: "js script",
-            product_id: context.entity.external_id,
-            task_id: id,
+            product_id: PRODUCT_ID,
+            task_id: TASK_ID,
             locale: (context.current_locale === undefined) ? flow.locale : context.current_locale,
             error_stack: flatten_error(error)
         }

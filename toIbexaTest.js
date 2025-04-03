@@ -25,8 +25,9 @@ function main () {
 }
 
 try {
-    main();
+    let response = main();
     product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "" ] } ] }); // No error, we reset the ibexa_report field
+    response;
 } catch (error) {
     response = {
         code: 400,

@@ -1,10 +1,1280 @@
 {
-   "code": 400,
-   "body": {
-      "success": false,
-      "product_id": "360102",
-      "task_id": "s-32e55623-9f53-495b-9ed4-9bb7dd03e484",
+   "data": {
+      "id": "s-96e2acf2-ddb0-463d-aa22-f11f96344c6c",
+      "name": "Send to Ibexa",
+      "description": "Executed JavaScript Program",
+      "task_path": null,
+      "summary": null,
+      "thumbnail_url": "https://images.salsify.com/image/upload/s--8ihlhxHZ--/t_salsify_thumb/b95fb22f207f8a1ab4aa766ae2a1fe12374d60d8.jpg",
       "locale": "en",
-      "error_stack": "Error: This is a test error -- at main (<anonymous>:23:11) -- at <anonymous>:28:5"
+      "status": "completed",
+      "status_message": null,
+      "assignee": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9/user",
+      "assignee_type": "user",
+      "assignee_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
+      "flow_id": "s-82ba0123-d86c-4c70-bc06-5658d368b8cb",
+      "task_template_id": null,
+      "task_configuration_id": "s-1405a3b3-2598-46e6-8075-8702126bb084",
+      "entity_id": "s-85f3d41d-361a-4cfb-9c08-e4c664677e23",
+      "entity_type": "product",
+      "context": {
+         "step_id": "s-965b866b-eb72-4fd9-8621-ae50b1da0d5e",
+         "trigger_info": {
+            "action": "initiate_flow",
+            "trigger_id": "dcf66b29-ec10-424d-9e24-fc111eff92b1",
+            "system_message_id": "dcf66b29-ec10-424d-9e24-fc111eff92b1",
+            "initiating_user_id": "s-812e5217-709b-4c5b-8a56-bb5f12e800d9",
+            "system_message_timestamp": "2025-04-03T07:48:44.134Z"
+         },
+         "export_result": "{\"code\":400,\"body\":{\"success\":false,\"product_id\":\"360102\",\"task_id\":\"s-96e2acf2-ddb0-463d-aa22-f11f96344c6c\",\"locale\":\"en\",\"error_stack\":\"Error: This is a test error -- at main (\u003canonymous\u003e:23:11) -- at \u003canonymous\u003e:28:5\"}}",
+         "entity": {
+            "id": "s-85f3d41d-361a-4cfb-9c08-e4c664677e23",
+            "name": "HPM CAT DERMATOLOGY D1 3KG",
+            "type": "products",
+            "parent": {
+               "id": "s-3d973b6d-44d9-4c9e-af25-9bbb194fd4fa",
+               "name": "HPM Diet - Cat  D1 Dermatology Support",
+               "parent": null,
+               "created_at": "2025-01-13T14:39:49Z",
+               "updated_at": "2025-04-02T13:19:13Z",
+               "external_id": "CDS2",
+               "thumbnail_url": "https://images.salsify.com/image/upload/s--uF3yfZrg--/t_salsify_thumb/v1422298774/thumb_default.jpg",
+               "security_statements": [
+                  { "id": "s-2e4ea5cd-2c1e-4f32-8ded-08737d2980f7" },
+                  { "id": "s-7bbbe8e8-dddb-4011-9fba-9c147798ee44" }
+               ]
+            },
+            "created_at": "2025-03-10T19:21:09Z",
+            "updated_at": "2025-04-03T07:47:52Z",
+            "external_id": "360102",
+            "thumbnail_url": "https://images.salsify.com/image/upload/s--8ihlhxHZ--/t_salsify_thumb/b95fb22f207f8a1ab4aa766ae2a1fe12374d60d8.jpg",
+            "security_statements": [
+               { "id": "s-2e4ea5cd-2c1e-4f32-8ded-08737d2980f7" },
+               { "id": "s-7bbbe8e8-dddb-4011-9fba-9c147798ee44" }
+            ],
+            "property_values_snapshot": [
+               {
+                  "values": ["27"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-c9fe8f70-1cd4-4c6a-bbe6-2cc8daf918a7"
+               },
+               {
+                  "values": ["s-41efadb0-416d-4926-abb7-e819b3a4ae02"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-bc2e6a9e-e7b2-4850-9d0e-f5da99873055"
+               },
+               {
+                  "values": ["s-1d2517b2-40d3-445a-b0b7-20ca7aeed57c"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-086203a2-df85-44bc-908a-7caa1824396c"
+               },
+               {
+                  "values": [
+                     "Product Details\n\nHelp your cat to find fast relief from skin and coat disorders with VETERINARY HPM® Dermatology Support Food for Cats. Suitable for cats with dermatosis, excessive hair loss, dermatitis and itching.\n\nDermatological conditions can damage the natural skin barrier and lead to irritation, itching, redness, poor coat condition and excessive hair loss in cats. VETERINARY HPM® Dermatology Support is a complete and balanced food made with an expert blend of ingredients to help manage common dermatologic conditions, control inflammation and restore your cat’s skin and coat health.\n\nDermatology Support is rich in high-quality animal proteins, providing  sulphur amino acids that promote skin healing and hair regrowth. It also features our signature DERMA Plus complex with essential nutrients to promote recovery and protection from dermatological conditions: \n\n• Omega 3 fatty acids (including EPA and DHA). \n• Omega 6 fatty acids (including linoleic acid). \n• Antioxidant vitamins A and E.  \n\nVETERINARY HPM® Dermatology Support is suitable for cats of all ages and breeds. In pets with suspected cat food allergies or intolerances, we recommend trying the VETERINARY HPM® Allergy range first."
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-0126c907-3c55-40a2-9ba6-e27b50b8ceab"
+               },
+               {
+                  "values": [
+                     "A therapeutic dry cat food to support skin function and manage medium- and long-term skin and coat conditions. Suitable for cats with dermatosis (non-inflammatory skin problems), excessive hair loss*, dermatitis or pruritus (itching).\n\n(*When cat food allergies are not suspected.)"
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-b35be838-69f2-4280-aad7-78c4015922d6"
+               },
+               {
+                  "values": ["Companion animals"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-0212daa4-3ad5-472a-90b8-e701e5006bbd"
+               },
+               {
+                  "values": ["Dogs and cats"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-f3e28fad-1139-46bf-aa9e-a2de0d793dee"
+               },
+               {
+                  "values": [
+                     "s-fdd0e15c-1c78-4a4b-a237-64242a43cd73",
+                     "s-d296f2ec-94b5-4825-b802-55d50c92019b",
+                     "s-72fa0770-0740-4902-a2cd-e7f611aef7fa",
+                     "s-a01a51fd-a23e-409c-9f4b-e2e13521a8bf"
+                  ],
+                  "data_type": "product",
+                  "locale_id": null,
+                  "property_id": "s-479c150d-12c4-4935-9099-639176ee8d63"
+               },
+               {
+                  "values": ["Lorem ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-0ece59e1-8ac1-465a-879f-d02fd2e802e5"
+               },
+               {
+                  "values": ["Lorem ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-651ae1e3-9758-4d8b-9903-44b4441cba70"
+               },
+               {
+                  "values": ["HPM CAT DERMATOLOGY D1 3KG"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-890e859d-4182-47a4-bcd1-fff9b6f7a293"
+               },
+               {
+                  "values": ["s-be9c855a-38cf-479b-b848-36cd0118f918"],
+                  "data_type": "product",
+                  "locale_id": null,
+                  "property_id": "s-a23b0456-e028-440d-ac64-05a438338e36"
+               },
+               {
+                  "values": ["360102"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-928a554b-1f13-4d49-8f16-81eee3818b19"
+               },
+               {
+                  "values": [
+                     "Dehydrated pork and poultry proteins, potato starch, peas, hydrolysed pork and poultry proteins, minerals, lignocellulose, animal fats, fish oil, beet pulp, sunflower oil, brewer’s yeast, borage seed, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, hydrolysed crustacean (source of chitosan), chondroitin sulfate, Lactobacillus acidophilus."
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-a43edb06-d0b5-494f-a04a-74fbe1a0bc86"
+               },
+               {
+                  "values": [
+                     "Moisture;5.5%\nProtein;44%\nAnimal to vegetable protein ration;91/09\nFat;17.5%\nMinerals;8.5%\nCrude Fibre;5%\nNFE*;19.5%\nStarch;14%\nCalcium;13%\nPhosphorus;1.1%\nSodium;0.7%\nMethionine + Cysteine;1.5%\nPhenylalanine + Tyrosine;2.6%\nOmega-6;3.5%\nOmega-3;1.1%\nEPA + DHA;0.8%\nLA;3.4%\nME** calculated;395 kcal/100g\nME** measured in vivo;437 kcal/100g\n* Nitrogen Free Extract: Carbohydrates\n**Metabolisable energy"
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-ecf9f129-5956-4818-9f2b-e904d7ba0c7d"
+               },
+               {
+                  "values": ["Loremp ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-d2e53bd5-82dc-495e-9875-dd5f60179a70"
+               },
+               {
+                  "values": [
+                     "Bentonite;5 g/kg\nKilled Lactobacilli;7 mg/kg\nChitosan;800 mg/kg\nL-carnitine;540 mg/kg"
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-cf3fb6a8-814a-442b-b251-2eb797e865f6"
+               },
+               {
+                  "values": ["note 2 Lorem ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-7069bb7b-1923-465a-8f88-6c7bedcef03a"
+               },
+               {
+                  "values": [
+                     "Dehydrated pork and poultry proteins;additive\npotato starch;additive\npeas;additive\nhydrolysed pork and poultry proteins;additive\nminerals;additive\nlignocellulose;additive\nanimal fats;additive\nfish oil;additive\nbeet pulp;additive\nsunflower oil;additive\nbrewer’s yeast;additive\nborage seed;additive\npsyllium fibre (Plantago (L.) spp.);additive\nfructo-oligosaccharides;additive\nhydrolysed crustacean (source of chitosan);additive\nchondroitin sulfate;additive\nLactobacillus acidophilus;additive"
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-0887c6c3-2ecc-4d34-a404-902ee0a33fde"
+               },
+               {
+                  "values": ["note additives Lorem ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-1bf8897e-fc4a-4955-81d9-b66384d4bad8"
+               },
+               {
+                  "values": [
+                     "Vitamin 4;17 000 IU/kg\nVitamin D3;1 700 IU/kg\nVitamin E;610 mg/kg\nVitamin K3; 0.22 mg/kg\nVitamin B1; 11.2 mg/kg\nVitamin B1; 11.2 mg/kg\nVitamin B2; 8 mg/kg\nVitamin B3; 113.4 mg/kg\nVitamin B5; 14.5 mg/kg\nVitamin B6;7.6 mg/kg\nVitamin B8;0.15 mg/kg\nVitamin B9;1.9 mg/kg\nVitamin B12;0.046 mg/kg\nCholine;1 760 mg/kg\nTaurine;2 460 mg/kg\nCopper;12 mg/kg\nIodine;0.4 mg/kg\nZinc;110 mg/kg"
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-af4a749d-9cda-4f63-9db7-50af006e6428"
+               },
+               {
+                  "values": ["LOREM IPSUM"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-de00654c-da53-42b3-8e47-4e076769f33b"
+               },
+               {
+                  "values": ["Unknown"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-3105dd82-7f9f-4484-916d-5e7113a461f4"
+               },
+               {
+                  "values": ["s-a00b2a8b-3de4-4a56-bda0-2a48860672bc"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-372b655b-8952-4a88-b995-a45e01d35d1e"
+               },
+               {
+                  "values": ["Virbac nutrition"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-1783e29e-268f-4ccf-9059-3be7e5a5eb06"
+               },
+               {
+                  "values": [
+                     "s-4fbc72a5-5506-4ee1-9a3a-9de94626d1df",
+                     "s-b0c765a8-1de6-4090-9f25-dd3907398f68",
+                     "s-cd7ddf84-d144-404e-9b17-af99509a5771",
+                     "s-27aae99d-86d5-46c7-84e8-24c5da43d2df"
+                  ],
+                  "data_type": "product",
+                  "locale_id": null,
+                  "property_id": "s-b1691020-b8e4-403d-872b-10c4355479b0"
+               },
+               {
+                  "values": ["Lorem ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-ee38fd75-d9ee-4662-a064-1a4bde08c5aa"
+               },
+               {
+                  "values": ["Lorem ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-799c1626-8ae3-471c-ae1f-734ac737e2b1"
+               },
+               {
+                  "values": [
+                     "\u003cp\u003e\u003cstrong\u003eIn case of obesity without diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight\u0026nbsp; (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eHigh Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eModerate Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e55\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e80\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e110\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e125\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e165\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e200\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e235\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e265\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e320\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e420\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"3\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e",
+                     "\u003cp\u003e\u003cstrong\u003eIn case of obesity associated with diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"2\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e"
+                  ],
+                  "data_type": "html",
+                  "locale_id": null,
+                  "property_id": "s-47af3a32-5de2-49f1-966e-952f70327d3f"
+               },
+               {
+                  "values": ["s-f1b420ed-e10b-4251-bb5c-963b6cdaf275"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-02d2fa72-86be-4c59-beb4-dcdf563b07bd"
+               },
+               {
+                  "values": ["s-7401362d-af59-4082-ada2-43aa513730ef"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-946ff796-40e8-472e-b03c-10f55d523d13"
+               },
+               {
+                  "values": ["360102"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-01ade034-ba82-4012-b2c1-9d79d66c47ad"
+               },
+               {
+                  "values": [
+                     " Soothes inflammation and irritation\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Restores natural skin defences\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Improves coat quality\u0026nbsp; "
+                  ],
+                  "data_type": "rich_text",
+                  "locale_id": "en",
+                  "property_id": "s-793070e9-377d-4e94-b333-b0bc95f30af1"
+               },
+               {
+                  "values": ["lorem ipsum lorem ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-b63fca7d-5136-4ad8-9d71-5abd4049d27e"
+               },
+               {
+                  "values": [
+                     "Soothes inflammation and irritation",
+                     "Restores natural skin defences  ",
+                     "Improves coat quality "
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-83bba725-229f-44e5-b909-203fcbf85742"
+               },
+               {
+                  "values": [
+                     " \u003cb\u003eEssential fatty acids\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Omega 3’s EPA and DHA soothe inflammation and reduce itchiness, while omega 6 linoleic acid strengthens the skin’s protective barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eVitamins A and E\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  These antioxidant vitamins fight inflammation, encourage skin and hair renewal, and provide moisture and hydration to the skin barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eHigh-quality protein\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Contains high-quality animal proteins rich in sulphur amino acids, which form the building blocks of healthy skin and hair. "
+                  ],
+                  "data_type": "rich_text",
+                  "locale_id": "en",
+                  "property_id": "s-ac665a30-a1b6-4705-aaff-29ff9cf6e010"
+               },
+               {
+                  "values": ["s-09967c0c-d7b5-472a-9b97-414c187a4133"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-53e9de4d-53fc-4a37-8f5c-35267fc21ea3"
+               },
+               {
+                  "values": ["Nutrition \u0026 Petcare"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-7f6ce1c5-5dd5-4dab-b86f-bb0bbcf6b217"
+               },
+               {
+                  "values": ["Pet food"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-0422a246-94ee-4e4d-b048-ecf3f728d7b5"
+               },
+               {
+                  "values": ["VNU - Virbac Nutrition - Vauvert"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-820dab15-ba10-4ed3-8e33-8c832c92630f"
+               },
+               {
+                  "values": ["Cat Dermatology Support D1"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-d695effd-c458-42f3-a023-d7c23d22bddd"
+               },
+               {
+                  "values": ["HPM CAT DERMATOLOGY D1 3KG"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-7d2f3937-7a5c-4823-9943-51c34b248a6e"
+               },
+               {
+                  "values": [
+                     "s-3ad17565-276c-403f-a68e-21b7ef4e9abd",
+                     "s-f911c4ab-2669-4e80-9e25-e148e4d85871"
+                  ],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-beb6d5f9-7dd4-4b9c-b88a-4ab4891f69c8"
+               },
+               {
+                  "values": ["20"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-63791ad3-b990-4cb5-a1d0-d6875fdcf55f"
+               },
+               {
+                  "values": ["s-b5aea10c-bea6-47a2-831f-ca6d0dbe50fb"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-0ce46b39-0227-4604-a57f-029524cc48f5"
+               },
+               {
+                  "values": ["s-3538dd7e-9cec-48b5-8808-b8ebf84d9825"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-f3d7e2ad-161d-4bfc-ab2f-736d72db0ba2"
+               },
+               {
+                  "values": ["s-d792a82f-16ac-4148-8a50-0623662e947c"],
+                  "data_type": "product",
+                  "locale_id": null,
+                  "property_id": "s-dfb05d94-708c-47bc-ae3d-b5cc780ee43e"
+               },
+               {
+                  "values": ["s-2d76ede3-bdc1-4214-b462-a71ef4f12a8c"],
+                  "data_type": "product",
+                  "locale_id": null,
+                  "property_id": "s-a0f9b3d0-d065-4c57-acb7-62429522af7c"
+               },
+               {
+                  "values": [
+                     "Soothe your cat’s skin with VETERINARY HPM® Dermatology Support. Reduces hair loss. Rich in Omega-3 \u0026 antioxidants"
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-4040b300-6f20-4658-8491-79ba7026433d"
+               },
+               {
+                  "values": [
+                     "Dermatology Support Cat Food – Healthy Skin \u0026 Shiny Coat"
+                  ],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-f75dc028-f971-435b-ab09-9ec428e86a3a"
+               },
+               {
+                  "values": ["s-ed659f00-560e-4f6f-8188-cd8ee3d2db85"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-9fd38439-9266-4f71-94b7-ee8f2893e691"
+               },
+               {
+                  "values": ["3"],
+                  "data_type": "number",
+                  "locale_id": null,
+                  "property_id": "s-cd6409b7-3bde-41ed-b69a-62003d5dc08c"
+               },
+               {
+                  "values": ["Y"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-bb376bdb-f2e5-4c0c-b4b1-1b6f01f868a9"
+               },
+               {
+                  "values": ["s-ecf6eb17-32d2-48fc-9e4f-8a3d379e5935"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-b473a561-76ad-4f8d-8168-9584ce85f323"
+               },
+               {
+                  "values": [
+                     " \u003cul\u003e\u003cli\u003e\u003cb\u003eLOREM IPSUM\u003c/b\u003e\u003c/li\u003e\u003c/ul\u003e  \u003cbr\u003e  Lorem Ipsum "
+                  ],
+                  "data_type": "rich_text",
+                  "locale_id": "en",
+                  "property_id": "s-0ffdae0c-5b41-40a0-a443-75ba69d73306"
+               },
+               {
+                  "values": ["s-9dbbbf3f-ff42-48bc-9d97-03e85da75a49"],
+                  "data_type": "enumerated",
+                  "locale_id": null,
+                  "property_id": "s-00746c76-d837-46c7-a2d9-4b78e37ff3d9"
+               },
+               {
+                  "values": ["Y"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-173c914c-9941-4e63-bf23-92731aa81ecd"
+               },
+               {
+                  "values": ["Lorem Ipsum"],
+                  "data_type": "string",
+                  "locale_id": "en",
+                  "property_id": "s-d7458e6a-bac0-4633-83c2-fc2c8456462f"
+               },
+               {
+                  "values": ["3kg"],
+                  "data_type": "string",
+                  "locale_id": null,
+                  "property_id": "s-ceca091e-97ea-4b85-981d-f79f2e636d64"
+               }
+            ],
+            "property_value_collections": [
+               {
+                  "values": ["27"],
+                  "property": {
+                     "id": "s-c9fe8f70-1cd4-4c6a-bbe6-2cc8daf918a7",
+                     "type": "properties",
+                     "external_id": "Affiliate"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-41efadb0-416d-4926-abb7-e819b3a4ae02",
+                        "name": "Medium",
+                        "type": "enumerated_values",
+                        "external_id": "Medium"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-bc2e6a9e-e7b2-4850-9d0e-f5da99873055",
+                     "type": "properties",
+                     "external_id": "Animal size"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-1d2517b2-40d3-445a-b0b7-20ca7aeed57c",
+                        "name": "Adult",
+                        "type": "enumerated_values",
+                        "external_id": "Adult"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-086203a2-df85-44bc-908a-7caa1824396c",
+                     "type": "properties",
+                     "external_id": "Animal stage"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": [
+                     "Product Details\n\nHelp your cat to find fast relief from skin and coat disorders with VETERINARY HPM® Dermatology Support Food for Cats. Suitable for cats with dermatosis, excessive hair loss, dermatitis and itching.\n\nDermatological conditions can damage the natural skin barrier and lead to irritation, itching, redness, poor coat condition and excessive hair loss in cats. VETERINARY HPM® Dermatology Support is a complete and balanced food made with an expert blend of ingredients to help manage common dermatologic conditions, control inflammation and restore your cat’s skin and coat health.\n\nDermatology Support is rich in high-quality animal proteins, providing  sulphur amino acids that promote skin healing and hair regrowth. It also features our signature DERMA Plus complex with essential nutrients to promote recovery and protection from dermatological conditions: \n\n• Omega 3 fatty acids (including EPA and DHA). \n• Omega 6 fatty acids (including linoleic acid). \n• Antioxidant vitamins A and E.  \n\nVETERINARY HPM® Dermatology Support is suitable for cats of all ages and breeds. In pets with suspected cat food allergies or intolerances, we recommend trying the VETERINARY HPM® Allergy range first."
+                  ],
+                  "property": {
+                     "id": "s-0126c907-3c55-40a2-9ba6-e27b50b8ceab",
+                     "type": "properties",
+                     "external_id": "B2C Full Description"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "A therapeutic dry cat food to support skin function and manage medium- and long-term skin and coat conditions. Suitable for cats with dermatosis (non-inflammatory skin problems), excessive hair loss*, dermatitis or pruritus (itching).\n\n(*When cat food allergies are not suspected.)"
+                  ],
+                  "property": {
+                     "id": "s-b35be838-69f2-4280-aad7-78c4015922d6",
+                     "type": "properties",
+                     "external_id": "B2C Short description"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Companion animals"],
+                  "property": {
+                     "id": "s-0212daa4-3ad5-472a-90b8-e701e5006bbd",
+                     "type": "properties",
+                     "external_id": "BUSINESS_SEGMENT"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Dogs and cats"],
+                  "property": {
+                     "id": "s-f3e28fad-1139-46bf-aa9e-a2de0d793dee",
+                     "type": "properties",
+                     "external_id": "BUSINESS_SUB_SEGMENT"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-fdd0e15c-1c78-4a4b-a237-64242a43cd73",
+                        "name": "Improves skin health ",
+                        "type": "products",
+                        "external_id": "BEN-6"
+                     },
+                     {
+                        "id": "s-d296f2ec-94b5-4825-b802-55d50c92019b",
+                        "name": "Calms irritated skin",
+                        "type": "products",
+                        "external_id": "BEN-9"
+                     },
+                     {
+                        "id": "s-72fa0770-0740-4902-a2cd-e7f611aef7fa",
+                        "name": "Repairs the skin barrier ",
+                        "type": "products",
+                        "external_id": "BEN-7"
+                     },
+                     {
+                        "id": "s-a01a51fd-a23e-409c-9f4b-e2e13521a8bf",
+                        "name": " Restores the coat",
+                        "type": "products",
+                        "external_id": "BEN-8"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-479c150d-12c4-4935-9099-639176ee8d63",
+                     "type": "properties",
+                     "external_id": "Benefit data table"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "product"
+               },
+               {
+                  "values": ["Lorem ipsum"],
+                  "property": {
+                     "id": "s-0ece59e1-8ac1-465a-879f-d02fd2e802e5",
+                     "type": "properties",
+                     "external_id": "Benefit data table - item label"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Lorem ipsum"],
+                  "property": {
+                     "id": "s-651ae1e3-9758-4d8b-9903-44b4441cba70",
+                     "type": "properties",
+                     "external_id": "Benefit data table - long description"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["HPM CAT DERMATOLOGY D1 3KG"],
+                  "property": {
+                     "id": "s-890e859d-4182-47a4-bcd1-fff9b6f7a293",
+                     "type": "properties",
+                     "external_id": "Brand Name"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-be9c855a-38cf-479b-b848-36cd0118f918",
+                        "name": "Veterinary HPM",
+                        "type": "products",
+                        "external_id": "Vet HPM"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-a23b0456-e028-440d-ac64-05a438338e36",
+                     "type": "properties",
+                     "external_id": "Brand data table"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "product"
+               },
+               {
+                  "values": ["360102"],
+                  "property": {
+                     "id": "s-928a554b-1f13-4d49-8f16-81eee3818b19",
+                     "type": "properties",
+                     "external_id": "CODE_REF_LOCALE"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "Dehydrated pork and poultry proteins, potato starch, peas, hydrolysed pork and poultry proteins, minerals, lignocellulose, animal fats, fish oil, beet pulp, sunflower oil, brewer’s yeast, borage seed, psyllium fibre (Plantago (L.) spp.), fructo-oligosaccharides, hydrolysed crustacean (source of chitosan), chondroitin sulfate, Lactobacillus acidophilus."
+                  ],
+                  "property": {
+                     "id": "s-a43edb06-d0b5-494f-a04a-74fbe1a0bc86",
+                     "type": "properties",
+                     "external_id": "Composition"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "Moisture;5.5%\nProtein;44%\nAnimal to vegetable protein ration;91/09\nFat;17.5%\nMinerals;8.5%\nCrude Fibre;5%\nNFE*;19.5%\nStarch;14%\nCalcium;13%\nPhosphorus;1.1%\nSodium;0.7%\nMethionine + Cysteine;1.5%\nPhenylalanine + Tyrosine;2.6%\nOmega-6;3.5%\nOmega-3;1.1%\nEPA + DHA;0.8%\nLA;3.4%\nME** calculated;395 kcal/100g\nME** measured in vivo;437 kcal/100g\n* Nitrogen Free Extract: Carbohydrates\n**Metabolisable energy"
+                  ],
+                  "property": {
+                     "id": "s-ecf9f129-5956-4818-9f2b-e904d7ba0c7d",
+                     "type": "properties",
+                     "external_id": "Composition - Analytical constituents"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Loremp ipsum"],
+                  "property": {
+                     "id": "s-d2e53bd5-82dc-495e-9875-dd5f60179a70",
+                     "type": "properties",
+                     "external_id": "Composition - Analytical constituents - Notes"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "Bentonite;5 g/kg\nKilled Lactobacilli;7 mg/kg\nChitosan;800 mg/kg\nL-carnitine;540 mg/kg"
+                  ],
+                  "property": {
+                     "id": "s-cf3fb6a8-814a-442b-b251-2eb797e865f6",
+                     "type": "properties",
+                     "external_id": "Composition - Functional ingredients"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["note 2 Lorem ipsum"],
+                  "property": {
+                     "id": "s-7069bb7b-1923-465a-8f88-6c7bedcef03a",
+                     "type": "properties",
+                     "external_id": "Composition - Functional ingredients - Notes"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "Dehydrated pork and poultry proteins;additive\npotato starch;additive\npeas;additive\nhydrolysed pork and poultry proteins;additive\nminerals;additive\nlignocellulose;additive\nanimal fats;additive\nfish oil;additive\nbeet pulp;additive\nsunflower oil;additive\nbrewer’s yeast;additive\nborage seed;additive\npsyllium fibre (Plantago (L.) spp.);additive\nfructo-oligosaccharides;additive\nhydrolysed crustacean (source of chitosan);additive\nchondroitin sulfate;additive\nLactobacillus acidophilus;additive"
+                  ],
+                  "property": {
+                     "id": "s-0887c6c3-2ecc-4d34-a404-902ee0a33fde",
+                     "type": "properties",
+                     "external_id": "Composition - Ingredients / Additives"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["note additives Lorem ipsum"],
+                  "property": {
+                     "id": "s-1bf8897e-fc4a-4955-81d9-b66384d4bad8",
+                     "type": "properties",
+                     "external_id": "Composition - Ingredients / Additives - Notes"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "Vitamin 4;17 000 IU/kg\nVitamin D3;1 700 IU/kg\nVitamin E;610 mg/kg\nVitamin K3; 0.22 mg/kg\nVitamin B1; 11.2 mg/kg\nVitamin B1; 11.2 mg/kg\nVitamin B2; 8 mg/kg\nVitamin B3; 113.4 mg/kg\nVitamin B5; 14.5 mg/kg\nVitamin B6;7.6 mg/kg\nVitamin B8;0.15 mg/kg\nVitamin B9;1.9 mg/kg\nVitamin B12;0.046 mg/kg\nCholine;1 760 mg/kg\nTaurine;2 460 mg/kg\nCopper;12 mg/kg\nIodine;0.4 mg/kg\nZinc;110 mg/kg"
+                  ],
+                  "property": {
+                     "id": "s-af4a749d-9cda-4f63-9db7-50af006e6428",
+                     "type": "properties",
+                     "external_id": "Composition - Vitamins and trace elements"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["LOREM IPSUM"],
+                  "property": {
+                     "id": "s-de00654c-da53-42b3-8e47-4e076769f33b",
+                     "type": "properties",
+                     "external_id": "Composition - Vitamins and trace elements - Notes"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Unknown"],
+                  "property": {
+                     "id": "s-3105dd82-7f9f-4484-916d-5e7113a461f4",
+                     "type": "properties",
+                     "external_id": "Country ISO code"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-a00b2a8b-3de4-4a56-bda0-2a48860672bc",
+                        "name": "UK",
+                        "type": "enumerated_values",
+                        "external_id": "UK"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-372b655b-8952-4a88-b995-a45e01d35d1e",
+                     "type": "properties",
+                     "external_id": "Country Markets"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": ["Virbac nutrition"],
+                  "property": {
+                     "id": "s-1783e29e-268f-4ccf-9059-3be7e5a5eb06",
+                     "type": "properties",
+                     "external_id": "Country of Origin"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-4fbc72a5-5506-4ee1-9a3a-9de94626d1df",
+                        "name": "Is Dog Weight Loss \u0026 Diabetes W1 suitable for my dog? ",
+                        "type": "products",
+                        "external_id": "FAQ-W1"
+                     },
+                     {
+                        "id": "s-b0c765a8-1de6-4090-9f25-dd3907398f68",
+                        "name": "I think my dog has food allergies – what should I do?",
+                        "type": "products",
+                        "external_id": "FAQ-HPM3"
+                     },
+                     {
+                        "id": "s-cd7ddf84-d144-404e-9b17-af99509a5771",
+                        "name": null,
+                        "type": "products",
+                        "external_id": "FAQ-Test_Not_Translated"
+                     },
+                     {
+                        "id": "s-27aae99d-86d5-46c7-84e8-24c5da43d2df",
+                        "name": null,
+                        "type": "products",
+                        "external_id": "FAQ-Test_No_Values"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-b1691020-b8e4-403d-872b-10c4355479b0",
+                     "type": "properties",
+                     "external_id": "FAQ data table"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "product"
+               },
+               {
+                  "values": ["Lorem ipsum"],
+                  "property": {
+                     "id": "s-ee38fd75-d9ee-4662-a064-1a4bde08c5aa",
+                     "type": "properties",
+                     "external_id": "FAQ reference - Answer"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Lorem ipsum"],
+                  "property": {
+                     "id": "s-799c1626-8ae3-471c-ae1f-734ac737e2b1",
+                     "type": "properties",
+                     "external_id": "FAQ reference - Question"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "\u003cp\u003e\u003cstrong\u003eIn case of obesity without diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight\u0026nbsp; (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"2\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eHigh Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n   \u003cth scope=\"col\"\u003e\u003cstrong\u003eModerate Restrictions\u0026nbsp;\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e55\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e80\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e110\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e125\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e165\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e200\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e235\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e265\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e320\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e420\u003c/td\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"3\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e",
+                     "\u003cp\u003e\u003cstrong\u003eIn case of obesity associated with diabetes\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n \u003cthead\u003e\n  \u003ctr\u003e\n   \u003cth rowspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eTarget Body Weight (kg)\u003c/strong\u003e\u003c/th\u003e\n   \u003cth colspan=\"1\" scope=\"col\"\u003e\u003cstrong\u003eDaily Ration (g/day)*\u003c/strong\u003e\u003c/th\u003e\n  \u003c/tr\u003e\n \u003c/thead\u003e\n \u003ctbody\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e3\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e75\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e5\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e105\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e8\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e145\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e10\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e170\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e15\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e220\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e20\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e270\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e25\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e310\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e30\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e350\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e40\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e425\u003c/td\u003e\n  \u003c/tr\u003e\n  \u003ctr\u003e\n   \u003cth scope=\"row\"\u003e60\u003c/th\u003e\n   \u003ctd align=\"center\"\u003e560\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tbody\u003e\n \u003ctfoot\u003e\n  \u003ctr\u003e\n   \u003ctd class=\"text-note\" colspan=\"2\"\u003e* The daily ration is based on the target body weight of the dog.\u0026nbsp;\u003c/td\u003e\n  \u003c/tr\u003e\n \u003c/tfoot\u003e\n\u003c/table\u003e"
+                  ],
+                  "property": {
+                     "id": "s-47af3a32-5de2-49f1-966e-952f70327d3f",
+                     "type": "properties",
+                     "external_id": "Feeding guide / daily ration"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "html"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-f1b420ed-e10b-4251-bb5c-963b6cdaf275",
+                        "name": "Fish",
+                        "type": "enumerated_values",
+                        "external_id": "Fish"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-02d2fa72-86be-4c59-beb4-dcdf563b07bd",
+                     "type": "properties",
+                     "external_id": "Flavour"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-7401362d-af59-4082-ada2-43aa513730ef",
+                        "name": "Cat",
+                        "type": "enumerated_values",
+                        "external_id": "Cat"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-946ff796-40e8-472e-b03c-10f55d523d13",
+                     "type": "properties",
+                     "external_id": "Group Species"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": ["360102"],
+                  "property": {
+                     "id": "s-01ade034-ba82-4012-b2c1-9d79d66c47ad",
+                     "type": "properties",
+                     "external_id": "ID"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     " Soothes inflammation and irritation\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Restores natural skin defences\u0026nbsp;\u0026nbsp;\u003cbr\u003e  Improves coat quality\u0026nbsp; "
+                  ],
+                  "property": {
+                     "id": "s-793070e9-377d-4e94-b333-b0bc95f30af1",
+                     "type": "properties",
+                     "external_id": "Key Selling Points"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "rich_text"
+               },
+               {
+                  "values": ["lorem ipsum lorem ipsum"],
+                  "property": {
+                     "id": "s-b63fca7d-5136-4ad8-9d71-5abd4049d27e",
+                     "type": "properties",
+                     "external_id": "Key benefit summary text"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "Soothes inflammation and irritation",
+                     "Restores natural skin defences  ",
+                     "Improves coat quality "
+                  ],
+                  "property": {
+                     "id": "s-83bba725-229f-44e5-b909-203fcbf85742",
+                     "type": "properties",
+                     "external_id": "Key figures"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     " \u003cb\u003eEssential fatty acids\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Omega 3’s EPA and DHA soothe inflammation and reduce itchiness, while omega 6 linoleic acid strengthens the skin’s protective barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eVitamins A and E\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  These antioxidant vitamins fight inflammation, encourage skin and hair renewal, and provide moisture and hydration to the skin barrier.\u0026nbsp;\u003cbr\u003e  \u003cb\u003e\u003cbr\u003e\u003c/b\u003e  \u003cb\u003eHigh-quality protein\u0026nbsp;\u003c/b\u003e\u003cbr\u003e  \u003cbr\u003e  Contains high-quality animal proteins rich in sulphur amino acids, which form the building blocks of healthy skin and hair. "
+                  ],
+                  "property": {
+                     "id": "s-ac665a30-a1b6-4705-aaff-29ff9cf6e010",
+                     "type": "properties",
+                     "external_id": "Key ingredients"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "rich_text"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-09967c0c-d7b5-472a-9b97-414c187a4133",
+                        "name": "Vet HPM",
+                        "type": "enumerated_values",
+                        "external_id": "Vet HPM"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-53e9de4d-53fc-4a37-8f5c-35267fc21ea3",
+                     "type": "properties",
+                     "external_id": "LIB_MARQUE"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": ["Nutrition \u0026 Petcare"],
+                  "property": {
+                     "id": "s-7f6ce1c5-5dd5-4dab-b86f-bb0bbcf6b217",
+                     "type": "properties",
+                     "external_id": "MEDICAL_SEGMENT"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Pet food"],
+                  "property": {
+                     "id": "s-0422a246-94ee-4e4d-b048-ecf3f728d7b5",
+                     "type": "properties",
+                     "external_id": "MEDICAL_SUB_SEGMENT"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["VNU - Virbac Nutrition - Vauvert"],
+                  "property": {
+                     "id": "s-820dab15-ba10-4ed3-8e33-8c832c92630f",
+                     "type": "properties",
+                     "external_id": "Manufacturing site"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Cat Dermatology Support D1"],
+                  "property": {
+                     "id": "s-d695effd-c458-42f3-a023-d7c23d22bddd",
+                     "type": "properties",
+                     "external_id": "Marketing Product name"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["HPM CAT DERMATOLOGY D1 3KG"],
+                  "property": {
+                     "id": "s-7d2f3937-7a5c-4823-9943-51c34b248a6e",
+                     "type": "properties",
+                     "external_id": "Name"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-3ad17565-276c-403f-a68e-21b7ef4e9abd",
+                        "name": "neutered",
+                        "type": "enumerated_values",
+                        "external_id": "neutered"
+                     },
+                     {
+                        "id": "s-f911c4ab-2669-4e80-9e25-e148e4d85871",
+                        "name": "entire",
+                        "type": "enumerated_values",
+                        "external_id": "entire"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-beb6d5f9-7dd4-4b9c-b88a-4ab4891f69c8",
+                     "type": "properties",
+                     "external_id": "Neutered"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": ["20"],
+                  "property": {
+                     "id": "s-63791ad3-b990-4cb5-a1d0-d6875fdcf55f",
+                     "type": "properties",
+                     "external_id": "Product Status"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-b5aea10c-bea6-47a2-831f-ca6d0dbe50fb",
+                        "name": "Pet Food",
+                        "type": "enumerated_values",
+                        "external_id": "Pet Food"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-0ce46b39-0227-4604-a57f-029524cc48f5",
+                     "type": "properties",
+                     "external_id": "Product categories"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-3538dd7e-9cec-48b5-8808-b8ebf84d9825",
+                        "name": "Dermatology",
+                        "type": "enumerated_values",
+                        "external_id": "Dermatology"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-f3d7e2ad-161d-4bfc-ab2f-736d72db0ba2",
+                     "type": "properties",
+                     "external_id": "Range category"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-d792a82f-16ac-4148-8a50-0623662e947c",
+                        "name": "HPM DOG DERMATOLOGY D1 3KG",
+                        "type": "products",
+                        "external_id": "360115"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-dfb05d94-708c-47bc-ae3d-b5cc780ee43e",
+                     "type": "properties",
+                     "external_id": "Related product"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "product"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-2d76ede3-bdc1-4214-b462-a71ef4f12a8c",
+                        "name": "HPM CAT DIGESTIVE G1 3KG",
+                        "type": "products",
+                        "external_id": "360101"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-a0f9b3d0-d065-4c57-acb7-62429522af7c",
+                     "type": "properties",
+                     "external_id": "Replaced Product"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "product"
+               },
+               {
+                  "values": [
+                     "Soothe your cat’s skin with VETERINARY HPM® Dermatology Support. Reduces hair loss. Rich in Omega-3 \u0026 antioxidants"
+                  ],
+                  "property": {
+                     "id": "s-4040b300-6f20-4658-8491-79ba7026433d",
+                     "type": "properties",
+                     "external_id": "SEO Meta description"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     "Dermatology Support Cat Food – Healthy Skin \u0026 Shiny Coat"
+                  ],
+                  "property": {
+                     "id": "s-f75dc028-f971-435b-ab09-9ec428e86a3a",
+                     "type": "properties",
+                     "external_id": "SEO Product Title"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-ed659f00-560e-4f6f-8188-cd8ee3d2db85",
+                        "name": "kg",
+                        "type": "enumerated_values",
+                        "external_id": "kg"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-9fd38439-9266-4f71-94b7-ee8f2893e691",
+                     "type": "properties",
+                     "external_id": "Sellable SKU Measurement unit"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": ["3"],
+                  "property": {
+                     "id": "s-cd6409b7-3bde-41ed-b69a-62003d5dc08c",
+                     "type": "properties",
+                     "external_id": "Sellable SKU Unit Value"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "number"
+               },
+               {
+                  "values": ["Y"],
+                  "property": {
+                     "id": "s-bb376bdb-f2e5-4c0c-b4b1-1b6f01f868a9",
+                     "type": "properties",
+                     "external_id": "Sellable online ?"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-ecf6eb17-32d2-48fc-9e4f-8a3d379e5935",
+                        "name": "Pet food",
+                        "type": "enumerated_values",
+                        "external_id": "Pet food"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-b473a561-76ad-4f8d-8168-9584ce85f323",
+                     "type": "properties",
+                     "external_id": "Taxonomy"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": [
+                     " \u003cul\u003e\u003cli\u003e\u003cb\u003eLOREM IPSUM\u003c/b\u003e\u003c/li\u003e\u003c/ul\u003e  \u003cbr\u003e  Lorem Ipsum "
+                  ],
+                  "property": {
+                     "id": "s-0ffdae0c-5b41-40a0-a443-75ba69d73306",
+                     "type": "properties",
+                     "external_id": "Tutorials"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "rich_text"
+               },
+               {
+                  "values": [
+                     {
+                        "id": "s-9dbbbf3f-ff42-48bc-9d97-03e85da75a49",
+                        "name": "Dry",
+                        "type": "enumerated_values",
+                        "external_id": "Dry"
+                     }
+                  ],
+                  "property": {
+                     "id": "s-00746c76-d837-46c7-a2d9-4b78e37ff3d9",
+                     "type": "properties",
+                     "external_id": "Type of food"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "enumerated"
+               },
+               {
+                  "values": ["Y"],
+                  "property": {
+                     "id": "s-173c914c-9941-4e63-bf23-92731aa81ecd",
+                     "type": "properties",
+                     "external_id": "Visible online ?"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["Lorem Ipsum"],
+                  "property": {
+                     "id": "s-d7458e6a-bac0-4633-83c2-fc2c8456462f",
+                     "type": "properties",
+                     "external_id": "Weight Ranges"
+                  },
+                  "locale_id": "en",
+                  "value_data_type": "string"
+               },
+               {
+                  "values": ["3kg"],
+                  "property": {
+                     "id": "s-ceca091e-97ea-4b85-981d-f79f2e636d64",
+                     "type": "properties",
+                     "external_id": "[Computed] SKU weight + unit"
+                  },
+                  "locale_id": null,
+                  "value_data_type": "string"
+               }
+            ]
+         }
+      },
+      "task_data_schema": null,
+      "task_data_context_key": null,
+      "task_data": {},
+      "view_config": null,
+      "task_resolutions": null,
+      "task_resolution_id": null,
+      "completed_by": null,
+      "created_at": "2025-04-03T07:48:44.928Z",
+      "updated_at": "2025-04-03T07:48:51.863Z",
+      "lock_version": 3,
+      "automated": true,
+      "status_callbacks": {
+         "before_completed": [
+            {
+               "params": {
+                  "template": "!js\nif (task_configuration.configuration.load_script) {\n  const scriptUrl = evaluate_template(task_configuration.configuration.script_source_url, data_source)\n  load_script(scriptUrl)\n} else {\n  task_configuration.configuration.program\n}\n",
+                  "extended_timeout": "{{ task_configuration.configuration.extended_timeout }}"
+               },
+               "operation": "execute_js_template",
+               "context_key": "!js\nconst storeResult = task_configuration.configuration.store_result;\nconst key = task_configuration.configuration.context_key;\nstoreResult \u0026\u0026 key \u0026\u0026 key.length ? key : null;\n",
+               "result_transform": "!js\nconst storeResult = task_configuration.configuration.store_result;\nstoreResult ? task_configuration.configuration.result_transform : null;\n"
+            }
+         ]
+      },
+      "callback_runs": {
+         "2025-04-03 07:48:51 UTC": {
+            "before_completed": [
+               {
+                  "status": "succeeded",
+                  "message": "{\"code\":400,\"body\":{\"success\":false,\"product_id\":\"360102\",\"task_id\":\"s-96e2acf2-ddb0-463d-aa22-f11f96344c6c\",\"locale\":\"en\",\"error_stack\":\"Error: This is a test error -- at main (\u003canonymous\u003e:23:11) -- at \u003canonymous\u003e:28:5\"}}",
+                  "operation": "execute_js_template",
+                  "context_key": "export_result"
+               }
+            ]
+         }
+      },
+      "due_at": null,
+      "task_image_url": null
    }
 }

@@ -266,12 +266,48 @@ function send_to_recipient_API (path, content) {
     };
     let response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
     if (response === undefined) {
-        response = {};
+        response = {
+            code: 400,
+            body: {
+                "success": false,
+                "origin": "Ibexa API",
+                "product_id": context.entity.external_id,
+                "task_id": id,
+                "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
+                "error_stack": "The Ibexa API did not return a response."
+            }
+        };
+        response["returned_status"] = "error " + response.code;
     } else {
         if ((response.code < 200) || (response.code > 299)) {
             response["returned_status"] = "error " + response.code;
         } else {
             response["returned_status"] = "success " + response.code;
+        }
+        let json_original_body = "";
+        if (!response.body) {
+            response.body = {};
+            json_original_body = "The response didn't have a body";
+        } else {
+            json_original_body = JSON.stringify(response.body);
+        }
+        if (response.body.success === undefined) {
+            response.body.success = ((response.code < 200) || (response.code > 299)) ? false : true;
+        }
+        if (response.body.origin === undefined) {
+            response.body.origin = "Ibexa API";
+        }
+        if (response.body.product_id === undefined) {
+            response.body.product_id = context.entity.external_id;
+        }
+        if (response.body.task_id === undefined) {
+            response.body.task_id = id;
+        }
+        if (response.body.locale === undefined) {
+            response.body.locale = (context.current_locale === undefined) ? flow.locale : context.current_locale;
+        }
+        if (response.body.error_stack === undefined) {
+            response.body.error_stack = json_original_body;
         }
     }
     if (TARGET_DOMAIN_2 !== undefined) {
@@ -1265,7 +1301,7 @@ function main () {
         const record_id = "CDS2";
         result = load(record_id, properties);
         let response = send_to_recipient_API('', result);
-        check_response(response)
+        // check_response(response)
         return response;
     } else {
         LOCALE = (context.current_locale === undefined) ? flow.locale : context.current_locale;
@@ -1285,13 +1321,28 @@ function main () {
             });
         }
         let response = send_to_recipient_API('', result);
-        check_response(response)
+        // check_response(response)
         return response;
     }
 }
 
+let response = ""
 try {
-    main();
+    response = main();
 } catch (error) {
-    throw new Error(flatten_error(error));
+    response = {
+        code: 400,
+        body: {
+            "success": false,
+            "origin": "js script",
+            "product_id": context.entity.external_id,
+            "task_id": id,
+            "locale": (context.current_locale === undefined) ? flow.locale : context.current_locale,
+            "error_stack": flatten_error(error)
+        }
+    };
 }
+const now = new Date();
+const dateString = now.toISOString();
+product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "Last update: " + dateString + " - Response: " + JSON.stringify(response) ] } ] }); // No error, we reset the ibexa_report field
+product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_status', values: [ response.success ] } ] }); // No error, we reset the ibexa_report field

@@ -283,6 +283,10 @@ function send_to_recipient_API (path, content) {
         return_status: true
     };
     let response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    let response_success = true;
+    if ((response.code < 200) || (response.code > 299)) {
+        response_success = false;
+    }
     let new_response = {};
     if (response === undefined) {
         new_response = {
@@ -300,7 +304,7 @@ function send_to_recipient_API (path, content) {
         new_response = {
             code: response.code,
             body: {
-                success: response.body.success,
+                success: response_success,
                 origin: "Ibexa API",
                 product_id: PRODUCT_ID,
                 task_id: TASK_ID,
@@ -1344,14 +1348,4 @@ let call_status = "success";
 if (!response.body.success) {
     call_status = response.body.origin;
 }
-if (response.body.success === undefined) {
-    call_status = "undefined: " + JSON.stringify(response.body);
-} else if (response.body.success === false) {
-    call_status = "false: " + JSON.stringify(response.body);
-} else if (response.body.success === true) {
-    call_status = "true: " + JSON.stringify(response.body);
-} else {
-    call_status = "unknown: " + JSON.stringify(response.body);
-}
 product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_status', values: [ call_status ] } ] });
-call_status;

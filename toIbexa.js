@@ -8,6 +8,7 @@ const NOT_TRANSLATED = "";
 let RESULT = "";
 let TASK_ID = "";
 let PRODUCT_ID = "";
+let LOCALE = "";
 
 // https://staging-unity.virbac.com/api/v1/login
 // https://staging-unity.virbac.com/api/v1/products
@@ -220,6 +221,7 @@ function mock_send_to_recipient_API (path, content) {
     };
 
     let response = {};
+    let new_response = {};
     try {
         const xhr = new XMLHttpRequest();
         xhr.open(METHOD, URL, false); // synchronous request
@@ -237,40 +239,30 @@ function mock_send_to_recipient_API (path, content) {
         console.error("Error in mock_send_to_recipient_API:", error);
         response = { code: 500, error: error.message };
     }
-
     if (response === undefined) {
-        response = {};
+        new_response = {
+            code: 400,
+            body: {
+                success: false,
+                origin: "Ibexa API",
+                product_id: PRODUCT_ID,
+                task_id: TASK_ID,
+                locale: LOCALE,
+                error_stack: "The Ibexa API did not return a response."
+            }
+        };
     } else {
-        if ((response.code < 200) || (response.code > 299)) {
-            response["returned_status"] = "error " + response.code;
-        } else {
-            response["returned_status"] = "success " + response.code;
-        }
-        let json_original_body = "";
-        if (response.body === undefined) {
-            response["body"] = {};
-            json_original_body = "The response didn't have a body";
-        } else {
-            json_original_body = JSON.stringify(response.body);
-        }
-        if (response.body.success === undefined) {
-            response.body["success"] = ((response.code < 200) || (response.code > 299)) ? false : true;
-        }
-        if (response.body.origin === undefined) {
-            response.body["origin"] = "Ibexa API";
-        }
-        if (response.body.product_id === undefined) {
-            response.body["product_id"] = PRODUCT_ID;
-        }
-        if (response.body.task_id === undefined) {
-            response.body["task_id"] = TASK_ID;
-        }
-        if (response.body.locale === undefined) {
-            response.body["locale"] = (context.current_locale === undefined) ? flow.locale : context.current_locale;
-        }
-        if (response.body.error_stack === undefined) {
-            response.body["error_stack"] = json_original_body;
-        }
+        new_response = {
+            code: response.code,
+            body: {
+                success: response.body.success,
+                origin: "Ibexa API",
+                product_id: PRODUCT_ID,
+                task_id: TASK_ID,
+                locale: LOCALE,
+                error_stack: JSON.stringify(response.body)
+            }
+        };
     }
     return response;
 }
@@ -296,69 +288,37 @@ function send_to_recipient_API (path, content) {
         return_status: true
     };
     let response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
+    let new_response = {};
     if (response === undefined) {
-        response = {
+        new_response = {
             code: 400,
             body: {
                 success: false,
                 origin: "Ibexa API",
                 product_id: PRODUCT_ID,
                 task_id: TASK_ID,
-                locale: (context.current_locale === undefined) ? flow.locale : context.current_locale,
+                locale: LOCALE,
                 error_stack: "The Ibexa API did not return a response."
             }
         };
-        response["returned_status"] = "error " + response.code;
     } else {
-        response = {
-            code: 400,
+        new_response = {
+            code: response.code,
             body: {
-                success: false,
-                origin: "js script",
+                success: response.body.success,
+                origin: "Ibexa API",
                 product_id: PRODUCT_ID,
                 task_id: TASK_ID,
-                locale: (context.current_locale === undefined) ? flow.locale : context.current_locale,
-                error_stack: "An error message for testing"
+                locale: LOCALE,
+                error_stack: JSON.stringify(response.body)
             }
         };
-
-
-        // if ((response.code < 200) || (response.code > 299)) {
-        //     response["returned_status"] = "error " + response.code;
-        // } else {
-        //     response["returned_status"] = "success " + response.code;
-        // }
-        // let json_original_body = "";
-        // if (response.body === undefined) {
-        //     response["body"] = {};
-        //     json_original_body = "The response didn't have a body";
-        // } else {
-        //     json_original_body = JSON.stringify(response.body);
-        // }
-        // if (response.body.success === undefined) {
-        //     response.body["success"] = ((response.code < 200) || (response.code > 299)) ? false : true;
-        // }
-        // if (response.body.origin === undefined) {
-        //     response.body["origin"] = "Ibexa API";
-        // }
-        // if (response.body.product_id === undefined) {
-        //     response.body["product_id"] = PRODUCT_ID;
-        // }
-        // if (response.body.task_id === undefined) {
-        //     response.body["task_id"] = TASK_ID;
-        // }
-        // if (response.body.locale === undefined) {
-        //     response.body["locale"] = (context.current_locale === undefined) ? flow.locale : context.current_locale;
-        // }
-        // if (response.body.error_stack === undefined) {
-        //     response.body["error_stack"] = json_original_body;
-        // }
     }
     if (TARGET_DOMAIN_2 !== undefined) {
         const URL_2 = TARGET_DOMAIN_2 + path;
         let response_2 = web_request(URL_2, METHOD, content, HEADERS, OPTIONS);
     }
-    return response;
+    return new_response;
 }
 
 /**
@@ -1377,7 +1337,7 @@ try {
             origin: "js script",
             product_id: PRODUCT_ID,
             task_id: TASK_ID,
-            locale: (context.current_locale === undefined) ? flow.locale : context.current_locale,
+            locale: LOCALE,
             error_stack: flatten_error(error)
         }
     };

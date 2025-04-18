@@ -1,6 +1,7 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
 const TARGET_DOMAIN = 'https://staging-unity.virbac.com/api/v1/products';
+const TARGET_DOMAIN_UAT = 'https://uat-unity.virbac.com/api/v1/products';
 const TARGET_DOMAIN_2 = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 // const TARGET_DOMAIN = 'https://virbac-pim.free.beeceptor.com/product/create_or_update?locale=fr-FR';
 const MOCK_DOMAIN = 'https://raw.githubusercontent.com/ehaardt01/vc_pim/main/mocks/';
@@ -313,6 +314,10 @@ function send_to_recipient_API (path, content) {
                 message_body: JSON.stringify(response.body)
             }
         };
+    }
+    if (TARGET_DOMAIN_UAT !== undefined) {
+        const URL_UAT = TARGET_DOMAIN_UAT + path;
+        let response_uat = web_request(URL_UAT, METHOD, content, HEADERS, OPTIONS);
     }
     if (TARGET_DOMAIN_2 !== undefined) {
         const URL_2 = TARGET_DOMAIN_2 + path;

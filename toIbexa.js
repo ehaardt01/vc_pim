@@ -341,7 +341,7 @@ function send_to_recipient_API (path, content) {
                     product_id: PRODUCT_ID,
                     task_id: TASK_ID,
                     locale: LOCALE,
-                    message_body: JSON.stringify(response.body)
+                    message_body: JSON.stringify(response_uat.body)
                 }
             };
         }        

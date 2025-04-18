@@ -89,7 +89,8 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Neutered", type: "enumerated", export_name: "neutered"},
     {name: "Weight Ranges", type: "string", export_name: "weight_ranges"},
     {name: "Key ingredients", type: "rich_text", export_name: "key_ingredients"},
-    {name: "Product categories", type: "enumerated", export_name: "product_categories"}
+    {name: "Product categories", type: "enumerated", export_name: "product_categories"},
+    {name: "Priority", type: "string", export_name: "priority"}
 ]);
 
 /**

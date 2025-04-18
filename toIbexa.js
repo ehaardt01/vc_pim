@@ -278,7 +278,7 @@ function send_to_recipient_API (path, content) {
     let secret = "Bearer " + secret_value("ibexa_bearer_token");
     const HEADERS = {
         "Authorization": "Basic dW5pdHk6dW5pdHkwMCE=",
-        "X-Token-Auth": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDM1OTE3MDEsImV4cCI6MTc3NTEyNzcwMSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGltX2FwaSJ9.b9EBfaXgpmmI2U3VxMIJm7LvfpM86EJ7Gw3dm2It_RA",
+        "X-Token-Auth": secret_value("ibexa_x_token_auth_stg"),
         "Content-Type": "application/json"
     };
     const OPTIONS = {
@@ -315,7 +315,13 @@ function send_to_recipient_API (path, content) {
     // }
     if (TARGET_DOMAIN_UAT !== undefined) {
         const URL_UAT = TARGET_DOMAIN_UAT + path;
-        let response_uat = web_request(URL_UAT, METHOD, content, HEADERS, OPTIONS);
+        const HEADERS_UAT = {
+            "Authorization": "Basic dW5pdHk6dW5pdHkwMCE=",
+            "X-Token-Auth": secret_value("ibexa_x_token_auth_uat"),
+            "Content-Type": "application/json"
+        };
+        
+        let response_uat = web_request(URL_UAT, METHOD, content, HEADERS_UAT, OPTIONS);
 
         if ((response_uat.code < 200) || (response_uat.code > 299)) {
             response_success = false;

@@ -286,38 +286,65 @@ function send_to_recipient_API (path, content) {
     };
     let response = web_request(URL, METHOD, content, HEADERS, OPTIONS);
     let response_success = true;
-    if ((response.code < 200) || (response.code > 299)) {
-        response_success = false;
-    }
+    
     let new_response = {};
-    if (response === undefined) {
-        new_response = {
-            code: 400,
-            body: {
-                success: false,
-                origin: "Ibexa API",
-                product_id: PRODUCT_ID,
-                task_id: TASK_ID,
-                locale: LOCALE,
-                message_body: "The Ibexa API did not return a response."
-            }
-        };
-    } else {
-        new_response = {
-            code: response.code,
-            body: {
-                success: response_success,
-                origin: "Ibexa API",
-                product_id: PRODUCT_ID,
-                task_id: TASK_ID,
-                locale: LOCALE,
-                message_body: JSON.stringify(response.body)
-            }
-        };
-    }
+    // if (response === undefined) {
+    //     new_response = {
+    //         code: 400,
+    //         body: {
+    //             success: false,
+    //             origin: "Ibexa API",
+    //             product_id: PRODUCT_ID,
+    //             task_id: TASK_ID,
+    //             locale: LOCALE,
+    //             message_body: "The Ibexa API did not return a response."
+    //         }
+    //     };
+    // } else {
+    //     new_response = {
+    //         code: response.code,
+    //         body: {
+    //             success: response_success,
+    //             origin: "Ibexa API",
+    //             product_id: PRODUCT_ID,
+    //             task_id: TASK_ID,
+    //             locale: LOCALE,
+    //             message_body: JSON.stringify(response.body)
+    //         }
+    //     };
+    // }
     if (TARGET_DOMAIN_UAT !== undefined) {
         const URL_UAT = TARGET_DOMAIN_UAT + path;
         let response_uat = web_request(URL_UAT, METHOD, content, HEADERS, OPTIONS);
+
+        if ((response_uat.code < 200) || (response_uat.code > 299)) {
+            response_success = false;
+        }
+        if (response_uat === undefined) {
+            new_response = {
+                code: 400,
+                body: {
+                    success: false,
+                    origin: "Ibexa API",
+                    product_id: PRODUCT_ID,
+                    task_id: TASK_ID,
+                    locale: LOCALE,
+                    message_body: "The Ibexa API did not return a response."
+                }
+            };
+        } else {
+            new_response = {
+                code: response_uat.code,
+                body: {
+                    success: response_success,
+                    origin: "Ibexa API",
+                    product_id: PRODUCT_ID,
+                    task_id: TASK_ID,
+                    locale: LOCALE,
+                    message_body: JSON.stringify(response.body)
+                }
+            };
+        }        
     }
     if (TARGET_DOMAIN_2 !== undefined) {
         const URL_2 = TARGET_DOMAIN_2 + path;

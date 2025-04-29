@@ -755,14 +755,22 @@ function property_load_digital_asset (record, configured_property, property_valu
             }
             break;
         case "string_array":
-            const records = []
-            value.forEach(item => {
+            const records = [];
+            let items = value;
+
+            // Only limit to 4 for "Packaging" property
+            if (configured_property.name === "Packaging") {
+                items = value.slice(0, 4);
+            }
+
+            items.forEach(item => {
                 const asset_id = item;
                 const sub_value = load_asset(asset_id, configured_property, returned_values, asset_list);
                 if (sub_value !== undefined) {
                     records.push(sub_value);
                 }
             });
+
             if ((records.length !== 0) || RETURN_NULL_VALUES) {
                 record[property_export_name] = records;
             }

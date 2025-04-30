@@ -200,7 +200,7 @@ function send_to_recipient_API (path, content) {
     const URL = TARGET_DOMAIN + path;
     let secret = "Bearer " + secret_value("ibexa_bearer_token_prod");
     const HEADERS = {
-        "Authorization": secret,
+     //   "Authorization": secret,
         "X-Token-Auth": secret_value("ibexa_x_token_auth_prod"),
         "Content-Type": "application/json"
     };

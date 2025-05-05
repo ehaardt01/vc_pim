@@ -1252,7 +1252,7 @@ try {
 }
 const now = new Date();
 const dateString = now.toISOString();
-product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "Last update: " + dateString + " - Response: " + JSON.stringify(response) ] } ] });
+product_update(context.entity.external_id, { property_values: [ { property_id: 'ibexa_report', values: [ "Last update: " + dateString + " - Response: " + JSON.stringify(response).substring(0,1000) ] } ] });
 let call_status = "success";
 if (!response.body.success) {
     call_status = response.body.origin;

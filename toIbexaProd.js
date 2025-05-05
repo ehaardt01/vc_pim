@@ -198,9 +198,9 @@ function check_configuration (properties_list=properties) {
 function send_to_recipient_API (path, content) {
     const METHOD = 'post';
     const URL = TARGET_DOMAIN + path;
-    let secret = "Bearer " + secret_value("ibexa_bearer_token_prod");
+   
     const HEADERS = {
-     //   "Authorization": secret,
+        "Authorization": secret_value("ibexa_authorization_header_prod"),
         "X-Token-Auth": secret_value("ibexa_x_token_auth_prod"),
         "Content-Type": "application/json"
     };

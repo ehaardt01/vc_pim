@@ -53,8 +53,6 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Tutorials", type: "html", export_name: "tutorials"},
     {name: "Marketing Product name", type: "string", export_name: "marketing_product_name"},
     {name: "Related product", type: "product", export_name: "related_product"},
-    {name: "A+ content", type: "digital_asset", export_name: "a_content", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]},
-    //{name: "Packaging", type: "digital_asset", export_name: "packaging", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]},
     {name: "Key benefit summary text", type: "string", export_name: "key_benefit_summary_text"},
     {name: "Visible online ?", type: "string", export_name: "visible_online"},
     {name: "Key figures", type: "string", export_name: "key_figures"},
@@ -81,7 +79,9 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Weight Ranges", type: "string", export_name: "weight_ranges"},
     {name: "Key ingredients", type: "rich_text", export_name: "key_ingredients"},
     {name: "Product categories", type: "enumerated", export_name: "product_categories"},
-    {name: "Priority", type: "string", export_name: "priority"}
+    {name: "Priority", type: "string", export_name: "priority"},
+    {name: "Product subtitle", type: "string", export_name: "Subtitle"},
+    {name: "PDP Slider", type: "digital_asset", export_name: "website_pdp_slider", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]}
 ]);
 
 /**

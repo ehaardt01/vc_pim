@@ -38,7 +38,7 @@ const SYSTEM_PROPERTIES = [
 ];
 const properties = SYSTEM_PROPERTIES.concat([
     {name: "ID", type: "string", export_name: "id"},
-    //{name: "Name", type: "string", export_name: "name"},
+    {name: "Name", type: "string", export_name: "name"},
     {name: "CODE_REF_LOCALE", type: "string", export_name: "code_ref_locale"},
     {name: "Product subtitle", type: "string", export_name: "product_subtitle"},
     {name: "Country Markets", type: "enumerated", export_name: "country_markets"},
@@ -81,8 +81,8 @@ const properties = SYSTEM_PROPERTIES.concat([
     {name: "Product categories", type: "enumerated", export_name: "product_categories"},
     {name: "Priority", type: "string", export_name: "priority"},
     {name: "Product subtitle", type: "string", export_name: "Subtitle"},
-    {name: "PDP Slider", type: "digital_asset", export_name: "website_pdp_slider", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]},
-    {name: "[Computed] Name + ID", type: "string", export_name: "name"}
+    {name: "PDP Slider", type: "digital_asset", export_name: "website_pdp_slider", values: [{name: "salsify:id", type: "string", export_name: "salsify_id"},{name: "salsify:source_url", type: "string", export_name: "cdn_url"},{name: "salsify:name", type: "string", export_name: "name"},{name: "salsify:status", type: "string", export_name: "salsify_status"},{name: "salsify:asset_resource_type", type: "string", export_name: "resource_type"},{name: "salsify:format", type: "string", export_name: "format"}]}
+   // {name: "[Computed] Name + ID", type: "string", export_name: "name"}
 ]);
 
 /**

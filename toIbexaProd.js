@@ -1,6 +1,6 @@
 const RETURN_NULL_VALUES = true;
 const LOG_TYPE = {ERROR: "error", LOG: "log"};
-const TARGET_DOMAIN = "https://prod-unity.virbac.com/api/v1/products";
+const TARGET_DOMAIN = "https://pim-api-unity.virbac.com/v1/products";
 const NOT_TRANSLATED = "";
 let RESULT = "";
 let TASK_ID = "";
